@@ -9,6 +9,6 @@ rtm::StaticObject::StaticObject(float x, float y, cocos2d::Sprite* sprite)
     : WorldObject(x, y, sprite)
 {}
 
-rtm::StaticObject::StaticObject(float x, float y, std::string const& fileName)
-    : WorldObject(x, y, fileName)
+rtm::StaticObject::StaticObject(float x, float y, std::string const& filename)
+    : WorldObject(x, y, filename)
 {}

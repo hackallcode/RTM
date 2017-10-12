@@ -5,7 +5,18 @@
 #include <vector> // std::vector
 #include <memory> // std::unique_ptr
 
+#include "BuildingObject.h"
+#include "CarObject.h"
+
 namespace rtm {
+
+    // PARAMETERS
+    size_t const CELL_SIZE = 32;
+
+    // Z ORDERS
+    int const COATING_Z_ORDER = 1;
+    int const VEHICLE_Z_ORDER = 2;
+    int const BUILDING_Z_ORDER = 3;
 
     class World 
         : public cocos2d::Layer
@@ -21,23 +32,24 @@ namespace rtm {
 
         float getMissedTime() const;
 
-        //std::vector<std::unique_ptr<WorldObject>>& getObjects();
-        //void spawnVehicle(VehicleType id, size_t x = 0, size_t y = 0);
+        std::vector<std::unique_ptr<WorldObject>>& getObjects();
+        void spawnCar(CarType type, size_t row = 0, size_t column = 0);
+        void spawnBuilding(BuildingType type, size_t row = 0, size_t column = 0);
 
         void initNewGame();
 
     private:
         float missedTime_;
 
-        //std::vector<std::unique_ptr<Objects>> objects_;
-        //void addBuilding_(BuildingType id);        
-        //void addVehicle_(VehicleType id);
-        //void deleteAllVehicles_();
+        std::vector<std::unique_ptr<WorldObject>> objects_;
+        void removeAllObjects_();
+        void addBuilding_(BuildingType type, size_t row = 0, size_t column = 0);
+        void addCar_(CarType type, size_t row = 0, size_t column = 0);
 
         void initMap_();
     };
 
-    void keyListener(cocos2d::EventKeyboard::KeyCode code, cocos2d::Event * event);
+    void keyListener(cocos2d::EventKeyboard::KeyCode code, cocos2d::Event* event);
 };
 
 #endif // __WORLD_SCENE_INCLUDED__

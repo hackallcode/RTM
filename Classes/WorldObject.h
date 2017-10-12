@@ -12,17 +12,19 @@ namespace rtm {
     public:
         WorldObject();
         WorldObject(float x, float y, cocos2d::Sprite* sprite = nullptr);
-        WorldObject(float x, float y, std::string const& fileName);
+        WorldObject(float x, float y, std::string const& filename);
 
         virtual ~WorldObject() = default;
 
         virtual void Update(World* const scene);
-
+        
         cocos2d::Sprite* GetSprite() const;
         float GetX() const;
         float GetY() const;
         float GetW() const;
         float GetH() const;
+        float GetDistance(WorldObject* other) const;
+        bool IsCrossed(WorldObject* other) const;
 
         void SetSprite(cocos2d::Sprite* sprite);
 

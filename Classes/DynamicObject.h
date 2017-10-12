@@ -5,30 +5,28 @@
 
 namespace rtm {
 
-    class World;
-
     class DynamicObject abstract
         : public WorldObject
     {
     public:
         DynamicObject();
-        DynamicObject(float x, float y, float hSpeed, float vSpeed, cocos2d::Sprite* sprite = nullptr);
-        DynamicObject(float x, float y, float hSpeed, float vSpeed, std::string const& fileName);
+        DynamicObject(float x, float y, float speed, float angle, cocos2d::Sprite* sprite = nullptr);
+        DynamicObject(float x, float y, float speed, float angle, std::string const& filename);
 
         virtual ~DynamicObject() = default;
 
         virtual void Update(World* const scene) override;
 
-        float GetHSpeed() const;
-        float GetVSpeed() const;
+        float GetSpeed() const;
+        float GetAngle() const;
 
     protected:
-        void SetHSpeed_(float speed);
-        void SetVSpeed_(float speed);
+        void SetSpeed_(float speed);
+        void SetAngle_(float angle);
 
     private:
-        float hSpeed_;
-        float vSpeed_;
+        float speed_;
+        float angle_;
     };
 
 }

@@ -5,15 +5,13 @@
 
 namespace rtm {
 
-    class World;
-
     class StaticObject abstract
         : public WorldObject
     {
     public:
         StaticObject();
         StaticObject(float x, float y, cocos2d::Sprite* sprite = nullptr);
-        StaticObject(float x, float y, std::string const& fileName);
+        StaticObject(float x, float y, std::string const& filename);
 
         virtual ~StaticObject() = default;
     };

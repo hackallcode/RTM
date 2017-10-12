@@ -15,11 +15,11 @@ rtm::WorldObject::WorldObject(float x, float y, cocos2d::Sprite* sprite)
     SetSprite(sprite); // Set sprite_, w_, h_
 }
 
-rtm::WorldObject::WorldObject(float x, float y, std::string const& fileName)
+rtm::WorldObject::WorldObject(float x, float y, std::string const& filename)
     : x_(x)
     , y_(y)
 {
-    SetSprite(cocos2d::Sprite::create(fileName)); // Set sprite_, w_, h_
+    SetSprite(cocos2d::Sprite::create(filename)); // Set sprite_, w_, h_
 }
 
 void rtm::WorldObject::Update(World* const scene)
@@ -50,7 +50,19 @@ float rtm::WorldObject::GetH() const
     return h_;
 }
 
-void rtm::WorldObject::SetSprite(cocos2d::Sprite * sprite)
+float rtm::WorldObject::GetDistance(WorldObject* other) const
+{
+    return sqrt(pow(GetX() - other->GetX(), 2) + pow(GetY() - other->GetY(), 2));
+}
+
+bool rtm::WorldObject::IsCrossed(WorldObject* other) const
+{
+    return 
+        (GetX() - other->GetX() <= (GetW() + other->GetW()) / 2) || 
+        (GetY() - other->GetY() <= (GetH() + other->GetH()) / 2);
+}
+
+void rtm::WorldObject::SetSprite(cocos2d::Sprite* sprite)
 {
     sprite_ = sprite;
     if (sprite_ != nullptr) {
