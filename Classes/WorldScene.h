@@ -14,6 +14,7 @@ namespace rtm {
     size_t const CELL_SIZE = 32;
 
     // Z ORDERS
+    int const BACKGROUND_Z_ORDER = 0;
     int const COATING_Z_ORDER = 1;
     int const VEHICLE_Z_ORDER = 2;
     int const BUILDING_Z_ORDER = 3;
@@ -29,22 +30,21 @@ namespace rtm {
 
         virtual bool init() override;
         virtual void update(float time) override;
-
+        
         float getMissedTime() const;
 
-        std::vector<std::unique_ptr<WorldObject>>& getObjects();
-        void spawnCar(CarType type, size_t row = 0, size_t column = 0);
-        void spawnBuilding(BuildingType type, size_t row = 0, size_t column = 0);
-
         void initNewGame();
+        std::vector<std::unique_ptr<WorldObject>>& getObjects();
+        void spawnCar(CarType type, size_t row = 0, size_t column = 0, float angle = 0.f);
+        void spawnBuilding(BuildingType type, size_t row = 0, size_t column = 0, float angle = 0.f);
 
     private:
         float missedTime_;
 
         std::vector<std::unique_ptr<WorldObject>> objects_;
         void removeAllObjects_();
-        void addBuilding_(BuildingType type, size_t row = 0, size_t column = 0);
-        void addCar_(CarType type, size_t row = 0, size_t column = 0);
+        void addBuilding_(BuildingType type, size_t row = 0, size_t column = 0, float angle = 0.f);
+        void addCar_(CarType type, size_t row = 0, size_t column = 0, float angle = 0.f);
 
         void initMap_();
     };

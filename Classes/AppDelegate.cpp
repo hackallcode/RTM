@@ -3,11 +3,11 @@
 
 // #define USE_AUDIO_ENGINE 1
 // #define USE_SIMPLE_AUDIO_ENGINE 1
-#define FULL_SCREEN_MODE 1
+#define FULL_SCREEN_MODE 0
 #if (!FULL_SCREEN_MODE)
     #define FRAME_SIZE_NAME resolutionSizeNo4
 #endif
-#define RELATIVE_SIZE_MODE 1
+#define RELATIVE_SIZE_MODE 2
 
 #if USE_AUDIO_ENGINE && USE_SIMPLE_AUDIO_ENGINE
 #error "Don't use AudioEngine and SimpleAudioEngine at the same time. Please just select one in your game!"

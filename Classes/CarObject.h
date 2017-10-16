@@ -31,7 +31,7 @@ namespace rtm {
     public:
         CarObject();
         CarObject(std::string const& filename, float maxSpeed, float acceleration, float deceleration, size_t row = 0, size_t column = 0, float angle = 0.f);
-        CarObject(CarType type, size_t row = 0, size_t column = 0, float angle = 0);
+        CarObject(CarType type, size_t row = 0, size_t column = 0, float angle = 0.f);
 
         virtual ~CarObject() = default;
 

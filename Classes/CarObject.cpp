@@ -6,7 +6,7 @@ rtm::CarObject::CarObject()
 {}
 
 rtm::CarObject::CarObject(std::string const& filename, float maxSpeed, float acceleration, float deceleration, size_t row, size_t column, float angle)
-    : VehicleObject(filename, maxSpeed, acceleration, deceleration, row, column)
+    : VehicleObject(filename, maxSpeed, acceleration, deceleration, row, column, angle)
 {}
 
 rtm::CarObject::CarObject(CarType type, size_t row, size_t column, float angle)

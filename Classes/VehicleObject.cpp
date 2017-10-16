@@ -9,7 +9,7 @@ rtm::VehicleObject::VehicleObject()
 {}
 
 rtm::VehicleObject::VehicleObject(std::string const& filename, float maxSpeed, float acceleration, float deceleration, size_t row, size_t column, float angle)
-    : DynamicObject((row + 0.5) * CELL_SIZE, (column + 0.5) * CELL_SIZE, 0, 0, filename)
+    : DynamicObject((row + 0.5) * CELL_SIZE, (column + 0.5) * CELL_SIZE, angle, 0, filename)
     , maxSpeed_(maxSpeed)
     , acceleration_(acceleration)
     , deceleration_(deceleration)
@@ -19,7 +19,7 @@ void rtm::VehicleObject::Update(World* const scene)
 {
     DynamicObject::Update(scene);
 
-    if (GetX() < 300) {
+    if (GetX() > 100 && GetX() < 1500 && GetY() > 100 && GetY() < 800) {
         Accelerate_(scene->getMissedTime());
     }
     else {

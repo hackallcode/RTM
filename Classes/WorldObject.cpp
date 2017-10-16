@@ -4,20 +4,23 @@
 rtm::WorldObject::WorldObject()
     : x_(0.f)
     , y_(0.f)
+    , a_(0.f)
 {
     SetSprite(nullptr); // Set sprite_, w_, h_
 }
 
-rtm::WorldObject::WorldObject(float x, float y, cocos2d::Sprite* sprite)
+rtm::WorldObject::WorldObject(float x, float y, float a, cocos2d::Sprite* sprite)
     : x_(x)
     , y_(y)
+    , a_(a)
 {
     SetSprite(sprite); // Set sprite_, w_, h_
 }
 
-rtm::WorldObject::WorldObject(float x, float y, std::string const& filename)
+rtm::WorldObject::WorldObject(float x, float y, float a, std::string const& filename)
     : x_(x)
     , y_(y)
+    , a_(a)
 {
     SetSprite(cocos2d::Sprite::create(filename)); // Set sprite_, w_, h_
 }
@@ -38,6 +41,11 @@ float rtm::WorldObject::GetX() const
 float rtm::WorldObject::GetY() const
 {
     return y_;
+}
+
+float rtm::WorldObject::GetA() const
+{
+    return a_;
 }
 
 float rtm::WorldObject::GetW() const
@@ -87,6 +95,11 @@ void rtm::WorldObject::SetY_(float y)
     y_ = y;
 }
 
+void rtm::WorldObject::SetA_(float a)
+{
+    a_ = a;
+}
+
 void rtm::WorldObject::SetW_(float w)
 {
     w_ = w;
@@ -109,6 +122,7 @@ void rtm::WorldObject::OnPositionUpdate_()
 {
     if (x_ != prevX_) OnXUpdate_();
     if (y_ != prevY_) OnYUpdate_();
+    if (a_ != prevA_) OnAUpdate_();
     if (w_ != prevW_) OnWUpdate_();
     if (h_ != prevH_) OnHUpdate_();
 }
@@ -123,6 +137,12 @@ void rtm::WorldObject::OnYUpdate_()
 {
     SetSpriteY_(y_);
     prevY_ = y_;
+}
+
+void rtm::WorldObject::OnAUpdate_()
+{
+    SetSpriteA_(a_);
+    prevA_ = a_;
 }
 
 void rtm::WorldObject::OnWUpdate_()
@@ -146,5 +166,12 @@ void rtm::WorldObject::SetSpriteY_(float y)
 {
     if (sprite_ != nullptr) {
         sprite_->setPositionY(y);
+    }
+}
+
+void rtm::WorldObject::SetSpriteA_(float a)
+{
+    if (sprite_ != nullptr) {
+        sprite_->setRotation(a);
     }
 }

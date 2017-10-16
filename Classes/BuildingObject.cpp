@@ -5,15 +5,16 @@ rtm::BuildingObject::BuildingObject()
     : StaticObject()
 {}
 
-rtm::BuildingObject::BuildingObject(std::string const& filename, size_t row, size_t column)
-    : StaticObject((row + 0.5) * CELL_SIZE, (column + 0.5) * CELL_SIZE, filename)
+rtm::BuildingObject::BuildingObject(std::string const& filename, size_t row, size_t column, float angle)
+    : StaticObject((row + 0.5) * CELL_SIZE, (column + 0.5) * CELL_SIZE, angle, filename)
 {}
 
-rtm::BuildingObject::BuildingObject(BuildingType type, size_t row, size_t column)
+rtm::BuildingObject::BuildingObject(BuildingType type, size_t row, size_t column, float angle)
     : BuildingObject(
         BuildingObject::GetClassFile_(type)
         , row
         , column
+        , angle
     )
 {}
 

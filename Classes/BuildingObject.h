@@ -19,8 +19,8 @@ namespace rtm {
     {
     public:
         BuildingObject();
-        BuildingObject(std::string const& filename, size_t row = 0, size_t column = 0);
-        BuildingObject(BuildingType type, size_t row = 0, size_t column = 0);
+        BuildingObject(std::string const& filename, size_t row = 0, size_t column = 0, float angle = 0);
+        BuildingObject(BuildingType type, size_t row = 0, size_t column = 0, float angle = 0);
 
         virtual ~BuildingObject() = default;
 
