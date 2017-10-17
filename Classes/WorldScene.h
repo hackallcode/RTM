@@ -11,7 +11,7 @@
 namespace rtm {
 
     // PARAMETERS
-    size_t const CELL_SIZE = 32;
+    size_t const CELL_SIZE = 30;
 
     // Z ORDERS
     int const BACKGROUND_Z_ORDER = 0;

@@ -25,7 +25,8 @@ void rtm::VehicleObject::Update(World* const scene)
         }
     }
 
-    if (GetX() > 100 && GetX() < 1500 && GetY() > 100 && GetY() < 800) {
+    if (GetX() > CELL_SIZE && GetX() < scene->getContentSize().width - CELL_SIZE &&
+        GetY() > CELL_SIZE && GetY() < scene->getContentSize().height - CELL_SIZE) {
         Accelerate_(scene->getMissedTime());
     }
     else {

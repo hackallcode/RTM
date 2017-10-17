@@ -130,10 +130,13 @@ void rtm::keyListener(cocos2d::EventKeyboard::KeyCode code, cocos2d::Event* even
         GLOBAL_WORLD_SCENE->initNewGame();
     }
     if (code == cocos2d::EventKeyboard::KeyCode::KEY_C) {
-        GLOBAL_WORLD_SCENE->spawnCar(rtm::CarTypeNo1, 9, 15, 90);
-        GLOBAL_WORLD_SCENE->spawnCar(rtm::CarTypeNo1, 20, 10, -45);
+        size_t w = GLOBAL_WORLD_SCENE->getContentSize().width / CELL_SIZE - 2;
+        size_t h = GLOBAL_WORLD_SCENE->getContentSize().height / CELL_SIZE - 2;
+        GLOBAL_WORLD_SCENE->spawnCar(rtm::CarTypeNo1, 2 + rand() % w, 2 + rand() % h, rand() % 360);
     }
     if (code == cocos2d::EventKeyboard::KeyCode::KEY_B) {
-        GLOBAL_WORLD_SCENE->spawnBuilding(rtm::BuildingTypeNo1, rand() % 50 + 1, rand() % 28 + 1, ANGLE_TOP);
+        size_t w = GLOBAL_WORLD_SCENE->getContentSize().width / CELL_SIZE - 2;
+        size_t h = GLOBAL_WORLD_SCENE->getContentSize().height / CELL_SIZE - 2;
+        GLOBAL_WORLD_SCENE->spawnBuilding(rtm::BuildingTypeNo1, 2 + rand() % w, 2 + rand() % h, ANGLE_TOP);
     }
 }
