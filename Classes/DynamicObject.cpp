@@ -20,8 +20,8 @@ void rtm::DynamicObject::Update(World* const scene)
 {
     WorldObject::Update(scene);
 
-    SetX_(GetX() + speed_ * sin(GetA() * DEG_RAG) * scene->getMissedTime());
-    SetY_(GetY() + speed_ * cos(GetA() * DEG_RAG) * scene->getMissedTime());
+    SetX_(GetX() + speed_ * sin(GetA() * DEG_RAD) * scene->getMissedTime());
+    SetY_(GetY() + speed_ * cos(GetA() * DEG_RAD) * scene->getMissedTime());
     OnPositionUpdate_();
 }
 

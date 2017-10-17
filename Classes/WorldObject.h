@@ -4,9 +4,22 @@
 #include "cocos2d.h"
 #include <cmath>
 
+#ifndef min
+#define min(a,b) (((a) < (b)) ? (a) : (b))
+#endif
+#ifndef max
+    #define max(a,b) (((a) > (b)) ? (a) : (b))
+#endif
+
 namespace rtm {
 
-    #define DEG_RAG 0.01745329251994329577 // PI / 180
+    float const DEG_RAD = M_PI / 180;
+    float const RAD_DEG = 180 / M_PI;
+    
+    float const ANGLE_TOP = 0.f;
+    float const ANGLE_RIGHT = 90.f;
+    float const ANGLE_BOTTOM = 180.f;
+    float const ANGLE_LEFT = 270.f;
 
     class World;
 
@@ -27,8 +40,6 @@ namespace rtm {
         float GetA() const; // Angle
         float GetW() const; // Width
         float GetH() const; // Height
-        float GetDistance(WorldObject* other) const;
-        bool IsCrossed(WorldObject* other) const;
 
         void SetSprite(cocos2d::Sprite* sprite);
 
@@ -38,6 +49,9 @@ namespace rtm {
         void SetA_(float a);
         void SetW_(float w);
         void SetH_(float h);
+
+        bool DoesSee_(WorldObject* other) const;
+        bool DoesIntersect_(WorldObject* other) const;
 
         virtual void PositionInit_();
         virtual void OnPositionUpdate_();
@@ -55,11 +69,15 @@ namespace rtm {
         float w_, prevW_;
         float h_, prevH_;
 
+        bool IsNear_(WorldObject* other) const;
+
         void SetSpriteX_(float x);
         void SetSpriteY_(float y);
         void SetSpriteA_(float a);
     };
 
+    float GetHypotenuse(float a, float b);
+    bool HaveIntersection(cocos2d::Point a1, cocos2d::Point a2, cocos2d::Point b1, cocos2d::Point b2);
 }
 
 #endif // __WORLD_OBJECT_INCLUDED__

@@ -35,16 +35,16 @@ namespace rtm {
 
         void initNewGame();
         std::vector<std::unique_ptr<WorldObject>>& getObjects();
-        void spawnCar(CarType type, size_t row = 0, size_t column = 0, float angle = 0.f);
-        void spawnBuilding(BuildingType type, size_t row = 0, size_t column = 0, float angle = 0.f);
+        void spawnCar(CarType type, size_t row, size_t column, float angle);
+        void spawnBuilding(BuildingType type, size_t row, size_t column, float angle);
 
     private:
         float missedTime_;
 
         std::vector<std::unique_ptr<WorldObject>> objects_;
         void removeAllObjects_();
-        void addBuilding_(BuildingType type, size_t row = 0, size_t column = 0, float angle = 0.f);
-        void addCar_(CarType type, size_t row = 0, size_t column = 0, float angle = 0.f);
+        void addCar_(CarType type, size_t row, size_t column, float angle);
+        void addBuilding_(BuildingType type, size_t row, size_t column, float angle);
 
         void initMap_();
     };

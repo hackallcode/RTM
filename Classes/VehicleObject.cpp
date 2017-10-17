@@ -19,6 +19,12 @@ void rtm::VehicleObject::Update(World* const scene)
 {
     DynamicObject::Update(scene);
 
+    for (auto& obj : scene->getObjects()) {
+        if (DoesIntersect_(obj.get())) {
+            SetSpeed_(0.f);
+        }
+    }
+
     if (GetX() > 100 && GetX() < 1500 && GetY() > 100 && GetY() < 800) {
         Accelerate_(scene->getMissedTime());
     }

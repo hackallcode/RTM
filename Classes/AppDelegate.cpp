@@ -74,12 +74,12 @@ bool AppDelegate::applicationDidFinishLaunching() {
     if (!glview) {
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32) || (CC_TARGET_PLATFORM == CC_PLATFORM_MAC) || (CC_TARGET_PLATFORM == CC_PLATFORM_LINUX)
 #if (FULL_SCREEN_MODE)
-        glview = GLViewImpl::createWithFullScreen("aad");
+        glview = GLViewImpl::createWithFullScreen("RTM");
 #else
-        glview = GLViewImpl::createWithRect("aad", cocos2d::Rect(0, 0, FRAME_SIZE_NAME.width, FRAME_SIZE_NAME.height));
+        glview = GLViewImpl::createWithRect("RTM", cocos2d::Rect(0, 0, FRAME_SIZE_NAME.width, FRAME_SIZE_NAME.height));
 #endif
 #else
-        glview = GLViewImpl::create("aad");
+        glview = GLViewImpl::create("RTM");
 #endif
         director->setOpenGLView(glview);
     }

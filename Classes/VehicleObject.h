@@ -10,7 +10,8 @@ namespace rtm {
     {
     public:
         VehicleObject();
-        VehicleObject(std::string const& filename, float maxSpeed, float acceleration, float deceleration, size_t row = 0, size_t column = 0, float angle = 0.f);
+        VehicleObject(std::string const& filename, float maxSpeed, float acceleration, 
+            float deceleration, size_t row, size_t column, float angle);
 
         virtual ~VehicleObject() = default;
 
