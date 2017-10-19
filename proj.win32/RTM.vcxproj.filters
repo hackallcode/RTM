@@ -22,6 +22,9 @@
     <Filter Include="src\object\abstract">
       <UniqueIdentifier>{2e0059e2-d27f-4335-bf0d-993c9ec5182b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\library">
+      <UniqueIdentifier>{cf35ac2a-73be-44e4-a959-3a0a862ef4d4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -51,6 +54,12 @@
     <ClCompile Include="..\Classes\BuildingObject.cpp">
       <Filter>src\object\visible</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\MapObject.cpp">
+      <Filter>src\object\abstract</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\fasttrigo.cpp">
+      <Filter>src\library</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -79,6 +88,12 @@
     </ClInclude>
     <ClInclude Include="..\Classes\BuildingObject.h">
       <Filter>src\object\visible</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\MapObject.h">
+      <Filter>src\object\abstract</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\fasttrigo.h">
+      <Filter>src\library</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

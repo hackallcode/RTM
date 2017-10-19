@@ -1,5 +1,5 @@
-#include "VehicleObject.h"
 #include "WorldScene.h"
+#include "VehicleObject.h"
 
 rtm::VehicleObject::VehicleObject()
     : DynamicObject()
@@ -17,14 +17,12 @@ rtm::VehicleObject::VehicleObject(std::string const& filename, float maxSpeed, f
 
 void rtm::VehicleObject::Update(World* const scene)
 {
-    DynamicObject::Update(scene);
-
-    for (auto& obj : scene->getObjects()) {
-        if (DoesIntersect_(obj.get())) {
-            SetSpeed_(0.f);
-        }
+    // Optimization for first time
+    if (HasCollision_()) {
+        return;
     }
 
+    // Temp logic
     if (GetX() > CELL_SIZE && GetX() < scene->getContentSize().width - CELL_SIZE &&
         GetY() > CELL_SIZE && GetY() < scene->getContentSize().height - CELL_SIZE) {
         Accelerate_(scene->getMissedTime());
@@ -32,14 +30,15 @@ void rtm::VehicleObject::Update(World* const scene)
     else {
         Decelerate_(scene->getMissedTime());
     }
-    OnPositionUpdate_();
+
+    DynamicObject::Update(scene);
 }
 
 void rtm::VehicleObject::Accelerate_(float deltaTime)
 {
-    if (GetSpeed() < maxSpeed_) {
-        SetSpeed_(GetSpeed() + acceleration_ * deltaTime);
-        if (GetSpeed() > maxSpeed_) {
+    if (GetSpeed_() < maxSpeed_) {
+        SetSpeed_(GetSpeed_() + acceleration_ * deltaTime);
+        if (GetSpeed_() > maxSpeed_) {
             SetSpeed_(maxSpeed_);
         }
     }
@@ -47,9 +46,9 @@ void rtm::VehicleObject::Accelerate_(float deltaTime)
 
 void rtm::VehicleObject::Decelerate_(float deltaTime)
 {
-    if (GetSpeed() > 0) {
-        SetSpeed_(GetSpeed() - deceleration_ * deltaTime);
-        if (GetSpeed() < 0) {
+    if (GetSpeed_() > 0) {
+        SetSpeed_(GetSpeed_() - deceleration_ * deltaTime);
+        if (GetSpeed_() < 0) {
             SetSpeed_(0);
         }
     }

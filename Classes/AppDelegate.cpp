@@ -7,7 +7,7 @@
 #if (!FULL_SCREEN_MODE)
     #define FRAME_SIZE_NAME resolutionSizeNo4
 #endif
-#define RELATIVE_SIZE_MODE 2
+#define RELATIVE_SIZE_MODE 1 // IS_DPI_ENABLED
 
 #if USE_AUDIO_ENGINE && USE_SIMPLE_AUDIO_ENGINE
 #error "Don't use AudioEngine and SimpleAudioEngine at the same time. Please just select one in your game!"

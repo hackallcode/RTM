@@ -25,28 +25,32 @@ namespace rtm {
     public:
         static cocos2d::Scene* createScene();
         static World* create();
-
         ~World() = default;
 
         virtual bool init() override;
         virtual void update(float time) override;
         
         float getMissedTime() const;
-
-        void initNewGame();
-        std::vector<std::unique_ptr<WorldObject>>& getObjects();
-        void spawnCar(CarType type, size_t row, size_t column, float angle);
+        void restart();
+        
         void spawnBuilding(BuildingType type, size_t row, size_t column, float angle);
+        std::vector<std::unique_ptr<StaticObject>>& getStaticObjects();
+        
+        void spawnCar(CarType type, size_t row, size_t column, float angle);        
+        std::vector<std::unique_ptr<DynamicObject>>& getDynamicObjects();
 
     private:
         float missedTime_;
 
-        std::vector<std::unique_ptr<WorldObject>> objects_;
-        void removeAllObjects_();
-        void addCar_(CarType type, size_t row, size_t column, float angle);
+        std::vector<std::unique_ptr<StaticObject>> staticObjs_;
         void addBuilding_(BuildingType type, size_t row, size_t column, float angle);
+        void removeStaticObjects_();
 
-        void initMap_();
+        std::vector<std::unique_ptr<DynamicObject>> dynamicObjs_;
+        void addCar_(CarType type, size_t row, size_t column, float angle);
+        void removeDynamicObjects_();
+
+        void removeAllObjects_();
     };
 
     void keyListener(cocos2d::EventKeyboard::KeyCode code, cocos2d::Event* event);

@@ -41,9 +41,10 @@ bool rtm::World::init()
     //////////////////////////////
     // 2. Objects
 
-    //getContentSize().height
-    // Map
-    initMap_();
+    // Set background
+    cocos2d::Sprite* background = cocos2d::Sprite::create("res/background.png");
+    background->setAnchorPoint(cocos2d::Vec2(0, 0));
+    addChild(background, BACKGROUND_Z_ORDER);
 
     //////////////////////////////
     // 3. Listeners 
@@ -62,7 +63,9 @@ void rtm::World::update(float time)
 {
     missedTime_ = time;
 
-    for (auto& obj : objects_) {
+    CheckCollisions(getDynamicObjects(), getStaticObjects());
+
+    for (auto& obj : getDynamicObjects()) {
         obj->Update(this);
     }
 }
@@ -72,19 +75,9 @@ float rtm::World::getMissedTime() const
     return missedTime_;
 }
 
-void rtm::World::initNewGame()
+void rtm::World::restart()
 {
     removeAllObjects_();
-}
-
-std::vector<std::unique_ptr<rtm::WorldObject>>& rtm::World::getObjects()
-{
-    return objects_;
-}
-
-void rtm::World::spawnCar(CarType type, size_t row, size_t column, float angle)
-{
-    addCar_(type, row, column, angle);
 }
 
 void rtm::World::spawnBuilding(BuildingType type, size_t row, size_t column, float angle)
@@ -92,32 +85,53 @@ void rtm::World::spawnBuilding(BuildingType type, size_t row, size_t column, flo
     addBuilding_(type, row, column, angle);
 }
 
-void rtm::World::removeAllObjects_()
+std::vector<std::unique_ptr<rtm::StaticObject>>& rtm::World::getStaticObjects()
 {
-    while (objects_.size() > 0) {
-        removeChild(objects_.back()->GetSprite());
-        objects_.pop_back();
+    return staticObjs_;
+}
+
+void rtm::World::spawnCar(CarType type, size_t row, size_t column, float angle)
+{
+    addCar_(type, row, column, angle);
+}
+
+std::vector<std::unique_ptr<rtm::DynamicObject>>& rtm::World::getDynamicObjects()
+{
+    return dynamicObjs_;
+}
+
+void rtm::World::addBuilding_(BuildingType type, size_t row, size_t column, float angle)
+{
+    staticObjs_.push_back(std::make_unique<BuildingObject>(type, row, column, angle));
+    addChild(staticObjs_.back()->GetSprite(), BUILDING_Z_ORDER);
+}
+
+void rtm::World::removeStaticObjects_()
+{
+    while (staticObjs_.size() > 0) {
+        removeChild(staticObjs_.back()->GetSprite());
+        staticObjs_.pop_back();
     }
 }
 
 void rtm::World::addCar_(CarType type, size_t row, size_t column, float angle)
 {
-    objects_.push_back(std::make_unique<CarObject>(type, row, column, angle));
-    addChild(objects_.back()->GetSprite(), VEHICLE_Z_ORDER);
+    dynamicObjs_.push_back(std::make_unique<CarObject>(type, row, column, angle));
+    addChild(dynamicObjs_.back()->GetSprite(), VEHICLE_Z_ORDER);
 }
 
-void rtm::World::addBuilding_(BuildingType type, size_t row, size_t column, float angle)
+void rtm::World::removeDynamicObjects_()
 {
-    objects_.push_back(std::make_unique<BuildingObject>(type, row, column, angle));
-    addChild(objects_.back()->GetSprite(), BUILDING_Z_ORDER);
+    while (dynamicObjs_.size() > 0) {
+        removeChild(dynamicObjs_.back()->GetSprite());
+        dynamicObjs_.pop_back();
+    }
 }
 
-void rtm::World::initMap_()
+void rtm::World::removeAllObjects_()
 {
-    // Set background
-    cocos2d::CCSprite* background = cocos2d::CCSprite::create("res/background.png");
-    background->setAnchorPoint(cocos2d::Vec2(0, 0));
-    addChild(background, BACKGROUND_Z_ORDER);
+    removeStaticObjects_();
+    removeDynamicObjects_();
 }
 
 void rtm::keyListener(cocos2d::EventKeyboard::KeyCode code, cocos2d::Event* event)
@@ -127,16 +141,23 @@ void rtm::keyListener(cocos2d::EventKeyboard::KeyCode code, cocos2d::Event* even
     }
 
     if (code == cocos2d::EventKeyboard::KeyCode::KEY_F1) {
-        GLOBAL_WORLD_SCENE->initNewGame();
+        GLOBAL_WORLD_SCENE->restart();
     }
-    if (code == cocos2d::EventKeyboard::KeyCode::KEY_C) {
+    else if (code == cocos2d::EventKeyboard::KeyCode::KEY_C) {
         size_t w = GLOBAL_WORLD_SCENE->getContentSize().width / CELL_SIZE - 2;
         size_t h = GLOBAL_WORLD_SCENE->getContentSize().height / CELL_SIZE - 2;
-        GLOBAL_WORLD_SCENE->spawnCar(rtm::CarTypeNo1, 2 + rand() % w, 2 + rand() % h, rand() % 360);
+        GLOBAL_WORLD_SCENE->spawnCar((rtm::CarType) (rand() % 2 + 1), 1 + rand() % w, 1 + rand() % h, rand() % 360);
     }
-    if (code == cocos2d::EventKeyboard::KeyCode::KEY_B) {
-        size_t w = GLOBAL_WORLD_SCENE->getContentSize().width / CELL_SIZE - 2;
-        size_t h = GLOBAL_WORLD_SCENE->getContentSize().height / CELL_SIZE - 2;
-        GLOBAL_WORLD_SCENE->spawnBuilding(rtm::BuildingTypeNo1, 2 + rand() % w, 2 + rand() % h, ANGLE_TOP);
+    else if (code == cocos2d::EventKeyboard::KeyCode::KEY_B) {
+        size_t w = GLOBAL_WORLD_SCENE->getContentSize().width / CELL_SIZE;
+        size_t h = GLOBAL_WORLD_SCENE->getContentSize().height / CELL_SIZE;
+        GLOBAL_WORLD_SCENE->spawnBuilding((rtm::BuildingType) (rand() % 2 + 1), rand() % w, rand() % h, ANGLE_TOP);
+    }
+    else if (code == cocos2d::EventKeyboard::KeyCode::KEY_M) {
+        for (size_t i = 0; i < 100; ++i) {
+            size_t w = GLOBAL_WORLD_SCENE->getContentSize().width / CELL_SIZE - 2;
+            size_t h = GLOBAL_WORLD_SCENE->getContentSize().height / CELL_SIZE - 2;
+            GLOBAL_WORLD_SCENE->spawnCar((rtm::CarType) (rand() % 2 + 1), 1 + rand() % w, 1 + rand() % h, rand() % 360);
+        }
     }
 }

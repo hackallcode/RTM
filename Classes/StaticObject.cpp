@@ -1,5 +1,5 @@
-#include "StaticObject.h"
 #include "WorldScene.h"
+#include "StaticObject.h"
 
 rtm::StaticObject::StaticObject()
     : WorldObject()

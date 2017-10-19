@@ -1,7 +1,7 @@
 #ifndef __BUILDING_OBJECT_INCLUDED__
 #define __BUILDING_OBJECT_INCLUDED__
 
-#include "StaticObject.h"
+#include "MapObject.h"
 
 namespace rtm {
 
@@ -15,7 +15,7 @@ namespace rtm {
     std::string const BUILDING_NO_2_FILE = "res/static/BuildingNo2.png";
 
     class BuildingObject
-        : public StaticObject
+        : public MapObject
     {
     public:
         BuildingObject();

@@ -1,12 +1,12 @@
-#include "BuildingObject.h"
 #include "WorldScene.h"
+#include "BuildingObject.h"
 
 rtm::BuildingObject::BuildingObject()
-    : StaticObject()
+    : MapObject()
 {}
 
 rtm::BuildingObject::BuildingObject(std::string const& filename, size_t row, size_t column, float angle)
-    : StaticObject((row + 0.5) * CELL_SIZE, (column + 0.5) * CELL_SIZE, angle, filename)
+    : MapObject(filename, row, column, angle)
 {}
 
 rtm::BuildingObject::BuildingObject(BuildingType type, size_t row, size_t column, float angle)
@@ -16,7 +16,7 @@ rtm::BuildingObject::BuildingObject(BuildingType type, size_t row, size_t column
         , column
         , angle
     )
-{}
+{}  
 
 std::string rtm::BuildingObject::GetClassFile_(BuildingType type)
 {
