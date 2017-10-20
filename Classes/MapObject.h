@@ -10,7 +10,7 @@ namespace rtm {
     {
     public:
         MapObject();
-        MapObject(std::string const& filename, size_t row, size_t column, float angle);
+        MapObject(std::string const& filename, int row, int column, float angle);
 
         virtual ~MapObject() = default;
     };

@@ -5,6 +5,6 @@ rtm::MapObject::MapObject()
     : StaticObject()
 {}
 
-rtm::MapObject::MapObject(std::string const& filename, size_t row, size_t column, float angle)
+rtm::MapObject::MapObject(std::string const& filename, int row, int column, float angle)
     : StaticObject((row + 0.5) * CELL_SIZE, (column + 0.5) * CELL_SIZE, angle, filename)
 {}

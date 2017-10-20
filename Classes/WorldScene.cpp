@@ -75,12 +75,22 @@ float rtm::World::getMissedTime() const
     return missedTime_;
 }
 
+float rtm::World::getWidth() const
+{
+    return getContentSize().width;
+}
+
+float rtm::World::getHeight() const
+{
+    return getContentSize().height;
+}
+
 void rtm::World::restart()
 {
     removeAllObjects_();
 }
 
-void rtm::World::spawnBuilding(BuildingType type, size_t row, size_t column, float angle)
+void rtm::World::spawnBuilding(BuildingType type, int row, int column, float angle)
 {
     addBuilding_(type, row, column, angle);
 }
@@ -90,7 +100,7 @@ std::vector<std::unique_ptr<rtm::StaticObject>>& rtm::World::getStaticObjects()
     return staticObjs_;
 }
 
-void rtm::World::spawnCar(CarType type, size_t row, size_t column, float angle)
+void rtm::World::spawnCar(CarType type, int row, int column, float angle)
 {
     addCar_(type, row, column, angle);
 }
@@ -100,7 +110,7 @@ std::vector<std::unique_ptr<rtm::DynamicObject>>& rtm::World::getDynamicObjects(
     return dynamicObjs_;
 }
 
-void rtm::World::addBuilding_(BuildingType type, size_t row, size_t column, float angle)
+void rtm::World::addBuilding_(BuildingType type, int row, int column, float angle)
 {
     staticObjs_.push_back(std::make_unique<BuildingObject>(type, row, column, angle));
     addChild(staticObjs_.back()->GetSprite(), BUILDING_Z_ORDER);
@@ -114,7 +124,7 @@ void rtm::World::removeStaticObjects_()
     }
 }
 
-void rtm::World::addCar_(CarType type, size_t row, size_t column, float angle)
+void rtm::World::addCar_(CarType type, int row, int column, float angle)
 {
     dynamicObjs_.push_back(std::make_unique<CarObject>(type, row, column, angle));
     addChild(dynamicObjs_.back()->GetSprite(), VEHICLE_Z_ORDER);
@@ -144,9 +154,9 @@ void rtm::keyListener(cocos2d::EventKeyboard::KeyCode code, cocos2d::Event* even
         GLOBAL_WORLD_SCENE->restart();
     }
     else if (code == cocos2d::EventKeyboard::KeyCode::KEY_C) {
-        size_t w = GLOBAL_WORLD_SCENE->getContentSize().width / CELL_SIZE - 2;
-        size_t h = GLOBAL_WORLD_SCENE->getContentSize().height / CELL_SIZE - 2;
-        GLOBAL_WORLD_SCENE->spawnCar((rtm::CarType) (rand() % 2 + 1), 1 + rand() % w, 1 + rand() % h, rand() % 360);
+        size_t w = GLOBAL_WORLD_SCENE->getContentSize().width / CELL_SIZE;
+        size_t h = GLOBAL_WORLD_SCENE->getContentSize().height / CELL_SIZE;
+        GLOBAL_WORLD_SCENE->spawnCar((rtm::CarType) (rand() % 5 + 1), round(w / 2) - 2, round(h / 2) - 2, ANGLE_RIGHT);
     }
     else if (code == cocos2d::EventKeyboard::KeyCode::KEY_B) {
         size_t w = GLOBAL_WORLD_SCENE->getContentSize().width / CELL_SIZE;
@@ -157,7 +167,7 @@ void rtm::keyListener(cocos2d::EventKeyboard::KeyCode code, cocos2d::Event* even
         for (size_t i = 0; i < 100; ++i) {
             size_t w = GLOBAL_WORLD_SCENE->getContentSize().width / CELL_SIZE - 2;
             size_t h = GLOBAL_WORLD_SCENE->getContentSize().height / CELL_SIZE - 2;
-            GLOBAL_WORLD_SCENE->spawnCar((rtm::CarType) (rand() % 2 + 1), 1 + rand() % w, 1 + rand() % h, rand() % 360);
+            GLOBAL_WORLD_SCENE->spawnCar((rtm::CarType) (rand() % 5 + 1), rand() % w, rand() % h, rand() % 360 * DEG_RAD);
         }
     }
 }

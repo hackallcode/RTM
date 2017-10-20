@@ -9,7 +9,7 @@
 #include "CarObject.h"
 
 namespace rtm {
-
+    
     // PARAMETERS
     size_t const CELL_SIZE = 30;
 
@@ -31,23 +31,25 @@ namespace rtm {
         virtual void update(float time) override;
         
         float getMissedTime() const;
+        float getWidth() const;
+        float getHeight() const;
         void restart();
         
-        void spawnBuilding(BuildingType type, size_t row, size_t column, float angle);
+        void spawnBuilding(BuildingType type, int row, int column, float angle);
         std::vector<std::unique_ptr<StaticObject>>& getStaticObjects();
         
-        void spawnCar(CarType type, size_t row, size_t column, float angle);        
+        void spawnCar(CarType type, int row, int column, float angle);        
         std::vector<std::unique_ptr<DynamicObject>>& getDynamicObjects();
 
     private:
         float missedTime_;
 
         std::vector<std::unique_ptr<StaticObject>> staticObjs_;
-        void addBuilding_(BuildingType type, size_t row, size_t column, float angle);
+        void addBuilding_(BuildingType type, int row, int column, float angle);
         void removeStaticObjects_();
 
         std::vector<std::unique_ptr<DynamicObject>> dynamicObjs_;
-        void addCar_(CarType type, size_t row, size_t column, float angle);
+        void addCar_(CarType type, int row, int column, float angle);
         void removeDynamicObjects_();
 
         void removeAllObjects_();

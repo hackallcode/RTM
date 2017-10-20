@@ -30,12 +30,12 @@ void rtm::WorldObject::SetSprite(cocos2d::Sprite* const sprite)
     sprite_ = sprite;
     if (sprite_ != nullptr) {
         sprite_->setAnchorPoint(cocos2d::Vec2(0.5, 0.5));
-        SetW_(sprite_->getContentSize().width);
-        SetH_(sprite_->getContentSize().height);
+        SetWidth_(sprite_->getContentSize().width);
+        SetHeight_(sprite_->getContentSize().height);
     }
     else {
-        SetW_(0.f);
-        SetH_(0.f);
+        SetWidth_(0.f);
+        SetHeight_(0.f);
     }
     PositionInit_();
 }
@@ -55,17 +55,17 @@ float rtm::WorldObject::GetY() const
     return y_;
 }
 
-float rtm::WorldObject::GetA() const
+float rtm::WorldObject::GetAngle() const
 {
     return a_;
 }
 
-float rtm::WorldObject::GetW() const
+float rtm::WorldObject::GetWidth() const
 {
     return w_;
 }
 
-float rtm::WorldObject::GetH() const
+float rtm::WorldObject::GetHeight() const
 {
     return h_;
 }
@@ -83,19 +83,19 @@ void rtm::WorldObject::SetY_(float y)
     y_ = y;
 }
 
-void rtm::WorldObject::SetA_(float a)
+void rtm::WorldObject::SetAngle_(float a)
 {
-    while (a < -F_PI) a += F_PI_2;
-    while (a >= F_PI) a -= F_PI_2;
+    while (a < -F_PI) a += F_2_PI;
+    while (a >= F_PI) a -= F_2_PI;
     a_ = a;
 }
 
-void rtm::WorldObject::SetW_(float w)
+void rtm::WorldObject::SetWidth_(float w)
 {
     w_ = w;
 }
 
-void rtm::WorldObject::SetH_(float h)
+void rtm::WorldObject::SetHeight_(float h)
 {
     h_ = h;
 }

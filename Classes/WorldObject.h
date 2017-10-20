@@ -19,6 +19,10 @@ namespace rtm {
     float const F_2_PI = 6.283185f;
     float const DEG_RAD = F_PI / 180;
     float const RAD_DEG = 180 / F_PI;
+    float const ANGLE_DELTA = 0.01745f; // PI / 180 for rounding
+    
+    bool const LEFT = false;
+    bool const RIGHT = true;
 
     float const ANGLE_TOP = 0.f;
     float const ANGLE_RIGHT = F_PI_2;
@@ -40,18 +44,18 @@ namespace rtm {
         cocos2d::Sprite* GetSprite() const;
         float GetX() const;
         float GetY() const;
-        float GetA() const; // Angle
-        float GetW() const; // Width
-        float GetH() const; // Height
+        float GetAngle() const;
+        float GetWidth() const;
+        float GetHeight() const;
 
         virtual void Update(World* const scene);
 
     protected:
         void SetX_(float x);
         void SetY_(float y);
-        void SetA_(float a);
-        void SetW_(float w);
-        void SetH_(float h);
+        void SetAngle_(float a);
+        void SetWidth_(float w);
+        void SetHeight_(float h);
 
         virtual void PositionInit_();
         virtual void OnPositionUpdate_();

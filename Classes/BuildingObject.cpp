@@ -5,11 +5,11 @@ rtm::BuildingObject::BuildingObject()
     : MapObject()
 {}
 
-rtm::BuildingObject::BuildingObject(std::string const& filename, size_t row, size_t column, float angle)
+rtm::BuildingObject::BuildingObject(std::string const& filename, int row, int column, float angle)
     : MapObject(filename, row, column, angle)
 {}
 
-rtm::BuildingObject::BuildingObject(BuildingType type, size_t row, size_t column, float angle)
+rtm::BuildingObject::BuildingObject(BuildingType type, int row, int column, float angle)
     : BuildingObject(
         BuildingObject::GetClassFile_(type)
         , row

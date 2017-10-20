@@ -8,6 +8,9 @@ namespace rtm {
     enum CarType {
         CarTypeNo1 = 1
         , CarTypeNo2
+        , CarTypeNo3
+        , CarTypeNo4
+        , CarTypeNo5
     };
 
     std::string const CAR_NO_0_FILE = "res/vehicle/CarNo0.png"; // File path
@@ -21,17 +24,32 @@ namespace rtm {
     float const CAR_NO_1_DECELERATION = 7.f;
 
     std::string const CAR_NO_2_FILE = "res/vehicle/CarNo2.png";
-    float const CAR_NO_2_MAX_SPEED = 27.f;
+    float const CAR_NO_2_MAX_SPEED = 24.f;
     float const CAR_NO_2_ACCELERATION = 5.f;
-    float const CAR_NO_2_DECELERATION = 9.f;
+    float const CAR_NO_2_DECELERATION = 8.f;
+
+    std::string const CAR_NO_3_FILE = "res/vehicle/CarNo3.png";
+    float const CAR_NO_3_MAX_SPEED = 30.f;
+    float const CAR_NO_3_ACCELERATION = 5.f;
+    float const CAR_NO_3_DECELERATION = 10.f;
+
+    std::string const CAR_NO_4_FILE = "res/vehicle/CarNo4.png";
+    float const CAR_NO_4_MAX_SPEED = 33.f;
+    float const CAR_NO_4_ACCELERATION = 8.f;
+    float const CAR_NO_4_DECELERATION = 11.f;
+
+    std::string const CAR_NO_5_FILE = "res/vehicle/CarNo5.png";
+    float const CAR_NO_5_MAX_SPEED = 36.f;
+    float const CAR_NO_5_ACCELERATION = 9.f;
+    float const CAR_NO_5_DECELERATION = 12.f;
 
     class CarObject
         : public VehicleObject
     {
     public:
         CarObject();
-        CarObject(std::string const& filename, float maxSpeed, float acceleration, float deceleration, size_t row, size_t column, float angle);
-        CarObject(CarType type, size_t row, size_t column, float angle);
+        CarObject(std::string const& filename, float maxSpeed, float acceleration, float deceleration, int row, int column, float angle);
+        CarObject(CarType type, int row, int column, float angle);
 
         virtual ~CarObject() = default;
 

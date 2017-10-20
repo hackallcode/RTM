@@ -58,7 +58,7 @@ void rtm::DynamicObject::Update(World* const scene)
     WorldObject::Update(scene);
 
     float sinVal, cosVal;
-    FT::sincos(GetA(), &sinVal, &cosVal);
+    FTA::sincos(GetAngle(), &sinVal, &cosVal);
 
     SetX_(GetX() + speed_ * sinVal * scene->getMissedTime());
     SetY_(GetY() + speed_ * cosVal * scene->getMissedTime());
@@ -111,29 +111,29 @@ bool rtm::DynamicObject::IsIntersecting_(WorldObject const* const other) const
         float cosVal;
 
         // For this sprite
-        radius = FT::length(GetW(), GetH()) / 2; // segment OB
-        alfa = FT::atan2(GetW(), GetH()); // angle EOB without angle of sprite
+        radius = FT::length(GetWidth(), GetHeight()) / 2; // segment OB
+        alfa = FT::atan2(GetWidth(), GetHeight()); // angle EOB without angle of sprite
 
-        FT::sincos(GetA() + alfa, &sinVal, &cosVal); // angle EOB
+        FT::sincos(GetAngle() + alfa, &sinVal, &cosVal); // angle EOB
         cocos2d::Point a1(GetX() + radius * sinVal, GetY() + radius * cosVal); // B
-        FT::sincos(GetA() + (F_PI - alfa), &sinVal, &cosVal); // angle EOC
+        FT::sincos(GetAngle() + (F_PI - alfa), &sinVal, &cosVal); // angle EOC
         cocos2d::Point a2(GetX() + radius * sinVal, GetY() + radius * cosVal); // C
-        FT::sincos(GetA() + (F_PI + alfa), &sinVal, &cosVal); // angle EOD
+        FT::sincos(GetAngle() + (F_PI + alfa), &sinVal, &cosVal); // angle EOD
         cocos2d::Point a3(GetX() + radius * sinVal, GetY() + radius * cosVal); // D
-        FT::sincos(GetA() - alfa, &sinVal, &cosVal); // angle EOC
+        FT::sincos(GetAngle() - alfa, &sinVal, &cosVal); // angle EOC
         cocos2d::Point a4(GetX() + radius * sinVal, GetY() + radius * cosVal); // A
 
         // The same for other sprite
-        radius = FT::length(other->GetW(), other->GetH()) / 2; // segment OB
-        alfa = FT::atan2(other->GetW(), other->GetH()); // angle EOB without angle of sprite
+        radius = FT::length(other->GetWidth(), other->GetHeight()) / 2; // segment OB
+        alfa = FT::atan2(other->GetWidth(), other->GetHeight()); // angle EOB without angle of sprite
 
-        FT::sincos(other->GetA() + alfa, &sinVal, &cosVal); // angle EOB
+        FT::sincos(other->GetAngle() + alfa, &sinVal, &cosVal); // angle EOB
         cocos2d::Point b1(other->GetX() + radius * sinVal, other->GetY() + radius * cosVal); // B
-        FT::sincos(other->GetA() + (F_PI - alfa), &sinVal, &cosVal); // angle EOC
+        FT::sincos(other->GetAngle() + (F_PI - alfa), &sinVal, &cosVal); // angle EOC
         cocos2d::Point b2(other->GetX() + radius * sinVal, other->GetY() + radius * cosVal); // C
-        FT::sincos(other->GetA() + (F_PI + alfa), &sinVal, &cosVal); // angle EOD
+        FT::sincos(other->GetAngle() + (F_PI + alfa), &sinVal, &cosVal); // angle EOD
         cocos2d::Point b3(other->GetX() + radius * sinVal, other->GetY() + radius * cosVal); // D
-        FT::sincos(other->GetA() - alfa, &sinVal, &cosVal); // angle EOC
+        FT::sincos(other->GetAngle() - alfa, &sinVal, &cosVal); // angle EOC
         cocos2d::Point b4(other->GetX() + radius * sinVal, other->GetY() + radius * cosVal); // A
 
         // If one of segment cross other segment
@@ -162,13 +162,13 @@ bool rtm::DynamicObject::IsIntersecting_(WorldObject const* const other) const
 bool rtm::DynamicObject::IsNear_(WorldObject const* const other) const
 {
     float distance = FT::length(GetX() - other->GetX(), GetY() - other->GetY());
-    float radius = FT::length(GetW() / 2, GetH() / 2);
-    float otherRadius = FT::length(other->GetW() / 2, other->GetH() / 2);
+    float radius = FT::length(GetWidth() / 2, GetHeight() / 2);
+    float otherRadius = FT::length(other->GetWidth() / 2, other->GetHeight() / 2);
     return distance <= radius + otherRadius;
 }
 
 void rtm::CheckCollisions(std::vector<std::unique_ptr<DynamicObject>> const& dynamicObjs,
-    std::vector<std::unique_ptr<StaticObject>> const& staticObjs)
+    std::vector<std::unique_ptr<StaticObject>> const& staticObjs = std::vector<std::unique_ptr<StaticObject>>())
 {
     for (auto& obj : dynamicObjs) {
         obj->SetCollisionFlag_(false);
