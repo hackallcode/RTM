@@ -24,8 +24,9 @@ void rtm::VehicleObject::Update(World* const scene)
     }
     else {
         Accelerate_(scene->getMissedTime());
-        if (abs(GetX() - 32.5 * CELL_SIZE) <= 0.01 * CELL_SIZE) {
-            switch (rand() % 3)
+        if (IsSameCoords_(GetX(), 32.5 * CELL_SIZE)) {
+            Rotate_(ANGLE_BOTTOM);
+            /*switch (rand() % 3)
             {
             case 0:
                 Rotate_(ANGLE_RIGHT);
@@ -36,7 +37,7 @@ void rtm::VehicleObject::Update(World* const scene)
             case 2:
                 Rotate_(ANGLE_LEFT);
                 break;
-            }
+            }*/
         }
         Move_(scene->getMissedTime());
     }
@@ -68,21 +69,7 @@ bool rtm::VehicleObject::Rotate_(float angle)
 {
     if (finalAngle_ == GetAngle()) {
         finalAngle_ += angle;
-
-        // Rounding
-        if (abs(finalAngle_ - ANGLE_TOP) <= ANGLE_DELTA) {
-            finalAngle_ = ANGLE_TOP;
-        }
-        else if (abs(finalAngle_ - ANGLE_RIGHT) <= ANGLE_DELTA) {
-            finalAngle_ = ANGLE_RIGHT;
-        }
-        else if (abs(finalAngle_ - ANGLE_BOTTOM) <= ANGLE_DELTA) {
-            finalAngle_ = ANGLE_BOTTOM;
-        }
-        else if (abs(finalAngle_ - ANGLE_LEFT) <= ANGLE_DELTA) {
-            finalAngle_ = ANGLE_LEFT;
-        }
-
+        finalAngle_ = RoundAngle_(NormalizeAngle_(finalAngle_));
         return true;
     }
     else {
@@ -104,12 +91,18 @@ void rtm::VehicleObject::Move_(float deltaTime)
 void rtm::VehicleObject::Rotation_(float deltaTime)
 {
     if (finalAngle_ != GetAngle()) {
-        float delta = finalAngle_ - GetAngle();
-        while (delta < -F_PI) delta += F_2_PI;
-        while (delta >= F_PI) delta -= F_2_PI;
+        float delta = NormalizeAngle_(finalAngle_ - GetAngle());
 
-        float inc = (delta < 0 ? -1 : 1) * deltaTime * GetSpeed_() / CELL_SIZE;
-        SetAngle_(GetAngle() + (delta > 0 ? MIN(inc, delta) : MAX(inc, delta)));
+        if (delta > 0) {
+            SetAngle_(GetAngle() + MIN(deltaTime * GetSpeed_() / CELL_SIZE, delta));
+        }
+        else {
+            SetAngle_(GetAngle() + MAX(-1 * deltaTime * GetSpeed_() / CELL_SIZE, delta));
+        }
+        if (finalAngle_ == GetAngle()) {
+            SetX_(RoundCoord_(GetX(), 2 * COORD_DELTA));
+            SetY_(RoundCoord_(GetY(), 2 * COORD_DELTA));
+        }
     }
 }
 

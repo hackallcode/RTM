@@ -154,9 +154,12 @@ void rtm::keyListener(cocos2d::EventKeyboard::KeyCode code, cocos2d::Event* even
         GLOBAL_WORLD_SCENE->restart();
     }
     else if (code == cocos2d::EventKeyboard::KeyCode::KEY_C) {
+        static size_t type = 0;
+        type = type % 5 + 1;
+
         size_t w = GLOBAL_WORLD_SCENE->getContentSize().width / CELL_SIZE;
         size_t h = GLOBAL_WORLD_SCENE->getContentSize().height / CELL_SIZE;
-        GLOBAL_WORLD_SCENE->spawnCar((rtm::CarType) (rand() % 5 + 1), round(w / 2) - 2, round(h / 2) - 2, ANGLE_RIGHT);
+        GLOBAL_WORLD_SCENE->spawnCar((rtm::CarType) type, round(w / 2) - 2, round(h / 2) - 2, ANGLE_RIGHT);
     }
     else if (code == cocos2d::EventKeyboard::KeyCode::KEY_B) {
         size_t w = GLOBAL_WORLD_SCENE->getContentSize().width / CELL_SIZE;

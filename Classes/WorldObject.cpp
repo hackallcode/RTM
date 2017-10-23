@@ -85,9 +85,7 @@ void rtm::WorldObject::SetY_(float y)
 
 void rtm::WorldObject::SetAngle_(float a)
 {
-    while (a < -F_PI) a += F_2_PI;
-    while (a >= F_PI) a -= F_2_PI;
-    a_ = a;
+    a_ = NormalizeAngle_(a);
 }
 
 void rtm::WorldObject::SetWidth_(float w)
@@ -144,6 +142,53 @@ void rtm::WorldObject::OnWUpdate_()
 void rtm::WorldObject::OnHUpdate_()
 {
     prevH_ = h_;
+}
+
+bool rtm::WorldObject::IsSameCoords_(float a, float b, float delta)
+{
+    return abs(a - b) <= delta;
+}
+
+float rtm::WorldObject::RoundCoord_(float coord, float delta)
+{
+    float rounded = CELL_SIZE * (round(coord / CELL_SIZE - 0.5) + 0.5);
+    if (IsSameCoords_(coord, rounded, delta)) {
+        return rounded;
+    }
+    else {
+        return coord;
+    }
+}
+
+bool rtm::WorldObject::IsSameAngles_(float a, float b, float delta)
+{
+    return abs(a - b) <= delta;
+}
+
+float rtm::WorldObject::RoundAngle_(float angle, float delta)
+{
+    if (IsSameAngles_(angle, ANGLE_TOP, delta)) {
+        return ANGLE_TOP;
+    }
+    else if (IsSameAngles_(angle, ANGLE_RIGHT, delta)) {
+        return ANGLE_RIGHT;
+    }
+    else if (IsSameAngles_(angle, ANGLE_BOTTOM, delta)) {
+        return ANGLE_BOTTOM;
+    }
+    else if (IsSameAngles_(angle, ANGLE_LEFT, delta)) {
+        return ANGLE_LEFT;
+    }
+    else {
+        return angle;
+    }
+}
+
+float rtm::WorldObject::NormalizeAngle_(float angle)
+{
+    while (angle < -F_PI) angle += F_2_PI;
+    while (angle >= F_PI) angle -= F_2_PI;
+    return angle;
 }
 
 void rtm::WorldObject::SetSpriteX_(float x)
