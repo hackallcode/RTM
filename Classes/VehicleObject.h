@@ -5,6 +5,8 @@
 
 namespace rtm {
 
+    float const LINE_CHANGING_ZONE = 5.f;
+
     class VehicleObject abstract
         : public DynamicObject
     {
@@ -26,8 +28,12 @@ namespace rtm {
         float maxSpeed_;
         float acceleration_;
         float deceleration_;
-        float finalAngle_;
-        int finalLine_;
+
+        bool isRotation_;
+        bool isLineChanging_;
+        float remainingAngle_;
+        float remainingOffset_;
+        float remainingOffsetAngle_;
 
         void Move_(float deltaTime);
         void Rotation_(float deltaTime);

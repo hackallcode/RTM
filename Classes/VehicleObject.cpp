@@ -6,7 +6,11 @@ rtm::VehicleObject::VehicleObject()
     , maxSpeed_(0.f)
     , acceleration_(0.f)
     , deceleration_(0.f)
-    , finalAngle_(0.f)
+    , isRotation_(false)
+    , isLineChanging_(false)
+    , remainingAngle_(0.f)
+    , remainingOffset_(0.f)
+    , remainingOffsetAngle_(0.f)
 {}
 
 rtm::VehicleObject::VehicleObject(std::string const& filename, float maxSpeed, float acceleration, float deceleration, int row, int column, float angle)
@@ -14,7 +18,11 @@ rtm::VehicleObject::VehicleObject(std::string const& filename, float maxSpeed, f
     , maxSpeed_(maxSpeed)
     , acceleration_(acceleration)
     , deceleration_(deceleration)
-    , finalAngle_(angle)
+    , isRotation_(false)
+    , isLineChanging_(false)
+    , remainingAngle_(0.f)
+    , remainingOffset_(0.f)
+    , remainingOffsetAngle_(0.f)
 {}
 
 void rtm::VehicleObject::Update(World* const scene)
@@ -24,9 +32,10 @@ void rtm::VehicleObject::Update(World* const scene)
     }
     else {
         Accelerate_(scene->getMissedTime());
-        if (IsSameCoords_(GetX(), 32.5 * CELL_SIZE)) {
-            Rotate_(ANGLE_BOTTOM);
-            /*switch (rand() % 3)
+        if (IsSameCoords_(GetX(), 28.5 * CELL_SIZE)) {
+            ChangeLine_(rand() % 2);
+        } else if (IsSameCoords_(GetX(), 32.5 * CELL_SIZE)) {
+            switch (rand() % 3)
             {
             case 0:
                 Rotate_(ANGLE_RIGHT);
@@ -37,7 +46,7 @@ void rtm::VehicleObject::Update(World* const scene)
             case 2:
                 Rotate_(ANGLE_LEFT);
                 break;
-            }*/
+            }
         }
         Move_(scene->getMissedTime());
     }
@@ -67,19 +76,27 @@ void rtm::VehicleObject::Decelerate_(float deltaTime)
 
 bool rtm::VehicleObject::Rotate_(float angle)
 {
-    if (finalAngle_ == GetAngle()) {
-        finalAngle_ += angle;
-        finalAngle_ = RoundAngle_(NormalizeAngle_(finalAngle_));
-        return true;
+    if (isRotation_) {
+        return false;
     }
     else {
-        return false;
+        remainingAngle_ = RoundAngle_(angle);
+        isRotation_ = true;
+        return true;
     }
 }
 
 bool rtm::VehicleObject::ChangeLine_(bool isRight)
 {
-    return false;
+    if (isLineChanging_) {
+        return false;
+    }
+    else {
+        remainingOffset_ = CELL_SIZE;
+        remainingOffsetAngle_ = isRight ? GetAngle() + F_PI_2 : GetAngle() - F_PI_2;
+        isLineChanging_ = true;
+        return true;
+    }
 }
 
 void rtm::VehicleObject::Move_(float deltaTime)
@@ -90,23 +107,40 @@ void rtm::VehicleObject::Move_(float deltaTime)
 
 void rtm::VehicleObject::Rotation_(float deltaTime)
 {
-    if (finalAngle_ != GetAngle()) {
-        float delta = NormalizeAngle_(finalAngle_ - GetAngle());
+    if (isRotation_) {
+        float delta = (GetSpeed_() / CELL_SIZE) * deltaTime;
+        delta = remainingAngle_ > 0.f ? MIN(delta, remainingAngle_) : MAX(-delta, remainingAngle_);
 
-        if (delta > 0) {
-            SetAngle_(GetAngle() + MIN(deltaTime * GetSpeed_() / CELL_SIZE, delta));
-        }
-        else {
-            SetAngle_(GetAngle() + MAX(-1 * deltaTime * GetSpeed_() / CELL_SIZE, delta));
-        }
-        if (finalAngle_ == GetAngle()) {
+        SetAngle_(GetAngle() + delta);
+        remainingAngle_ -= delta;
+
+        if (remainingAngle_ == 0.f) {
             SetX_(RoundCoord_(GetX(), 2 * COORD_DELTA));
             SetY_(RoundCoord_(GetY(), 2 * COORD_DELTA));
+            isRotation_ = false;
         }
     }
 }
 
 void rtm::VehicleObject::LineChanging_(float deltaTime)
 {
-    
+    if (isLineChanging_) {
+        float delta = remainingOffsetAngle_ - GetAngle();
+
+        if (IsSameCoords_(remainingOffset_, CELL_SIZE)) {
+            Rotate_(delta > 0 ? F_PI_4 : -F_PI_4);
+        }
+        else if (IsSameCoords_(remainingOffset_, CELL_SIZE / 4)) {
+            Rotate_(delta > 0 ? -F_PI_4 : F_PI_4);
+        }
+        else if (remainingOffset_ == 0.f) {
+            isLineChanging_ = false;
+            remainingOffsetAngle_ = 0.f;
+        }
+
+        remainingOffset_ -= MIN(
+            abs(FTA::cos(delta) * GetSpeed_() * deltaTime), 
+            remainingOffset_
+        );
+    }
 }

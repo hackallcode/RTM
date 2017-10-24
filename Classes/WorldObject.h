@@ -14,23 +14,24 @@
 
 namespace rtm {
 
-    float const F_PI_2 = 1.57079632679489661923f;                         
-    float const F_PI = 3.14159265358979323846f;
-    float const F_2_PI = 6.28318530717958647692f;
+    bool const LEFT             = false;
+    bool const RIGHT            = true;
 
-    float const DEG_RAD = F_PI / 180.f;
-    float const RAD_DEG = 180.f / F_PI;
+    float const F_PI_4          = 0.785398163397448309616f;
+    float const F_PI_2          = 1.57079632679489661923f;
+    float const F_PI            = 3.14159265358979323846f;
+    float const F_2_PI          = 6.28318530717958647692f;
 
-    float const ANGLE_TOP = 0.f;
-    float const ANGLE_RIGHT = F_PI_2;
-    float const ANGLE_BOTTOM = -F_PI;
-    float const ANGLE_LEFT = -F_PI_2;
+    float const DEG_RAD         = F_PI / 180.f;
+    float const RAD_DEG         = 180.f / F_PI;
+
+    float const ANGLE_TOP       = 0.f;
+    float const ANGLE_RIGHT     = F_PI_2;
+    float const ANGLE_BOTTOM    = -F_PI;
+    float const ANGLE_LEFT      = -F_PI_2;
     
-    float const ANGLE_DELTA = 1.f * DEG_RAD;
-    float const COORD_DELTA = 1.f;
-
-    bool const LEFT = false;
-    bool const RIGHT = true;
+    float const ANGLE_DELTA     = 1.f * DEG_RAD;
+    float const COORD_DELTA     = 1.f;
 
     class World;
 
