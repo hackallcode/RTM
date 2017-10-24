@@ -16,7 +16,7 @@ namespace rtm {
         DynamicObject(float x, float y, float a, float speed, std::string const& filename);
         virtual ~DynamicObject() = default;
 
-        virtual void Update(World* const scene) override;
+        virtual void Update(MapController* const map) override;
 
         friend void CheckCollisions(std::vector<std::unique_ptr<DynamicObject>> const& dynamicObjs,
             std::vector<std::unique_ptr<StaticObject>> const& staticObjs);

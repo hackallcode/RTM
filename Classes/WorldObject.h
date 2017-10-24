@@ -33,7 +33,7 @@ namespace rtm {
     float const ANGLE_DELTA     = 1.f * DEG_RAD;
     float const COORD_DELTA     = 1.f;
 
-    class World;
+    class MapController;
 
     class WorldObject abstract
     {
@@ -52,7 +52,7 @@ namespace rtm {
         float GetWidth() const;
         float GetHeight() const;
 
-        virtual void Update(World* const scene);
+        virtual void Update(MapController* const map);
 
     protected:
         void SetX_(float x);

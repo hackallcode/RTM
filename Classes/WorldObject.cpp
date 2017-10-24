@@ -1,4 +1,4 @@
-#include "WorldScene.h"
+#include "MapController.h"
 #include "WorldObject.h"
 
 rtm::WorldObject::WorldObject()
@@ -70,7 +70,7 @@ float rtm::WorldObject::GetHeight() const
     return h_;
 }
 
-void rtm::WorldObject::Update(World* const scene)
+void rtm::WorldObject::Update(MapController* const map)
 {}
 
 void rtm::WorldObject::SetX_(float x)
@@ -167,17 +167,9 @@ bool rtm::WorldObject::IsSameAngles_(float a, float b, float delta)
 
 float rtm::WorldObject::RoundAngle_(float angle, float delta)
 {
-    if (IsSameAngles_(angle, ANGLE_TOP, delta)) {
-        return ANGLE_TOP;
-    }
-    else if (IsSameAngles_(angle, ANGLE_RIGHT, delta)) {
-        return ANGLE_RIGHT;
-    }
-    else if (IsSameAngles_(angle, ANGLE_BOTTOM, delta)) {
-        return ANGLE_BOTTOM;
-    }
-    else if (IsSameAngles_(angle, ANGLE_LEFT, delta)) {
-        return ANGLE_LEFT;
+    float rounded = F_PI_4 * round(angle / F_PI_4);
+    if (IsSameAngles_(angle, rounded, delta)) {
+        return rounded;
     }
     else {
         return angle;

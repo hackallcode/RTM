@@ -25,6 +25,9 @@
     <Filter Include="src\library">
       <UniqueIdentifier>{cf35ac2a-73be-44e4-a959-3a0a862ef4d4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\object\map">
+      <UniqueIdentifier>{4f96a652-fc45-4254-8e8d-5f6af5326e7b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -60,6 +63,9 @@
     <ClCompile Include="..\Classes\fasttrigo.cpp">
       <Filter>src\library</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\MapController.cpp">
+      <Filter>src\object\map</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -94,6 +100,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\fasttrigo.h">
       <Filter>src\library</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\MapController.h">
+      <Filter>src\object\map</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

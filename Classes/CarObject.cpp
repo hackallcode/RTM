@@ -1,4 +1,4 @@
-#include "WorldScene.h"
+#include "MapController.h"
 #include "CarObject.h"
 
 rtm::CarObject::CarObject()
@@ -21,9 +21,9 @@ rtm::CarObject::CarObject(CarType type, int row, int column, float angle)
     )
 {}
 
-void rtm::CarObject::Update(World* const scene)
+void rtm::CarObject::Update(MapController* const map)
 {
-    VehicleObject::Update(scene);
+    VehicleObject::Update(map);
 
 
 }

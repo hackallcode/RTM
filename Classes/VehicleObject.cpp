@@ -1,4 +1,4 @@
-#include "WorldScene.h"
+#include "MapController.h"
 #include "VehicleObject.h"
 
 rtm::VehicleObject::VehicleObject()
@@ -25,13 +25,13 @@ rtm::VehicleObject::VehicleObject(std::string const& filename, float maxSpeed, f
     , remainingOffsetAngle_(0.f)
 {}
 
-void rtm::VehicleObject::Update(World* const scene)
+void rtm::VehicleObject::Update(MapController* const map)
 {
     if (HasCollision_()) {
         return;
     }
     else {
-        Accelerate_(scene->getMissedTime());
+        Accelerate_(map->GetDeltaTime());
         if (IsSameCoords_(GetX(), 28.5 * CELL_SIZE)) {
             ChangeLine_(rand() % 2);
         } else if (IsSameCoords_(GetX(), 32.5 * CELL_SIZE)) {
@@ -45,13 +45,12 @@ void rtm::VehicleObject::Update(World* const scene)
                 break;
             case 2:
                 Rotate_(ANGLE_LEFT);
-                break;
             }
         }
-        Move_(scene->getMissedTime());
+        Move_(map->GetDeltaTime());
     }
 
-    DynamicObject::Update(scene);
+    DynamicObject::Update(map);
 }
 
 void rtm::VehicleObject::Accelerate_(float deltaTime)
@@ -80,7 +79,9 @@ bool rtm::VehicleObject::Rotate_(float angle)
         return false;
     }
     else {
+        // Angle of rotation
         remainingAngle_ = RoundAngle_(angle);
+
         isRotation_ = true;
         return true;
     }
@@ -92,8 +93,11 @@ bool rtm::VehicleObject::ChangeLine_(bool isRight)
         return false;
     }
     else {
+        // Length of normal relative to speed
         remainingOffset_ = CELL_SIZE;
+        // Angle of normal relative to speed
         remainingOffsetAngle_ = isRight ? GetAngle() + F_PI_2 : GetAngle() - F_PI_2;
+
         isLineChanging_ = true;
         return true;
     }
@@ -114,6 +118,7 @@ void rtm::VehicleObject::Rotation_(float deltaTime)
         SetAngle_(GetAngle() + delta);
         remainingAngle_ -= delta;
 
+        // End
         if (remainingAngle_ == 0.f) {
             SetX_(RoundCoord_(GetX(), 2 * COORD_DELTA));
             SetY_(RoundCoord_(GetY(), 2 * COORD_DELTA));
@@ -125,19 +130,24 @@ void rtm::VehicleObject::Rotation_(float deltaTime)
 void rtm::VehicleObject::LineChanging_(float deltaTime)
 {
     if (isLineChanging_) {
+        // Angle between speed and normal relative to it
         float delta = remainingOffsetAngle_ - GetAngle();
 
+        // Begin
         if (IsSameCoords_(remainingOffset_, CELL_SIZE)) {
-            Rotate_(delta > 0 ? F_PI_4 : -F_PI_4);
+            Rotate_(delta > 0.f ? F_PI_4 : -F_PI_4);
         }
+        // I want to come back on my way!
         else if (IsSameCoords_(remainingOffset_, CELL_SIZE / 4)) {
-            Rotate_(delta > 0 ? -F_PI_4 : F_PI_4);
+            Rotate_(delta > 0.f ? -F_PI_4 : F_PI_4);
         }
+        // End
         else if (remainingOffset_ == 0.f) {
             isLineChanging_ = false;
             remainingOffsetAngle_ = 0.f;
         }
 
+        // Normal offset relative to speed
         remainingOffset_ -= MIN(
             abs(FTA::cos(delta) * GetSpeed_() * deltaTime), 
             remainingOffset_

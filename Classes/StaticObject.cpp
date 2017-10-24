@@ -1,4 +1,4 @@
-#include "WorldScene.h"
+#include "MapController.h"
 #include "StaticObject.h"
 
 rtm::StaticObject::StaticObject()

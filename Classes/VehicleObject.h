@@ -16,7 +16,7 @@ namespace rtm {
 
         virtual ~VehicleObject() = default;
 
-        virtual void Update(World* const scene) override;
+        virtual void Update(MapController* const map) override;
 
     protected:
         void Accelerate_(float deltaTime);

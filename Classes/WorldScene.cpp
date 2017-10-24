@@ -40,12 +40,8 @@ bool rtm::World::init()
 
     //////////////////////////////
     // 2. Objects
-
-    // Set background
-    cocos2d::Sprite* background = cocos2d::Sprite::create("res/background.png");
-    background->setAnchorPoint(cocos2d::Vec2(0, 0));
-    addChild(background, BACKGROUND_Z_ORDER);
-
+    map_ = std::make_unique<MapController>(this);
+    
     //////////////////////////////
     // 3. Listeners 
 
@@ -61,87 +57,17 @@ bool rtm::World::init()
 
 void rtm::World::update(float time)
 {
-    missedTime_ = time;
-
-    CheckCollisions(getDynamicObjects(), getStaticObjects());
-
-    for (auto& obj : getDynamicObjects()) {
-        obj->Update(this);
-    }
-}
-
-float rtm::World::getMissedTime() const
-{
-    return missedTime_;
-}
-
-float rtm::World::getWidth() const
-{
-    return getContentSize().width;
-}
-
-float rtm::World::getHeight() const
-{
-    return getContentSize().height;
+    getMap()->Update(time);
 }
 
 void rtm::World::restart()
 {
-    removeAllObjects_();
+    getMap()->reset();
 }
 
-void rtm::World::spawnBuilding(BuildingType type, int row, int column, float angle)
+std::unique_ptr<rtm::MapController>& rtm::World::getMap()
 {
-    addBuilding_(type, row, column, angle);
-}
-
-std::vector<std::unique_ptr<rtm::StaticObject>>& rtm::World::getStaticObjects()
-{
-    return staticObjs_;
-}
-
-void rtm::World::spawnCar(CarType type, int row, int column, float angle)
-{
-    addCar_(type, row, column, angle);
-}
-
-std::vector<std::unique_ptr<rtm::DynamicObject>>& rtm::World::getDynamicObjects()
-{
-    return dynamicObjs_;
-}
-
-void rtm::World::addBuilding_(BuildingType type, int row, int column, float angle)
-{
-    staticObjs_.push_back(std::make_unique<BuildingObject>(type, row, column, angle));
-    addChild(staticObjs_.back()->GetSprite(), BUILDING_Z_ORDER);
-}
-
-void rtm::World::removeStaticObjects_()
-{
-    while (staticObjs_.size() > 0) {
-        removeChild(staticObjs_.back()->GetSprite());
-        staticObjs_.pop_back();
-    }
-}
-
-void rtm::World::addCar_(CarType type, int row, int column, float angle)
-{
-    dynamicObjs_.push_back(std::make_unique<CarObject>(type, row, column, angle));
-    addChild(dynamicObjs_.back()->GetSprite(), VEHICLE_Z_ORDER);
-}
-
-void rtm::World::removeDynamicObjects_()
-{
-    while (dynamicObjs_.size() > 0) {
-        removeChild(dynamicObjs_.back()->GetSprite());
-        dynamicObjs_.pop_back();
-    }
-}
-
-void rtm::World::removeAllObjects_()
-{
-    removeStaticObjects_();
-    removeDynamicObjects_();
+    return map_;
 }
 
 void rtm::keyListener(cocos2d::EventKeyboard::KeyCode code, cocos2d::Event* event)
@@ -154,22 +80,22 @@ void rtm::keyListener(cocos2d::EventKeyboard::KeyCode code, cocos2d::Event* even
         GLOBAL_WORLD_SCENE->restart();
     }
     else if (code == cocos2d::EventKeyboard::KeyCode::KEY_C) {
-        for (size_t i = 1; i <= 5; ++i) {
+        for (size_t i = 5; i <= 5; ++i) {
             size_t w = 25;
             size_t h = 4 + i * 4;
-            GLOBAL_WORLD_SCENE->spawnCar((rtm::CarType) i, w, h, ANGLE_RIGHT);
+            GLOBAL_WORLD_SCENE->getMap()->addCar((rtm::CarType) i, w, h, ANGLE_RIGHT);
         }
     }
     else if (code == cocos2d::EventKeyboard::KeyCode::KEY_B) {
         size_t w = GLOBAL_WORLD_SCENE->getContentSize().width / CELL_SIZE;
         size_t h = GLOBAL_WORLD_SCENE->getContentSize().height / CELL_SIZE;
-        GLOBAL_WORLD_SCENE->spawnBuilding((rtm::BuildingType) (rand() % 2 + 1), rand() % w, rand() % h, ANGLE_TOP);
+        GLOBAL_WORLD_SCENE->getMap()->addBuilding((rtm::BuildingType) (rand() % 2 + 1), rand() % w, rand() % h, ANGLE_TOP);
     }
     else if (code == cocos2d::EventKeyboard::KeyCode::KEY_M) {
         for (size_t i = 0; i < 100; ++i) {
             size_t w = GLOBAL_WORLD_SCENE->getContentSize().width / CELL_SIZE - 2;
             size_t h = GLOBAL_WORLD_SCENE->getContentSize().height / CELL_SIZE - 2;
-            GLOBAL_WORLD_SCENE->spawnCar((rtm::CarType) (rand() % 5 + 1), rand() % w, rand() % h, rand() % 360 * DEG_RAD);
+            GLOBAL_WORLD_SCENE->getMap()->addCar((rtm::CarType) (rand() % 5 + 1), rand() % w, rand() % h, rand() % 360 * DEG_RAD);
         }
     }
 }

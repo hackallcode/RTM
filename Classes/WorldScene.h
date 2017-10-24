@@ -5,20 +5,10 @@
 #include <vector> // std::vector
 #include <memory> // std::unique_ptr
 
-#include "BuildingObject.h"
-#include "CarObject.h"
+#include <MapController.h>
 
 namespace rtm {
     
-    // PARAMETERS
-    size_t const CELL_SIZE = 30;
-
-    // Z ORDERS
-    int const BACKGROUND_Z_ORDER = 0;
-    int const COATING_Z_ORDER = 1;
-    int const VEHICLE_Z_ORDER = 2;
-    int const BUILDING_Z_ORDER = 3;
-
     class World 
         : public cocos2d::Layer
     {
@@ -28,31 +18,13 @@ namespace rtm {
         ~World() = default;
 
         virtual bool init() override;
-        virtual void update(float time) override;
-        
-        float getMissedTime() const;
-        float getWidth() const;
-        float getHeight() const;
+        virtual void update(float time) override;        
         void restart();
-        
-        void spawnBuilding(BuildingType type, int row, int column, float angle);
-        std::vector<std::unique_ptr<StaticObject>>& getStaticObjects();
-        
-        void spawnCar(CarType type, int row, int column, float angle);        
-        std::vector<std::unique_ptr<DynamicObject>>& getDynamicObjects();
+
+        std::unique_ptr<MapController>& getMap();
 
     private:
-        float missedTime_;
-
-        std::vector<std::unique_ptr<StaticObject>> staticObjs_;
-        void addBuilding_(BuildingType type, int row, int column, float angle);
-        void removeStaticObjects_();
-
-        std::vector<std::unique_ptr<DynamicObject>> dynamicObjs_;
-        void addCar_(CarType type, int row, int column, float angle);
-        void removeDynamicObjects_();
-
-        void removeAllObjects_();
+        std::unique_ptr<MapController> map_;
     };
 
     void keyListener(cocos2d::EventKeyboard::KeyCode code, cocos2d::Event* event);

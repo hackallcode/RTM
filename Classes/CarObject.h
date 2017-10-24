@@ -53,7 +53,7 @@ namespace rtm {
 
         virtual ~CarObject() = default;
 
-        virtual void Update(World* const scene) override;
+        virtual void Update(MapController* const map) override;
 
     private:
         static std::string GetClassFile_(CarType type);

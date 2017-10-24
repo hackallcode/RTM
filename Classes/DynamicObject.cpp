@@ -1,4 +1,4 @@
-#include "WorldScene.h"
+#include "MapController.h"
 #include "DynamicObject.h"
 #include "StaticObject.h"
 
@@ -53,15 +53,15 @@ rtm::DynamicObject::DynamicObject(float x, float y, float a, float speed, std::s
     , hasCollision_(false)
 {}
 
-void rtm::DynamicObject::Update(World* const scene)
+void rtm::DynamicObject::Update(MapController* const map)
 {
-    WorldObject::Update(scene);
+    WorldObject::Update(map);
 
     float sinVal, cosVal;
     FTA::sincos(GetAngle(), &sinVal, &cosVal);
 
-    SetX_(GetX() + speed_ * sinVal * scene->getMissedTime());
-    SetY_(GetY() + speed_ * cosVal * scene->getMissedTime());
+    SetX_(GetX() + speed_ * sinVal * map->GetDeltaTime());
+    SetY_(GetY() + speed_ * cosVal * map->GetDeltaTime());
     OnPositionUpdate_();
 }
 

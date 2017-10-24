@@ -1,4 +1,4 @@
-#include "WorldScene.h"
+#include "MapController.h"
 #include "MapObject.h"
 
 rtm::MapObject::MapObject()
