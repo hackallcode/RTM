@@ -5,7 +5,7 @@
 #include <vector> // std::vector
 #include <memory> // std::unique_ptr
 
-#include <MapController.h>
+#include <WorldController.h>
 
 namespace rtm {
     
@@ -21,10 +21,10 @@ namespace rtm {
         virtual void update(float time) override;        
         void restart();
 
-        std::unique_ptr<MapController>& getMap();
+        std::unique_ptr<WorldController>& getMap();
 
     private:
-        std::unique_ptr<MapController> map_;
+        std::unique_ptr<WorldController> map_;
     };
 
     void keyListener(cocos2d::EventKeyboard::KeyCode code, cocos2d::Event* event);

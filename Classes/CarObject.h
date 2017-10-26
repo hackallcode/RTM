@@ -26,34 +26,34 @@ namespace rtm {
     std::string const CAR_NO_2_FILE = "res/vehicle/CarNo2.png";
     float const CAR_NO_2_MAX_SPEED = 24.f;
     float const CAR_NO_2_ACCELERATION = 5.f;
-    float const CAR_NO_2_DECELERATION = 8.f;
+    float const CAR_NO_2_DECELERATION = 9.f;
 
     std::string const CAR_NO_3_FILE = "res/vehicle/CarNo3.png";
     float const CAR_NO_3_MAX_SPEED = 30.f;
     float const CAR_NO_3_ACCELERATION = 5.f;
-    float const CAR_NO_3_DECELERATION = 10.f;
+    float const CAR_NO_3_DECELERATION = 14.f;
 
     std::string const CAR_NO_4_FILE = "res/vehicle/CarNo4.png";
     float const CAR_NO_4_MAX_SPEED = 33.f;
     float const CAR_NO_4_ACCELERATION = 8.f;
-    float const CAR_NO_4_DECELERATION = 11.f;
+    float const CAR_NO_4_DECELERATION = 17.f;
 
     std::string const CAR_NO_5_FILE = "res/vehicle/CarNo5.png";
     float const CAR_NO_5_MAX_SPEED = 36.f;
     float const CAR_NO_5_ACCELERATION = 9.f;
-    float const CAR_NO_5_DECELERATION = 12.f;
+    float const CAR_NO_5_DECELERATION = 20.f;
 
     class CarObject
         : public VehicleObject
     {
     public:
         CarObject();
-        CarObject(std::string const& filename, float maxSpeed, float acceleration, float deceleration, int row, int column, float angle);
-        CarObject(CarType type, int row, int column, float angle);
+        CarObject(std::string const& filename, int column, int row, float angle, float maxSpeed, float acceleration, float deceleration);
+        CarObject(CarType type, int column, int row, float angle);
 
         virtual ~CarObject() = default;
 
-        virtual void Update(MapController* const map) override;
+        virtual void Update(WorldController* const world) override;
 
     private:
         static std::string GetClassFile_(CarType type);

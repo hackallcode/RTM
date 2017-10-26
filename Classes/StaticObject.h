@@ -10,8 +10,8 @@ namespace rtm {
     {
     public:
         StaticObject();
-        StaticObject(float x, float y, float a, cocos2d::Sprite* sprite = nullptr);
-        StaticObject(float x, float y, float a, std::string const& filename);
+        StaticObject(cocos2d::Sprite* sprite, float x, float y, float angle);
+        StaticObject(std::string const& filename, float x, float y, float angle);
 
         virtual ~StaticObject() = default;
     };

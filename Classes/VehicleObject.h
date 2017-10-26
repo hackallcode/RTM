@@ -5,18 +5,16 @@
 
 namespace rtm {
 
-    float const LINE_CHANGING_ZONE = 5.f;
-
     class VehicleObject abstract
         : public DynamicObject
     {
     public:
         VehicleObject();
-        VehicleObject(std::string const& filename, float maxSpeed, float acceleration, float deceleration, int row, int column, float angle);
+        VehicleObject(std::string const& filename, int column, int row, float angle, float maxSpeed, float acceleration, float deceleration);
 
         virtual ~VehicleObject() = default;
 
-        virtual void Update(MapController* const map) override;
+        virtual void Update(WorldController* const world) override;
 
     protected:
         void Accelerate_(float deltaTime);
@@ -28,7 +26,6 @@ namespace rtm {
         float maxSpeed_;
         float acceleration_;
         float deceleration_;
-
         bool isRotation_;
         bool isLineChanging_;
         float remainingAngle_;

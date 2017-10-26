@@ -6,11 +6,12 @@
 namespace rtm {
 
     class MapObject
-		: public StaticObject
+        : public StaticObject
     {
     public:
         MapObject();
-        MapObject(std::string const& filename, int row, int column, float angle);
+        MapObject(cocos2d::Sprite* sprite, int column, int row, float angle);
+        MapObject(std::string const& filename, int column, int row, float angle);
 
         virtual ~MapObject() = default;
     };

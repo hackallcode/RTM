@@ -33,17 +33,15 @@ namespace rtm {
     float const ANGLE_DELTA     = 1.f * DEG_RAD;
     float const COORD_DELTA     = 1.f;
 
-    class MapController;
+    class WorldController;
 
     class WorldObject abstract
     {
     public:
         WorldObject();
-        WorldObject(float x, float y, float a, cocos2d::Sprite* const sprite = nullptr);
-        WorldObject(float x, float y, float a, std::string const& filename);
+        WorldObject(cocos2d::Sprite* const sprite, float x, float y, float a);
+        WorldObject(std::string const& filename, float x, float y, float a);
         virtual ~WorldObject() = default;
-
-        void SetSprite(cocos2d::Sprite* const sprite);
 
         cocos2d::Sprite* GetSprite() const;
         float GetX() const;
@@ -52,22 +50,23 @@ namespace rtm {
         float GetWidth() const;
         float GetHeight() const;
 
-        virtual void Update(MapController* const map);
+        virtual void Update(WorldController* const world);
 
     protected:
+        void SetSprite_(cocos2d::Sprite* const sprite);
         void SetX_(float x);
         void SetY_(float y);
         void SetAngle_(float a);
         void SetWidth_(float w);
-        void SetHeight_(float h);
-
+        void SetHeight_(float h);        
+        
         virtual void PositionInit_();
-        virtual void OnPositionUpdate_();
+        virtual void PositionUpdate_();
         virtual void OnXUpdate_();
         virtual void OnYUpdate_();
-        virtual void OnAUpdate_();
-        virtual void OnWUpdate_();
-        virtual void OnHUpdate_();
+        virtual void OnAngleUpdate_();
+        virtual void OnWidthUpdate_();
+        virtual void OnHeightUpdate_();
 
         static bool IsSameCoords_(float a, float b, float delta = COORD_DELTA);
         static float RoundCoord_(float coord, float delta = COORD_DELTA);
@@ -79,13 +78,15 @@ namespace rtm {
         cocos2d::Sprite* sprite_;
         float x_, prevX_;
         float y_, prevY_;
-        float a_, prevA_;
-        float w_, prevW_;
-        float h_, prevH_;
+        float angle_, prevAngle_;
+        float width_, prevWidth_;
+        float height_, prevHeight_;
 
         void SetSpriteX_(float x);
         void SetSpriteY_(float y);
-        void SetSpriteA_(float a);
+        void SetSpriteAngle_(float angle);
+        void SetSpriteWidth_(float width);
+        void SetSpriteHeight_(float height);
     };
 }
 

@@ -1,44 +1,21 @@
-#include "MapController.h"
+#include "WorldController.h"
 #include "WorldObject.h"
 
 rtm::WorldObject::WorldObject()
-    : x_(0.f)
-    , y_(0.f)
-    , a_(0.f)
+    : WorldObject{ nullptr, 0.f, 0.f, 0.f }
+{}
+
+rtm::WorldObject::WorldObject(cocos2d::Sprite* const sprite, float x, float y, float angle)
+    : x_{ x }
+    , y_{ y }
+    , angle_{ angle }
 {
-    SetSprite(nullptr); // Set sprite_, w_, h_
+    SetSprite_(sprite); // Set sprite_, w_, h_
 }
 
-rtm::WorldObject::WorldObject(float x, float y, float a, cocos2d::Sprite* const sprite)
-    : x_(x)
-    , y_(y)
-    , a_(a)
-{
-    SetSprite(sprite); // Set sprite_, w_, h_
-}
-
-rtm::WorldObject::WorldObject(float x, float y, float a, std::string const& filename)
-    : x_(x)
-    , y_(y)
-    , a_(a)
-{
-    SetSprite(cocos2d::Sprite::create(filename)); // Set sprite_, w_, h_
-}
-
-void rtm::WorldObject::SetSprite(cocos2d::Sprite* const sprite)
-{
-    sprite_ = sprite;
-    if (sprite_ != nullptr) {
-        sprite_->setAnchorPoint(cocos2d::Vec2(0.5, 0.5));
-        SetWidth_(sprite_->getContentSize().width);
-        SetHeight_(sprite_->getContentSize().height);
-    }
-    else {
-        SetWidth_(0.f);
-        SetHeight_(0.f);
-    }
-    PositionInit_();
-}
+rtm::WorldObject::WorldObject(std::string const& filename, float x, float y, float angle)
+    : WorldObject{ cocos2d::Sprite::create(filename), x, y, angle }
+{}
 
 cocos2d::Sprite* rtm::WorldObject::GetSprite() const
 {
@@ -57,21 +34,36 @@ float rtm::WorldObject::GetY() const
 
 float rtm::WorldObject::GetAngle() const
 {
-    return a_;
+    return angle_;
 }
 
 float rtm::WorldObject::GetWidth() const
 {
-    return w_;
+    return width_;
 }
 
 float rtm::WorldObject::GetHeight() const
 {
-    return h_;
+    return height_;
 }
 
-void rtm::WorldObject::Update(MapController* const map)
+void rtm::WorldObject::Update(WorldController* const world)
 {}
+
+void rtm::WorldObject::SetSprite_(cocos2d::Sprite* const sprite)
+{
+    sprite_ = sprite;
+    if (sprite_ != nullptr) {
+        sprite_->setAnchorPoint(cocos2d::Vec2(0.5, 0.5));
+        SetWidth_(sprite_->getContentSize().width);
+        SetHeight_(sprite_->getContentSize().height);
+    }
+    else {
+        SetWidth_(0.f);
+        SetHeight_(0.f);
+    }
+    PositionInit_();
+}
 
 void rtm::WorldObject::SetX_(float x)
 {
@@ -83,37 +75,37 @@ void rtm::WorldObject::SetY_(float y)
     y_ = y;
 }
 
-void rtm::WorldObject::SetAngle_(float a)
+void rtm::WorldObject::SetAngle_(float angle)
 {
-    a_ = NormalizeAngle_(a);
+    angle_ = NormalizeAngle_(angle);
 }
 
-void rtm::WorldObject::SetWidth_(float w)
+void rtm::WorldObject::SetWidth_(float width)
 {
-    w_ = w;
+    width_ = width;
 }
 
-void rtm::WorldObject::SetHeight_(float h)
+void rtm::WorldObject::SetHeight_(float height)
 {
-    h_ = h;
+    height_ = height;
 }
 
 void rtm::WorldObject::PositionInit_()
 {
     OnXUpdate_();
     OnYUpdate_();
-    OnAUpdate_();
-    OnWUpdate_();
-    OnHUpdate_();
+    OnAngleUpdate_();
+    OnWidthUpdate_();
+    OnHeightUpdate_();
 }
 
-void rtm::WorldObject::OnPositionUpdate_()
+void rtm::WorldObject::PositionUpdate_()
 {
     if (x_ != prevX_) OnXUpdate_();
     if (y_ != prevY_) OnYUpdate_();
-    if (a_ != prevA_) OnAUpdate_();
-    if (w_ != prevW_) OnWUpdate_();
-    if (h_ != prevH_) OnHUpdate_();
+    if (angle_ != prevAngle_) OnAngleUpdate_();
+    if (width_ != prevWidth_) OnWidthUpdate_();
+    if (height_ != prevHeight_) OnHeightUpdate_();
 }
 
 void rtm::WorldObject::OnXUpdate_()
@@ -128,20 +120,22 @@ void rtm::WorldObject::OnYUpdate_()
     prevY_ = y_;
 }
 
-void rtm::WorldObject::OnAUpdate_()
+void rtm::WorldObject::OnAngleUpdate_()
 {
-    SetSpriteA_(a_);
-    prevA_ = a_;
+    SetSpriteAngle_(angle_);
+    prevAngle_ = angle_;
 }
 
-void rtm::WorldObject::OnWUpdate_()
+void rtm::WorldObject::OnWidthUpdate_()
 {
-    prevW_ = w_;
+    SetSpriteWidth_(width_);
+    prevWidth_ = width_;
 }
 
-void rtm::WorldObject::OnHUpdate_()
+void rtm::WorldObject::OnHeightUpdate_()
 {
-    prevH_ = h_;
+    SetSpriteHeight_(height_);
+    prevHeight_ = height_;
 }
 
 bool rtm::WorldObject::IsSameCoords_(float a, float b, float delta)
@@ -151,7 +145,7 @@ bool rtm::WorldObject::IsSameCoords_(float a, float b, float delta)
 
 float rtm::WorldObject::RoundCoord_(float coord, float delta)
 {
-    float rounded = CELL_SIZE * (round(coord / CELL_SIZE - 0.5) + 0.5);
+    float rounded{ CELL_SIZE * (round(coord / CELL_SIZE - 0.5f) + 0.5f) };
     if (IsSameCoords_(coord, rounded, delta)) {
         return rounded;
     }
@@ -167,7 +161,7 @@ bool rtm::WorldObject::IsSameAngles_(float a, float b, float delta)
 
 float rtm::WorldObject::RoundAngle_(float angle, float delta)
 {
-    float rounded = F_PI_4 * round(angle / F_PI_4);
+    float rounded{ F_PI_4 * round(angle / F_PI_4) };
     if (IsSameAngles_(angle, rounded, delta)) {
         return rounded;
     }
@@ -197,9 +191,23 @@ void rtm::WorldObject::SetSpriteY_(float y)
     }
 }
 
-void rtm::WorldObject::SetSpriteA_(float a)
+void rtm::WorldObject::SetSpriteAngle_(float angle)
 {
     if (sprite_ != nullptr) {
-        sprite_->setRotation(a * RAD_DEG);
+        sprite_->setRotation(angle * RAD_DEG);
+    }
+}
+
+void rtm::WorldObject::SetSpriteWidth_(float width)
+{
+    if (sprite_ != nullptr) {
+        sprite_->setContentSize(cocos2d::Size{ width, sprite_->getContentSize().height });
+    }
+}
+
+void rtm::WorldObject::SetSpriteHeight_(float height)
+{
+    if (sprite_ != nullptr) {
+        sprite_->setContentSize(cocos2d::Size{ sprite_->getContentSize().width, height });
     }
 }

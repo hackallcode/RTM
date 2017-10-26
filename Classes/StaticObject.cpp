@@ -1,14 +1,14 @@
-#include "MapController.h"
+#include "WorldController.h"
 #include "StaticObject.h"
 
 rtm::StaticObject::StaticObject()
-    : WorldObject()
+    : WorldObject{}
 {}
 
-rtm::StaticObject::StaticObject(float x, float y, float a, cocos2d::Sprite* sprite)
-    : WorldObject(x, y, a, sprite)
+rtm::StaticObject::StaticObject(cocos2d::Sprite* sprite, float x, float y, float angle)
+    : WorldObject{ sprite, x, y, angle }
 {}
 
-rtm::StaticObject::StaticObject(float x, float y, float a, std::string const& filename)
-    : WorldObject(x, y, a, filename)
+rtm::StaticObject::StaticObject(std::string const& filename, float x, float y, float angle)
+    : WorldObject{ filename, x, y, angle }
 {}

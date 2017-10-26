@@ -1,4 +1,4 @@
-#include "MapController.h"
+#include "WorldController.h"
 #include "DynamicObject.h"
 #include "StaticObject.h"
 
@@ -36,33 +36,43 @@ bool HaveIntersection(cocos2d::Point a1, cocos2d::Point a2, cocos2d::Point b1, c
 ///////////////////////
 
 rtm::DynamicObject::DynamicObject()
-    : WorldObject()
-    , speed_(0.f)
-    , hasCollision_(false)
+    : WorldObject{}
+    , speed_{ 0.f }
+    , hasCollision_{ false }
 {}
 
-rtm::DynamicObject::DynamicObject(float x, float y, float a, float speed, cocos2d::Sprite* sprite)
-    : WorldObject(x, y, a, sprite)
-    , speed_(speed)
-    , hasCollision_(false)
+rtm::DynamicObject::DynamicObject(cocos2d::Sprite* sprite, float x, float y, float angle, float speed)
+    : WorldObject{ sprite, x, y, angle }
+    , speed_{ speed }
+    , hasCollision_{ false }
 {}
 
-rtm::DynamicObject::DynamicObject(float x, float y, float a, float speed, std::string const& filename)
-    : WorldObject(x, y, a, filename)
-    , speed_(speed)
-    , hasCollision_(false)
+rtm::DynamicObject::DynamicObject(std::string const& filename, float x, float y, float angle, float speed)
+    : WorldObject{ filename, x, y, angle }
+    , speed_{ speed }
+    , hasCollision_{ false }
 {}
 
-void rtm::DynamicObject::Update(MapController* const map)
+float rtm::DynamicObject::GetSpeed() const
 {
-    WorldObject::Update(map);
+    return speed_;
+}
+
+bool rtm::DynamicObject::HasCollision() const
+{
+    return hasCollision_;
+}
+
+void rtm::DynamicObject::Update(WorldController* const world)
+{
+    WorldObject::Update(world);
 
     float sinVal, cosVal;
     FTA::sincos(GetAngle(), &sinVal, &cosVal);
 
-    SetX_(GetX() + speed_ * sinVal * map->GetDeltaTime());
-    SetY_(GetY() + speed_ * cosVal * map->GetDeltaTime());
-    OnPositionUpdate_();
+    SetX_(GetX() + speed_ * sinVal * world->GetDeltaTime());
+    SetY_(GetY() + speed_ * cosVal * world->GetDeltaTime());
+    PositionUpdate_();
 }
 
 void rtm::DynamicObject::SetSpeed_(float speed)
@@ -75,28 +85,32 @@ void rtm::DynamicObject::SetCollisionFlag_(bool flag)
     hasCollision_ = flag;
 }
 
-float rtm::DynamicObject::GetSpeed_() const
+bool rtm::DynamicObject::IsBeholding_(WorldObject const* const other, float radius, float angle, float angleShift) const
 {
-    return speed_;
-}
+    if (other == this) {
+        return false;
+    }
 
-bool rtm::DynamicObject::HasCollision_() const
-{
-    return hasCollision_;
-}
+    float deltaX{ other->GetX() - GetX() };
+    float deltaY{ other->GetY() - GetY() };
+    // If object is near (to shorten time of calculation)
+    if (FT::length(deltaX, deltaY) < radius) {
+        if (IsSameAngles_(FT::atan2(deltaX, deltaY) - GetAngle(), angleShift, angle)) {
+            return true;
+        }
+    }
 
-bool rtm::DynamicObject::IsBeholding_(WorldObject const* const other) const
-{
     return false;
 }
 
 bool rtm::DynamicObject::IsIntersecting_(WorldObject const* const other) const
 {
     if (other == this) {
-        return true;
+        return false;
     }
+
     // If object is near (to shorten time of calculation)
-    else if (IsNear_(other)) {
+    if (IsNear_(other)) {
 
         //  A__________E__________ B
         //  |          |          |
@@ -161,14 +175,14 @@ bool rtm::DynamicObject::IsIntersecting_(WorldObject const* const other) const
 
 bool rtm::DynamicObject::IsNear_(WorldObject const* const other) const
 {
-    float distance = FT::length(GetX() - other->GetX(), GetY() - other->GetY());
-    float radius = FT::length(GetWidth() / 2, GetHeight() / 2);
-    float otherRadius = FT::length(other->GetWidth() / 2, other->GetHeight() / 2);
+    float distance{ FT::length(other->GetX() - GetX(), other->GetY() - GetY()) };
+    float radius{ FT::length(GetWidth() / 2, GetHeight() / 2) };
+    float otherRadius{ FT::length(other->GetWidth() / 2, other->GetHeight() / 2) };
     return distance <= radius + otherRadius;
 }
 
 void rtm::CheckCollisions(std::vector<std::unique_ptr<DynamicObject>> const& dynamicObjs,
-    std::vector<std::unique_ptr<StaticObject>> const& staticObjs = std::vector<std::unique_ptr<StaticObject>>())
+    std::vector<std::unique_ptr<StaticObject>> const& staticObjs)
 {
     for (auto& obj : dynamicObjs) {
         obj->SetCollisionFlag_(false);
@@ -185,7 +199,7 @@ void rtm::CheckCollisions(std::vector<std::unique_ptr<DynamicObject>> const& dyn
                 }
             }
         }
-        if (!dynamicObjs[i]->HasCollision_()) {
+        if (!dynamicObjs[i]->HasCollision()) {
             for (size_t j = 0; j < staticObjs.size(); ++j) {
                 if (dynamicObjs[i]->IsIntersecting_(staticObjs[j].get())) {
                     dynamicObjs[i]->SetCollisionFlag_(true);

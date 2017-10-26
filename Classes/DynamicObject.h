@@ -5,6 +5,16 @@
 
 namespace rtm {
 
+    float const VIEW_RADIUS                     = 100.f;
+    float const VIEW_ANGLE                      = 10.f * DEG_RAD;
+    float const VIEW_ANGLE_SHIFT                = 0.f;
+    float const ROTATION_VIEW_RADIUS            = 55.f;
+    float const ROTATION_VIEW_ANGLE             = 45.f * DEG_RAD;
+    float const ROTATION_VIEW_ANGLE_SHIFT       = 30.f * DEG_RAD;
+    float const LINE_CHANGING_VIEW_RADIUS       = 60.f;
+    float const LINE_CHANGING_VIEW_ANGLE        = 30.f * DEG_RAD;
+    float const LINE_CHANGING_VIEW_ANGLE_SHIFT  = 20.f * DEG_RAD;
+
     class StaticObject;
 
     class DynamicObject abstract
@@ -12,11 +22,14 @@ namespace rtm {
     {
     public:
         DynamicObject();
-        DynamicObject(float x, float y, float a, float speed, cocos2d::Sprite* sprite = nullptr);
-        DynamicObject(float x, float y, float a, float speed, std::string const& filename);
+        DynamicObject(cocos2d::Sprite* sprite, float x, float y, float angle, float speed);
+        DynamicObject(std::string const& filename, float x, float y, float angle, float speed);
         virtual ~DynamicObject() = default;
 
-        virtual void Update(MapController* const map) override;
+        float GetSpeed() const;
+        bool HasCollision() const;
+
+        virtual void Update(WorldController* const world) override;
 
         friend void CheckCollisions(std::vector<std::unique_ptr<DynamicObject>> const& dynamicObjs,
             std::vector<std::unique_ptr<StaticObject>> const& staticObjs);
@@ -24,11 +37,9 @@ namespace rtm {
     protected:
         void SetSpeed_(float speed);
         void SetCollisionFlag_(bool flag);
-
-        float GetSpeed_() const;
-        bool HasCollision_() const;
-
-        bool IsBeholding_(WorldObject const* const other) const;
+        
+        bool IsBeholding_(WorldObject const* const other, float radius = VIEW_RADIUS, 
+            float angle = VIEW_ANGLE, float angleShift = VIEW_ANGLE_SHIFT) const;
         bool IsIntersecting_(WorldObject const* const other) const;
 
     private:
@@ -39,7 +50,7 @@ namespace rtm {
     };
 
     void CheckCollisions(std::vector<std::unique_ptr<DynamicObject>> const& dynamicObjs,
-        std::vector<std::unique_ptr<StaticObject>> const& staticObjs);
+        std::vector<std::unique_ptr<StaticObject>> const& staticObjs = std::vector<std::unique_ptr<StaticObject>>{});
 }
 
 #endif // __DYNAMIC_OBJECT_INCLUDED__

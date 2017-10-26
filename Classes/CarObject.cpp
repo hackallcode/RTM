@@ -1,29 +1,29 @@
-#include "MapController.h"
+#include "WorldController.h"
 #include "CarObject.h"
 
 rtm::CarObject::CarObject()
-    : VehicleObject()
+    : VehicleObject{}
 {}
 
-rtm::CarObject::CarObject(std::string const& filename, float maxSpeed, float acceleration, float deceleration, int row, int column, float angle)
-    : VehicleObject(filename, maxSpeed, acceleration, deceleration, row, column, angle)
+rtm::CarObject::CarObject(std::string const& filename, int column, int row, float angle, float maxSpeed, float acceleration, float deceleration)
+    : VehicleObject{ filename, column, row, angle, maxSpeed, acceleration, deceleration }
 {}
 
-rtm::CarObject::CarObject(CarType type, int row, int column, float angle)
-    : CarObject(
+rtm::CarObject::CarObject(CarType type, int column, int row, float angle)
+    : CarObject{
         CarObject::GetClassFile_(type)
+        , column
+        , row
+        , angle
         , CarObject::GetClassMaxSpeed_(type)
         , CarObject::GetClassAcceleration_(type)
         , CarObject::GetClassDeceleration_(type)
-        , row
-        , column
-        , angle
-    )
+    }
 {}
 
-void rtm::CarObject::Update(MapController* const map)
+void rtm::CarObject::Update(WorldController* const world)
 {
-    VehicleObject::Update(map);
+    VehicleObject::Update(world);
 
 
 }

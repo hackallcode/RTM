@@ -1,22 +1,17 @@
-#include "MapController.h"
+#include "WorldController.h"
 #include "BuildingObject.h"
 
 rtm::BuildingObject::BuildingObject()
-    : MapObject()
+    : MapObject{}
 {}
 
-rtm::BuildingObject::BuildingObject(std::string const& filename, int row, int column, float angle)
-    : MapObject(filename, row, column, angle)
+rtm::BuildingObject::BuildingObject(std::string const& filename, int column, int row, float angle)
+    : MapObject{ filename, column, row, angle }
 {}
 
-rtm::BuildingObject::BuildingObject(BuildingType type, int row, int column, float angle)
-    : BuildingObject(
-        BuildingObject::GetClassFile_(type)
-        , row
-        , column
-        , angle
-    )
-{}  
+rtm::BuildingObject::BuildingObject(BuildingType type, int column, int row, float angle)
+    : BuildingObject{ BuildingObject::GetClassFile_(type), column, row, angle }
+{}
 
 std::string rtm::BuildingObject::GetClassFile_(BuildingType type)
 {

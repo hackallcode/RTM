@@ -63,7 +63,10 @@
     <ClCompile Include="..\Classes\fasttrigo.cpp">
       <Filter>src\library</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\MapController.cpp">
+    <ClCompile Include="..\Classes\WorldController.cpp">
+      <Filter>src\object\map</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\CoatingObject.cpp">
       <Filter>src\object\map</Filter>
     </ClCompile>
   </ItemGroup>
@@ -101,7 +104,10 @@
     <ClInclude Include="..\Classes\fasttrigo.h">
       <Filter>src\library</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\MapController.h">
+    <ClInclude Include="..\Classes\WorldController.h">
+      <Filter>src\object\map</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\CoatingObject.h">
       <Filter>src\object\map</Filter>
     </ClInclude>
   </ItemGroup>
