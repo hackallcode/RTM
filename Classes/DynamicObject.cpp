@@ -95,7 +95,7 @@ bool rtm::DynamicObject::IsBeholding_(WorldObject const* const other, float radi
     float deltaY{ other->GetY() - GetY() };
     // If object is near (to shorten time of calculation)
     if (FT::length(deltaX, deltaY) < radius) {
-        if (IsSameAngles_(FT::atan2(deltaX, deltaY) - GetAngle(), angleShift, angle)) {
+        if (IsSameAngles_(atan2(deltaX, deltaY) - GetAngle(), angleShift, angle)) {
             return true;
         }
     }

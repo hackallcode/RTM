@@ -41,7 +41,7 @@ bool rtm::World::init()
     //////////////////////////////
     // 2. Objects
     map_ = std::make_unique<WorldController>(this);
-    
+
     //////////////////////////////
     // 3. Listeners 
 

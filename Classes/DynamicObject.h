@@ -1,16 +1,19 @@
 #ifndef __DYNAMIC_OBJECT_INCLUDED__
 #define __DYNAMIC_OBJECT_INCLUDED__
 
+#include <cmath>
 #include "WorldObject.h"
 
 namespace rtm {
 
-    float const VIEW_RADIUS                     = 100.f;
-    float const VIEW_ANGLE                      = 10.f * DEG_RAD;
+    float const VIEW_RADIUS                     = 60.f;
+    float const VIEW_ANGLE                      = 15.f * DEG_RAD;
     float const VIEW_ANGLE_SHIFT                = 0.f;
+
     float const ROTATION_VIEW_RADIUS            = 55.f;
     float const ROTATION_VIEW_ANGLE             = 45.f * DEG_RAD;
     float const ROTATION_VIEW_ANGLE_SHIFT       = 30.f * DEG_RAD;
+
     float const LINE_CHANGING_VIEW_RADIUS       = 60.f;
     float const LINE_CHANGING_VIEW_ANGLE        = 30.f * DEG_RAD;
     float const LINE_CHANGING_VIEW_ANGLE_SHIFT  = 20.f * DEG_RAD;
