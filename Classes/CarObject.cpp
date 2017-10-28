@@ -23,9 +23,34 @@ rtm::CarObject::CarObject(CarType type, int column, int row, float angle)
 
 void rtm::CarObject::Update(WorldController* const world)
 {
+    switch (world->caseNum) {
+    case 3:
+        if (IsSameCoords_(GetX(), 15.5 * CELL_SIZE) && (
+            IsSameCoords_(GetY(), 10.5 * CELL_SIZE) || IsSameCoords_(GetY(), 20.5 * CELL_SIZE)
+            )) {
+            ChangeLine_(LEFT);
+        }
+        break;
+    case 4:
+        if (IsSameCoords_(GetX(), 15.5 * CELL_SIZE) && (
+            IsSameCoords_(GetY(), 11.5 * CELL_SIZE) || IsSameCoords_(GetY(), 21.5 * CELL_SIZE)
+            )) {
+            ChangeLine_(RIGHT);
+        }
+        break;
+    case 5:
+        if (IsSameCoords_(GetY(), 14.5 * CELL_SIZE)) {
+            Rotate_(ANGLE_RIGHT);
+        }
+        break;
+    case 6:
+        if (IsSameCoords_(GetY(), 14.5 * CELL_SIZE)) {
+            Rotate_(ANGLE_LEFT);
+        }
+        break;
+    }
+
     VehicleObject::Update(world);
-
-
 }
 
 std::string rtm::CarObject::GetClassFile_(CarType type)

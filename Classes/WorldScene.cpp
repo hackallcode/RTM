@@ -81,7 +81,13 @@ void rtm::keyListener(cocos2d::EventKeyboard::KeyCode code, cocos2d::Event* even
     }
     
     auto& map = GLOBAL_WORLD_SCENE->getMap();
-    if (code == cocos2d::EventKeyboard::KeyCode::KEY_1) {
+    if (code == cocos2d::EventKeyboard::KeyCode::KEY_0) {
+        map->caseNum = 0;
+        map->AddCar(CarTypeNo1, 21, 10, ANGLE_RIGHT);
+        map->AddCar(CarTypeNo2, 20, 10, ANGLE_RIGHT);
+        map->AddCar(CarTypeNo5, 10, 10, ANGLE_RIGHT);
+    }
+    else if (code == cocos2d::EventKeyboard::KeyCode::KEY_1) {
         map->caseNum = 1;
         map->AddCar(CarTypeNo1, 10, 10, ANGLE_RIGHT);
         map->AddCar(CarTypeNo1, 30, 10, ANGLE_LEFT);

@@ -9,6 +9,7 @@ namespace rtm {
         NotStarted = 0
         , MustStart
         , Started
+        , MustStop
     };
 
     class VehicleObject abstract
@@ -29,6 +30,7 @@ namespace rtm {
         bool ChangeLine_(bool isRight = LEFT);
 
     private:
+        float speed_;
         float maxSpeed_;
         float acceleration_;
         float deceleration_;
@@ -39,9 +41,10 @@ namespace rtm {
         float remainingOffset_;
         float remainingOffsetAngle_;
 
+        void MaintainSpeed_(float speed);
+        
         void Move_(WorldController* const world);
-        void Accelerate_(float deltaTime);
-        void Decelerate_(float deltaTime);
+        void Acceleration_(float deltaTime);
         void Movement_(WorldController* const world);
         void Rotation_(WorldController* const world);
         void LineChanging_(WorldController* const world);

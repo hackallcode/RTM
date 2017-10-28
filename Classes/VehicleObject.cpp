@@ -3,6 +3,7 @@
 
 rtm::VehicleObject::VehicleObject()
     : DynamicObject{}
+    , speed_{ 0.f }
     , maxSpeed_{ 0.f }
     , acceleration_{ 0.f }
     , deceleration_{ 0.f }
@@ -16,6 +17,7 @@ rtm::VehicleObject::VehicleObject()
 
 rtm::VehicleObject::VehicleObject(std::string const& filename, int column, int row, float angle, float maxSpeed, float acceleration, float deceleration)
     : DynamicObject(filename, WorldController::Col2X(column), WorldController::Row2Y(row), angle, 0)
+    , speed_{ 0.f }
     , maxSpeed_{ maxSpeed }
     , acceleration_{ acceleration }
     , deceleration_{ deceleration }
@@ -30,43 +32,17 @@ rtm::VehicleObject::VehicleObject(std::string const& filename, int column, int r
 void rtm::VehicleObject::Update(WorldController* const world)
 {
     if (HasCollision()) {
-        return;
+        MaintainSpeed_(0.f);
     }
-
-    switch (world->caseNum) {
-    case 3:
-        if (IsSameCoords_(GetX(), 15.5 * CELL_SIZE) && (
-            IsSameCoords_(GetY(), 10.5 * CELL_SIZE) || IsSameCoords_(GetY(), 20.5 * CELL_SIZE)
-        )) {
-            ChangeLine_(LEFT);
-        }
-        break;
-    case 4:
-        if (IsSameCoords_(GetX(), 15.5 * CELL_SIZE) && (
-            IsSameCoords_(GetY(), 11.5 * CELL_SIZE) || IsSameCoords_(GetY(), 21.5 * CELL_SIZE)
-        )) {
-            ChangeLine_(RIGHT);
-        }
-        break;
-    case 5:
-        if (IsSameCoords_(GetY(), 14.5 * CELL_SIZE)) {
-            Rotate_(ANGLE_RIGHT);
-        }
-        break;
-    case 6:
-        if (IsSameCoords_(GetY(), 14.5 * CELL_SIZE)) {
-            Rotate_(ANGLE_LEFT);
-        }
-        break;
-    }
-
-    Move_(world);
-    DynamicObject::Update(world);
+    else {
+        Move_(world);
+        DynamicObject::Update(world);
+    }    
 }
 
 bool rtm::VehicleObject::MoveForward_()
 {
-    if (isMovement_ != NotStarted) {
+    if (isMovement_ == MustStart || isMovement_ == Started) {
         return false;
     }
     else {
@@ -77,18 +53,18 @@ bool rtm::VehicleObject::MoveForward_()
 
 bool rtm::VehicleObject::Stop_()
 {
-    if (isMovement_ == NotStarted) {
+    if (isMovement_ == MustStop || isMovement_ == NotStarted) {
         return false;
     }
     else {
-        isMovement_ = NotStarted;
+        isMovement_ = MustStop;
         return true;
     }
 }
 
 bool rtm::VehicleObject::Rotate_(float angle)
 {
-    if (isRotation_ != NotStarted) {
+    if (isRotation_ == MustStart || isRotation_ == Started) {
         return false;
     }
     else {
@@ -100,7 +76,7 @@ bool rtm::VehicleObject::Rotate_(float angle)
 
 bool rtm::VehicleObject::ChangeLine_(bool isRight)
 {
-    if (isLineChanging_ != NotStarted) {
+    if (isLineChanging_ == MustStart || isLineChanging_ == Started) {
         return false;
     }
     else {
@@ -111,43 +87,43 @@ bool rtm::VehicleObject::ChangeLine_(bool isRight)
     }
 }
 
+void rtm::VehicleObject::MaintainSpeed_(float speed)
+{
+    speed_ = speed;
+}
+
 void rtm::VehicleObject::Move_(WorldController* const world)
 {
-    Rotation_(world);
     LineChanging_(world);
+    Rotation_(world);
     Movement_(world);
+    Acceleration_(world->GetDeltaTime());
 }
 
-void rtm::VehicleObject::Accelerate_(float deltaTime)
+void rtm::VehicleObject::Acceleration_(float deltaTime)
 {
-    if (GetSpeed() < maxSpeed_) {
+    if (GetSpeed() < speed_) {
         SetSpeed_(GetSpeed() + acceleration_ * deltaTime);
-        if (GetSpeed() > maxSpeed_) {
-            SetSpeed_(maxSpeed_);
+        if (GetSpeed() > speed_) {
+            SetSpeed_(speed_);
         }
     }
-}
-
-void rtm::VehicleObject::Decelerate_(float deltaTime)
-{
-    if (GetSpeed() > 0) {
+    else if (GetSpeed() > speed_) {
         SetSpeed_(GetSpeed() - deceleration_ * deltaTime);
-        if (GetSpeed() < 0) {
-            SetSpeed_(0);
+        if (GetSpeed() < speed_) {
+            SetSpeed_(speed_);
         }
     }
 }
 
 void rtm::VehicleObject::Movement_(WorldController * const world)
 {
-    if (isMovement_ == NotStarted) {
-        Decelerate_(world->GetDeltaTime());
-    }
     if (isMovement_ == MustStart) {
+        MaintainSpeed_(maxSpeed_);
         isMovement_ = Started;
     }
     if (isMovement_ == Started) {
-        bool isBeholding{ false };
+        DynamicObject* object{ nullptr };
         for (auto& obj : world->GetDynamicObjects()) {
             if (IsBeholding_(
                 obj.get()
@@ -155,16 +131,22 @@ void rtm::VehicleObject::Movement_(WorldController * const world)
                 , VIEW_ANGLE
                 , VIEW_ANGLE_SHIFT * (remainingOffsetAngle_ - GetAngle() > 0 ? 1 : -1)
             )) {
-                isBeholding = true;
+                object = obj.get();
                 break;
             }
         }
-        if (!isBeholding) {
-            Accelerate_(world->GetDeltaTime());
+        
+        if (object == nullptr) {
+            MaintainSpeed_(maxSpeed_);
         }
         else {
-            Decelerate_(world->GetDeltaTime());
+            float newSpeed = object->GetSpeed() * FT::cos(object->GetAngle() - GetAngle());
+            MaintainSpeed_(newSpeed > 0 ? newSpeed : 0); // If towards each other
         }
+    }
+    if (isMovement_ == MustStop) {
+        MaintainSpeed_(0.f);
+        isMovement_ = NotStarted;
     }
 }
 
@@ -188,6 +170,7 @@ void rtm::VehicleObject::Rotation_(WorldController* const world)
             isRotation_ = Started;
         }
         else {
+            SetSpeed_(0.f); // KOCTblJIb
             Stop_();
         }
     }
@@ -204,8 +187,11 @@ void rtm::VehicleObject::Rotation_(WorldController* const world)
         if (remainingAngle_ == 0.f) {
             SetX_(RoundCoord_(GetX(), 2 * COORD_DELTA));
             SetY_(RoundCoord_(GetY(), 2 * COORD_DELTA));
-            isRotation_ = NotStarted;
+            isRotation_ = MustStop;
         }
+    }
+    if (isRotation_ == MustStop) {
+        isRotation_ = NotStarted;
     }
 }
 
@@ -253,7 +239,10 @@ void rtm::VehicleObject::LineChanging_(WorldController* const world)
             remainingOffsetAngle_ = 0.f;
             SetX_(RoundCoord_(GetX(), 2 * COORD_DELTA));
             SetY_(RoundCoord_(GetY(), 2 * COORD_DELTA));
-            isLineChanging_ = NotStarted;
+            isLineChanging_ = MustStop;
         }
+    }
+    if (isLineChanging_ == MustStop) {
+        isLineChanging_ = NotStarted;
     }
 }

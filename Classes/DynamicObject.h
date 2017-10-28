@@ -1,7 +1,6 @@
 #ifndef __DYNAMIC_OBJECT_INCLUDED__
 #define __DYNAMIC_OBJECT_INCLUDED__
 
-#include <cmath>
 #include "WorldObject.h"
 
 namespace rtm {

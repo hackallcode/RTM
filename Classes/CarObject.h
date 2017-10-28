@@ -26,22 +26,22 @@ namespace rtm {
     std::string const CAR_NO_2_FILE = "res/vehicle/CarNo2.png";
     float const CAR_NO_2_MAX_SPEED = 24.f;
     float const CAR_NO_2_ACCELERATION = 5.f;
-    float const CAR_NO_2_DECELERATION = 11.f;
+    float const CAR_NO_2_DECELERATION = 12.f;
 
     std::string const CAR_NO_3_FILE = "res/vehicle/CarNo3.png";
     float const CAR_NO_3_MAX_SPEED = 30.f;
     float const CAR_NO_3_ACCELERATION = 5.f;
-    float const CAR_NO_3_DECELERATION = 17.f;
+    float const CAR_NO_3_DECELERATION = 18.f;
 
     std::string const CAR_NO_4_FILE = "res/vehicle/CarNo4.png";
     float const CAR_NO_4_MAX_SPEED = 33.f;
     float const CAR_NO_4_ACCELERATION = 8.f;
-    float const CAR_NO_4_DECELERATION = 20.f;
+    float const CAR_NO_4_DECELERATION = 22.f;
 
     std::string const CAR_NO_5_FILE = "res/vehicle/CarNo5.png";
     float const CAR_NO_5_MAX_SPEED = 36.f;
     float const CAR_NO_5_ACCELERATION = 9.f;
-    float const CAR_NO_5_DECELERATION = 24.f;
+    float const CAR_NO_5_DECELERATION = 26.f;
 
     class CarObject
         : public VehicleObject
