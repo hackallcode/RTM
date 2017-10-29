@@ -17,7 +17,10 @@ namespace rtm {
     {
     public:
         VehicleObject();
-        VehicleObject(std::string const& filename, int column, int row, float angle, float maxSpeed, float acceleration, float deceleration);
+        VehicleObject(cocos2d::Sprite* const sprite, int column, int row, 
+            float angle, float maxSpeed, float acceleration, float deceleration);
+        VehicleObject(std::string const& filename, int column, int row, 
+            float angle, float maxSpeed, float acceleration, float deceleration);
 
         virtual ~VehicleObject() = default;
 
@@ -43,8 +46,13 @@ namespace rtm {
 
         void MaintainSpeed_(float speed);
         
+        void CheckRoadAhead(WorldController* const world);
+        DynamicObject* const CanMoveForward_(WorldController* const world);
+        DynamicObject* const CanRotate_(WorldController* const world);
+        DynamicObject* const CanChangeLine_(WorldController* const world);
+
         void Move_(WorldController* const world);
-        void Acceleration_(float deltaTime);
+        void Acceleration_(WorldController* const world);
         void Movement_(WorldController* const world);
         void Rotation_(WorldController* const world);
         void LineChanging_(WorldController* const world);

@@ -154,6 +154,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\CoatingObject.cpp" />
     <ClCompile Include="..\Classes\DynamicObject.cpp" />
     <ClCompile Include="..\Classes\fasttrigo.cpp" />
+    <ClCompile Include="..\Classes\RoadObject.cpp" />
     <ClCompile Include="..\Classes\WorldController.cpp" />
     <ClCompile Include="..\Classes\MapObject.cpp" />
     <ClCompile Include="..\Classes\StaticObject.cpp" />
@@ -169,6 +170,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\CoatingObject.h" />
     <ClInclude Include="..\Classes\DynamicObject.h" />
     <ClInclude Include="..\Classes\fasttrigo.h" />
+    <ClInclude Include="..\Classes\RoadObject.h" />
     <ClInclude Include="..\Classes\WorldController.h" />
     <ClInclude Include="..\Classes\MapObject.h" />
     <ClInclude Include="..\Classes\StaticObject.h" />

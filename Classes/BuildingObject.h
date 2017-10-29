@@ -19,6 +19,7 @@ namespace rtm {
     {
     public:
         BuildingObject();
+        BuildingObject(cocos2d::Sprite* const sprite, int column, int row, float angle);
         BuildingObject(std::string const& filename, int column, int row, float angle);
         BuildingObject(BuildingType type, int column, int row, float angle);
 

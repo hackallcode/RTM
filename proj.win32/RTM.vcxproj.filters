@@ -69,6 +69,9 @@
     <ClCompile Include="..\Classes\CoatingObject.cpp">
       <Filter>src\object\map</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\RoadObject.cpp">
+      <Filter>src\object\map</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -108,6 +111,9 @@
       <Filter>src\object\map</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\CoatingObject.h">
+      <Filter>src\object\map</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\RoadObject.h">
       <Filter>src\object\map</Filter>
     </ClInclude>
   </ItemGroup>

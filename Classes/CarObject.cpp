@@ -5,6 +5,10 @@ rtm::CarObject::CarObject()
     : VehicleObject{}
 {}
 
+rtm::CarObject::CarObject(cocos2d::Sprite* const sprite, int column, int row, float angle, float maxSpeed, float acceleration, float deceleration)
+    : VehicleObject{ sprite, column, row, angle, maxSpeed, acceleration, deceleration }
+{}
+
 rtm::CarObject::CarObject(std::string const& filename, int column, int row, float angle, float maxSpeed, float acceleration, float deceleration)
     : VehicleObject{ filename, column, row, angle, maxSpeed, acceleration, deceleration }
 {}
@@ -25,26 +29,26 @@ void rtm::CarObject::Update(WorldController* const world)
 {
     switch (world->caseNum) {
     case 3:
-        if (IsSameCoords_(GetX(), 15.5 * CELL_SIZE) && (
-            IsSameCoords_(GetY(), 10.5 * CELL_SIZE) || IsSameCoords_(GetY(), 20.5 * CELL_SIZE)
+        if (IsSameCoords(GetX(), 15.5 * CELL_SIZE) && (
+            IsSameCoords(GetY(), 10.5 * CELL_SIZE) || IsSameCoords(GetY(), 20.5 * CELL_SIZE)
             )) {
             ChangeLine_(LEFT);
         }
         break;
     case 4:
-        if (IsSameCoords_(GetX(), 15.5 * CELL_SIZE) && (
-            IsSameCoords_(GetY(), 11.5 * CELL_SIZE) || IsSameCoords_(GetY(), 21.5 * CELL_SIZE)
+        if (IsSameCoords(GetX(), 15.5 * CELL_SIZE) && (
+            IsSameCoords(GetY(), 11.5 * CELL_SIZE) || IsSameCoords(GetY(), 21.5 * CELL_SIZE)
             )) {
             ChangeLine_(RIGHT);
         }
         break;
     case 5:
-        if (IsSameCoords_(GetY(), 14.5 * CELL_SIZE)) {
+        if (IsSameCoords(GetY(), 14.5 * CELL_SIZE)) {
             Rotate_(ANGLE_RIGHT);
         }
         break;
     case 6:
-        if (IsSameCoords_(GetY(), 14.5 * CELL_SIZE)) {
+        if (IsSameCoords(GetY(), 14.5 * CELL_SIZE)) {
             Rotate_(ANGLE_LEFT);
         }
         break;

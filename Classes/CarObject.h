@@ -48,6 +48,7 @@ namespace rtm {
     {
     public:
         CarObject();
+        CarObject(cocos2d::Sprite* const sprite, int column, int row, float angle, float maxSpeed, float acceleration, float deceleration);
         CarObject(std::string const& filename, int column, int row, float angle, float maxSpeed, float acceleration, float deceleration);
         CarObject(CarType type, int column, int row, float angle);
 

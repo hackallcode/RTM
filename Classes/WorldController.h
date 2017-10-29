@@ -5,7 +5,7 @@
 #include <string>
 #include "BuildingObject.h"
 #include "CarObject.h"
-#include "CoatingObject.h"
+#include "RoadObject.h"
 
 namespace rtm {
 
@@ -51,13 +51,9 @@ namespace rtm {
         std::vector<DynamicUnique>& GetDynamicObjects();
 
         void Reset();
+        void AddRoad(RoadType type, int column, int row, float angle);
         void AddBuilding(BuildingType type, int column, int row, float angle);
         void AddCar(CarType type, int column, int row, float angle);
-
-        static size_t X2Col(float x);
-        static size_t Y2Row(float y);
-        static float Col2X(size_t column);
-        static float Row2Y(size_t row);
 
         int caseNum;
 
@@ -76,6 +72,8 @@ namespace rtm {
         static std::string GetClassFile_(MapNumber number);
     };
 
+    int PixelToCell(float coordinate);
+    float CellToPixel(int cellNumber);
 }
 
 #endif // __MAP_CONTROLLER_INCLUDED__

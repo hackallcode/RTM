@@ -67,13 +67,7 @@ namespace rtm {
         virtual void OnAngleUpdate_();
         virtual void OnWidthUpdate_();
         virtual void OnHeightUpdate_();
-
-        static bool IsSameCoords_(float a, float b, float delta = COORD_DELTA);
-        static float RoundCoord_(float coord, float delta = COORD_DELTA);
-        static bool IsSameAngles_(float a, float b, float delta = ANGLE_DELTA);
-        static float RoundAngle_(float angle, float delta = ANGLE_DELTA);
-        static float NormalizeAngle_(float angle);
-
+        
     private:
         cocos2d::Sprite* sprite_;
         float x_, prevX_;
@@ -88,6 +82,12 @@ namespace rtm {
         void SetSpriteWidth_(float width);
         void SetSpriteHeight_(float height);
     };
+
+    bool IsSameCoords(float a, float b, float delta = COORD_DELTA);
+    float RoundCoord(float coord, float delta = COORD_DELTA);
+    bool IsSameAngles(float a, float b, float delta = ANGLE_DELTA);
+    float RoundAngle(float angle, float delta = ANGLE_DELTA);
+    float NormalizeAngle(float angle);
 }
 
 #endif // __WORLD_OBJECT_INCLUDED__

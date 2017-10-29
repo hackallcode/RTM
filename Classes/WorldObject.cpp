@@ -77,7 +77,7 @@ void rtm::WorldObject::SetY_(float y)
 
 void rtm::WorldObject::SetAngle_(float angle)
 {
-    angle_ = NormalizeAngle_(angle);
+    angle_ = NormalizeAngle(angle);
 }
 
 void rtm::WorldObject::SetWidth_(float width)
@@ -138,45 +138,6 @@ void rtm::WorldObject::OnHeightUpdate_()
     prevHeight_ = height_;
 }
 
-bool rtm::WorldObject::IsSameCoords_(float a, float b, float delta)
-{
-    return abs(a - b) <= delta;
-}
-
-float rtm::WorldObject::RoundCoord_(float coord, float delta)
-{
-    float rounded{ CELL_SIZE * (round(coord / CELL_SIZE - 0.5f) + 0.5f) };
-    if (IsSameCoords_(coord, rounded, delta)) {
-        return rounded;
-    }
-    else {
-        return coord;
-    }
-}
-
-bool rtm::WorldObject::IsSameAngles_(float a, float b, float delta)
-{
-    return abs(a - b) <= delta;
-}
-
-float rtm::WorldObject::RoundAngle_(float angle, float delta)
-{
-    float rounded{ F_PI_4 * round(angle / F_PI_4) };
-    if (IsSameAngles_(angle, rounded, delta)) {
-        return rounded;
-    }
-    else {
-        return angle;
-    }
-}
-
-float rtm::WorldObject::NormalizeAngle_(float angle)
-{
-    while (angle < -F_PI) angle += F_2_PI;
-    while (angle >= F_PI) angle -= F_2_PI;
-    return angle;
-}
-
 void rtm::WorldObject::SetSpriteX_(float x)
 {
     if (sprite_ != nullptr) {
@@ -210,4 +171,43 @@ void rtm::WorldObject::SetSpriteHeight_(float height)
     if (sprite_ != nullptr) {
         sprite_->setContentSize(cocos2d::Size{ sprite_->getContentSize().width, height });
     }
+}
+
+bool rtm::IsSameCoords(float a, float b, float delta)
+{
+    return abs(a - b) <= delta;
+}
+
+float rtm::RoundCoord(float coord, float delta)
+{
+    float rounded{ CellToPixel(PixelToCell(coord)) };
+    if (IsSameCoords(coord, rounded, delta)) {
+        return rounded;
+    }
+    else {
+        return coord;
+    }
+}
+
+bool rtm::IsSameAngles(float a, float b, float delta)
+{
+    return abs(a - b) <= delta;
+}
+
+float rtm::RoundAngle(float angle, float delta)
+{
+    float rounded{ F_PI_4 * round(angle / F_PI_4) };
+    if (IsSameAngles(angle, rounded, delta)) {
+        return rounded;
+    }
+    else {
+        return angle;
+    }
+}
+
+float rtm::NormalizeAngle(float angle)
+{
+    while (angle < -F_PI) angle += F_2_PI;
+    while (angle >= F_PI) angle -= F_2_PI;
+    return angle;
 }

@@ -26,8 +26,18 @@ rtm::WorldController::WorldController(World* const scene)
     scene_->addChild(background, BACKGROUND_Z_ORDER);
 
     // Init coating objects array
-    for (auto& col : coatingObjects_) {
+    /*for (auto& col : coatingObjects_) {
         col = CoatingVector{ rowsCount_ };
+        for (auto& elem : col) {
+            elem.reset(new CoatingObject());
+        }
+    }*/
+    for (int i = 0; i < coatingObjects_.size(); ++i) {
+        coatingObjects_[i] = CoatingVector{ rowsCount_ };
+        for (int j = 0; j < coatingObjects_[i].size(); ++j) {
+            coatingObjects_[i][j].reset(new RoadObject{ RoadTypeNo1, i, j, ANGLE_RIGHT });
+            scene_->addChild(coatingObjects_[i][j]->GetSprite(), COATING_Z_ORDER);
+        }
     }
 }
 
@@ -87,6 +97,12 @@ void rtm::WorldController::Reset()
     RemoveDynamicObjects_();
 }
 
+void rtm::WorldController::AddRoad(RoadType type, int column, int row, float angle)
+{
+    coatingObjects_[column][row].reset(new RoadObject{ type, column, row, angle });
+    scene_->addChild(coatingObjects_[column][row]->GetSprite(), COATING_Z_ORDER);
+}
+
 void rtm::WorldController::AddBuilding(BuildingType type, int column, int row, float angle)
 {
     staticObjects_.push_back(std::make_unique<BuildingObject>(type, column, row, angle));
@@ -97,26 +113,6 @@ void rtm::WorldController::AddCar(CarType type, int column, int row, float angle
 {
     dynamicObjects_.push_back(std::make_unique<CarObject>(type, column, row, angle));
     scene_->addChild(dynamicObjects_.back()->GetSprite(), VEHICLE_Z_ORDER);
-}
-
-size_t rtm::WorldController::Y2Row(float y)
-{
-    return trunc(y / CELL_SIZE);
-}
-
-size_t rtm::WorldController::X2Col(float x)
-{
-    return trunc(x / CELL_SIZE);
-}
-
-float rtm::WorldController::Col2X(size_t column)
-{
-    return (column + 0.5f) * CELL_SIZE;
-}
-
-float rtm::WorldController::Row2Y(size_t row)
-{
-    return (row + 0.5f) * CELL_SIZE;
 }
 
 void rtm::WorldController::RemoveStaticObjects_()
@@ -143,4 +139,14 @@ std::string rtm::WorldController::GetClassFile_(MapNumber number)
     default:
         return MAP_NO_0_FILE;
     }
+}
+
+int rtm::PixelToCell(float coordinate)
+{
+    return static_cast<int>(floor(coordinate / CELL_SIZE));
+}
+
+float rtm::CellToPixel(int cellNumber)
+{
+    return (cellNumber + 0.5f) * CELL_SIZE;
 }

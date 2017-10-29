@@ -6,9 +6,9 @@ rtm::MapObject::MapObject()
 {}
 
 rtm::MapObject::MapObject(cocos2d::Sprite* sprite, int column, int row, float angle)
-    : StaticObject{ sprite, WorldController::Col2X(column), WorldController::Row2Y(row), angle }
+    : StaticObject{ sprite, CellToPixel(column), CellToPixel(row), angle }
 {}
 
 rtm::MapObject::MapObject(std::string const& filename, int column, int row, float angle)
-    : StaticObject{ filename, WorldController::Col2X(column), WorldController::Row2Y(row), angle }
+    : StaticObject{ filename, CellToPixel(column), CellToPixel(row), angle }
 {}
