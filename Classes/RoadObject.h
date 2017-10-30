@@ -7,15 +7,20 @@ namespace rtm {
 
     enum RoadType {
         RoadTypeNo1 = 1
+        , RoadTypeNo2
     };
 
     std::string const ROAD_NO_0_FILE = "res/coating/RoadNo0.png"; // File path
     float const ROAD_NO_0_RESISTANCE = 1.f; // Coefficient of resistance
-    Directions const ROAD_NO_0_DIRECTIONS = { false, false, false, false }; // Enabled directions (top, left, bottom, right)
+    Directions const ROAD_NO_0_DIRECTIONS = { false, false, false, false }; // Enabled directions (top, right, bottom, left)
 
     std::string const ROAD_NO_1_FILE = "res/coating/RoadNo1.png";
     float const ROAD_NO_1_RESISTANCE = 1.f;
     Directions const ROAD_NO_1_DIRECTIONS = { true, false, true, false };
+
+    std::string const ROAD_NO_2_FILE = "res/coating/RoadNo2.png";
+    float const ROAD_NO_2_RESISTANCE = 1.f;
+    Directions const ROAD_NO_2_DIRECTIONS = { false, true, true, false };
 
     class RoadObject
         : public CoatingObject

@@ -29,14 +29,14 @@ void rtm::CarObject::Update(WorldController* const world)
 {
     switch (world->caseNum) {
     case 3:
-        if (IsSameCoords(GetX(), 15.5 * CELL_SIZE) && (
+        if (IsSameCoords(GetX(), 20.5 * CELL_SIZE) && (
             IsSameCoords(GetY(), 10.5 * CELL_SIZE) || IsSameCoords(GetY(), 20.5 * CELL_SIZE)
             )) {
             ChangeLine_(LEFT);
         }
         break;
     case 4:
-        if (IsSameCoords(GetX(), 15.5 * CELL_SIZE) && (
+        if (IsSameCoords(GetX(), 20.5 * CELL_SIZE) && (
             IsSameCoords(GetY(), 11.5 * CELL_SIZE) || IsSameCoords(GetY(), 21.5 * CELL_SIZE)
             )) {
             ChangeLine_(RIGHT);

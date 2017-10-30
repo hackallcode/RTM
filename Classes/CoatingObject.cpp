@@ -2,7 +2,7 @@
 #include "CoatingObject.h"
 
 rtm::CoatingObject::CoatingObject()
-    : CoatingObject{ nullptr, 0.f, 0.f, ANGLE_TOP, 0.f, {false, false, false, false} }
+    : CoatingObject{ nullptr, 0.f, 0.f, ANGLE_TOP, 1.f, { true, true, true, true } }
 {}
 
 rtm::CoatingObject::CoatingObject(cocos2d::Sprite* const sprite, int column, int row,
@@ -34,7 +34,7 @@ rtm::CoatingObject::CoatingObject(cocos2d::Sprite* const sprite, int column, int
     }
 }
 
-rtm::CoatingObject::CoatingObject(std::string const& filename, int column, int row, 
+rtm::CoatingObject::CoatingObject(std::string const& filename, int column, int row,
     float angle, float resistance, Directions directions)
     : CoatingObject{ cocos2d::Sprite::create(filename), column, row, angle, resistance, directions }
 {}
@@ -61,16 +61,16 @@ float rtm::CoatingObject::GetResistance() const
 
 bool rtm::CoatingObject::HasDirection(float angle) const
 {
-    if (angle == ANGLE_TOP) {
+    if (IsSameAngles(angle, ANGLE_TOP)) {
         return directions_[0];
     }
-    else if (angle == ANGLE_RIGHT) {
+    else if (IsSameAngles(angle, ANGLE_RIGHT)) {
         return directions_[1];
     }
-    else if (angle == ANGLE_BOTTOM) {
+    else if (IsSameAngles(angle, ANGLE_BOTTOM)) {
         return directions_[2];
     }
-    else if (angle == ANGLE_LEFT) {
+    else if (IsSameAngles(angle, ANGLE_LEFT)) {
         return directions_[3];
     }
     else {

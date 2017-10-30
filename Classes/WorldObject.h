@@ -4,6 +4,7 @@
 #include "cocos2d.h"
 #include "fasttrigo.h"
 #include <string>
+#include <cmath>
 
 #ifndef min
     #define min(a,b) (((a) < (b)) ? (a) : (b))

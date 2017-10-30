@@ -110,27 +110,34 @@ void rtm::VehicleObject::MaintainSpeed_(float speed)
 
 void rtm::VehicleObject::CheckRoadAhead(WorldController* const world)
 {
-    int col{ PixelToCell(GetX()) };
-    int row{ PixelToCell(GetY()) };
-
-    CoatingObject* coating{ nullptr};
-    if (GetAngle() == ANGLE_TOP) {
-        coating = world->GetCoating(col, row + 1).get();
-    }
-    else if (GetAngle() == ANGLE_RIGHT) {
-        coating = world->GetCoating(col + 1, row).get();
-    }
-    else if (GetAngle() == ANGLE_BOTTOM) {
-        coating = world->GetCoating(col, row - 1).get();
-    }
-    else if (GetAngle() == ANGLE_LEFT) {
-        coating = world->GetCoating(col - 1, row).get();
-    }
-
-    if (coating == nullptr) {
+    // If does another movement
+    if (isRotation_ != NotStarted || isLineChanging_ != NotStarted) {
         return;
     }
 
+    int col{ PixelToCell(GetX()) };
+    int row{ PixelToCell(GetY()) };
+
+    // If in center of cell
+    if (!IsSameCoords(CellToPixel(col), GetX()) || !IsSameCoords(CellToPixel(row), GetY())) {
+        return;
+    }
+
+    CoatingObject* coating{ nullptr};
+    if (IsSameAngles(GetAngle(), ANGLE_TOP)) {
+        coating = world->GetCoating(col, row + 1).get();
+    }
+    else if (IsSameAngles(GetAngle(), ANGLE_RIGHT)) {
+        coating = world->GetCoating(col + 1, row).get();
+    }
+    else if (IsSameAngles(GetAngle(), ANGLE_BOTTOM)) {
+        coating = world->GetCoating(col, row - 1).get();
+    }
+    else if (IsSameAngles(GetAngle(), ANGLE_LEFT)) {
+        coating = world->GetCoating(col - 1, row).get();
+    }
+
+    // If has no forward road coating
     if (coating->HasDirection(GetAngle()) == false) {
         if (coating->HasDirection(NormalizeAngle(GetAngle() + ANGLE_RIGHT))) {
             Rotate_(ANGLE_RIGHT);
@@ -142,7 +149,7 @@ void rtm::VehicleObject::CheckRoadAhead(WorldController* const world)
             Rotate_(ANGLE_BOTTOM);
         }
         else {
-            isMovement_ = MustStop;
+            //isMovement_ = MustStop;
         }
     }
 }
@@ -155,7 +162,7 @@ rtm::DynamicObject* const rtm::VehicleObject::CanMoveForward_(WorldController* c
             obj.get()
             , VIEW_RADIUS
             , VIEW_ANGLE
-            , VIEW_ANGLE_SHIFT * (remainingOffsetAngle_ - GetAngle() > 0 ? 1 : -1)
+            , VIEW_ANGLE_SHIFT
         )) {
             object = obj.get();
             break;
@@ -172,7 +179,7 @@ rtm::DynamicObject* const rtm::VehicleObject::CanRotate_(WorldController* const 
             obj.get()
             , ROTATION_VIEW_RADIUS
             , ROTATION_VIEW_ANGLE
-            , ROTATION_VIEW_ANGLE_SHIFT * (remainingOffsetAngle_ - GetAngle() > 0 ? 1 : -1)
+            , ROTATION_VIEW_ANGLE_SHIFT * (remainingAngle_ < 0 ? 1 : -1)
         )) {
             object = obj.get();
             break;
@@ -232,9 +239,7 @@ void rtm::VehicleObject::Movement_(WorldController * const world)
     }
     if (isMovement_ == Started) {
         // Check road ahead if in center of cell
-        if (IsSameCoords(CellToPixel(PixelToCell(GetX())), GetX())) {
-            CheckRoadAhead(world);
-        }
+        CheckRoadAhead(world);
 
         // Check other vehicles
         DynamicObject* object{ CanMoveForward_(world) };
@@ -278,6 +283,7 @@ void rtm::VehicleObject::Rotation_(WorldController* const world)
         if (remainingAngle_ == 0.f) {
             SetX_(RoundCoord(GetX(), 2 * COORD_DELTA));
             SetY_(RoundCoord(GetY(), 2 * COORD_DELTA));
+            SetAngle_(RoundAngle(GetAngle()));
             isRotation_ = MustStop;
         }
     }
