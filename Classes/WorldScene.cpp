@@ -158,10 +158,10 @@ void rtm::keyListener(cocos2d::EventKeyboard::KeyCode code, cocos2d::Event* even
     }
     else if (code == cocos2d::EventKeyboard::KeyCode::KEY_7) {
         map->caseNum = 7;
-        map->AddCar(CarTypeNo5, 7, 5, ANGLE_TOP);
-        map->AddCar(CarTypeNo5, 2, 17, ANGLE_RIGHT);
-        map->AddCar(CarTypeNo5, 7, 30, ANGLE_BOTTOM);
-        map->AddCar(CarTypeNo5, 16, 17, ANGLE_LEFT);
+        map->AddCar(CarTypeNo5, 30, 10, ANGLE_TOP);
+        map->AddCar(CarTypeNo5, 15, 14, ANGLE_RIGHT);
+        map->AddCar(CarTypeNo5, 30, 25, ANGLE_BOTTOM);
+        map->AddCar(CarTypeNo5, 45, 14, ANGLE_LEFT);
     }
     else if (code == cocos2d::EventKeyboard::KeyCode::KEY_B) {
         size_t cols = GLOBAL_WORLD_SCENE->getMap()->GetColumnsCount();
@@ -169,10 +169,6 @@ void rtm::keyListener(cocos2d::EventKeyboard::KeyCode code, cocos2d::Event* even
         map->AddBuilding((rtm::BuildingType) (rand() % 2 + 1), rand() % cols, rand() % rows, ANGLE_TOP);
     }
     else if (code == cocos2d::EventKeyboard::KeyCode::KEY_M) {
-        for (size_t i = 0; i < 100; ++i) {
-            size_t cols = GLOBAL_WORLD_SCENE->getMap()->GetColumnsCount();
-            size_t rows = GLOBAL_WORLD_SCENE->getMap()->GetRowsCount();
-            map->AddCar((rtm::CarType) (rand() % 5 + 1), rand() % cols, rand() % rows, rand() % 360 * DEG_RAD);
-        }
+        map->AddTestMap();
     }
 }

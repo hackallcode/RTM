@@ -54,6 +54,7 @@ namespace rtm {
         void AddRoad(RoadType type, int column, int row, float angle);
         void AddBuilding(BuildingType type, int column, int row, float angle);
         void AddCar(CarType type, int column, int row, float angle);
+        void AddTestMap();
 
         int caseNum;
 
@@ -66,6 +67,7 @@ namespace rtm {
         std::vector<StaticUnique> staticObjects_;
         std::vector<DynamicUnique> dynamicObjects_;
 
+        void RemoveCoatingObjects_();
         void RemoveStaticObjects_();
         void RemoveDynamicObjects_();
 
