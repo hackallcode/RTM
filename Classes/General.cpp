@@ -1,4 +1,4 @@
-#include "Global.h"
+#include "General.h"
 
 bool rtm::IsSameCoords(float a, float b, float delta)
 {

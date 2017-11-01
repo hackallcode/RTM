@@ -24,45 +24,54 @@ namespace rtm {
         bool Rotate_(float angle = ANGLE_RIGHT);
         bool ChangeLine_(bool isRight = LEFT);
 
-    private:
-        float maxSpeed_;
-        float acceleration_;
-        float deceleration_;
-        
-        bool wasCollision_;
-        
-        StateType isMovement_;
-        float finalSpeed_;
-        float desiredSpeed_;
-        float recommendedSpeed_;
-        bool hasDesiredSpeed_;
-        bool extremeSituation_;
-        float breakingDistance_;
-        
-        StateType isRotation_;
-        float remainingAngle_;
-        
-        StateType isLineChanging_;
-        float remainingOffset_;
-        float remainingOffsetAngle_;
+        float GetRecommendedSpeed_();
+        float GetDesiredSpeed_();
+        float GetFinalSpeed_();
+        bool IsForwardSightEnabled_();
 
         void SetRecommendedSpeed_(float speed);
         void SetDesiredSpeed_(float speed);
+        void SetFinalSpeed_(float speed);
+        void StopAtDistance_(float distance);
         void ResetDesiredSpeed_();
-        void SetBreakingDistance_(float distance);
-        
+        void EnableForwardSight_();
+        void DisableForwardSight_();
+        void SetSimpleBrakes_();
+        void SetDoubleBrakes_();
+
+        // Sight
         CoatingObject* const GetNextCoating_(WorldController* const world, int delta = 1);
-        void CheckRoadAhead_(WorldController* const world);
         DynamicObject* const CanMoveForward_(WorldController* const world);
         DynamicObject* const CanRotate_(WorldController* const world);
         DynamicObject* const CanChangeLine_(WorldController* const world);
 
+        void CheckRoadAhead_(WorldController* const world);
+
+    private:
+        StateType isMovement_;
+        StateType isRotation_;
+        StateType isLineChanging_;
+        float const maxSpeed_;
+        float const acceleration_;
+        float const deceleration_;
+        float recommendedSpeed_;
+        float desiredSpeed_;
+        float finalSpeed_;
+        float brakingDistance_;
+        float remainingAngle_;
+        float remainingOffset_;
+        float remainingOffsetAngle_;
+        bool wasCollision_;
+        bool hasDesiredSpeed_;
+        bool forwardSightEnabled_;
+        bool doubleBrakes_;
+
         void Move_(WorldController* const world);
-        void Acceleration_(WorldController* const world);
-        void Movement_(WorldController* const world);
-        void Breaking_(WorldController* const world);
-        void Rotation_(WorldController* const world);
+        void SmoothBraking_(WorldController* const world);
         void LineChanging_(WorldController* const world);
+        void Rotation_(WorldController* const world);
+        void Movement_(WorldController* const world);
+        void Acceleration_(WorldController* const world);
     };
 }
 

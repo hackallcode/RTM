@@ -3,7 +3,7 @@
 
 #include "cocos2d.h"
 #include <string>
-#include "Global.h"
+#include "General.h"
 #include "BuildingObject.h"
 #include "CarObject.h"
 #include "RoadObject.h"

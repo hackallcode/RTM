@@ -3,7 +3,7 @@
 
 #include "cocos2d.h"
 #include "fasttrigo.h"
-#include "Global.h"
+#include "General.h"
 #include <string>
 
 namespace rtm {
