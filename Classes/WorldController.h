@@ -3,36 +3,12 @@
 
 #include "cocos2d.h"
 #include <string>
+#include "Global.h"
 #include "BuildingObject.h"
 #include "CarObject.h"
 #include "RoadObject.h"
 
 namespace rtm {
-
-    // PARAMETERS
-    size_t const CELL_SIZE = 30;
-
-    // Z ORDERS
-    int const BACKGROUND_Z_ORDER = 0;
-    int const COATING_Z_ORDER = 1;
-    int const VEHICLE_Z_ORDER = 2;
-    int const BUILDING_Z_ORDER = 3;
-
-    // MAPS
-    enum MapNumber {
-        MapNumberNo1 = 1
-    };
-    std::string const MAP_BACKGROUND_FILE = "res/background.png";
-    std::string const MAP_NO_0_FILE = "res/map/MapNo0.rtmm";
-    std::string const MAP_NO_1_FILE = "res/map/MapNo1.rtmm";
-
-    using CoatingUnique = std::unique_ptr<CoatingObject>;
-    using StaticUnique = std::unique_ptr<StaticObject>;
-    using DynamicUnique = std::unique_ptr<DynamicObject>;
-    using CoatingVector = std::vector<CoatingUnique>;
-
-    class World;
-
     class WorldController
     {
     public:
@@ -57,13 +33,12 @@ namespace rtm {
         void AddTestMap();
 
         int caseNum;
-
     private:
         World* scene_;
         size_t columnsCount_;
         size_t rowsCount_;
         float deltaTime_;
-        std::vector<CoatingVector> coatingObjects_;
+        std::vector<std::vector<CoatingUnique>> coatingObjects_;
         std::vector<StaticUnique> staticObjects_;
         std::vector<DynamicUnique> dynamicObjects_;
 
@@ -73,9 +48,6 @@ namespace rtm {
 
         static std::string GetClassFile_(MapNumber number);
     };
-
-    int PixelToCell(float coordinate);
-    float CellToPixel(int cellNumber);
 }
 
 #endif // __MAP_CONTROLLER_INCLUDED__

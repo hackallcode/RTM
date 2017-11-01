@@ -27,7 +27,7 @@ rtm::WorldController::WorldController(World* const scene)
 
     // Init coating objects array
     for (auto& col : coatingObjects_) {
-        col = CoatingVector{ rowsCount_ };
+        col = std::vector<CoatingUnique>{ rowsCount_ };
         for (auto& elem : col) {
             elem.reset(new CoatingObject());
         }
@@ -280,14 +280,4 @@ std::string rtm::WorldController::GetClassFile_(MapNumber number)
     default:
         return MAP_NO_0_FILE;
     }
-}
-
-int rtm::PixelToCell(float coordinate)
-{
-    return static_cast<int>(floor(coordinate / CELL_SIZE));
-}
-
-float rtm::CellToPixel(int cellNumber)
-{
-    return (cellNumber + 0.5f) * CELL_SIZE;
 }

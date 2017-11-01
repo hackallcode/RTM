@@ -6,11 +6,6 @@
 #include <array>
 
 namespace rtm {
-
-    using Directions = std::array<bool, 4>;
-
-    class WorldController;
-
     class CoatingObject
     {
     public:
@@ -42,7 +37,6 @@ namespace rtm {
         float resistance_;
         Directions directions_;
     };
-
 }
 
 #endif // __COATING_OBJECTS_INCLUDED__

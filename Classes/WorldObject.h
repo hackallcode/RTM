@@ -3,39 +3,10 @@
 
 #include "cocos2d.h"
 #include "fasttrigo.h"
+#include "Global.h"
 #include <string>
-#include <cmath>
-
-#ifndef min
-    #define min(a,b) (((a) < (b)) ? (a) : (b))
-#endif
-#ifndef max
-    #define max(a,b) (((a) > (b)) ? (a) : (b))
-#endif
 
 namespace rtm {
-
-    bool const LEFT             = false;
-    bool const RIGHT            = true;
-
-    float const F_PI_4          = 0.785398163397448309616f;
-    float const F_PI_2          = 1.57079632679489661923f;
-    float const F_PI            = 3.14159265358979323846f;
-    float const F_2_PI          = 6.28318530717958647692f;
-
-    float const DEG_RAD         = F_PI / 180.f;
-    float const RAD_DEG         = 180.f / F_PI;
-
-    float const ANGLE_TOP       = 0.f;
-    float const ANGLE_RIGHT     = F_PI_2;
-    float const ANGLE_BOTTOM    = -F_PI;
-    float const ANGLE_LEFT      = -F_PI_2;
-    
-    float const ANGLE_DELTA     = 1.f * DEG_RAD;
-    float const COORD_DELTA     = 1.f;
-
-    class WorldController;
-
     class WorldObject abstract
     {
     public:
@@ -83,12 +54,6 @@ namespace rtm {
         void SetSpriteWidth_(float width);
         void SetSpriteHeight_(float height);
     };
-
-    bool IsSameCoords(float a, float b, float delta = COORD_DELTA);
-    float RoundCoord(float coord, float delta = COORD_DELTA);
-    bool IsSameAngles(float a, float b, float delta = ANGLE_DELTA);
-    float RoundAngle(float angle, float delta = ANGLE_DELTA);
-    float NormalizeAngle(float angle);
 }
 
 #endif // __WORLD_OBJECT_INCLUDED__

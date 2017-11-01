@@ -4,7 +4,6 @@
 #include "WorldObject.h"
 
 namespace rtm {
-
     class StaticObject abstract
         : public WorldObject
     {
@@ -15,7 +14,6 @@ namespace rtm {
 
         virtual ~StaticObject() = default;
     };
-
 }
 
 #endif // __STATIC_OBJECT_INCLUDED__

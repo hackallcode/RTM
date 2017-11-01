@@ -67,9 +67,11 @@ void rtm::DynamicObject::Update(WorldController* const world)
 {
     WorldObject::Update(world);
 
-    SetX_(GetX() + speed_ * sin(GetAngle()) * world->GetDeltaTime());
-    SetY_(GetY() + speed_ * cos(GetAngle()) * world->GetDeltaTime());
-    PositionUpdate_();
+    if (speed_ != 0.f) {
+        SetX_(GetX() + speed_ * sin(GetAngle()) * world->GetDeltaTime());
+        SetY_(GetY() + speed_ * cos(GetAngle()) * world->GetDeltaTime());
+        PositionUpdate_();
+    }
 }
 
 void rtm::DynamicObject::SetSpeed_(float speed)

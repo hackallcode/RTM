@@ -4,14 +4,6 @@
 #include "DynamicObject.h"
 
 namespace rtm {
-
-    enum StateType {
-        NotStarted = 0
-        , MustStart
-        , Started
-        , MustStop
-    };
-
     class VehicleObject abstract
         : public DynamicObject
     {
@@ -33,20 +25,33 @@ namespace rtm {
         bool ChangeLine_(bool isRight = LEFT);
 
     private:
-        float speed_;
         float maxSpeed_;
         float acceleration_;
         float deceleration_;
+        
+        bool wasCollision_;
+        
         StateType isMovement_;
+        float finalSpeed_;
+        bool hasDesiredSpeed_;
+        float desiredSpeed_;
+        float breakingDistance_;
+        float recommendedSpeed_;
+        
         StateType isRotation_;
-        StateType isLineChanging_;
         float remainingAngle_;
+        
+        StateType isLineChanging_;
         float remainingOffset_;
         float remainingOffsetAngle_;
 
-        void MaintainSpeed_(float speed);
+        void SetRecommendedSpeed_(float speed);
+        void SetDesiredSpeed_(float speed);
+        void ResetDesiredSpeed_();
+        void SetBreakingDistance_(float distance);
         
-        void CheckRoadAhead(WorldController* const world);
+        CoatingObject* const GetNextCoating_(WorldController* const world, int delta = 1);
+        void CheckRoadAhead_(WorldController* const world);
         DynamicObject* const CanMoveForward_(WorldController* const world);
         DynamicObject* const CanRotate_(WorldController* const world);
         DynamicObject* const CanChangeLine_(WorldController* const world);
@@ -54,10 +59,10 @@ namespace rtm {
         void Move_(WorldController* const world);
         void Acceleration_(WorldController* const world);
         void Movement_(WorldController* const world);
+        void Breaking_(WorldController* const world);
         void Rotation_(WorldController* const world);
         void LineChanging_(WorldController* const world);
     };
-
 }
 
 #endif // __VEHICLE_OBJECT_INCLUDED__

@@ -4,7 +4,6 @@
 #include "StaticObject.h"
 
 namespace rtm {
-
     class MapObject
         : public StaticObject
     {
@@ -15,7 +14,6 @@ namespace rtm {
 
         virtual ~MapObject() = default;
     };
-
 }
 
 #endif // __MAP_OBJECT_INCLUDED__

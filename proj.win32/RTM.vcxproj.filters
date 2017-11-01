@@ -72,6 +72,9 @@
     <ClCompile Include="..\Classes\RoadObject.cpp">
       <Filter>src\object\map</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\Global.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -115,6 +118,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\RoadObject.h">
       <Filter>src\object\map</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Global.h">
+      <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
