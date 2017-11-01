@@ -33,10 +33,11 @@ namespace rtm {
         
         StateType isMovement_;
         float finalSpeed_;
-        bool hasDesiredSpeed_;
         float desiredSpeed_;
-        float breakingDistance_;
         float recommendedSpeed_;
+        bool hasDesiredSpeed_;
+        bool extremeSituation_;
+        float breakingDistance_;
         
         StateType isRotation_;
         float remainingAngle_;

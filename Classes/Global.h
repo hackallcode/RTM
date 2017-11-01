@@ -52,7 +52,7 @@ namespace rtm {
     /* AREA OF VISIBILITY */
 
     float const VIEW_RADIUS{ 75.f };
-    float const VIEW_ANGLE{ 20.f * DEG_RAD };
+    float const VIEW_ANGLE{ 20.5f * DEG_RAD };
     float const VIEW_ANGLE_SHIFT{ 0.f };
 
     float const ROTATION_VIEW_RADIUS{ 55.f };

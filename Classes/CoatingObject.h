@@ -36,6 +36,7 @@ namespace rtm {
         float y_;
         float resistance_;
         Directions directions_;
+        // size_t length = [NUM_OF_SQUARES] //// can be set in enum based on sprite id
     };
 }
 

@@ -3,19 +3,20 @@
 
 rtm::VehicleObject::VehicleObject()
     : DynamicObject{}
-    , wasCollision_{ false }
-    , recommendedSpeed_{ 0.f }
-    , hasDesiredSpeed_{ false }
-    , desiredSpeed_{ 0.f }
-    , finalSpeed_{ 0.f }
-    , breakingDistance_{ 0.f }
     , maxSpeed_{ 0.f }
     , acceleration_{ 0.f }
     , deceleration_{ 0.f }
+    , wasCollision_{ false }
     , isMovement_{ NotStarted }
+    , finalSpeed_{ 0.f }
+    , desiredSpeed_{ 0.f }
+    , recommendedSpeed_{ 0.f }
+    , hasDesiredSpeed_{ false }
+    , extremeSituation_{ false }
+    , breakingDistance_{ 0.f }
     , isRotation_{ NotStarted }
-    , isLineChanging_{ NotStarted }
     , remainingAngle_{ 0.f }
+    , isLineChanging_{ NotStarted }
     , remainingOffset_{ 0.f }
     , remainingOffsetAngle_{ 0.f }
 {}
@@ -23,19 +24,20 @@ rtm::VehicleObject::VehicleObject()
 rtm::VehicleObject::VehicleObject(cocos2d::Sprite* const sprite, int column, int row,
     float angle, float maxSpeed, float acceleration, float deceleration)
     : DynamicObject{ sprite, CellToPixel(column), CellToPixel(row), angle, 0 }
-    , wasCollision_{ false }
-    , recommendedSpeed_{ 0.f }
-    , hasDesiredSpeed_{ false }
-    , desiredSpeed_{ 0.f }
-    , finalSpeed_{ 0.f }
-    , breakingDistance_{ 0.f }
     , maxSpeed_{ maxSpeed }
     , acceleration_{ acceleration }
     , deceleration_{ deceleration }
+    , wasCollision_{ false }
     , isMovement_{ NotStarted }
+    , finalSpeed_{ 0.f }
+    , desiredSpeed_{ 0.f }
+    , recommendedSpeed_{ 0.f }
+    , hasDesiredSpeed_{ false }
+    , extremeSituation_{ false }
+    , breakingDistance_{ 0.f }
     , isRotation_{ NotStarted }
-    , isLineChanging_{ NotStarted }
     , remainingAngle_{ 0.f }
+    , isLineChanging_{ NotStarted }
     , remainingOffset_{ 0.f }
     , remainingOffsetAngle_{ 0.f }
 {
@@ -46,19 +48,20 @@ rtm::VehicleObject::VehicleObject(cocos2d::Sprite* const sprite, int column, int
 rtm::VehicleObject::VehicleObject(std::string const& filename, int column, int row,
     float angle, float maxSpeed, float acceleration, float deceleration)
     : DynamicObject{ filename, CellToPixel(column), CellToPixel(row), angle, 0 }
-    , wasCollision_{ false }
-    , recommendedSpeed_{ 0.f }
-    , hasDesiredSpeed_{ false }
-    , desiredSpeed_{ 0.f }
-    , finalSpeed_{ 0.f }
-    , breakingDistance_{ 0.f }
     , maxSpeed_{ maxSpeed }
     , acceleration_{ acceleration }
     , deceleration_{ deceleration }
+    , wasCollision_{ false }
     , isMovement_{ NotStarted }
+    , finalSpeed_{ 0.f }
+    , desiredSpeed_{ 0.f }
+    , recommendedSpeed_{ 0.f }
+    , hasDesiredSpeed_{ false }
+    , extremeSituation_{ false }
+    , breakingDistance_{ 0.f }
     , isRotation_{ NotStarted }
-    , isLineChanging_{ NotStarted }
     , remainingAngle_{ 0.f }
+    , isLineChanging_{ NotStarted }
     , remainingOffset_{ 0.f }
     , remainingOffsetAngle_{ 0.f }
 {
@@ -218,7 +221,7 @@ void rtm::VehicleObject::CheckRoadAhead_(WorldController* const world)
             if (!fartherCoating->HasDirection(GetAngle()) &&
                 fartherCoating->HasDirection(NormalizeAngle(GetAngle() + ANGLE_RIGHT)) &&
                 fartherCoating->HasDirection(NormalizeAngle(GetAngle() + ANGLE_LEFT))) {
-                SetBreakingDistance_( abs(FT::length(GetX() - fartherCoating->GetX(), GetY() - fartherCoating->GetY()) - CELL_SIZE) );
+                SetBreakingDistance_(abs(FT::length(GetX() - fartherCoating->GetX(), GetY() - fartherCoating->GetY()) - CELL_SIZE));
             }
         }
     }
@@ -295,7 +298,7 @@ void rtm::VehicleObject::Acceleration_(WorldController* const world)
     else if (GetSpeed() > finalSpeed_) {
         int col{ PixelToCell(GetX()) };
         int row{ PixelToCell(GetY()) };
-        SetSpeed_(GetSpeed() - deceleration_ * world->GetCoating(col, row)->GetResistance() * world->GetDeltaTime());
+        SetSpeed_(GetSpeed() - (extremeSituation_ ? 2 : 1) * deceleration_ * world->GetCoating(col, row)->GetResistance() * world->GetDeltaTime());
         if (GetSpeed() < finalSpeed_) {
             SetSpeed_(finalSpeed_);
         }
@@ -320,12 +323,23 @@ void rtm::VehicleObject::Movement_(WorldController * const world)
         }
 
         // Check other vehicles
+        extremeSituation_ = false;
         DynamicObject* object{ CanMoveForward_(world) };
         if (object != nullptr) {
             float newSpeed{ object->GetSpeed() * FT::cos(object->GetAngle() - GetAngle()) };
-            newSpeed = newSpeed > 0 ? newSpeed : 0;
-            finalSpeed_ = newSpeed < finalSpeed_ ? newSpeed : finalSpeed_; // If towards each other
+            // If forward
+            if (newSpeed >= 0.f) {
+                finalSpeed_ = min(newSpeed, finalSpeed_); // If towards each other
+            }
+            // If towards
+            else {
+                extremeSituation_ = true;
+                finalSpeed_ = 0.f;
+            }
         }
+
+        // If finalSpeed > maxSpeed
+        finalSpeed_ = min(finalSpeed_, maxSpeed_);
     }
     if (isMovement_ == MustStop) {
         finalSpeed_ = 0.f;

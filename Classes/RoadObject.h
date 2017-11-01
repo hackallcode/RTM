@@ -23,7 +23,7 @@ namespace rtm {
         static std::string GetClassFile_(RoadType type);
         static float GetClassResistance_(RoadType type);
         static Directions const& GetClassDirections_(RoadType type);
-    };
+    };  
 }
 
 #endif // __ROAD_OBJECT_INCLUDED__
