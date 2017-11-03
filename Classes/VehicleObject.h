@@ -24,28 +24,35 @@ namespace rtm {
         bool Rotate_(float angle = ANGLE_RIGHT);
         bool ChangeLine_(bool isRight = LEFT);
 
-        float GetRecommendedSpeed_();
-        float GetDesiredSpeed_();
-        float GetFinalSpeed_();
-        bool IsForwardSightEnabled_();
+        bool IsMovement_() const;
+        bool IsRotation_() const;
+        bool IsLineChanging_() const;
+        float GetMaxSpeed_() const;
+        float GetFinalSpeed_() const;
 
-        void SetRecommendedSpeed_(float speed);
-        void SetDesiredSpeed_(float speed);
         void SetFinalSpeed_(float speed);
+        void SetBrakingFactor_(float factor);
         void StopAtDistance_(float distance);
-        void ResetDesiredSpeed_();
-        void EnableForwardSight_();
-        void DisableForwardSight_();
-        void SetSimpleBrakes_();
-        void SetDoubleBrakes_();
 
         // Sight
-        CoatingObject* const GetNextCoating_(WorldController* const world, int delta = 1);
-        DynamicObject* const CanMoveForward_(WorldController* const world);
-        DynamicObject* const CanRotate_(WorldController* const world);
-        DynamicObject* const CanChangeLine_(WorldController* const world);
+        CoatingObject* const CheckForwardCoating_(WorldController* const world, int delta = 1);
+        DynamicObject* const CheckForwardArea_(WorldController* const world, float radius, float angle, float angleShift);
+        DynamicObject* const CheckMovingArea_(WorldController* const world);
+        DynamicObject* const CheckRotationArea_(WorldController* const world);
+        DynamicObject* const CheckLineChangingArea_(WorldController* const world);
 
-        void CheckRoadAhead_(WorldController* const world);
+        // Maneuver
+        virtual bool MovementStart_(WorldController* const world);
+        virtual bool MovementTick_(WorldController* const world);
+        virtual bool MovementEnd_(WorldController* const world);
+        
+        virtual bool RotationStart_(WorldController* const world);
+        virtual bool RotationTick_(WorldController* const world);
+        virtual bool RotationEnd_(WorldController* const world);
+
+        virtual bool LineChangingStart(WorldController* const world);
+        virtual bool LineChangingTick_(WorldController* const world);
+        virtual bool LineChangingEnd_(WorldController* const world);
 
     private:
         StateType isMovement_;
@@ -54,24 +61,19 @@ namespace rtm {
         float const maxSpeed_;
         float const acceleration_;
         float const deceleration_;
-        float recommendedSpeed_;
-        float desiredSpeed_;
         float finalSpeed_;
+        float brakingFactor_;
         float brakingDistance_;
         float remainingAngle_;
         float remainingOffset_;
         float remainingOffsetAngle_;
         bool wasCollision_;
-        bool hasDesiredSpeed_;
-        bool forwardSightEnabled_;
-        bool doubleBrakes_;
 
         void Move_(WorldController* const world);
-        void SmoothBraking_(WorldController* const world);
         void LineChanging_(WorldController* const world);
         void Rotation_(WorldController* const world);
         void Movement_(WorldController* const world);
-        void Acceleration_(WorldController* const world);
+        void SpeedChanging_(WorldController* const world);
     };
 }
 
