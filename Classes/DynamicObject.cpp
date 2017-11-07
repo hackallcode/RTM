@@ -180,14 +180,15 @@ bool rtm::DynamicObject::IsNear_(WorldObject const* const other) const
     return distance <= radius + otherRadius;
 }
 
-void rtm::CheckCollisions(std::vector<std::unique_ptr<DynamicObject>> const& dynamicObjs,
-    std::vector<std::unique_ptr<StaticObject>> const& staticObjs)
+void rtm::CheckCollisions(WorldController* const world)
 {
+    auto& dynamicObjs = world->GetDynamicObjects();
+
     for (auto& obj : dynamicObjs) {
         obj->SetCollisionFlag_(false);
     }
-    for (size_t i = 0; i < dynamicObjs.size(); ++i) {
-        for (size_t j = i + 1; j < dynamicObjs.size(); ++j) {
+    for (size_t i{ 0 }; i < dynamicObjs.size(); ++i) {
+        for (size_t j{ i + 1 }; j < dynamicObjs.size(); ++j) {
             if (i == j) {
                 continue;
             }
@@ -199,10 +200,19 @@ void rtm::CheckCollisions(std::vector<std::unique_ptr<DynamicObject>> const& dyn
             }
         }
         if (!dynamicObjs[i]->HasCollision()) {
-            for (size_t j = 0; j < staticObjs.size(); ++j) {
-                if (dynamicObjs[i]->IsIntersecting_(staticObjs[j].get())) {
-                    dynamicObjs[i]->SetCollisionFlag_(true);
-                    break;
+            int column{ PixelToCell(dynamicObjs[i]->GetX()) };
+            int row{ PixelToCell(dynamicObjs[i]->GetY()) };
+            for (int k{ column - 1 }; k <= column + 1; ++k) {
+                for (int l{ row - 1 }; l <= row + 1; ++l) {
+                    if (world->IsCorrectColumn(column) && world->IsCorrectRow(row)) {
+                        StaticObject* staticPtr{ world->GetStaticObject(k, l).get() };
+                        if (staticPtr != nullptr) {
+                            if (dynamicObjs[i]->IsIntersecting_(staticPtr)) {
+                                dynamicObjs[i]->SetCollisionFlag_(true);
+                                break;
+                            }
+                        }
+                    }
                 }
             }
         }

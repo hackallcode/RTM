@@ -2,7 +2,7 @@
 #include "CoatingObject.h"
 
 rtm::CoatingObject::CoatingObject()
-    : CoatingObject{ nullptr, 0.f, 0.f, ANGLE_TOP, 1.f, { true, true, true, true } }
+    : CoatingObject{ nullptr, 0.f, 0.f, ANGLE_TOP, 0.f, { false, false, false, false } }
 {}
 
 rtm::CoatingObject::CoatingObject(cocos2d::Sprite* const sprite, int column, int row,

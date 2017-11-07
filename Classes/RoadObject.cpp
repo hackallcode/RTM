@@ -37,6 +37,16 @@ std::string rtm::RoadObject::GetClassFile_(RoadType type)
         return ROAD_NO_1_FILE;
     case rtm::RoadTypeNo2:
         return ROAD_NO_2_FILE;
+    case rtm::RoadTypeNo3:
+        return ROAD_NO_3_FILE;
+    case rtm::RoadTypeNo4:
+        return ROAD_NO_4_FILE;
+    case rtm::RoadTypeNo5:
+        return ROAD_NO_5_FILE;
+    case rtm::RoadTypeNo6:
+        return ROAD_NO_6_FILE;
+    case rtm::RoadTypeNo7:
+        return ROAD_NO_7_FILE;
     default:
         return ROAD_NO_0_FILE;
     }
@@ -52,6 +62,16 @@ float rtm::RoadObject::GetClassResistance_(RoadType type)
         return ROAD_NO_2_RESISTANCE;
     default:
         return ROAD_NO_0_RESISTANCE;
+    case rtm::RoadTypeNo3:
+        return ROAD_NO_3_RESISTANCE;
+    case rtm::RoadTypeNo4:
+        return ROAD_NO_4_RESISTANCE;
+    case rtm::RoadTypeNo5:
+        return ROAD_NO_5_RESISTANCE;
+    case rtm::RoadTypeNo6:
+        return ROAD_NO_6_RESISTANCE;
+    case rtm::RoadTypeNo7:
+        return ROAD_NO_7_RESISTANCE;
     }
 }
 
@@ -63,6 +83,16 @@ rtm::Directions const& rtm::RoadObject::GetClassDirections_(RoadType type)
         return ROAD_NO_1_DIRECTIONS;
     case rtm::RoadTypeNo2:
         return ROAD_NO_2_DIRECTIONS;
+    case rtm::RoadTypeNo3:
+        return ROAD_NO_3_DIRECTIONS;
+    case rtm::RoadTypeNo4:
+        return ROAD_NO_4_DIRECTIONS;
+    case rtm::RoadTypeNo5:
+        return ROAD_NO_5_DIRECTIONS;
+    case rtm::RoadTypeNo6:
+        return ROAD_NO_6_DIRECTIONS;
+    case rtm::RoadTypeNo7:
+        return ROAD_NO_7_DIRECTIONS;
     default:
         return ROAD_NO_0_DIRECTIONS;
     }

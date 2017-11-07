@@ -1,10 +1,7 @@
 #ifndef __WORLD_OBJECT_INCLUDED__
 #define __WORLD_OBJECT_INCLUDED__
 
-#include "cocos2d.h"
-#include "fasttrigo.h"
 #include "General.h"
-#include <string>
 
 namespace rtm {
     class WorldObject abstract

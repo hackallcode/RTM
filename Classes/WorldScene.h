@@ -1,10 +1,7 @@
 #ifndef __WORLD_SCENE_INCLUDED__
 #define __WORLD_SCENE_INCLUDED__
 
-#include "cocos2d.h"
-#include <vector> // std::vector
-#include <memory> // std::unique_ptr
-
+#include "General.h"
 #include <WorldController.h>
 
 namespace rtm {

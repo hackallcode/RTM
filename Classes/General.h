@@ -5,6 +5,10 @@
 #include <string>
 #include <array>
 #include <memory>
+#include <fstream>
+#include <vector>
+#include "cocos2d.h"
+#include "fasttrigo.h"
 
 #ifndef min
 #define min(a,b) (((a) < (b)) ? (a) : (b))
@@ -43,11 +47,12 @@ namespace rtm {
     /* MAP PARAMETERS */
 
     size_t const CELL_SIZE{ 30 };
+    size_t const HIDDEN_AREA_SIZE{ 2 };
 
     int const BACKGROUND_Z_ORDER{ 0 };
-    int const COATING_Z_ORDER{ 1 };
-    int const VEHICLE_Z_ORDER{ 2 };
-    int const BUILDING_Z_ORDER{ 3 };
+    int const COATING_OBJECT_Z_ORDER{ 1 };
+    int const VEHICLE_OBJECT_Z_ORDER{ 2 };
+    int const MAP_OBJECT_Z_ORDER{ 3 };
 
     /* AREA OF VISIBILITY */
 
@@ -73,7 +78,7 @@ namespace rtm {
 
     /* TYPES */
 
-    using Directions = std::array<bool, 4>;
+    using Directions = std::array<bool, 8>;
 
     using CoatingUnique = std::unique_ptr<CoatingObject>;
     using StaticUnique = std::unique_ptr<StaticObject>;
@@ -95,6 +100,11 @@ namespace rtm {
     enum RoadType {
         RoadTypeNo1 = 1
         , RoadTypeNo2
+        , RoadTypeNo3
+        , RoadTypeNo4
+        , RoadTypeNo5
+        , RoadTypeNo6
+        , RoadTypeNo7
     };
 
     enum BuildingType {
@@ -109,24 +119,47 @@ namespace rtm {
 
     /* MAPS */
 
-    std::string const MAP_BACKGROUND_FILE{ "res/background.png" };
+    std::string const MAP_BACKGROUND_FILE{ "res/background/BackgroundNo%No%.png" };
 
     std::string const MAP_NO_0_FILE{ "res/map/MapNo0.rtmm" };
     std::string const MAP_NO_1_FILE{ "res/map/MapNo1.rtmm" };
 
     /* ROADS */
 
-    std::string const ROAD_NO_0_FILE{ "res/coating/RoadNo0.png" }; // File path
-    float const ROAD_NO_0_RESISTANCE{ 1.f }; // Coefficient of resistance
-    Directions const ROAD_NO_0_DIRECTIONS{ false, false, false, false }; // Enabled directions (top, right, bottom, left)
+    // File path
+    std::string const ROAD_NO_0_FILE{ "res/coating/RoadNo0.png" };
+    // Coefficient of resistance
+    float const ROAD_NO_0_RESISTANCE{ 1.f };
+    // Enabled directions (top, right, bottom, left, tor-right, bottom-right, bottom-left, top-left)
+    Directions const ROAD_NO_0_DIRECTIONS{ false, false, false, false, false, false, false, false };
 
     std::string const ROAD_NO_1_FILE{ "res/coating/RoadNo1.png" };
     float const ROAD_NO_1_RESISTANCE{ 1.f };
-    Directions const ROAD_NO_1_DIRECTIONS{ true, false, true, false };
+    Directions const ROAD_NO_1_DIRECTIONS{ true, false, true, false, false, false, false, false };
 
     std::string const ROAD_NO_2_FILE{ "res/coating/RoadNo2.png" };
     float const ROAD_NO_2_RESISTANCE{ 1.f };
-    Directions const ROAD_NO_2_DIRECTIONS{ false, true, true, false };
+    Directions const ROAD_NO_2_DIRECTIONS{ false, true, true, false, false, false, false, false };
+
+    std::string const ROAD_NO_3_FILE{ "res/coating/RoadNo3.png" };
+    float const ROAD_NO_3_RESISTANCE{ 1.f };
+    Directions const ROAD_NO_3_DIRECTIONS{ true, false, true, false, false, false, false, false };
+
+    std::string const ROAD_NO_4_FILE{ "res/coating/RoadNo4.png" };
+    float const ROAD_NO_4_RESISTANCE{ 1.f };
+    Directions const ROAD_NO_4_DIRECTIONS{ true, false, true, false, false, false, false, false };
+
+    std::string const ROAD_NO_5_FILE{ "res/coating/RoadNo5.png" };
+    float const ROAD_NO_5_RESISTANCE{ 1.f };
+    Directions const ROAD_NO_5_DIRECTIONS{ true, false, true, false, false, false, false, false };
+
+    std::string const ROAD_NO_6_FILE{ "res/coating/RoadNo6.png" };
+    float const ROAD_NO_6_RESISTANCE{ 1.f };
+    Directions const ROAD_NO_6_DIRECTIONS{ false, false, true, false, true, false, false, false };
+
+    std::string const ROAD_NO_7_FILE{ "res/coating/RoadNo7.png" };
+    float const ROAD_NO_7_RESISTANCE{ 1.f };
+    Directions const ROAD_NO_7_DIRECTIONS{ false, false, true, false, false, false, false, true };
 
     /* BUILDINGS */
 
@@ -164,7 +197,17 @@ namespace rtm {
     bool IsInCenter(float coordinate);
 
     /* OTHER */
+
+    inline bool IsSeparator(char c);
+    inline bool IsNotSeparator(char c);
+    std::vector<int> Split(std::string const& str);
+    float GetAngle(int number);
     float CountDeceleration(float maxSpeed);
+
+    /* TODO: Delete */
+
+    int GetCaseNumber();
+    void SetCaseNumber(int number);
 }
 
 #endif // __GLOBAL_INCLUDED__

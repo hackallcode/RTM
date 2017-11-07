@@ -1,9 +1,7 @@
 #ifndef __COATING_OBJECTS_INCLUDED__
 #define __COATING_OBJECTS_INCLUDED__
 
-#include "cocos2d.h"
-#include <string>
-#include <array>
+#include "General.h"
 
 namespace rtm {
     class CoatingObject

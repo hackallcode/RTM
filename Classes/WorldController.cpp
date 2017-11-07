@@ -13,46 +13,58 @@ rtm::WorldController::WorldController()
 
 rtm::WorldController::WorldController(World* const scene)
     : scene_{ scene }
-    , columnsCount_{ static_cast<size_t>(scene_->getContentSize().width / CELL_SIZE) }
-    , rowsCount_{ static_cast<size_t>(scene_->getContentSize().height / CELL_SIZE) }
+    , columnsCount_{ static_cast<size_t>(trunc(scene_->getContentSize().width / CELL_SIZE)) }
+    , rowsCount_{ static_cast<size_t>(trunc(scene_->getContentSize().height / CELL_SIZE)) }
     , deltaTime_{ 0.f }
-    , coatingObjects_{ columnsCount_ }
-    , staticObjects_{}
+    , coatingObjects_{ columnsCount_ + 2 * HIDDEN_AREA_SIZE }
+    , staticObjects_{ columnsCount_ + 2 * HIDDEN_AREA_SIZE }
     , dynamicObjects_{}
 {
-    // Set background
-    cocos2d::Sprite* background = cocos2d::Sprite::create(MAP_BACKGROUND_FILE);
-    background->setAnchorPoint(cocos2d::Vec2{ 0, 0 });
-    scene_->addChild(background, BACKGROUND_Z_ORDER);
-
     // Init coating objects array
     for (auto& col : coatingObjects_) {
-        col = std::vector<CoatingUnique>{ rowsCount_ };
-        for (auto& elem : col) {
-            elem.reset(new CoatingObject());
-        }
+        col = std::vector<CoatingUnique>{ rowsCount_ + 2 * HIDDEN_AREA_SIZE };
+    }
+
+    // Init static objects array
+    for (auto& col : staticObjects_) {
+        col = std::vector<StaticUnique>{ rowsCount_ + 2 * HIDDEN_AREA_SIZE };
     }
 }
 
 rtm::WorldController::WorldController(World* const scene, std::string const& filename)
     : WorldController{ scene }
 {
-    // Spawn objects
-    // ...
+    LoadMap(filename);
 }
 
 rtm::WorldController::WorldController(World* const scene, MapNumber number)
-    : WorldController{ scene, GetClassFile_(number) }
-{}
+    : WorldController{ scene }
+{
+    LoadMap(number);
+}
 
 void rtm::WorldController::Update(float time)
 {
     deltaTime_ = time;
 
-    CheckCollisions(dynamicObjects_, staticObjects_);
-    for (auto& obj : dynamicObjects_) {
-        obj->Update(this);
+    for (auto it = dynamicObjects_.begin(); it != dynamicObjects_.end();) {
+        DynamicObject& obj{ **it };
+
+        obj.Update(this);
+        if (
+            // Not visible
+            (!IsVisibleColumn(PixelToCell(obj.GetX())) || !IsVisibleRow(PixelToCell(obj.GetY()))) &&
+            // In center of cell
+            IsInCenter(obj.GetX()) && IsInCenter(obj.GetY())
+        ) {
+            scene_->removeChild(obj.GetSprite());
+            it = dynamicObjects_.erase(it);
+        }
+        else {
+            ++it;
+        }
     }
+    CheckCollisions(this);
 }
 
 size_t rtm::WorldController::GetColumnsCount() const
@@ -70,14 +82,14 @@ float rtm::WorldController::GetDeltaTime() const
     return deltaTime_;
 }
 
-rtm::CoatingUnique& rtm::WorldController::GetCoating(int column, int row)
+rtm::CoatingUnique& rtm::WorldController::GetCoatingObject(int column, int row)
 {
-    return coatingObjects_.at(column).at(row);
+    return coatingObjects_[column + HIDDEN_AREA_SIZE][row + HIDDEN_AREA_SIZE];
 }
 
-std::vector<rtm::StaticUnique>& rtm::WorldController::GetStaticObjects()
+rtm::StaticUnique& rtm::WorldController::GetStaticObject(int column, int row)
 {
-    return staticObjects_;
+    return staticObjects_[column + HIDDEN_AREA_SIZE][row + HIDDEN_AREA_SIZE];
 }
 
 std::vector<rtm::DynamicUnique>& rtm::WorldController::GetDynamicObjects()
@@ -85,161 +97,150 @@ std::vector<rtm::DynamicUnique>& rtm::WorldController::GetDynamicObjects()
     return dynamicObjects_;
 }
 
-void rtm::WorldController::Reset()
+bool rtm::WorldController::IsCorrectColumn(int column)
 {
+    return column >= -static_cast<int>(HIDDEN_AREA_SIZE) &&
+        column < static_cast<int>(columnsCount_ + HIDDEN_AREA_SIZE);
+}
+
+bool rtm::WorldController::IsCorrectRow(int row)
+{
+    return row >= -static_cast<int>(HIDDEN_AREA_SIZE) &&
+        row < static_cast<int>(columnsCount_ + HIDDEN_AREA_SIZE);
+}
+
+bool rtm::WorldController::IsVisibleColumn(int row)
+{
+    return row >= 0 && row < columnsCount_;
+}
+
+bool rtm::WorldController::IsVisibleRow(int row)
+{
+    return row >= 0 && row < rowsCount_;
+}
+
+bool rtm::WorldController::LoadMap(std::string const& filename)
+{
+    std::ifstream fin(filename);
+    if (!fin.is_open()) {
+        return false;
+    }
+
     RemoveCoatingObjects_();
     RemoveStaticObjects_();
     RemoveDynamicObjects_();
+
+    std::string buf{};
+    while (std::getline(fin, buf)) {
+        auto nums = Split(buf);
+        if (nums.empty()) {
+            return false;
+        }
+
+        switch (nums[0]) {
+        case 0:
+        {
+            if (nums.size() < 2) {
+                return false;
+            }
+            std::string backgroundFile{ MAP_BACKGROUND_FILE };
+            auto it{ backgroundFile.find("%No%") };
+            backgroundFile.replace(it, 4, std::to_string(nums[1]));
+
+            SetBackground_(backgroundFile);
+            break;
+        }
+        case 1:
+            if (nums.size() < 5) {
+                return false;
+            }
+            SetRoad_(static_cast<RoadType>(nums[1]), nums[2], nums[3], GetAngle(nums[4]));
+            break;
+        case 2:
+            if (nums.size() < 5) {
+                return false;
+            }
+            SetBuilding_(static_cast<BuildingType>(nums[1]), nums[2], nums[3], GetAngle(nums[4]));
+            break;
+        case 3:
+            if (nums.size() < 5) {
+                return false;
+            }
+            AddCar(static_cast<CarType>(nums[1]), nums[2], nums[3], GetAngle(nums[4]));
+            break;
+        }
+    }
+
+    fin.close();
+    return true;
 }
 
-void rtm::WorldController::AddRoad(RoadType type, int column, int row, float angle)
+bool rtm::WorldController::LoadMap(MapNumber number)
 {
-    coatingObjects_[column][row].reset(new RoadObject{ type, column, row, angle });
-    scene_->addChild(coatingObjects_[column][row]->GetSprite(), COATING_Z_ORDER);
-}
-
-void rtm::WorldController::AddBuilding(BuildingType type, int column, int row, float angle)
-{
-    staticObjects_.push_back(std::make_unique<BuildingObject>(type, column, row, angle));
-    scene_->addChild(staticObjects_.back()->GetSprite(), BUILDING_Z_ORDER);
+    return LoadMap(WorldController::GetClassFile_(number));
 }
 
 void rtm::WorldController::AddCar(CarType type, int column, int row, float angle)
 {
     dynamicObjects_.push_back(std::make_unique<CarObject>(type, column, row, angle));
-    scene_->addChild(dynamicObjects_.back()->GetSprite(), VEHICLE_Z_ORDER);
+    scene_->addChild(dynamicObjects_.back()->GetSprite(), VEHICLE_OBJECT_Z_ORDER);
 }
 
-void rtm::WorldController::AddTestMap()
+void rtm::WorldController::Reset()
 {
-    coatingObjects_[24][11].reset(new RoadObject{ RoadTypeNo1, 24, 11, ANGLE_TOP });
-    scene_->addChild(coatingObjects_[24][11]->GetSprite(), COATING_Z_ORDER);
-    coatingObjects_[27][11].reset(new RoadObject{ RoadTypeNo1, 27, 11, ANGLE_TOP });
-    scene_->addChild(coatingObjects_[27][11]->GetSprite(), COATING_Z_ORDER);
-    coatingObjects_[33][11].reset(new RoadObject{ RoadTypeNo1, 33, 11, ANGLE_TOP });
-    scene_->addChild(coatingObjects_[33][11]->GetSprite(), COATING_Z_ORDER);
-    coatingObjects_[36][11].reset(new RoadObject{ RoadTypeNo1, 36, 11, ANGLE_TOP });
-    scene_->addChild(coatingObjects_[36][11]->GetSprite(), COATING_Z_ORDER);
-    coatingObjects_[20][13].reset(new RoadObject{ RoadTypeNo1, 20, 13, ANGLE_TOP });
-    scene_->addChild(coatingObjects_[20][13]->GetSprite(), COATING_Z_ORDER);
-    coatingObjects_[20][14].reset(new RoadObject{ RoadTypeNo1, 20, 14, ANGLE_TOP });
-    scene_->addChild(coatingObjects_[20][14]->GetSprite(), COATING_Z_ORDER);
-    coatingObjects_[20][15].reset(new RoadObject{ RoadTypeNo1, 20, 15, ANGLE_TOP });
-    scene_->addChild(coatingObjects_[20][15]->GetSprite(), COATING_Z_ORDER);
-    coatingObjects_[40][13].reset(new RoadObject{ RoadTypeNo1, 40, 13, ANGLE_TOP });
-    scene_->addChild(coatingObjects_[40][13]->GetSprite(), COATING_Z_ORDER);
-    coatingObjects_[40][14].reset(new RoadObject{ RoadTypeNo1, 40, 14, ANGLE_TOP });
-    scene_->addChild(coatingObjects_[40][14]->GetSprite(), COATING_Z_ORDER);
-    coatingObjects_[40][15].reset(new RoadObject{ RoadTypeNo1, 40, 15, ANGLE_TOP });
-    scene_->addChild(coatingObjects_[40][15]->GetSprite(), COATING_Z_ORDER);
-    coatingObjects_[26][17].reset(new RoadObject{ RoadTypeNo1, 26, 17, ANGLE_TOP });
-    scene_->addChild(coatingObjects_[26][17]->GetSprite(), COATING_Z_ORDER);
-    coatingObjects_[26][18].reset(new RoadObject{ RoadTypeNo1, 26, 18, ANGLE_TOP });
-    scene_->addChild(coatingObjects_[26][18]->GetSprite(), COATING_Z_ORDER);
-    coatingObjects_[26][19].reset(new RoadObject{ RoadTypeNo1, 26, 19, ANGLE_TOP });
-    scene_->addChild(coatingObjects_[26][19]->GetSprite(), COATING_Z_ORDER);
-    coatingObjects_[34][17].reset(new RoadObject{ RoadTypeNo1, 34, 17, ANGLE_TOP });
-    scene_->addChild(coatingObjects_[34][17]->GetSprite(), COATING_Z_ORDER);
-    coatingObjects_[34][18].reset(new RoadObject{ RoadTypeNo1, 34, 18, ANGLE_TOP });
-    scene_->addChild(coatingObjects_[34][18]->GetSprite(), COATING_Z_ORDER);
-    coatingObjects_[34][19].reset(new RoadObject{ RoadTypeNo1, 34, 19, ANGLE_TOP });
-    scene_->addChild(coatingObjects_[34][19]->GetSprite(), COATING_Z_ORDER);
-    coatingObjects_[25][10].reset(new RoadObject{ RoadTypeNo1, 25, 10, ANGLE_RIGHT });
-    scene_->addChild(coatingObjects_[25][10]->GetSprite(), COATING_Z_ORDER);
-    coatingObjects_[26][10].reset(new RoadObject{ RoadTypeNo1, 26, 10, ANGLE_RIGHT });
-    scene_->addChild(coatingObjects_[26][10]->GetSprite(), COATING_Z_ORDER);
-    coatingObjects_[34][10].reset(new RoadObject{ RoadTypeNo1, 34, 10, ANGLE_RIGHT });
-    scene_->addChild(coatingObjects_[34][10]->GetSprite(), COATING_Z_ORDER);
-    coatingObjects_[35][10].reset(new RoadObject{ RoadTypeNo1, 35, 10, ANGLE_RIGHT });
-    scene_->addChild(coatingObjects_[35][10]->GetSprite(), COATING_Z_ORDER);
-    coatingObjects_[21][12].reset(new RoadObject{ RoadTypeNo1, 21, 12, ANGLE_RIGHT });
-    scene_->addChild(coatingObjects_[21][12]->GetSprite(), COATING_Z_ORDER);
-    coatingObjects_[22][12].reset(new RoadObject{ RoadTypeNo1, 22, 12, ANGLE_RIGHT });
-    scene_->addChild(coatingObjects_[22][12]->GetSprite(), COATING_Z_ORDER);
-    coatingObjects_[23][12].reset(new RoadObject{ RoadTypeNo1, 23, 12, ANGLE_RIGHT });
-    scene_->addChild(coatingObjects_[23][12]->GetSprite(), COATING_Z_ORDER);
-    coatingObjects_[28][12].reset(new RoadObject{ RoadTypeNo1, 28, 12, ANGLE_RIGHT });
-    scene_->addChild(coatingObjects_[28][12]->GetSprite(), COATING_Z_ORDER);
-    coatingObjects_[29][12].reset(new RoadObject{ RoadTypeNo1, 29, 12, ANGLE_RIGHT });
-    scene_->addChild(coatingObjects_[29][12]->GetSprite(), COATING_Z_ORDER);
-    coatingObjects_[30][12].reset(new RoadObject{ RoadTypeNo1, 30, 12, ANGLE_RIGHT });
-    scene_->addChild(coatingObjects_[30][12]->GetSprite(), COATING_Z_ORDER);
-    coatingObjects_[31][12].reset(new RoadObject{ RoadTypeNo1, 31, 12, ANGLE_RIGHT });
-    scene_->addChild(coatingObjects_[31][12]->GetSprite(), COATING_Z_ORDER);
-    coatingObjects_[32][12].reset(new RoadObject{ RoadTypeNo1, 32, 12, ANGLE_RIGHT });
-    scene_->addChild(coatingObjects_[32][12]->GetSprite(), COATING_Z_ORDER);
-    coatingObjects_[37][12].reset(new RoadObject{ RoadTypeNo1, 37, 12, ANGLE_RIGHT });
-    scene_->addChild(coatingObjects_[37][12]->GetSprite(), COATING_Z_ORDER);
-    coatingObjects_[38][12].reset(new RoadObject{ RoadTypeNo1, 38, 12, ANGLE_RIGHT });
-    scene_->addChild(coatingObjects_[38][12]->GetSprite(), COATING_Z_ORDER);
-    coatingObjects_[39][12].reset(new RoadObject{ RoadTypeNo1, 39, 12, ANGLE_RIGHT });
-    scene_->addChild(coatingObjects_[39][12]->GetSprite(), COATING_Z_ORDER);
-    coatingObjects_[21][16].reset(new RoadObject{ RoadTypeNo1, 21, 16, ANGLE_RIGHT });
-    scene_->addChild(coatingObjects_[21][16]->GetSprite(), COATING_Z_ORDER);
-    coatingObjects_[22][16].reset(new RoadObject{ RoadTypeNo1, 22, 16, ANGLE_RIGHT });
-    scene_->addChild(coatingObjects_[22][16]->GetSprite(), COATING_Z_ORDER);
-    coatingObjects_[23][16].reset(new RoadObject{ RoadTypeNo1, 23, 16, ANGLE_RIGHT });
-    scene_->addChild(coatingObjects_[23][16]->GetSprite(), COATING_Z_ORDER);
-    coatingObjects_[24][16].reset(new RoadObject{ RoadTypeNo1, 24, 16, ANGLE_RIGHT });
-    scene_->addChild(coatingObjects_[24][16]->GetSprite(), COATING_Z_ORDER);
-    coatingObjects_[25][16].reset(new RoadObject{ RoadTypeNo1, 25, 16, ANGLE_RIGHT });
-    scene_->addChild(coatingObjects_[25][16]->GetSprite(), COATING_Z_ORDER);
-    coatingObjects_[35][16].reset(new RoadObject{ RoadTypeNo1, 35, 16, ANGLE_RIGHT });
-    scene_->addChild(coatingObjects_[35][16]->GetSprite(), COATING_Z_ORDER);
-    coatingObjects_[36][16].reset(new RoadObject{ RoadTypeNo1, 36, 16, ANGLE_RIGHT });
-    scene_->addChild(coatingObjects_[36][16]->GetSprite(), COATING_Z_ORDER);
-    coatingObjects_[37][16].reset(new RoadObject{ RoadTypeNo1, 37, 16, ANGLE_RIGHT });
-    scene_->addChild(coatingObjects_[37][16]->GetSprite(), COATING_Z_ORDER);
-    coatingObjects_[38][16].reset(new RoadObject{ RoadTypeNo1, 38, 16, ANGLE_RIGHT });
-    scene_->addChild(coatingObjects_[38][16]->GetSprite(), COATING_Z_ORDER);
-    coatingObjects_[39][16].reset(new RoadObject{ RoadTypeNo1, 39, 16, ANGLE_RIGHT });
-    scene_->addChild(coatingObjects_[39][16]->GetSprite(), COATING_Z_ORDER);
-    coatingObjects_[27][20].reset(new RoadObject{ RoadTypeNo1, 27, 20, ANGLE_RIGHT });
-    scene_->addChild(coatingObjects_[27][20]->GetSprite(), COATING_Z_ORDER);
-    coatingObjects_[28][20].reset(new RoadObject{ RoadTypeNo1, 28, 20, ANGLE_RIGHT });
-    scene_->addChild(coatingObjects_[28][20]->GetSprite(), COATING_Z_ORDER);
-    coatingObjects_[29][20].reset(new RoadObject{ RoadTypeNo1, 29, 20, ANGLE_RIGHT });
-    scene_->addChild(coatingObjects_[29][20]->GetSprite(), COATING_Z_ORDER);
-    coatingObjects_[30][20].reset(new RoadObject{ RoadTypeNo1, 30, 20, ANGLE_RIGHT });
-    scene_->addChild(coatingObjects_[30][20]->GetSprite(), COATING_Z_ORDER);
-    coatingObjects_[31][20].reset(new RoadObject{ RoadTypeNo1, 31, 20, ANGLE_RIGHT });
-    scene_->addChild(coatingObjects_[31][20]->GetSprite(), COATING_Z_ORDER);
-    coatingObjects_[32][20].reset(new RoadObject{ RoadTypeNo1, 32, 20, ANGLE_RIGHT });
-    scene_->addChild(coatingObjects_[32][20]->GetSprite(), COATING_Z_ORDER);
-    coatingObjects_[33][20].reset(new RoadObject{ RoadTypeNo1, 33, 20, ANGLE_RIGHT });
-    scene_->addChild(coatingObjects_[33][20]->GetSprite(), COATING_Z_ORDER);
-    coatingObjects_[27][12].reset(new RoadObject{ RoadTypeNo2, 27, 12, ANGLE_TOP });
-    scene_->addChild(coatingObjects_[27][12]->GetSprite(), COATING_Z_ORDER);
-    coatingObjects_[36][12].reset(new RoadObject{ RoadTypeNo2, 36, 12, ANGLE_TOP });
-    scene_->addChild(coatingObjects_[36][12]->GetSprite(), COATING_Z_ORDER);
-    coatingObjects_[20][16].reset(new RoadObject{ RoadTypeNo2, 20, 16, ANGLE_TOP });
-    scene_->addChild(coatingObjects_[20][16]->GetSprite(), COATING_Z_ORDER);
-    coatingObjects_[26][20].reset(new RoadObject{ RoadTypeNo2, 26, 20, ANGLE_TOP });
-    scene_->addChild(coatingObjects_[26][20]->GetSprite(), COATING_Z_ORDER);
-    coatingObjects_[24][12].reset(new RoadObject{ RoadTypeNo2, 24, 12, ANGLE_RIGHT });
-    scene_->addChild(coatingObjects_[24][12]->GetSprite(), COATING_Z_ORDER);
-    coatingObjects_[33][12].reset(new RoadObject{ RoadTypeNo2, 33, 12, ANGLE_RIGHT });
-    scene_->addChild(coatingObjects_[33][12]->GetSprite(), COATING_Z_ORDER);
-    coatingObjects_[40][16].reset(new RoadObject{ RoadTypeNo2, 40, 16, ANGLE_RIGHT });
-    scene_->addChild(coatingObjects_[40][16]->GetSprite(), COATING_Z_ORDER);
-    coatingObjects_[34][20].reset(new RoadObject{ RoadTypeNo2, 34, 20, ANGLE_RIGHT });
-    scene_->addChild(coatingObjects_[34][20]->GetSprite(), COATING_Z_ORDER);
-    coatingObjects_[27][10].reset(new RoadObject{ RoadTypeNo2, 27, 10, ANGLE_BOTTOM });
-    scene_->addChild(coatingObjects_[27][10]->GetSprite(), COATING_Z_ORDER);
-    coatingObjects_[36][10].reset(new RoadObject{ RoadTypeNo2, 36, 10, ANGLE_BOTTOM });
-    scene_->addChild(coatingObjects_[36][10]->GetSprite(), COATING_Z_ORDER);
-    coatingObjects_[40][12].reset(new RoadObject{ RoadTypeNo2, 40, 12, ANGLE_BOTTOM });
-    scene_->addChild(coatingObjects_[40][12]->GetSprite(), COATING_Z_ORDER);
-    coatingObjects_[26][16].reset(new RoadObject{ RoadTypeNo2, 26, 16, ANGLE_BOTTOM });
-    scene_->addChild(coatingObjects_[26][16]->GetSprite(), COATING_Z_ORDER);
-    coatingObjects_[24][10].reset(new RoadObject{ RoadTypeNo2, 24, 10, ANGLE_LEFT });
-    scene_->addChild(coatingObjects_[24][10]->GetSprite(), COATING_Z_ORDER);
-    coatingObjects_[33][10].reset(new RoadObject{ RoadTypeNo2, 33, 10, ANGLE_LEFT });
-    scene_->addChild(coatingObjects_[33][10]->GetSprite(), COATING_Z_ORDER);
-    coatingObjects_[20][12].reset(new RoadObject{ RoadTypeNo2, 20, 12, ANGLE_LEFT });
-    scene_->addChild(coatingObjects_[20][12]->GetSprite(), COATING_Z_ORDER);
-    coatingObjects_[34][16].reset(new RoadObject{ RoadTypeNo2, 34, 16, ANGLE_LEFT });
-    scene_->addChild(coatingObjects_[34][16]->GetSprite(), COATING_Z_ORDER);
+    RemoveDynamicObjects_();
+}
+
+void rtm::WorldController::SetBackground_(std::string const & filename)
+{
+    if (background_ != nullptr) {
+        scene_->removeChild(background_);
+    }
+    background_ = cocos2d::Sprite::create(filename);
+    background_->setAnchorPoint(cocos2d::Vec2{ 0, 0 });
+    scene_->addChild(background_, BACKGROUND_Z_ORDER);
+}
+
+void rtm::WorldController::SetRoad_(RoadType type, int column, int row, float angle)
+{
+    if (!IsCorrectColumn(column) || !IsCorrectRow(row)) {
+        return;
+    }
+    size_t vecCol{ column + HIDDEN_AREA_SIZE };
+    size_t vecRow{ row + HIDDEN_AREA_SIZE };
+
+    if (coatingObjects_[vecCol][vecRow]) {
+        if (coatingObjects_[vecCol][vecRow]->GetSprite() != nullptr) {
+            scene_->removeChild(coatingObjects_[vecCol][vecRow]->GetSprite());
+        }
+        coatingObjects_[vecCol][vecRow].reset(new RoadObject{ type, column, row, angle });
+    }
+    else {
+        coatingObjects_[vecCol][vecRow] = std::make_unique<RoadObject>(type, column, row, angle);
+    }
+
+    scene_->addChild(coatingObjects_[vecCol][vecRow]->GetSprite(), COATING_OBJECT_Z_ORDER);
+}
+
+void rtm::WorldController::SetBuilding_(BuildingType type, int column, int row, float angle)
+{
+    if (!IsCorrectColumn(column) || !IsCorrectRow(row)) {
+        return;
+    }
+    size_t vecCol{ column + HIDDEN_AREA_SIZE };
+    size_t vecRow{ row + HIDDEN_AREA_SIZE };
+
+    if (staticObjects_[vecCol][vecRow]) {
+        if (staticObjects_[vecCol][vecRow]->GetSprite() != nullptr) {
+            scene_->removeChild(staticObjects_[vecCol][vecRow]->GetSprite());
+        }
+        staticObjects_[vecCol][vecRow].reset(new BuildingObject{ type, column, row, angle });
+    }
+    else {
+        staticObjects_[vecCol][vecRow] = std::make_unique<BuildingObject>(type, column, row, angle);
+    }
+
+    scene_->addChild(staticObjects_[vecCol][vecRow]->GetSprite(), MAP_OBJECT_Z_ORDER);
 }
 
 void rtm::WorldController::RemoveCoatingObjects_()
@@ -249,8 +250,8 @@ void rtm::WorldController::RemoveCoatingObjects_()
             if (elem) {
                 if (elem->GetSprite() != nullptr) {
                     scene_->removeChild(elem->GetSprite());
-                    elem.reset(new CoatingObject());
                 }
+                elem.reset(nullptr);
             }
         }
     }
@@ -258,18 +259,24 @@ void rtm::WorldController::RemoveCoatingObjects_()
 
 void rtm::WorldController::RemoveStaticObjects_()
 {
-    while (staticObjects_.size() > 0) {
-        scene_->removeChild(staticObjects_.back()->GetSprite());
-        staticObjects_.pop_back();
+    for (auto& col : staticObjects_) {
+        for (auto& elem : col) {
+            if (elem) {
+                if (elem->GetSprite() != nullptr) {
+                    scene_->removeChild(elem->GetSprite());
+                }
+                elem.reset(nullptr);
+            }
+        }
     }
 }
 
 void rtm::WorldController::RemoveDynamicObjects_()
 {
-    while (dynamicObjects_.size() > 0) {
-        scene_->removeChild(dynamicObjects_.back()->GetSprite());
-        dynamicObjects_.pop_back();
+    for (auto& obj : dynamicObjects_) {
+        scene_->removeChild(obj->GetSprite());
     }
+    dynamicObjects_.clear();
 }
 
 std::string rtm::WorldController::GetClassFile_(MapNumber number)

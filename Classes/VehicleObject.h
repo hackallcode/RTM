@@ -42,6 +42,8 @@ namespace rtm {
         DynamicObject* const CheckLineChangingArea_(WorldController* const world);
 
         // Maneuver
+        virtual void Move_(WorldController* const world);
+        
         virtual bool MovementStart_(WorldController* const world);
         virtual bool MovementTick_(WorldController* const world);
         virtual bool MovementEnd_(WorldController* const world);
@@ -69,7 +71,6 @@ namespace rtm {
         float remainingOffsetAngle_;
         bool wasCollision_;
 
-        void Move_(WorldController* const world);
         void LineChanging_(WorldController* const world);
         void Rotation_(WorldController* const world);
         void Movement_(WorldController* const world);

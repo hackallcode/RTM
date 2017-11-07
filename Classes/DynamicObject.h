@@ -18,8 +18,7 @@ namespace rtm {
 
         virtual void Update(WorldController* const world) override;
 
-        friend void CheckCollisions(std::vector<std::unique_ptr<DynamicObject>> const& dynamicObjs,
-            std::vector<std::unique_ptr<StaticObject>> const& staticObjs);
+        friend void CheckCollisions(WorldController* const world);
 
     protected:
         void SetSpeed_(float speed);
@@ -36,8 +35,7 @@ namespace rtm {
         bool IsNear_(WorldObject const* const other) const;
     };
 
-    void CheckCollisions(std::vector<std::unique_ptr<DynamicObject>> const& dynamicObjs,
-        std::vector<std::unique_ptr<StaticObject>> const& staticObjs = std::vector<std::unique_ptr<StaticObject>>{});
+    void CheckCollisions(WorldController* const world);
 }
 
 #endif // __DYNAMIC_OBJECT_INCLUDED__
