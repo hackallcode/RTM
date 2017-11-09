@@ -1,5 +1,6 @@
-#include "WorldController.h"
 #include "VehicleObject.h"
+#include "WorldController.h"
+#include "CoatingObject.h"
 
 rtm::VehicleObject::VehicleObject()
     : DynamicObject{}
@@ -165,29 +166,29 @@ void rtm::VehicleObject::StopAtDistance_(float distance)
     brakingDistance_ = distance;
 }
 
-rtm::CoatingObject* const rtm::VehicleObject::CheckForwardCoating_(WorldController* const world, int delta)
+rtm::CoatingObject* rtm::VehicleObject::CheckForwardCoating_(WorldController* const world, int delta)
 {
     int col{ PixelToCell(GetX()) };
     int row{ PixelToCell(GetY()) };
 
     if (IsSameAngles(GetAngle(), ANGLE_TOP)) {
-        return world->GetCoatingObject(col, row + delta).get();
+        return world->GetCoatingObject(col, row + delta);
     }
     else if (IsSameAngles(GetAngle(), ANGLE_RIGHT)) {
-        return world->GetCoatingObject(col + delta, row).get();
+        return world->GetCoatingObject(col + delta, row);
     }
     else if (IsSameAngles(GetAngle(), ANGLE_BOTTOM)) {
-        return world->GetCoatingObject(col, row - delta).get();
+        return world->GetCoatingObject(col, row - delta);
     }
     else if (IsSameAngles(GetAngle(), ANGLE_LEFT)) {
-        return world->GetCoatingObject(col - delta, row).get();
+        return world->GetCoatingObject(col - delta, row);
     }
     else {
         return nullptr;
     }
 }
 
-rtm::DynamicObject * const rtm::VehicleObject::CheckForwardArea_(WorldController* const world, float radius, float angle, float angleShift)
+rtm::DynamicObject* rtm::VehicleObject::CheckForwardArea_(WorldController* const world, float radius, float angle, float angleShift)
 {
     DynamicObject* object{ nullptr };
     for (auto& obj : world->GetDynamicObjects()) {
@@ -199,7 +200,7 @@ rtm::DynamicObject * const rtm::VehicleObject::CheckForwardArea_(WorldController
     return object;
 }
 
-rtm::DynamicObject* const rtm::VehicleObject::CheckMovingArea_(WorldController* const world)
+rtm::DynamicObject* rtm::VehicleObject::CheckMovingArea_(WorldController* const world)
 {
     return CheckForwardArea_(
         world,
@@ -209,7 +210,7 @@ rtm::DynamicObject* const rtm::VehicleObject::CheckMovingArea_(WorldController* 
     );
 }
 
-rtm::DynamicObject* const rtm::VehicleObject::CheckRotationArea_(WorldController* const world)
+rtm::DynamicObject* rtm::VehicleObject::CheckRotationArea_(WorldController* const world)
 {
     return CheckForwardArea_(
         world,
@@ -219,7 +220,7 @@ rtm::DynamicObject* const rtm::VehicleObject::CheckRotationArea_(WorldController
     );
 }
 
-rtm::DynamicObject* const rtm::VehicleObject::CheckLineChangingArea_(WorldController* const world)
+rtm::DynamicObject* rtm::VehicleObject::CheckLineChangingArea_(WorldController* const world)
 {
     return CheckForwardArea_(
         world,
@@ -243,12 +244,12 @@ bool rtm::VehicleObject::MovementStart_(WorldController* const world)
     return true;
 }
 
-bool rtm::VehicleObject::MovementTick_(WorldController * const world)
+bool rtm::VehicleObject::MovementTick_(WorldController* const world)
 {
     return false;
 }
 
-bool rtm::VehicleObject::MovementEnd_(WorldController * const world)
+bool rtm::VehicleObject::MovementEnd_(WorldController* const world)
 {
     SetFinalSpeed_(0.f);
     return true;
@@ -259,7 +260,7 @@ bool rtm::VehicleObject::RotationStart_(WorldController* const world)
     return true;
 }
 
-bool rtm::VehicleObject::RotationTick_(WorldController * const world)
+bool rtm::VehicleObject::RotationTick_(WorldController* const world)
 {
     // Angular frequency
     float delta{ world->GetDeltaTime() * GetSpeed() / CELL_SIZE };
@@ -280,7 +281,7 @@ bool rtm::VehicleObject::RotationTick_(WorldController * const world)
     return false;
 }
 
-bool rtm::VehicleObject::RotationEnd_(WorldController * const world)
+bool rtm::VehicleObject::RotationEnd_(WorldController* const world)
 {
     return true;
 }
@@ -290,7 +291,7 @@ bool rtm::VehicleObject::LineChangingStart(WorldController* const world)
     return true;
 }
 
-bool rtm::VehicleObject::LineChangingTick_(WorldController * const world)
+bool rtm::VehicleObject::LineChangingTick_(WorldController* const world)
 {
     // Angle between speed and normal relative to it
     float delta{ remainingOffsetAngle_ - GetAngle() };
@@ -318,7 +319,7 @@ bool rtm::VehicleObject::LineChangingTick_(WorldController * const world)
     return false;
 }
 
-bool rtm::VehicleObject::LineChangingEnd_(WorldController * const world)
+bool rtm::VehicleObject::LineChangingEnd_(WorldController* const world)
 {
     return true;
 }
@@ -403,8 +404,8 @@ void rtm::VehicleObject::SpeedChanging_(WorldController* const world)
     else if (GetSpeed() > finalSpeed_) {
         int col{ PixelToCell(GetX()) };
         int row{ PixelToCell(GetY()) };
-        CoatingObject* coatingPtr{ world->GetCoatingObject(col, row).get() };
-        float resistance{ coatingPtr != nullptr ? coatingPtr->GetResistance() : 1.f };
+        CoatingObject* coating{ world->GetCoatingObject(col, row) };
+        float resistance{ coating != nullptr ? coating->GetResistance() : 1.f };
 
         SetSpeed_(GetSpeed() - brakingFactor_ * deceleration_ * resistance * world->GetDeltaTime());
         if (GetSpeed() < finalSpeed_) {

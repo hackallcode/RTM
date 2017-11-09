@@ -1,20 +1,23 @@
 #include "WorldScene.h"
+#include "WorldController.h"
+#include "StaticObject.h"
+#include "DynamicObject.h"
 
-rtm::World* GLOBAL_WORLD_SCENE = nullptr;
+rtm::WorldScene* GLOBAL_WORLD_SCENE = nullptr;
 
-cocos2d::Scene* rtm::World::createScene()
+cocos2d::Scene* rtm::WorldScene::createScene()
 {
     // Создание сцены со слоем
     cocos2d::Scene* scene = cocos2d::Scene::create();
-    World* layer = World::create();
+    WorldScene* layer = WorldScene::create();
     scene->addChild(layer);
 
     return scene;
 }
 
-rtm::World* rtm::World::create()
+rtm::WorldScene* rtm::WorldScene::create()
 {
-    World* result = new(std::nothrow) World();
+    WorldScene* result = new(std::nothrow) WorldScene();
     if (result && result->init())
     {
         result->autorelease();
@@ -28,7 +31,7 @@ rtm::World* rtm::World::create()
 }
 
 // on "init" you need to initialize your instance
-bool rtm::World::init()
+bool rtm::WorldScene::init()
 {
     //////////////////////////////
     // 1. Super init first
@@ -55,17 +58,17 @@ bool rtm::World::init()
     return true;
 }
 
-void rtm::World::update(float time)
+void rtm::WorldScene::update(float time)
 {
     getMap()->Update(time);
 }
 
-void rtm::World::restart()
+void rtm::WorldScene::restart()
 {
     getMap()->Reset();
 }
 
-std::unique_ptr<rtm::WorldController>& rtm::World::getMap()
+rtm::WorldControllerUnique& rtm::WorldScene::getMap()
 {
     return map_;
 }
@@ -83,13 +86,13 @@ void rtm::keyListener(cocos2d::EventKeyboard::KeyCode code, cocos2d::Event* even
         GLOBAL_WORLD_SCENE->restart();
     }
     else if (code == cocos2d::EventKeyboard::KeyCode::KEY_F1) {
-        GLOBAL_WORLD_SCENE->getMap()->RemoveCoatingObjects_();
+        GLOBAL_WORLD_SCENE->getMap()->RemoveCoatingObjects();
     }
     else if (code == cocos2d::EventKeyboard::KeyCode::KEY_F2) {
-        GLOBAL_WORLD_SCENE->getMap()->RemoveStaticObjects_();
+        GLOBAL_WORLD_SCENE->getMap()->RemoveStaticObjects();
     }
     else if (code == cocos2d::EventKeyboard::KeyCode::KEY_F3) {
-        GLOBAL_WORLD_SCENE->getMap()->RemoveDynamicObjects_();
+        GLOBAL_WORLD_SCENE->getMap()->RemoveDynamicObjects();
     }
     
     auto& map = GLOBAL_WORLD_SCENE->getMap();
@@ -196,6 +199,9 @@ void rtm::keyListener(cocos2d::EventKeyboard::KeyCode code, cocos2d::Event* even
         map->AddCar(CarTypeNo2, 61, 15, ANGLE_RIGHT);
         map->AddCar(CarTypeNo2, 32, 3, ANGLE_BOTTOM);
         map->AddCar(CarTypeNo2, 4, 15, ANGLE_LEFT);
+    }
+    else if (code == cocos2d::EventKeyboard::KeyCode::KEY_T) {
+        map->AddTestObjects();
     }
     else if (code == cocos2d::EventKeyboard::KeyCode::KEY_M) {
         map->LoadMap(MapNumberNo1);

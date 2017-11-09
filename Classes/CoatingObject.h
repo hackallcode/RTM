@@ -4,14 +4,14 @@
 #include "General.h"
 
 namespace rtm {
-    class CoatingObject
+    class CoatingObject abstract
     {
     public:
         CoatingObject();
-        CoatingObject(cocos2d::Sprite* const sprite, int column, int row, 
-            float angle, float resistance, Directions directions);
+        CoatingObject(cocos2d::Sprite* const sprite, int column, int row,
+            DirectionType direction, float resistance, Directions directions);
         CoatingObject(std::string const& filename, int column, int row, 
-            float angle, float resistance, Directions directions);
+            DirectionType direction, float resistance, Directions directions);
 
         virtual ~CoatingObject() = default;
 
@@ -19,7 +19,10 @@ namespace rtm {
         float GetX() const;
         float GetY() const;
         float GetResistance() const;
-        bool HasDirection(float angle) const;
+        bool HasDirection(DirectionType direction) const;
+        bool IsDirectionAvailable(DirectionType direction) const;
+
+        void SetDirectionAvailability(DirectionType direction, bool status);
 
         virtual void Update(WorldController* const world);
 
@@ -34,7 +37,7 @@ namespace rtm {
         float y_;
         float resistance_;
         Directions directions_;
-        // size_t length = [NUM_OF_SQUARES] //// can be set in enum based on sprite id
+        Directions availableDirections_;
     };
 }
 

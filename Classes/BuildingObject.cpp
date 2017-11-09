@@ -1,4 +1,3 @@
-#include "WorldController.h"
 #include "BuildingObject.h"
 
 rtm::BuildingObject::BuildingObject()
@@ -19,13 +18,9 @@ rtm::BuildingObject::BuildingObject(BuildingType type, int column, int row, floa
 
 std::string rtm::BuildingObject::GetClassFile_(BuildingType type)
 {
-    switch (type)
-    {
-    case rtm::BuildingTypeNo1:
-        return BUILDING_NO_1_FILE;
-    case rtm::BuildingTypeNo2:
-        return BUILDING_NO_2_FILE;
-    default:
-        return BUILDING_NO_0_FILE;
-    }
+    std::string filename{ BUILDING_FILENAME_MASK };
+    auto it{ filename.find("%No%") };
+    filename.replace(it, 4, std::to_string(static_cast<int>(type)));
+
+    return filename;
 }

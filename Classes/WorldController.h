@@ -2,18 +2,15 @@
 #define __MAP_CONTROLLER_INCLUDED__
 
 #include "General.h"
-#include "BuildingObject.h"
-#include "CarObject.h"
-#include "RoadObject.h"
 
 namespace rtm {
     class WorldController
     {
     public:
         WorldController();
-        WorldController(World* const scene);
-        WorldController(World* const scene, std::string const& filename);
-        WorldController(World* const scene, MapNumber number);
+        WorldController(WorldScene* const scene);
+        WorldController(WorldScene* const scene, std::string const& filename);
+        WorldController(WorldScene* const scene, MapNumber number);
 
         void Update(float time);
 
@@ -21,41 +18,58 @@ namespace rtm {
         size_t GetRowsCount() const;
         float GetDeltaTime() const;
 
-        CoatingUnique& GetCoatingObject(int column, int row);
-        StaticUnique& GetStaticObject(int column, int row);
-        std::vector<DynamicUnique>& GetDynamicObjects();
+        CoatingObject* GetCoatingObject(int column, int row);
+        StaticObject* GetStaticObject(int column, int row);
+        std::vector<DynamicObjectUnique>& GetDynamicObjects();
 
         bool IsCorrectColumn(int column);
         bool IsCorrectRow(int row);
-        bool IsVisibleColumn(int row);
+        bool IsAllowableColumn(int column);
+        bool IsAllowableRow(int row);
+        bool IsVisibleColumn(int column);
         bool IsVisibleRow(int row);
 
         bool LoadMap(std::string const& filename);
         bool LoadMap(MapNumber number);
-        void AddCar(CarType type, int column, int row, float angle);
         void Reset();        
 
-        // TODO: Make private
-        void RemoveCoatingObjects_();
-        void RemoveStaticObjects_();
-        void RemoveDynamicObjects_();
+        // TODO: Delete (only for test)
+        void AddTestObjects();
+        void AddCar(CarType type, int column, int row, float angle);
+        void RemoveCoatingObjects();
+        void RemoveStaticObjects();
+        void RemoveDynamicObjects();
 
     private:
-        World* scene_;
+        WorldScene* scene_;
         size_t columnsCount_;
         size_t rowsCount_;
         float deltaTime_;
 
         cocos2d::Sprite* background_;
-        std::vector<std::vector<CoatingUnique>> coatingObjects_;
-        std::vector<std::vector<StaticUnique>> staticObjects_;
-        std::vector<DynamicUnique> dynamicObjects_;
+        std::vector<std::vector<CoatingUnionShared>> coatingUnions_;
+        std::vector<std::vector<StaticObjectUnique>> staticObjects_;
+        std::vector<DynamicObjectUnique> dynamicObjects_;
 
+        bool IsEmpty(int column, int row, size_t width, size_t height);
+
+        void GenerateObject_(char* params, char count);
         void SetBackground_(std::string const& filename);
-        void SetRoad_(RoadType type, int column, int row, float angle);
-        void SetBuilding_(BuildingType type, int column, int row, float angle);
+        void SetBackground_(BackgroundNumber number);
+        void AddDriveway_(int column, int row, size_t width, size_t height, DirectionType direction);
+        void AddCrossroad_(int column, int row, size_t upLines,
+            size_t toRightLines, size_t downLines, size_t toLeftLines);
+        void AddTCrossroad_(int column, int row, size_t upLines,
+            size_t toRightLines, size_t downLines, size_t toLeftLines, DirectionType nullDirection);
+        void AddBuilding_(BuildingType type, int column, int row, float angle);
+        void AddCar_(CarType type, int column, int row, float angle);
+
+        void RemoveCoatingObjects_();
+        void RemoveStaticObjects_();
+        void RemoveDynamicObjects_();
         
         static std::string GetClassFile_(MapNumber number);
+        static std::string GetBackgroundFile_(BackgroundNumber number);
     };
 }
 

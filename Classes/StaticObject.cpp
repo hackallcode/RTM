@@ -1,4 +1,3 @@
-#include "WorldController.h"
 #include "StaticObject.h"
 
 rtm::StaticObject::StaticObject()

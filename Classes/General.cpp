@@ -39,6 +39,16 @@ float rtm::NormalizeAngle(float angle)
     return angle;
 }
 
+bool rtm::IsInCenter(float coordinate)
+{
+    return IsSameCoords(CellCenterRound(coordinate), coordinate);
+}
+
+float rtm::CellCenterRound(float coordinate)
+{
+    return CellToPixel(PixelToCell(coordinate));
+}
+
 int rtm::PixelToCell(float coordinate)
 {
     return static_cast<int>(floor(coordinate / CELL_SIZE));
@@ -49,15 +59,72 @@ float rtm::CellToPixel(int cellNumber)
     return (cellNumber + 0.5f) * CELL_SIZE;
 }
 
-float rtm::CellCenterRound(float coordinate)
+rtm::DirectionType rtm::AngleToDirection(float angle)
 {
-    return CellToPixel(PixelToCell(coordinate));
+    angle = NormalizeAngle(angle);
+    if (IsSameAngles(angle, ANGLE_TOP, F_PI_8)) {
+        return TopDirection;
+    }
+    else if (IsSameAngles(angle, ANGLE_RIGHT, F_PI_8)) {
+        return RightDirection;
+    }
+    else if (IsSameAngles(angle, ANGLE_BOTTOM, F_PI_8)) {
+        return BottomDirection;
+    }
+    else if (IsSameAngles(angle, ANGLE_LEFT, F_PI_8)) {
+        return LeftDirection;
+    }
+    else if (IsSameAngles(angle, ANGLE_TOP_RIGHT, F_PI_8)) {
+        return TopRightDirection;
+    }
+    else if (IsSameAngles(angle, ANGLE_BOTTOM_RIGHT, F_PI_8)) {
+        return BottomRightDirection;
+    }
+    else if (IsSameAngles(angle, ANGLE_BOTTOM_LEFT, F_PI_8)) {
+        return BottomLeftDirection;
+    }
+    else if (IsSameAngles(angle, ANGLE_TOP_LEFT, F_PI_8)) {
+        return TopLeftDirection;
+    }
+    else {
+        return TopDirection;
+    }
 }
 
-bool rtm::IsInCenter(float coordinate)
+float rtm::DirectionToAngle(DirectionType direction)
 {
-    return IsSameCoords(CellCenterRound(coordinate), coordinate);
+    switch (direction) {
+    case TopDirection:
+        return ANGLE_TOP;
+    case RightDirection:
+        return ANGLE_RIGHT;
+    case BottomDirection:
+        return ANGLE_BOTTOM;
+    case LeftDirection:
+        return ANGLE_LEFT;
+    case TopRightDirection:
+        return ANGLE_TOP_RIGHT;
+    case BottomRightDirection:
+        return ANGLE_BOTTOM_RIGHT;
+    case BottomLeftDirection:
+        return ANGLE_BOTTOM_LEFT;
+    case TopLeftDirection:
+        return ANGLE_TOP_LEFT;
+    default:
+        return 0.f;
+    }
 }
+
+rtm::DirectionType rtm::DirectionsSum(DirectionType a, DirectionType b)
+{
+    return AngleToDirection(DirectionToAngle(a) + DirectionToAngle(b));
+}
+
+float rtm::CountDeceleration(float maxSpeed) {
+    return (maxSpeed * maxSpeed) / (2 * CELL_SIZE);
+}
+
+/* TODO: Delete */
 
 bool rtm::IsSeparator(char c)
 {
@@ -81,31 +148,6 @@ std::vector<int> rtm::Split(std::string const& str) {
         }
     }
     return result;
-}
-
-float rtm::GetAngle(int number)
-{
-    switch (number) {
-    case 1:
-        return ANGLE_TOP;
-        break;
-    case 2:
-        return ANGLE_RIGHT;
-        break;
-    case 3:
-        return ANGLE_BOTTOM;
-        break;
-    case 4:
-        return ANGLE_LEFT;
-        break;
-    default:
-        return 0.f;
-        break;
-    }
-}
-
-float rtm::CountDeceleration(float maxSpeed) {
-    return (maxSpeed * maxSpeed) / (2 * CELL_SIZE);
 }
 
 int caseNumber_ = -1;

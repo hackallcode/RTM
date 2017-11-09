@@ -1,4 +1,3 @@
-#include "WorldController.h"
 #include "MapObject.h"
 
 rtm::MapObject::MapObject()

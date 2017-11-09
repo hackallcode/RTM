@@ -1,6 +1,7 @@
 #ifndef __GLOBAL_INCLUDED__
 #define __GLOBAL_INCLUDED__
 
+#include <cstring>
 #include <cmath>
 #include <string>
 #include <array>
@@ -24,6 +25,7 @@ namespace rtm {
     bool const LEFT{ false };
     bool const RIGHT{ true };
 
+    float const F_PI_8{ 0.392699081698724154808f };
     float const F_PI_4{ 0.785398163397448309616f };
     float const F_PI_2{ 1.57079632679489661923f };
     float const F_PI{ 3.14159265358979323846f };
@@ -38,6 +40,10 @@ namespace rtm {
     float const ANGLE_RIGHT{ F_PI_2 };
     float const ANGLE_BOTTOM{ -F_PI };
     float const ANGLE_LEFT{ -F_PI_2 };
+    float const ANGLE_TOP_RIGHT{ F_PI_4 };
+    float const ANGLE_BOTTOM_RIGHT{ F_PI_2 - F_PI_4 };
+    float const ANGLE_BOTTOM_LEFT{ -F_PI + F_PI_4 };
+    float const ANGLE_TOP_LEFT{ -F_PI_4 };
 
     /* DELTAS */
 
@@ -47,7 +53,7 @@ namespace rtm {
     /* MAP PARAMETERS */
 
     size_t const CELL_SIZE{ 30 };
-    size_t const HIDDEN_AREA_SIZE{ 2 };
+    size_t const HIDDEN_AREA_SIZE{ 3 };
 
     int const BACKGROUND_Z_ORDER{ 0 };
     int const COATING_OBJECT_Z_ORDER{ 1 };
@@ -70,31 +76,59 @@ namespace rtm {
 
     /* CLASSES */
 
-    class World;
+    class WorldScene;
     class WorldController;
     class CoatingObject;
+    class CoatingUnion;
+    class WorldObject;
     class StaticObject;
     class DynamicObject;
 
     /* TYPES */
 
+    using WorldControllerUnique = std::unique_ptr<WorldController>;
+    using CoatingObjectUnique = std::unique_ptr<CoatingObject>;
+    using CoatingUnionShared = std::shared_ptr<CoatingUnion>;
+    using StaticObjectUnique = std::unique_ptr<StaticObject>;
+    using DynamicObjectUnique = std::unique_ptr<DynamicObject>;
+
     using Directions = std::array<bool, 8>;
-
-    using CoatingUnique = std::unique_ptr<CoatingObject>;
-    using StaticUnique = std::unique_ptr<StaticObject>;
-    using DynamicUnique = std::unique_ptr<DynamicObject>;
-
-    /* ENUMS */
-
-    enum StateType {
-        NotStarted
-        , MustStart
-        , Started
-        , MustStop
+    enum DirectionType {
+        TopDirection = 0
+        , RightDirection
+        , BottomDirection
+        , LeftDirection
+        , TopRightDirection
+        , BottomRightDirection
+        , BottomLeftDirection
+        , TopLeftDirection
     };
+
+    /* FILENAMES */
+
+    std::string const BACKGROUND_FILENAME_MASK{ "res/background/BackgroundNo%No%.png" };
+    std::string const MAP_FILENAME_MASK{ "res/map/MapNo%No%.rtmm" };
+    std::string const ROAD_FILENAME_MASK{ "res/coating/RoadNo%No%.png" };
+    std::string const BUILDING_FILENAME_MASK{ "res/static/BuildingNo%No%.png" };
+    std::string const CAR_FILENAME_MASK{ "res/vehicle/CarNo%No%.png" };
+
+    /* MAPS */
 
     enum MapNumber {
         MapNumberNo1 = 1
+    };
+
+    enum BackgroundNumber {
+        BackgroundNumberNo1 = 1
+    };
+
+    /* COATINGS */
+
+    enum CoatingType {
+        CoatingUnionType = 0
+        , DrivewayType
+        , CrossroadType
+        , TCrossroadType
     };
 
     enum RoadType {
@@ -105,11 +139,67 @@ namespace rtm {
         , RoadTypeNo5
         , RoadTypeNo6
         , RoadTypeNo7
+        , RoadTypeNo8
+        , RoadTypeNo9
+        , RoadTypeNo10
+        , RoadTypeNo11
+        , RoadTypeNo12
+        , RoadTypeNo13
+        , RoadTypeNo14
     };
+
+    // Coefficient of resistance
+    std::array<float, 15> const ROADS_RESISTANCES = {
+          0.f   // [0]
+        , 1.f   // [1]
+        , 1.f   // [2]
+        , 1.f   // [3]
+        , 1.f   // [4]
+        , 1.f   // [5]
+        , 1.f   // [6]
+        , 1.f   // [7]
+        , 1.f   // [8]
+        , 1.f   // [9]
+        , 1.f   // [10]
+        , 1.f   // [11]
+        , 1.f   // [12]
+        , 1.f   // [13]
+        , 1.f   // [14]
+    };
+
+    // Enabled directions (top, right, bottom, left, tor-right, bottom-right, bottom-left, top-left)
+    std::array<Directions, 15> const ROADS_DIRECTIONS = {
+          Directions{ false, false, false, false, false, false, false, false }  // [0]
+        , Directions{ true, false, true, false, false, false, false, false }    // [1]
+        , Directions{ true, false, true, false, true, true, false, false }      // [2]
+        , Directions{ true, false, true, false, true, true, true, true }        // [3]
+        , Directions{ true, true, true, true, false, false, false, false }      // [4]
+        , Directions{ true, true, true, true, false, false, false, false }      // [5]
+        , Directions{ true, true, true, true, false, false, false, false }      // [6]
+        , Directions{ true, true, true, true, false, false, false, false }      // [7]
+        , Directions{ false, true, true, true, false, false, false, false }     // [8]
+        , Directions{ false, true, true, true, false, false, false, false }     // [9]
+        , Directions{ false, true, true, true, false, false, false, false }     // [10]
+        , Directions{ false, true, true, true, false, false, false, false }     // [11]
+        , Directions{ true, false, false, false, false, false, true, true }     // [12]
+        , Directions{ false, false, true, false, false, false, true, true }     // [13]
+        , Directions{ false, true, true, false, false, false, false, false }    // [14]
+    };
+
+    /* MAP OBJECT */
 
     enum BuildingType {
         BuildingTypeNo1 = 1
         , BuildingTypeNo2
+    };
+
+    /* VEHICLE */
+
+    enum StateType {
+        NotStarted
+        , MustStart
+        , Started
+        , MustStop
     };
 
     enum CarType {
@@ -117,94 +207,45 @@ namespace rtm {
         , CarTypeNo2
     };
 
-    /* MAPS */
+    std::array<float, 3> const CARS_MAX_SPEEDS = {
+          0.f   // [0]
+        , 21.f  // [1]
+        , 36.f  // [2]
+    };
 
-    std::string const MAP_BACKGROUND_FILE{ "res/background/BackgroundNo%No%.png" };
+    std::array<float, 3> const CARS_ACCELERATIONS = {
+          0.f   // [0]
+        , 2.f   // [1]
+        , 9.f   // [2]
+    };
 
-    std::string const MAP_NO_0_FILE{ "res/map/MapNo0.rtmm" };
-    std::string const MAP_NO_1_FILE{ "res/map/MapNo1.rtmm" };
-
-    /* ROADS */
-
-    // File path
-    std::string const ROAD_NO_0_FILE{ "res/coating/RoadNo0.png" };
-    // Coefficient of resistance
-    float const ROAD_NO_0_RESISTANCE{ 1.f };
-    // Enabled directions (top, right, bottom, left, tor-right, bottom-right, bottom-left, top-left)
-    Directions const ROAD_NO_0_DIRECTIONS{ false, false, false, false, false, false, false, false };
-
-    std::string const ROAD_NO_1_FILE{ "res/coating/RoadNo1.png" };
-    float const ROAD_NO_1_RESISTANCE{ 1.f };
-    Directions const ROAD_NO_1_DIRECTIONS{ true, false, true, false, false, false, false, false };
-
-    std::string const ROAD_NO_2_FILE{ "res/coating/RoadNo2.png" };
-    float const ROAD_NO_2_RESISTANCE{ 1.f };
-    Directions const ROAD_NO_2_DIRECTIONS{ false, true, true, false, false, false, false, false };
-
-    std::string const ROAD_NO_3_FILE{ "res/coating/RoadNo3.png" };
-    float const ROAD_NO_3_RESISTANCE{ 1.f };
-    Directions const ROAD_NO_3_DIRECTIONS{ true, false, true, false, false, false, false, false };
-
-    std::string const ROAD_NO_4_FILE{ "res/coating/RoadNo4.png" };
-    float const ROAD_NO_4_RESISTANCE{ 1.f };
-    Directions const ROAD_NO_4_DIRECTIONS{ true, false, true, false, false, false, false, false };
-
-    std::string const ROAD_NO_5_FILE{ "res/coating/RoadNo5.png" };
-    float const ROAD_NO_5_RESISTANCE{ 1.f };
-    Directions const ROAD_NO_5_DIRECTIONS{ true, false, true, false, false, false, false, false };
-
-    std::string const ROAD_NO_6_FILE{ "res/coating/RoadNo6.png" };
-    float const ROAD_NO_6_RESISTANCE{ 1.f };
-    Directions const ROAD_NO_6_DIRECTIONS{ false, false, true, false, true, false, false, false };
-
-    std::string const ROAD_NO_7_FILE{ "res/coating/RoadNo7.png" };
-    float const ROAD_NO_7_RESISTANCE{ 1.f };
-    Directions const ROAD_NO_7_DIRECTIONS{ false, false, true, false, false, false, false, true };
-
-    /* BUILDINGS */
-
-    std::string const BUILDING_NO_0_FILE{ "res/static/BuildingNo0.png" };
-    std::string const BUILDING_NO_1_FILE{ "res/static/BuildingNo1.png" };
-    std::string const BUILDING_NO_2_FILE{ "res/static/BuildingNo2.png" };
-
-    /* CARS */
-
-    std::string const CAR_NO_0_FILE{ "res/vehicle/CarNo0.png" }; // File path
-    float const CAR_NO_0_MAX_SPEED{ 0.f }; // Meters per second
-    float const CAR_NO_0_ACCELERATION{ 0.f }; // Meters per second^2
-
-    std::string const CAR_NO_1_FILE{ "res/vehicle/CarNo1.png" };
-    float const CAR_NO_1_MAX_SPEED{ 21.f };
-    float const CAR_NO_1_ACCELERATION{ 2.f };
-
-    std::string const CAR_NO_2_FILE{ "res/vehicle/CarNo2.png" };
-    float const CAR_NO_2_MAX_SPEED{ 36.f };
-    float const CAR_NO_2_ACCELERATION{ 9.f };
-
-    /* COMPARATORS */
+    /* COMPARATORS AND ROUNDERS */
 
     bool IsSameCoords(float a, float b, float delta = COORD_DELTA);
     float RoundCoord(float coord, float delta = COORD_DELTA);
     bool IsSameAngles(float a, float b, float delta = ANGLE_DELTA);
     float RoundAngle(float angle, float delta = ANGLE_DELTA);
     float NormalizeAngle(float angle);
+    bool IsInCenter(float coordinate);
+    float CellCenterRound(float coordinate);
 
     /* CONVERTERS */
 
     int PixelToCell(float coordinate);
     float CellToPixel(int cellNumber);
-    float CellCenterRound(float coordinate);
-    bool IsInCenter(float coordinate);
+    DirectionType AngleToDirection(float angle);
+    float DirectionToAngle(DirectionType direction);
 
     /* OTHER */
+
+    DirectionType DirectionsSum(DirectionType a, DirectionType b);
+    float CountDeceleration(float maxSpeed);
+
+    /* TODO: Delete */
 
     inline bool IsSeparator(char c);
     inline bool IsNotSeparator(char c);
     std::vector<int> Split(std::string const& str);
-    float GetAngle(int number);
-    float CountDeceleration(float maxSpeed);
-
-    /* TODO: Delete */
 
     int GetCaseNumber();
     void SetCaseNumber(int number);

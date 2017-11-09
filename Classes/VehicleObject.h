@@ -35,11 +35,11 @@ namespace rtm {
         void StopAtDistance_(float distance);
 
         // Sight
-        CoatingObject* const CheckForwardCoating_(WorldController* const world, int delta = 1);
-        DynamicObject* const CheckForwardArea_(WorldController* const world, float radius, float angle, float angleShift);
-        DynamicObject* const CheckMovingArea_(WorldController* const world);
-        DynamicObject* const CheckRotationArea_(WorldController* const world);
-        DynamicObject* const CheckLineChangingArea_(WorldController* const world);
+        CoatingObject* CheckForwardCoating_(WorldController* const world, int delta = 1);
+        DynamicObject* CheckForwardArea_(WorldController* const world, float radius, float angle, float angleShift);
+        DynamicObject* CheckMovingArea_(WorldController* const world);
+        DynamicObject* CheckRotationArea_(WorldController* const world);
+        DynamicObject* CheckLineChangingArea_(WorldController* const world);
 
         // Maneuver
         virtual void Move_(WorldController* const world);

@@ -1,5 +1,5 @@
-#include "WorldController.h"
 #include "DynamicObject.h"
+#include "WorldController.h"
 #include "StaticObject.h"
 
 ///////////////////////
@@ -205,9 +205,9 @@ void rtm::CheckCollisions(WorldController* const world)
             for (int k{ column - 1 }; k <= column + 1; ++k) {
                 for (int l{ row - 1 }; l <= row + 1; ++l) {
                     if (world->IsCorrectColumn(column) && world->IsCorrectRow(row)) {
-                        StaticObject* staticPtr{ world->GetStaticObject(k, l).get() };
-                        if (staticPtr != nullptr) {
-                            if (dynamicObjs[i]->IsIntersecting_(staticPtr)) {
+                        StaticObject* staticObject{ world->GetStaticObject(k, l) };
+                        if (staticObject != nullptr) {
+                            if (dynamicObjs[i]->IsIntersecting_(staticObject)) {
                                 dynamicObjs[i]->SetCollisionFlag_(true);
                                 break;
                             }

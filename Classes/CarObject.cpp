@@ -1,5 +1,5 @@
-#include "WorldController.h"
 #include "CarObject.h"
+#include "CoatingObject.h"
 
 rtm::CarObject::CarObject()
     : VehicleObject{}
@@ -68,7 +68,7 @@ void rtm::CarObject::Update(WorldController* const world)
     VehicleObject::Update(world);
 }
 
-bool rtm::CarObject::MovementStart_(WorldController * const world)
+bool rtm::CarObject::MovementStart_(WorldController* const world)
 {
     return true;
 }
@@ -110,7 +110,7 @@ bool rtm::CarObject::MovementTick_(WorldController* const world)
     return false;
 }
 
-bool rtm::CarObject::MovementEnd_(WorldController * const world)
+bool rtm::CarObject::MovementEnd_(WorldController* const world)
 {
     SetFinalSpeed_(0.f);
     return true;
@@ -169,18 +169,18 @@ void rtm::CarObject::CheckRoadAhead_(WorldController* const world)
         CoatingObject* coating{ CheckForwardCoating_(world, 1) };
         if (coating != nullptr) {
             // If has no forward road coating
-            if (!coating->HasDirection(GetAngle())) {
-                if (coating->HasDirection(NormalizeAngle(GetAngle() + ANGLE_RIGHT))) {
+            if (!coating->IsDirectionAvailable(AngleToDirection(GetAngle()))) {
+                if (coating->IsDirectionAvailable(AngleToDirection(GetAngle() + ANGLE_RIGHT))) {
                     forwardSightEnabled_ = true;
                     ResetDesiredSpeed_();
                     Rotate_(ANGLE_RIGHT);
                 }
-                else if (coating->HasDirection(NormalizeAngle(GetAngle() + ANGLE_LEFT))) {
+                else if (coating->IsDirectionAvailable(AngleToDirection(GetAngle() + ANGLE_LEFT))) {
                     forwardSightEnabled_ = true;
                     ResetDesiredSpeed_();
                     Rotate_(ANGLE_LEFT);
                 }
-                else if (coating->HasDirection(NormalizeAngle(GetAngle() + ANGLE_BOTTOM))) {
+                else if (coating->IsDirectionAvailable(AngleToDirection(GetAngle() + ANGLE_BOTTOM))) {
                     forwardSightEnabled_ = true;
                     ResetDesiredSpeed_();
                     Rotate_(ANGLE_BOTTOM);
@@ -197,11 +197,9 @@ void rtm::CarObject::CheckRoadAhead_(WorldController* const world)
         CoatingObject* coating{ CheckForwardCoating_(world, 2) };
         if (coating != nullptr) {
             // If T-crossroad
-            if (
-                !coating->HasDirection(GetAngle()) &&
-                coating->HasDirection(NormalizeAngle(GetAngle() + ANGLE_RIGHT)) &&
-                coating->HasDirection(NormalizeAngle(GetAngle() + ANGLE_LEFT))
-                ) {
+            if (!coating->IsDirectionAvailable(AngleToDirection(GetAngle()))
+                && coating->HasDirection(AngleToDirection(GetAngle() + ANGLE_RIGHT))
+                && coating->HasDirection(AngleToDirection(GetAngle() + ANGLE_LEFT))) {
                 forwardSightEnabled_ = false;
                 StopAtDistance_(abs(FT::length(GetX() - coating->GetX(), GetY() - coating->GetY()) - CELL_SIZE));
             }
@@ -211,39 +209,31 @@ void rtm::CarObject::CheckRoadAhead_(WorldController* const world)
 
 std::string rtm::CarObject::GetClassFile_(CarType type)
 {
-    switch (type)
-    {
-    case rtm::CarTypeNo1:
-        return CAR_NO_1_FILE;
-    case rtm::CarTypeNo2:
-        return CAR_NO_2_FILE;
-    default:
-        return CAR_NO_0_FILE;
-    }
+    std::string filename{ CAR_FILENAME_MASK };
+    auto it{ filename.find("%No%") };
+    filename.replace(it, 4, std::to_string(static_cast<int>(type)));
+
+    return filename;
 }
 
 float rtm::CarObject::GetClassMaxSpeed_(CarType type)
 {
-    switch (type)
-    {
-    case rtm::CarTypeNo1:
-        return CAR_NO_1_MAX_SPEED;
-    case rtm::CarTypeNo2:
-        return CAR_NO_2_MAX_SPEED;
-    default:
-        return CAR_NO_0_MAX_SPEED;
+    int number = static_cast<int>(type);
+    if (0 <= number && number < static_cast<int>(CARS_MAX_SPEEDS.size())) {
+        return CARS_MAX_SPEEDS[number];
+    }
+    else {
+        return CARS_MAX_SPEEDS[0];
     }
 }
 
 float rtm::CarObject::GetClassAcceleration_(CarType type)
 {
-    switch (type)
-    {
-    case rtm::CarTypeNo1:
-        return CAR_NO_1_ACCELERATION;
-    case rtm::CarTypeNo2:
-        return CAR_NO_2_ACCELERATION;
-    default:
-        return CAR_NO_0_ACCELERATION;
+    int number = static_cast<int>(type);
+    if (0 <= number && number < static_cast<int>(CARS_ACCELERATIONS.size())) {
+        return CARS_ACCELERATIONS[number];
+    }
+    else {
+        return CARS_ACCELERATIONS[0];
     }
 }

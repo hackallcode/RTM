@@ -2,26 +2,25 @@
 #define __WORLD_SCENE_INCLUDED__
 
 #include "General.h"
-#include <WorldController.h>
 
 namespace rtm {
     
-    class World 
+    class WorldScene 
         : public cocos2d::Layer
     {
     public:
         static cocos2d::Scene* createScene();
-        static World* create();
-        ~World() = default;
+        static WorldScene* create();
+        ~WorldScene() = default;
 
         virtual bool init() override;
         virtual void update(float time) override;        
         void restart();
 
-        std::unique_ptr<WorldController>& getMap();
+        WorldControllerUnique& getMap();
 
     private:
-        std::unique_ptr<WorldController> map_;
+        WorldControllerUnique map_;
     };
 
     void keyListener(cocos2d::EventKeyboard::KeyCode code, cocos2d::Event* event);

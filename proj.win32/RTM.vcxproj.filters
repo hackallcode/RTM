@@ -10,117 +10,144 @@
     <Filter Include="src">
       <UniqueIdentifier>{bb6c862e-70e9-49d9-81b7-3829a6f50471}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\scene">
-      <UniqueIdentifier>{e2508d0f-82af-4fe6-9bef-29ab8f89d168}</UniqueIdentifier>
+    <Filter Include="src\controllers">
+      <UniqueIdentifier>{4f96a652-fc45-4254-8e8d-5f6af5326e7b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\object">
-      <UniqueIdentifier>{7d1d1166-91b8-4cba-b35a-8f425db13b63}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\object\visible">
-      <UniqueIdentifier>{8bfb47dd-046c-46b8-ac36-95f212d3a851}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\object\abstract">
-      <UniqueIdentifier>{2e0059e2-d27f-4335-bf0d-993c9ec5182b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\library">
+    <Filter Include="src\libraries">
       <UniqueIdentifier>{cf35ac2a-73be-44e4-a959-3a0a862ef4d4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\object\map">
-      <UniqueIdentifier>{4f96a652-fc45-4254-8e8d-5f6af5326e7b}</UniqueIdentifier>
+    <Filter Include="src\abstract objects">
+      <UniqueIdentifier>{2e0059e2-d27f-4335-bf0d-993c9ec5182b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\visible objects">
+      <UniqueIdentifier>{8bfb47dd-046c-46b8-ac36-95f212d3a851}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\general">
+      <UniqueIdentifier>{4ed802b4-c416-4b51-83d6-90c9275ef9bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\abstract objects\world objects">
+      <UniqueIdentifier>{3b4a5d56-fd87-4b93-a588-2f7effa6a319}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\abstract objects\coating unions">
+      <UniqueIdentifier>{d7923d84-b67d-4fb9-a925-2f93c23d8677}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>win32</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\AppDelegate.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\WorldScene.cpp">
-      <Filter>src\scene</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\WorldObject.cpp">
-      <Filter>src\object\abstract</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\StaticObject.cpp">
-      <Filter>src\object\abstract</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\DynamicObject.cpp">
-      <Filter>src\object\abstract</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\VehicleObject.cpp">
-      <Filter>src\object\abstract</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\CarObject.cpp">
-      <Filter>src\object\visible</Filter>
+      <Filter>src\visible objects</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\BuildingObject.cpp">
-      <Filter>src\object\visible</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\MapObject.cpp">
-      <Filter>src\object\abstract</Filter>
+      <Filter>src\visible objects</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\fasttrigo.cpp">
-      <Filter>src\library</Filter>
+      <Filter>src\libraries</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\WorldController.cpp">
-      <Filter>src\object\map</Filter>
+      <Filter>src\controllers</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\CoatingObject.cpp">
-      <Filter>src\object\map</Filter>
+      <Filter>src\abstract objects</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\RoadObject.cpp">
-      <Filter>src\object\map</Filter>
+    <ClCompile Include="..\Classes\WorldScene.cpp">
+      <Filter>src\controllers</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\General.cpp">
-      <Filter>src</Filter>
+      <Filter>src\general</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\AppDelegate.cpp">
+      <Filter>src\general</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\VehicleObject.cpp">
+      <Filter>src\abstract objects\world objects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\StaticObject.cpp">
+      <Filter>src\abstract objects\world objects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\MapObject.cpp">
+      <Filter>src\abstract objects\world objects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\DynamicObject.cpp">
+      <Filter>src\abstract objects\world objects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\WorldObject.cpp">
+      <Filter>src\abstract objects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\DrivewayObject.cpp">
+      <Filter>src\abstract objects\coating unions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\CoatingUnion.cpp">
+      <Filter>src\abstract objects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\RoadCoating.cpp">
+      <Filter>src\visible objects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\CrossroadObject.cpp">
+      <Filter>src\abstract objects\coating unions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\TCrossroadObject.cpp">
+      <Filter>src\abstract objects\coating unions</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
       <Filter>win32</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\AppDelegate.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\WorldScene.h">
-      <Filter>src\scene</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\WorldObject.h">
-      <Filter>src\object\abstract</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\StaticObject.h">
-      <Filter>src\object\abstract</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\DynamicObject.h">
-      <Filter>src\object\abstract</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\VehicleObject.h">
-      <Filter>src\object\abstract</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\CarObject.h">
-      <Filter>src\object\visible</Filter>
+      <Filter>src\visible objects</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\BuildingObject.h">
-      <Filter>src\object\visible</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\MapObject.h">
-      <Filter>src\object\abstract</Filter>
+      <Filter>src\visible objects</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\fasttrigo.h">
-      <Filter>src\library</Filter>
+      <Filter>src\libraries</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\WorldController.h">
-      <Filter>src\object\map</Filter>
+      <Filter>src\controllers</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\CoatingObject.h">
-      <Filter>src\object\map</Filter>
+      <Filter>src\abstract objects</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\RoadObject.h">
-      <Filter>src\object\map</Filter>
+    <ClInclude Include="..\Classes\WorldScene.h">
+      <Filter>src\controllers</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\General.h">
-      <Filter>src</Filter>
+      <Filter>src\general</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\AppDelegate.h">
+      <Filter>src\general</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\VehicleObject.h">
+      <Filter>src\abstract objects\world objects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\StaticObject.h">
+      <Filter>src\abstract objects\world objects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\MapObject.h">
+      <Filter>src\abstract objects\world objects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\DynamicObject.h">
+      <Filter>src\abstract objects\world objects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\WorldObject.h">
+      <Filter>src\abstract objects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\DrivewayObject.h">
+      <Filter>src\abstract objects\coating unions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\CoatingUnion.h">
+      <Filter>src\abstract objects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\RoadCoating.h">
+      <Filter>src\visible objects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\CrossroadObject.h">
+      <Filter>src\abstract objects\coating unions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\TCrossroadObject.h">
+      <Filter>src\abstract objects\coating unions</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

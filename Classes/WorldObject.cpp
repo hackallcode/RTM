@@ -1,4 +1,3 @@
-#include "WorldController.h"
 #include "WorldObject.h"
 
 rtm::WorldObject::WorldObject()
