@@ -8,12 +8,15 @@ namespace rtm {
     {
     public:
         CoatingUnion();
-        CoatingUnion(CoatingType type, int column, int row, std::vector<std::vector<CoatingObjectUnique>>&& objects);
+        CoatingUnion(CoatingType type, int column, int row, CoatingMatrix&& objects);
 
         virtual ~CoatingUnion() = default;
 
         CoatingType GetType() const;
-        CoatingObjectUnique const& GetCoatingObject(int column, int row) const;
+        size_t GetWidth() const;
+        size_t GetHeight() const;
+        CoatingUnique const& GetCoatingObject(int column, int row) const;
+        virtual float GetLength() const;
 
         bool IsCorrectColumn(int column) const;
         bool IsCorrectRow(int row) const;
@@ -21,17 +24,13 @@ namespace rtm {
         void ShowCoatingObjects(WorldScene* const scene);
         void ReleaseCoatingObjects(WorldScene* const scene);
 
-    protected:
-        size_t GetWidth_() const;
-        size_t GetHeight_() const;
-
     private:
         CoatingType type_;
         int column_;
         int row_;
         size_t width_;
         size_t height_;
-        std::vector<std::vector<CoatingObjectUnique>> objects_;
+        CoatingMatrix objects_;
     };
 }
 

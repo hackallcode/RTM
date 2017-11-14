@@ -14,13 +14,14 @@ namespace rtm {
 
         void Update(float time);
 
+        WorldScene* GetScene() const;
         size_t GetColumnsCount() const;
         size_t GetRowsCount() const;
         float GetDeltaTime() const;
 
         CoatingObject* GetCoatingObject(int column, int row);
         StaticObject* GetStaticObject(int column, int row);
-        std::vector<DynamicObjectUnique>& GetDynamicObjects();
+        std::vector<DynamicShared>& GetDynamicObjects();
 
         bool IsCorrectColumn(int column);
         bool IsCorrectRow(int row);
@@ -33,7 +34,7 @@ namespace rtm {
         bool LoadMap(MapNumber number);
         void Reset();        
 
-        // TODO: Delete (only for test)
+        // TODO: Delete (only for tests)
         void AddTestObjects();
         void AddCar(CarType type, int column, int row, float angle);
         void RemoveCoatingObjects();
@@ -48,21 +49,34 @@ namespace rtm {
 
         cocos2d::Sprite* background_;
         std::vector<std::vector<CoatingUnionShared>> coatingUnions_;
-        std::vector<std::vector<StaticObjectUnique>> staticObjects_;
-        std::vector<DynamicObjectUnique> dynamicObjects_;
+        std::vector<std::vector<StaticShared>> staticObjects_;
+        std::vector<DynamicShared> dynamicObjects_;
 
         bool IsEmpty(int column, int row, size_t width, size_t height);
 
         void GenerateObject_(char* params, char count);
+
         void SetBackground_(std::string const& filename);
         void SetBackground_(BackgroundNumber number);
-        void AddDriveway_(int column, int row, size_t width, size_t height, DirectionType direction);
-        void AddCrossroad_(int column, int row, size_t upLines,
-            size_t toRightLines, size_t downLines, size_t toLeftLines);
-        void AddTCrossroad_(int column, int row, size_t upLines,
-            size_t toRightLines, size_t downLines, size_t toLeftLines, DirectionType nullDirection);
+
+        void AddCoatingUnion_(int column, int row, CoatingUnionShared coatingUnion);
+        void AddDriveway_(int column, int row, size_t width, size_t height, AngleType angle);
+        void AddCrossroad_(int column, int row, LinesCounts linesCounts, 
+            ControlUnitType controlUnitType = NoControlUnit);
+        void AddTCrossroad_(int column, int row, LinesCounts linesCounts, AngleType nullDirection,
+            ControlUnitType controlUnitType = NoControlUnit);
+        void AddTurt_(int column, int row, size_t linesCount, bool isRight, AngleType angle);
+        
+        void AddStaticObject_(int column, int row, StaticShared staticObject);
         void AddBuilding_(BuildingType type, int column, int row, float angle);
+
+        void AddDynamicObject_(int column, int row, DynamicShared dynamicObject);
         void AddCar_(CarType type, int column, int row, float angle);
+
+        static inline size_t GetVectorColumn_(int column);
+        static inline size_t GetVectorRow_(int row);
+        static inline int GetRealColumn_(size_t column);
+        static inline int GetRealRow_(size_t row);
 
         void RemoveCoatingObjects_();
         void RemoveStaticObjects_();

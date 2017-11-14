@@ -65,8 +65,6 @@ bool rtm::DynamicObject::HasCollision() const
 
 void rtm::DynamicObject::Update(WorldController* const world)
 {
-    WorldObject::Update(world);
-
     if (speed_ != 0.f) {
         SetX_(GetX() + speed_ * sin(GetAngle()) * world->GetDeltaTime());
         SetY_(GetY() + speed_ * cos(GetAngle()) * world->GetDeltaTime());

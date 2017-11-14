@@ -10,10 +10,10 @@ namespace rtm {
     public:
         RoadCoating();
         RoadCoating(cocos2d::Sprite* const sprite, int column, int row, 
-            DirectionType direction, float resistance, Directions directions);
+            AngleType angle, float resistance, Directions directions);
         RoadCoating(std::string const& filename, int column, int row,
-            DirectionType direction, float resistance, Directions directions);
-        RoadCoating(RoadType type, int column, int row, DirectionType direction);
+            AngleType angle, float resistance, Directions directions);
+        RoadCoating(RoadType type, int column, int row, AngleType angle);
 
         virtual ~RoadCoating() = default;
 

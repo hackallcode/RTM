@@ -9,18 +9,22 @@ namespace rtm {
     {
     public:
         CrossroadObject();
-        CrossroadObject(int column, int row, size_t upLines, size_t toRightLines, size_t downLines, size_t toLeftLines);
+        CrossroadObject(int column, int row, LinesCounts linesCounts, 
+            ControlUnitType controlUnitType = NoControlUnit);
+        CrossroadObject(int column, int row, LinesCounts linesCounts, AngleType nullDirection, 
+            ControlUnitType controlUnitType = NoControlUnit);
 
-        static std::vector<std::vector<CoatingObjectUnique>> CreateMatrix(int column, int row, 
-            size_t upLines, size_t toRightLines, size_t downLines, size_t toLeftLines);
+        static CoatingMatrix CrossroadMatrix(int column, int row, LinesCounts linesCounts);
+        static CoatingMatrix TCrossroadMatrix(int column, int row, LinesCounts linesCounts, AngleType nullDirection);
 
         virtual ~CrossroadObject() = default;
 
+        ControlUnit* GetControlUnit() const;
+
     private:
-        size_t upLines_;
-        size_t toRightLines_;
-        size_t downLines_;
-        size_t toLeftLines_;
+        LinesCounts linesCounts_;
+        AngleType nullDirection_;
+        ControlUnitShared controlUnit_;
     };
 }
 

@@ -98,31 +98,31 @@ void rtm::keyListener(cocos2d::EventKeyboard::KeyCode code, cocos2d::Event* even
     auto& map = GLOBAL_WORLD_SCENE->getMap();
     if (code == cocos2d::EventKeyboard::KeyCode::KEY_0) {
         SetCaseNumber(0);
-        map->AddCar(CarTypeNo2, 30, 30, ANGLE_BOTTOM);
-        map->AddCar(CarTypeNo2, 30, 15, ANGLE_TOP);
+        map->AddCar(CarTypeNo2, 30, 30, ANGLE_DOWN);
+        map->AddCar(CarTypeNo2, 30, 15, ANGLE_UP);
         map->AddCar(CarTypeNo2, 20, 10, ANGLE_RIGHT);
         map->AddCar(CarTypeNo2, 40, 10, ANGLE_LEFT);
     }
     else if (code == cocos2d::EventKeyboard::KeyCode::KEY_1) {
         SetCaseNumber(1);
 
-        map->AddCar(CarTypeNo2, 20, 10, ANGLE_TOP);
-        map->AddCar(CarTypeNo1, 20, 15, ANGLE_TOP);
-        map->AddCar(CarTypeNo2, 20, 30, ANGLE_TOP);
-        map->AddCar(CarTypeNo2, 20, 30, ANGLE_TOP);
+        map->AddCar(CarTypeNo2, 20, 10, ANGLE_UP);
+        map->AddCar(CarTypeNo1, 20, 15, ANGLE_UP);
+        map->AddCar(CarTypeNo2, 20, 30, ANGLE_UP);
+        map->AddCar(CarTypeNo2, 20, 30, ANGLE_UP);
 
-        map->AddCar(CarTypeNo2, 25, 15, ANGLE_TOP);
-        map->AddCar(CarTypeNo2, 25, 30, ANGLE_TOP);
-        map->AddCar(CarTypeNo2, 25, 30, ANGLE_TOP);
+        map->AddCar(CarTypeNo2, 25, 15, ANGLE_UP);
+        map->AddCar(CarTypeNo2, 25, 30, ANGLE_UP);
+        map->AddCar(CarTypeNo2, 25, 30, ANGLE_UP);
 
-        map->AddCar(CarTypeNo2, 30, 30, ANGLE_BOTTOM);
-        map->AddCar(CarTypeNo1, 30, 25, ANGLE_BOTTOM);
-        map->AddCar(CarTypeNo2, 30, 10, ANGLE_BOTTOM);
-        map->AddCar(CarTypeNo2, 30, 10, ANGLE_BOTTOM);
+        map->AddCar(CarTypeNo2, 30, 30, ANGLE_DOWN);
+        map->AddCar(CarTypeNo1, 30, 25, ANGLE_DOWN);
+        map->AddCar(CarTypeNo2, 30, 10, ANGLE_DOWN);
+        map->AddCar(CarTypeNo2, 30, 10, ANGLE_DOWN);
 
-        map->AddCar(CarTypeNo2, 35, 25, ANGLE_BOTTOM);
-        map->AddCar(CarTypeNo2, 35, 10, ANGLE_BOTTOM);
-        map->AddCar(CarTypeNo2, 35, 10, ANGLE_BOTTOM);
+        map->AddCar(CarTypeNo2, 35, 25, ANGLE_DOWN);
+        map->AddCar(CarTypeNo2, 35, 10, ANGLE_DOWN);
+        map->AddCar(CarTypeNo2, 35, 10, ANGLE_DOWN);
     }
     else if (code == cocos2d::EventKeyboard::KeyCode::KEY_2) {
         SetCaseNumber(2);
@@ -165,24 +165,24 @@ void rtm::keyListener(cocos2d::EventKeyboard::KeyCode code, cocos2d::Event* even
         SetCaseNumber(5);
 
         map->AddCar(CarTypeNo1, 15, 15, ANGLE_RIGHT);
-        map->AddCar(CarTypeNo1, 20, 10, ANGLE_TOP);
+        map->AddCar(CarTypeNo1, 20, 10, ANGLE_UP);
         map->AddCar(CarTypeNo2, 30, 15, ANGLE_RIGHT);
-        map->AddCar(CarTypeNo2, 35, 10, ANGLE_TOP);
+        map->AddCar(CarTypeNo2, 35, 10, ANGLE_UP);
     }
     else if (code == cocos2d::EventKeyboard::KeyCode::KEY_6) {
         SetCaseNumber(6);
 
         map->AddCar(CarTypeNo1, 20, 15, ANGLE_LEFT);
-        map->AddCar(CarTypeNo1, 15, 10, ANGLE_TOP);
+        map->AddCar(CarTypeNo1, 15, 10, ANGLE_UP);
         map->AddCar(CarTypeNo2, 35, 15, ANGLE_LEFT);
-        map->AddCar(CarTypeNo2, 30, 10, ANGLE_TOP);
+        map->AddCar(CarTypeNo2, 30, 10, ANGLE_UP);
     }
     else if (code == cocos2d::EventKeyboard::KeyCode::KEY_7) {
         SetCaseNumber(7);
 
-        map->AddCar(CarTypeNo2, 30, 10, ANGLE_TOP);
+        map->AddCar(CarTypeNo2, 30, 10, ANGLE_UP);
         map->AddCar(CarTypeNo2, 15, 14, ANGLE_RIGHT);
-        map->AddCar(CarTypeNo2, 30, 25, ANGLE_BOTTOM);
+        map->AddCar(CarTypeNo2, 30, 25, ANGLE_DOWN);
         map->AddCar(CarTypeNo2, 45, 14, ANGLE_LEFT);
     }
     else if (code == cocos2d::EventKeyboard::KeyCode::KEY_8) {
@@ -195,9 +195,9 @@ void rtm::keyListener(cocos2d::EventKeyboard::KeyCode code, cocos2d::Event* even
     else if (code == cocos2d::EventKeyboard::KeyCode::KEY_9) {
         SetCaseNumber(9);
 
-        map->AddCar(CarTypeNo2, 32, 34, ANGLE_TOP);
+        map->AddCar(CarTypeNo2, 32, 34, ANGLE_UP);
         map->AddCar(CarTypeNo2, 61, 15, ANGLE_RIGHT);
-        map->AddCar(CarTypeNo2, 32, 3, ANGLE_BOTTOM);
+        map->AddCar(CarTypeNo2, 32, 3, ANGLE_DOWN);
         map->AddCar(CarTypeNo2, 4, 15, ANGLE_LEFT);
     }
     else if (code == cocos2d::EventKeyboard::KeyCode::KEY_T) {

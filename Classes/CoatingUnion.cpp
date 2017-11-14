@@ -11,7 +11,7 @@ rtm::CoatingUnion::CoatingUnion()
     , objects_{}
 {}
 
-rtm::CoatingUnion::CoatingUnion(CoatingType type, int column, int row, std::vector<std::vector<CoatingObjectUnique>>&& objects)
+rtm::CoatingUnion::CoatingUnion(CoatingType type, int column, int row, CoatingMatrix&& objects)
     : type_{ type }
     , column_{ column }
     , row_{ row }
@@ -32,9 +32,14 @@ rtm::CoatingType rtm::CoatingUnion::GetType() const
     return type_;
 }
 
-rtm::CoatingObjectUnique const& rtm::CoatingUnion::GetCoatingObject(int column, int row) const
+rtm::CoatingUnique const& rtm::CoatingUnion::GetCoatingObject(int column, int row) const
 {
     return objects_[column - column_][row - row_];
+}
+
+float rtm::CoatingUnion::GetLength() const
+{
+    return 1.0f;
 }
 
 bool rtm::CoatingUnion::IsCorrectColumn(int column) const
@@ -47,13 +52,13 @@ bool rtm::CoatingUnion::IsCorrectRow(int row) const
     return row >= row_ && row < static_cast<int>(row_ + height_);
 }
 
-void rtm::CoatingUnion::ShowCoatingObjects(WorldScene * const scene)
+void rtm::CoatingUnion::ShowCoatingObjects(WorldScene* const scene)
 {
     for (auto& col : objects_) {
         for (auto& elem : col) {
             if (elem) {
                 if (elem->GetSprite() != nullptr) {
-                    scene->addChild(elem->GetSprite());
+                    scene->addChild(elem->GetSprite(), COATING_OBJECT_Z_ORDER);
                 }
             }
         }
@@ -74,12 +79,12 @@ void rtm::CoatingUnion::ReleaseCoatingObjects(WorldScene* const scene)
     }
 }
 
-size_t rtm::CoatingUnion::GetWidth_() const
+size_t rtm::CoatingUnion::GetWidth() const
 {
     return width_;
 }
 
-size_t rtm::CoatingUnion::GetHeight_() const
+size_t rtm::CoatingUnion::GetHeight() const
 {
     return height_;
 }

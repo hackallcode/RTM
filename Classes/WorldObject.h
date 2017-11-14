@@ -19,8 +19,6 @@ namespace rtm {
         float GetWidth() const;
         float GetHeight() const;
 
-        virtual void Update(WorldController* const world);
-
     protected:
         void SetSprite_(cocos2d::Sprite* const sprite);
         void SetX_(float x);

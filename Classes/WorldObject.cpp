@@ -46,9 +46,6 @@ float rtm::WorldObject::GetHeight() const
     return height_;
 }
 
-void rtm::WorldObject::Update(WorldController* const world)
-{}
-
 void rtm::WorldObject::SetSprite_(cocos2d::Sprite* const sprite)
 {
     sprite_ = sprite;

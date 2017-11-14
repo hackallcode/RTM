@@ -5,21 +5,21 @@ rtm::RoadCoating::RoadCoating()
 {}
 
 rtm::RoadCoating::RoadCoating(cocos2d::Sprite* const sprite, int column, int row, 
-    DirectionType direction, float resistance, Directions directions)
-    : CoatingObject{ sprite, column, row, direction, resistance, directions }
+    AngleType angle, float resistance, Directions directions)
+    : CoatingObject{ sprite, column, row, angle, resistance, directions }
 {}
 
 rtm::RoadCoating::RoadCoating(std::string const& filename, int column, int row, 
-    DirectionType direction, float resistance, Directions directions)
-    : CoatingObject{filename, column, row, direction, resistance, directions}
+    AngleType angle, float resistance, Directions directions)
+    : CoatingObject{filename, column, row, angle, resistance, directions}
 {}
 
-rtm::RoadCoating::RoadCoating(RoadType type, int column, int row, DirectionType direction)
+rtm::RoadCoating::RoadCoating(RoadType type, int column, int row, AngleType angle)
     : RoadCoating{
         GetClassFile_(type)
         , column
         , row
-        , direction
+        , angle
         , GetClassResistance_(type)
         , GetClassDirections_(type)
     }

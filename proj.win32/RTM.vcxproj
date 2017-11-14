@@ -152,6 +152,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\BuildingObject.cpp" />
     <ClCompile Include="..\Classes\CarObject.cpp" />
     <ClCompile Include="..\Classes\CoatingObject.cpp" />
+    <ClCompile Include="..\Classes\ControlUnit.cpp" />
     <ClCompile Include="..\Classes\CrossroadObject.cpp" />
     <ClCompile Include="..\Classes\DrivewayObject.cpp" />
     <ClCompile Include="..\Classes\DynamicObject.cpp" />
@@ -159,7 +160,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\General.cpp" />
     <ClCompile Include="..\Classes\RoadCoating.cpp" />
     <ClCompile Include="..\Classes\CoatingUnion.cpp" />
-    <ClCompile Include="..\Classes\TCrossroadObject.cpp" />
+    <ClCompile Include="..\Classes\TurnObject.cpp" />
     <ClCompile Include="..\Classes\WorldController.cpp" />
     <ClCompile Include="..\Classes\MapObject.cpp" />
     <ClCompile Include="..\Classes\StaticObject.cpp" />
@@ -173,6 +174,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\BuildingObject.h" />
     <ClInclude Include="..\Classes\CarObject.h" />
     <ClInclude Include="..\Classes\CoatingObject.h" />
+    <ClInclude Include="..\Classes\ControlUnit.h" />
     <ClInclude Include="..\Classes\CrossroadObject.h" />
     <ClInclude Include="..\Classes\DrivewayObject.h" />
     <ClInclude Include="..\Classes\DynamicObject.h" />
@@ -180,7 +182,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\General.h" />
     <ClInclude Include="..\Classes\RoadCoating.h" />
     <ClInclude Include="..\Classes\CoatingUnion.h" />
-    <ClInclude Include="..\Classes\TCrossroadObject.h" />
+    <ClInclude Include="..\Classes\TurnObject.h" />
     <ClInclude Include="..\Classes\WorldController.h" />
     <ClInclude Include="..\Classes\MapObject.h" />
     <ClInclude Include="..\Classes\StaticObject.h" />

@@ -1,11 +1,11 @@
 #include "CoatingObject.h"
 
 rtm::CoatingObject::CoatingObject()
-    : CoatingObject{ nullptr, 0.f, 0.f, TopDirection, 0.f, { false, false, false, false } }
+    : CoatingObject{ nullptr, 0.f, 0.f, Up, 0.f, { false, false, false, false } }
 {}
 
 rtm::CoatingObject::CoatingObject(cocos2d::Sprite* const sprite, int column, int row,
-    DirectionType direction, float resistance, Directions directions)
+    AngleType angle, float resistance, Directions directions)
     : sprite_(nullptr)
     , x_(CellToPixel(column))
     , y_(CellToPixel(row))
@@ -14,44 +14,44 @@ rtm::CoatingObject::CoatingObject(cocos2d::Sprite* const sprite, int column, int
 {
     SetSprite_(sprite);
 
-    if (direction == RightDirection) {
+    if (angle == Right) {
         sprite_->setRotation(RAD_DEG * ANGLE_RIGHT);
         
-        std::swap(directions_[TopDirection], directions_[LeftDirection]);
-        std::swap(directions_[LeftDirection], directions_[BottomDirection]);
-        std::swap(directions_[BottomDirection], directions_[RightDirection]);
+        std::swap(directions_[Up], directions_[Left]);
+        std::swap(directions_[Left], directions_[Down]);
+        std::swap(directions_[Down], directions_[Right]);
 
-        std::swap(directions_[TopRightDirection], directions_[TopLeftDirection]);
-        std::swap(directions_[TopLeftDirection], directions_[BottomLeftDirection]);
-        std::swap(directions_[BottomLeftDirection], directions_[BottomRightDirection]);
+        std::swap(directions_[UpRight], directions_[UpLeft]);
+        std::swap(directions_[UpLeft], directions_[DownLeft]);
+        std::swap(directions_[DownLeft], directions_[DownRight]);
     }
-    else if (direction == BottomDirection) {
-        sprite_->setRotation(RAD_DEG * ANGLE_BOTTOM);
+    else if (angle == Down) {
+        sprite_->setRotation(RAD_DEG * ANGLE_DOWN);
 
-        std::swap(directions_[TopDirection], directions_[BottomDirection]);
-        std::swap(directions_[RightDirection], directions_[LeftDirection]);
+        std::swap(directions_[Up], directions_[Down]);
+        std::swap(directions_[Right], directions_[Left]);
 
-        std::swap(directions_[TopRightDirection], directions_[BottomLeftDirection]);
-        std::swap(directions_[BottomRightDirection], directions_[TopLeftDirection]);
+        std::swap(directions_[UpRight], directions_[DownLeft]);
+        std::swap(directions_[DownRight], directions_[UpLeft]);
     }
-    else if (direction == LeftDirection) {
+    else if (angle == Left) {
         sprite_->setRotation(RAD_DEG * ANGLE_LEFT);
 
-        std::swap(directions_[TopDirection], directions_[RightDirection]);
-        std::swap(directions_[RightDirection], directions_[BottomDirection]);
-        std::swap(directions_[BottomDirection], directions_[LeftDirection]);
+        std::swap(directions_[Up], directions_[Right]);
+        std::swap(directions_[Right], directions_[Down]);
+        std::swap(directions_[Down], directions_[Left]);
 
-        std::swap(directions_[TopRightDirection], directions_[BottomRightDirection]);
-        std::swap(directions_[BottomRightDirection], directions_[BottomLeftDirection]);
-        std::swap(directions_[BottomLeftDirection], directions_[TopLeftDirection]);
+        std::swap(directions_[UpRight], directions_[DownRight]);
+        std::swap(directions_[DownRight], directions_[DownLeft]);
+        std::swap(directions_[DownLeft], directions_[UpLeft]);
     }
 
     availableDirections_ = directions_;
 }
 
 rtm::CoatingObject::CoatingObject(std::string const& filename, int column, int row,
-    DirectionType direction, float resistance, Directions directions)
-    : CoatingObject{ cocos2d::Sprite::create(filename), column, row, direction, resistance, directions }
+    AngleType angle, float resistance, Directions directions)
+    : CoatingObject{ cocos2d::Sprite::create(filename), column, row, angle, resistance, directions }
 {}
 
 cocos2d::Sprite* rtm::CoatingObject::GetSprite() const
@@ -74,19 +74,19 @@ float rtm::CoatingObject::GetResistance() const
     return resistance_;
 }
 
-bool rtm::CoatingObject::HasDirection(DirectionType direction) const
+bool rtm::CoatingObject::HasDirection(AngleType angle) const
 {
-    return directions_[direction];
+    return directions_[angle];
 }
 
-bool rtm::CoatingObject::IsDirectionAvailable(DirectionType direction) const
+bool rtm::CoatingObject::IsDirectionAvailable(AngleType angle) const
 {
-    return availableDirections_[direction];
+    return availableDirections_[angle];
 }
 
-void rtm::CoatingObject::SetDirectionAvailability(DirectionType direction, bool status)
+void rtm::CoatingObject::SetDirectionAvailability(AngleType angle, bool status)
 {
-    availableDirections_[direction] = status;
+    availableDirections_[angle] = status;
 }
 
 void rtm::CoatingObject::Update(WorldController* const world)

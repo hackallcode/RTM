@@ -171,13 +171,13 @@ rtm::CoatingObject* rtm::VehicleObject::CheckForwardCoating_(WorldController* co
     int col{ PixelToCell(GetX()) };
     int row{ PixelToCell(GetY()) };
 
-    if (IsSameAngles(GetAngle(), ANGLE_TOP)) {
+    if (IsSameAngles(GetAngle(), ANGLE_UP)) {
         return world->GetCoatingObject(col, row + delta);
     }
     else if (IsSameAngles(GetAngle(), ANGLE_RIGHT)) {
         return world->GetCoatingObject(col + delta, row);
     }
-    else if (IsSameAngles(GetAngle(), ANGLE_BOTTOM)) {
+    else if (IsSameAngles(GetAngle(), ANGLE_DOWN)) {
         return world->GetCoatingObject(col, row - delta);
     }
     else if (IsSameAngles(GetAngle(), ANGLE_LEFT)) {

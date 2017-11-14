@@ -9,9 +9,9 @@ namespace rtm {
     public:
         CoatingObject();
         CoatingObject(cocos2d::Sprite* const sprite, int column, int row,
-            DirectionType direction, float resistance, Directions directions);
+            AngleType angle, float resistance, Directions directions);
         CoatingObject(std::string const& filename, int column, int row, 
-            DirectionType direction, float resistance, Directions directions);
+            AngleType angle, float resistance, Directions directions);
 
         virtual ~CoatingObject() = default;
 
@@ -19,10 +19,10 @@ namespace rtm {
         float GetX() const;
         float GetY() const;
         float GetResistance() const;
-        bool HasDirection(DirectionType direction) const;
-        bool IsDirectionAvailable(DirectionType direction) const;
+        bool HasDirection(AngleType angle) const;
+        bool IsDirectionAvailable(AngleType angle) const;
 
-        void SetDirectionAvailability(DirectionType direction, bool status);
+        void SetDirectionAvailability(AngleType angle, bool status);
 
         virtual void Update(WorldController* const world);
 

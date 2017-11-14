@@ -16,7 +16,7 @@ namespace rtm {
         float GetSpeed() const;
         bool HasCollision() const;
 
-        virtual void Update(WorldController* const world) override;
+        virtual void Update(WorldController* const world);
 
         friend void CheckCollisions(WorldController* const world);
 

@@ -36,14 +36,14 @@ namespace rtm {
 
     /* ANGLES */
 
-    float const ANGLE_TOP{ 0.f };
+    float const ANGLE_UP{ 0.f };
     float const ANGLE_RIGHT{ F_PI_2 };
-    float const ANGLE_BOTTOM{ -F_PI };
+    float const ANGLE_DOWN{ -F_PI };
     float const ANGLE_LEFT{ -F_PI_2 };
-    float const ANGLE_TOP_RIGHT{ F_PI_4 };
-    float const ANGLE_BOTTOM_RIGHT{ F_PI_2 - F_PI_4 };
-    float const ANGLE_BOTTOM_LEFT{ -F_PI + F_PI_4 };
-    float const ANGLE_TOP_LEFT{ -F_PI_4 };
+    float const ANGLE_UP_RIGHT{ F_PI_4 };
+    float const ANGLE_DOWN_RIGHT{ F_PI_2 - F_PI_4 };
+    float const ANGLE_DOWN_LEFT{ -F_PI + F_PI_4 };
+    float const ANGLE_UP_LEFT{ -F_PI_4 };
 
     /* DELTAS */
 
@@ -57,8 +57,12 @@ namespace rtm {
 
     int const BACKGROUND_Z_ORDER{ 0 };
     int const COATING_OBJECT_Z_ORDER{ 1 };
-    int const VEHICLE_OBJECT_Z_ORDER{ 2 };
-    int const MAP_OBJECT_Z_ORDER{ 3 };
+    int const BACKWARD_SIGNAL_Z_ORDER{ 2 };
+    int const LEFTWARD_SIGNAL_Z_ORDER{ 3 };
+    int const RIGHTWARD_SIGNAL_Z_ORDER{ 4 };
+    int const FORWARD_SIGNAL_Z_ORDER{ 5 };
+    int const VEHICLE_OBJECT_Z_ORDER{ 6 };
+    int const MAP_OBJECT_Z_ORDER{ 7 };
 
     /* AREA OF VISIBILITY */
 
@@ -80,35 +84,65 @@ namespace rtm {
     class WorldController;
     class CoatingObject;
     class CoatingUnion;
+    class ControlUnit;
     class WorldObject;
     class StaticObject;
     class DynamicObject;
 
     /* TYPES */
 
-    using WorldControllerUnique = std::unique_ptr<WorldController>;
-    using CoatingObjectUnique = std::unique_ptr<CoatingObject>;
-    using CoatingUnionShared = std::shared_ptr<CoatingUnion>;
-    using StaticObjectUnique = std::unique_ptr<StaticObject>;
-    using DynamicObjectUnique = std::unique_ptr<DynamicObject>;
-
-    using Directions = std::array<bool, 8>;
-    enum DirectionType {
-        TopDirection = 0
-        , RightDirection
-        , BottomDirection
-        , LeftDirection
-        , TopRightDirection
-        , BottomRightDirection
-        , BottomLeftDirection
-        , TopLeftDirection
+    enum AngleType {
+        NullAngle = -1
+        , Up = 0
+        , Right
+        , Down
+        , Left
+        , UpRight
+        , DownRight
+        , DownLeft
+        , UpLeft
     };
 
+    enum DirectionType {
+        Upward = 0
+        , Rightward
+        , Downward
+        , Leftward
+    };
+
+    enum TrafficLightSignal {
+        NotWorking = 0
+        , Allowed
+        , Warning
+        , Forbidden
+        , Closed
+    };
+
+    using WorldControllerUnique = std::unique_ptr<WorldController>;
+    using CoatingUnique = std::unique_ptr<CoatingObject>;
+    using CoatingVector = std::vector<CoatingUnique>;
+    using CoatingMatrix = std::vector<CoatingVector>;
+    using CoatingUnionShared = std::shared_ptr<CoatingUnion>;
+    using ControlUnitShared = std::shared_ptr<ControlUnit>;
+    using StaticShared = std::shared_ptr<StaticObject>;
+    using DynamicShared = std::shared_ptr<DynamicObject>;
+
+    using Directions = std::array<bool, 8>;
+    using LinesCounts = std::array<size_t, 4>;
+
+    using DirectionSignals = std::array<TrafficLightSignal, 4>;
+    using CrossroadSignals = std::array<DirectionSignals, 4>;
+
+    using SignalSprites = std::array<cocos2d::Sprite*, 5>;
+    using SignalsSprites = std::array<SignalSprites, 3>;
+    using DirectionsSignalSprites = std::array<SignalsSprites, 4>;
+    
     /* FILENAMES */
 
     std::string const BACKGROUND_FILENAME_MASK{ "res/background/BackgroundNo%No%.png" };
     std::string const MAP_FILENAME_MASK{ "res/map/MapNo%No%.rtmm" };
     std::string const ROAD_FILENAME_MASK{ "res/coating/RoadNo%No%.png" };
+    std::string const SIGNAL_FILENAME_MASK{ "res/signal/SignalNo%No%.png" };
     std::string const BUILDING_FILENAME_MASK{ "res/static/BuildingNo%No%.png" };
     std::string const CAR_FILENAME_MASK{ "res/vehicle/CarNo%No%.png" };
 
@@ -129,6 +163,7 @@ namespace rtm {
         , DrivewayType
         , CrossroadType
         , TCrossroadType
+        , TurnType
     };
 
     enum RoadType {
@@ -146,10 +181,13 @@ namespace rtm {
         , RoadTypeNo12
         , RoadTypeNo13
         , RoadTypeNo14
+        , RoadTypeNo15
+        , RoadTypeNo16
+        , RoadTypeNo17
     };
 
     // Coefficient of resistance
-    std::array<float, 15> const ROADS_RESISTANCES = {
+    std::array<float, 18> const ROADS_RESISTANCES = {
           0.f   // [0]
         , 1.f   // [1]
         , 1.f   // [2]
@@ -165,10 +203,13 @@ namespace rtm {
         , 1.f   // [12]
         , 1.f   // [13]
         , 1.f   // [14]
+        , 1.f   // [15]
+        , 1.f   // [16]
+        , 1.f   // [17]
     };
 
     // Enabled directions (top, right, bottom, left, tor-right, bottom-right, bottom-left, top-left)
-    std::array<Directions, 15> const ROADS_DIRECTIONS = {
+    std::array<Directions, 18> const ROADS_DIRECTIONS = {
           Directions{ false, false, false, false, false, false, false, false }  // [0]
         , Directions{ true, false, true, false, false, false, false, false }    // [1]
         , Directions{ true, false, true, false, true, true, false, false }      // [2]
@@ -184,6 +225,30 @@ namespace rtm {
         , Directions{ true, false, false, false, false, false, true, true }     // [12]
         , Directions{ false, false, true, false, false, false, true, true }     // [13]
         , Directions{ false, true, true, false, false, false, false, false }    // [14]
+        , Directions{ false, true, true, false, false, false, false, false }    // [15]
+        , Directions{ false, true, true, false, false, false, false, false }    // [16]
+        , Directions{ false, true, true, false, false, false, false, false }    // [17]
+    };
+
+    /* CONTROL UNITS */
+
+    enum ControlUnitType {
+        NoControlUnit = 0
+        , ControlUnitNo1 = 1
+    };
+
+    enum SignalId {
+        ForwardSignal = 1
+        , LeftwardSignal = 6
+        , RightwardSignal = 11
+    };
+
+    DirectionSignals const DEFAULT_DIRECTIONS_SIGNALS = { NotWorking, NotWorking, NotWorking };
+    CrossroadSignals const DEFAULT_CROSSROAD_SIGNALS = {
+        DEFAULT_DIRECTIONS_SIGNALS
+        , DEFAULT_DIRECTIONS_SIGNALS
+        , DEFAULT_DIRECTIONS_SIGNALS
+        , DEFAULT_DIRECTIONS_SIGNALS
     };
 
     /* MAP OBJECT */
@@ -233,19 +298,17 @@ namespace rtm {
 
     int PixelToCell(float coordinate);
     float CellToPixel(int cellNumber);
+    AngleType AngleToAngleType(float angle);
+    float AngleTypeToAngle(AngleType angle);
     DirectionType AngleToDirection(float angle);
-    float DirectionToAngle(DirectionType direction);
+    float AngleToDirection(DirectionType angle);
 
     /* OTHER */
 
-    DirectionType DirectionsSum(DirectionType a, DirectionType b);
+    AngleType AngleTypeSum(AngleType a, AngleType b);
     float CountDeceleration(float maxSpeed);
 
-    /* TODO: Delete */
-
-    inline bool IsSeparator(char c);
-    inline bool IsNotSeparator(char c);
-    std::vector<int> Split(std::string const& str);
+    /* TODO: Delete (only for tests) */
 
     int GetCaseNumber();
     void SetCaseNumber(int number);

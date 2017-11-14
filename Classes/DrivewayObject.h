@@ -9,22 +9,20 @@ namespace rtm {
     {
     public:
         DrivewayObject();
-        DrivewayObject(int column, int row, std::vector<std::vector<CoatingObjectUnique>>&& objects, DirectionType direction);
-        DrivewayObject(int column, int row, size_t width, size_t height, DirectionType direction);
+        DrivewayObject(int column, int row, size_t width, size_t height, AngleType angle);
 
-        static std::vector<std::vector<CoatingObjectUnique>> CreateMatrix(int column, int row, 
-            size_t width, size_t height, DirectionType direction);
+        static CoatingMatrix DrivewayMatrix(int column, int row, size_t width, size_t height, AngleType angle);
 
         virtual ~DrivewayObject() = default;
 
-        DirectionType GetDirection() const;
-        float GetLength() const;
+        AngleType GetAngle() const;
+        virtual float GetLength() const override;
 
     private:
-        DirectionType direction_;
+        AngleType angle_;
         float length_;
 
-        static float CountLength_(size_t width, size_t height, DirectionType direction);
+        static float CountLength_(size_t width, size_t height, AngleType angle);
     };
 }
 

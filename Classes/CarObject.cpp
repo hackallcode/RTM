@@ -33,7 +33,7 @@ rtm::CarObject::CarObject(CarType type, int column, int row, float angle)
         , angle
         , CarObject::GetClassMaxSpeed_(type)
         , CarObject::GetClassAcceleration_(type)
-    }
+}
 {}
 
 void rtm::CarObject::Update(WorldController* const world)
@@ -164,44 +164,41 @@ void rtm::CarObject::CheckRoadAhead_(WorldController* const world)
         return;
     }
 
-    {
-        // Coating ahead
-        CoatingObject* coating{ CheckForwardCoating_(world, 1) };
-        if (coating != nullptr) {
-            // If has no forward road coating
-            if (!coating->IsDirectionAvailable(AngleToDirection(GetAngle()))) {
-                if (coating->IsDirectionAvailable(AngleToDirection(GetAngle() + ANGLE_RIGHT))) {
-                    forwardSightEnabled_ = true;
-                    ResetDesiredSpeed_();
-                    Rotate_(ANGLE_RIGHT);
-                }
-                else if (coating->IsDirectionAvailable(AngleToDirection(GetAngle() + ANGLE_LEFT))) {
-                    forwardSightEnabled_ = true;
-                    ResetDesiredSpeed_();
-                    Rotate_(ANGLE_LEFT);
-                }
-                else if (coating->IsDirectionAvailable(AngleToDirection(GetAngle() + ANGLE_BOTTOM))) {
-                    forwardSightEnabled_ = true;
-                    ResetDesiredSpeed_();
-                    Rotate_(ANGLE_BOTTOM);
-                }
-                else {
-                    SetDesiredSpeed_(0.f);
-                }
+    // Coating ahead
+    CoatingObject* coating{ CheckForwardCoating_(world, 1) };
+    if (coating != nullptr) {
+        // If has no forward road coating
+        if (!coating->IsDirectionAvailable(AngleToAngleType(GetAngle()))) {
+            if (coating->IsDirectionAvailable(AngleToAngleType(GetAngle() + ANGLE_RIGHT))) {
+                forwardSightEnabled_ = true;
+                ResetDesiredSpeed_();
+                Rotate_(ANGLE_RIGHT);
+            }
+            else if (coating->IsDirectionAvailable(AngleToAngleType(GetAngle() + ANGLE_LEFT))) {
+                forwardSightEnabled_ = true;
+                ResetDesiredSpeed_();
+                Rotate_(ANGLE_LEFT);
+            }
+            //else if (coating->IsDirectionAvailable(AngleToAngleType(GetAngle() + ANGLE_DOWN))) {
+            //    forwardSightEnabled_ = true;
+            //    ResetDesiredSpeed_();
+            //    Rotate_(ANGLE_DOWN);
+            //}
+            else {
+                SetDesiredSpeed_(0.f);
             }
         }
     }
-    
-    {
+    else {
         // Coating throw one cell
-        CoatingObject* coating{ CheckForwardCoating_(world, 2) };
-        if (coating != nullptr) {
+        CoatingObject* farCoating{ CheckForwardCoating_(world, 2) };
+        if (farCoating != nullptr) {
             // If T-crossroad
-            if (!coating->IsDirectionAvailable(AngleToDirection(GetAngle()))
-                && coating->HasDirection(AngleToDirection(GetAngle() + ANGLE_RIGHT))
-                && coating->HasDirection(AngleToDirection(GetAngle() + ANGLE_LEFT))) {
+            if (!farCoating->IsDirectionAvailable(AngleToAngleType(GetAngle()))
+                && farCoating->HasDirection(AngleToAngleType(GetAngle() + ANGLE_RIGHT))
+                && farCoating->HasDirection(AngleToAngleType(GetAngle() + ANGLE_LEFT))) {
                 forwardSightEnabled_ = false;
-                StopAtDistance_(abs(FT::length(GetX() - coating->GetX(), GetY() - coating->GetY()) - CELL_SIZE));
+                StopAtDistance_(abs(FT::length(GetX() - farCoating->GetX(), GetY() - farCoating->GetY()) - CELL_SIZE));
             }
         }
     }

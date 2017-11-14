@@ -4,68 +4,63 @@
 
 rtm::DrivewayObject::DrivewayObject()
     : CoatingUnion{}
-    , direction_{ TopDirection }
+    , angle_{ Up }
     , length_{ 0.f }
 {}
 
-rtm::DrivewayObject::DrivewayObject(int column, int row,
-    std::vector<std::vector<CoatingObjectUnique>>&& objects, DirectionType direction)
-    : CoatingUnion{ DrivewayType, column, row, std::move(objects) }
-    , direction_{ direction }
-    , length_{ CountLength_(GetWidth_(), GetHeight_(), direction) }
+rtm::DrivewayObject::DrivewayObject(int column, int row, size_t width, size_t height, AngleType angle)
+    : CoatingUnion{ DrivewayType, column, row, std::move(DrivewayObject::DrivewayMatrix(column, row, width, height, angle)) }
+    , angle_{ angle }
+    , length_{ CountLength_(GetWidth(), GetHeight(), angle) }
 {}
 
-rtm::DrivewayObject::DrivewayObject(int column, int row, size_t width, size_t height, DirectionType direction)
-    : DrivewayObject{ column, row, std::move(DrivewayObject::CreateMatrix(column, row, width, height, direction)), direction }
-{}
-
-std::vector<std::vector<rtm::CoatingObjectUnique>> rtm::DrivewayObject::CreateMatrix(int column, int row,
-    size_t width, size_t height, DirectionType direction)
+rtm::CoatingMatrix rtm::DrivewayObject::DrivewayMatrix(int column, int row,
+    size_t width, size_t height, AngleType angle)
 {
-    std::vector<std::vector<rtm::CoatingObjectUnique>> result{ width };
+    CoatingMatrix result{ width };
 
     for (size_t i = 0; i < width; ++i) {
-        result[i] = std::vector<rtm::CoatingObjectUnique>{ height };
+        result[i] = CoatingVector{ height };
 
         for (size_t j = 0; j < height; ++j) {
             RoadType type{ static_cast<RoadType>(0) };
-            DirectionType extraDirection{ TopDirection };
+            AngleType extraDirection{ Up };
 
             // Choose properties of road
-            if (direction == TopDirection || direction == BottomDirection) {
+            if (angle == Up || angle == Down) {
                 if (width == 1) {
                     type = RoadTypeNo1;
                 }
                 else if (i == 0) {
                     type = RoadTypeNo2;
-                    if (direction == BottomDirection) {
-                        extraDirection = BottomDirection;
+                    if (angle == Down) {
+                        extraDirection = Down;
                     }
                 }
                 else if (i == width - 1) {
                     type = RoadTypeNo2;
-                    if (direction == TopDirection) {
-                        extraDirection = BottomDirection;
+                    if (angle == Up) {
+                        extraDirection = Down;
                     }
                 }
                 else {
                     type = RoadTypeNo3;
                 }
             }
-            else if (direction == RightDirection || direction == LeftDirection) {
+            else if (angle == Right || angle == Left) {
                 if (height == 1) {
                     type = RoadTypeNo1;
                 }
                 else if (j == 0) {
                     type = RoadTypeNo2;
-                    if (direction == RightDirection) {
-                        extraDirection = BottomDirection;
+                    if (angle == Right) {
+                        extraDirection = Down;
                     }
                 }
                 else if (j == height - 1) {
                     type = RoadTypeNo2;
-                    if (direction == LeftDirection) {
-                        extraDirection = BottomDirection;
+                    if (angle == Left) {
+                        extraDirection = Down;
                     }
                 }
                 else {
@@ -78,27 +73,27 @@ std::vector<std::vector<rtm::CoatingObjectUnique>> rtm::DrivewayObject::CreateMa
                 type
                 , column + i
                 , row + j
-                , DirectionsSum(direction, extraDirection)
+                , AngleTypeSum(angle, extraDirection)
             );
 
             // Block backward direction
             result[i][j]->SetDirectionAvailability(
-                DirectionsSum(direction, BottomLeftDirection), false
+                AngleTypeSum(angle, DownLeft), false
             );
             result[i][j]->SetDirectionAvailability(
-                DirectionsSum(direction, BottomDirection), false
+                AngleTypeSum(angle, Down), false
             );
             result[i][j]->SetDirectionAvailability(
-                DirectionsSum(direction, BottomRightDirection), false
+                AngleTypeSum(angle, DownRight), false
             );
         }
     }
     return result;
 }
 
-rtm::DirectionType rtm::DrivewayObject::GetDirection() const
+rtm::AngleType rtm::DrivewayObject::GetAngle() const
 {
-    return direction_;
+    return angle_;
 }
 
 float rtm::DrivewayObject::GetLength() const
@@ -106,16 +101,16 @@ float rtm::DrivewayObject::GetLength() const
     return length_;
 }
 
-float rtm::DrivewayObject::CountLength_(size_t width, size_t height, DirectionType direction)
+float rtm::DrivewayObject::CountLength_(size_t width, size_t height, AngleType angle)
 {
-    if (direction == TopDirection || direction == BottomDirection) {
+    if (angle == Up || angle == Down) {
         return static_cast<float>(height);
     }
-    else if (direction == LeftDirection || direction == RightDirection) {
+    else if (angle == Left || angle == Right) {
         return static_cast<float>(width);
     }
-    else if (direction == TopRightDirection || direction == BottomRightDirection ||
-        direction == BottomLeftDirection || direction == TopLeftDirection) {
+    else if (angle == UpRight || angle == DownRight ||
+        angle == DownLeft || angle == UpLeft) {
         return FT::length(width, height);
     }
     else {
