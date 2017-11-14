@@ -52,7 +52,7 @@ bool rtm::CoatingUnion::IsCorrectRow(int row) const
     return row >= row_ && row < static_cast<int>(row_ + height_);
 }
 
-void rtm::CoatingUnion::ShowCoatingObjects(WorldScene* const scene)
+void rtm::CoatingUnion::ShowSprites(WorldScene* const scene)
 {
     for (auto& col : objects_) {
         for (auto& elem : col) {
@@ -65,7 +65,7 @@ void rtm::CoatingUnion::ShowCoatingObjects(WorldScene* const scene)
     }
 }
 
-void rtm::CoatingUnion::ReleaseCoatingObjects(WorldScene* const scene)
+void rtm::CoatingUnion::ReleaseSprites(WorldScene* const scene)
 {
     for (auto& col : objects_) {
         for (auto& elem : col) {

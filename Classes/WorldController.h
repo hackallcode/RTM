@@ -49,6 +49,7 @@ namespace rtm {
 
         cocos2d::Sprite* background_;
         std::vector<std::vector<CoatingUnionShared>> coatingUnions_;
+        std::vector<ControlUnitShared> controlUnits_;
         std::vector<std::vector<StaticShared>> staticObjects_;
         std::vector<DynamicShared> dynamicObjects_;
 
@@ -67,6 +68,8 @@ namespace rtm {
             ControlUnitType controlUnitType = NoControlUnit);
         void AddTurt_(int column, int row, size_t linesCount, bool isRight, AngleType angle);
         
+        void AddControlUnit_(ControlUnitShared controlUnit);
+
         void AddStaticObject_(int column, int row, StaticShared staticObject);
         void AddBuilding_(BuildingType type, int column, int row, float angle);
 

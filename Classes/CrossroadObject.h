@@ -19,7 +19,10 @@ namespace rtm {
 
         virtual ~CrossroadObject() = default;
 
-        ControlUnit* GetControlUnit() const;
+        ControlUnitShared GetControlUnit() const;
+
+        virtual void ShowSprites(WorldScene* const scene) override;
+        virtual void ReleaseSprites(WorldScene* const scene) override;
 
     private:
         LinesCounts linesCounts_;

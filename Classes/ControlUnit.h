@@ -8,8 +8,8 @@ namespace rtm {
     {
     public:
         ControlUnit();
-        ControlUnit(ControlUnitType controlUnitType, int column, int row, LinesCounts linesCounts);
-        ControlUnit(ControlUnitType controlUnitType, int column, int row, LinesCounts linesCounts, AngleType nullDirection);
+        ControlUnit(ControlUnitType type, int column, int row, LinesCounts linesCounts);
+        ControlUnit(ControlUnitType type, int column, int row, LinesCounts linesCounts, AngleType nullDirection);
         
         virtual ~ControlUnit() = default;
 
@@ -17,6 +17,9 @@ namespace rtm {
 
         operator bool() const;
         TrafficLightSignal GetSignal(DirectionType from, DirectionType to) const;
+
+        void ShowSprites(WorldScene* const scene);
+        void ReleaseSprites(WorldScene* const scene);
 
     private:
         ControlUnitType type_;
@@ -26,11 +29,9 @@ namespace rtm {
         AngleType nullDirection_;
         CrossroadSignals signals_;
         DirectionsSignalSprites sprites_;
-        bool isSpritesInit_;
         float time_;
 
         void InitSignals_();
-        void InitSprites_(WorldScene* const scene);
         void ResetSprites_();
 
         static std::string GetSignalFile_(size_t id);

@@ -343,12 +343,23 @@ rtm::CoatingMatrix rtm::CrossroadObject::TCrossroadMatrix(int column, int row, L
     return result;
 }
 
-rtm::ControlUnit* rtm::CrossroadObject::GetControlUnit() const
+rtm::ControlUnitShared rtm::CrossroadObject::GetControlUnit() const
 {
-    if (!controlUnit_ || !(*controlUnit_)) {
-        return nullptr;
+    return controlUnit_;
+}
+
+void rtm::CrossroadObject::ShowSprites(WorldScene* const scene)
+{
+    CoatingUnion::ShowSprites(scene);
+    if (controlUnit_) {
+        controlUnit_->ShowSprites(scene);
     }
-    else {
-        return controlUnit_.get();
+}
+
+void rtm::CrossroadObject::ReleaseSprites(WorldScene* const scene)
+{
+    CoatingUnion::ReleaseSprites(scene);
+    if (controlUnit_) {
+        controlUnit_->ReleaseSprites(scene);
     }
 }

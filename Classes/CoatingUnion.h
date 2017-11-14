@@ -21,8 +21,8 @@ namespace rtm {
         bool IsCorrectColumn(int column) const;
         bool IsCorrectRow(int row) const;
 
-        void ShowCoatingObjects(WorldScene* const scene);
-        void ReleaseCoatingObjects(WorldScene* const scene);
+        virtual void ShowSprites(WorldScene* const scene);
+        virtual void ReleaseSprites(WorldScene* const scene);
 
     private:
         CoatingType type_;

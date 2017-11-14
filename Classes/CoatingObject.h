@@ -24,8 +24,6 @@ namespace rtm {
 
         void SetDirectionAvailability(AngleType angle, bool status);
 
-        virtual void Update(WorldController* const world);
-
     protected:
         void SetSprite_(cocos2d::Sprite* const sprite);
         void SetX_(float x);

@@ -3,6 +3,7 @@
 #include "CoatingObject.h"
 #include "DrivewayObject.h"
 #include "CrossroadObject.h"
+#include "ControlUnit.h"
 #include "TurnObject.h"
 #include "BuildingObject.h"
 #include "CarObject.h"
@@ -55,7 +56,11 @@ void rtm::WorldController::Update(float time)
 {
     deltaTime_ = time;
 
-    for (auto it = dynamicObjects_.begin(); it != dynamicObjects_.end();) {
+    for (auto& controlUnit : controlUnits_) {
+        controlUnit->Update(this);
+    }
+
+    for (auto& it{ dynamicObjects_.begin() }; it != dynamicObjects_.end();) {
         DynamicObject& obj{ **it };
 
         obj.Update(this);
@@ -137,7 +142,7 @@ bool rtm::WorldController::IsAllowableColumn(int column)
     //size_t allowedHiddenArea{ 1 };
     //return HIDDEN_AREA_SIZE - allowedHiddenArea <= GetVectorColumn_(column) &&
     //    GetVectorColumn_(column) < columnsCount_ - HIDDEN_AREA_SIZE + allowedHiddenArea;
-    
+
     // Optimized
     return -1 <= column && column <= static_cast<int>(columnsCount_ - HIDDEN_AREA_SIZE - HIDDEN_AREA_SIZE);
 }
@@ -147,7 +152,7 @@ bool rtm::WorldController::IsAllowableRow(int row)
     //size_t allowedHiddenArea{ 1 };
     //return HIDDEN_AREA_SIZE - allowedHiddenArea <= GetVectorRow_(row) &&
     //    GetVectorRow_(row) < rowsCount_ - HIDDEN_AREA_SIZE + allowedHiddenArea;
-    
+
     // Optimized
     return -1 <= row && row <= static_cast<int>(rowsCount_ - HIDDEN_AREA_SIZE - HIDDEN_AREA_SIZE);
 }
@@ -249,8 +254,6 @@ void rtm::WorldController::AddTestObjects()
     AddTCrossroad_(42, 7, { 0, 0, 1, 2 }, Right);
     AddTCrossroad_(46, 7, { 0, 0, 2, 2 }, Right);
     AddTCrossroad_(51, 7, { 0, 0, 3, 3 }, Right);
-
-    
 }
 
 void rtm::WorldController::AddCar(CarType type, int column, int row, float angle)
@@ -394,7 +397,7 @@ void rtm::WorldController::AddCoatingUnion_(int column, int row, CoatingUnionSha
     size_t height{ coatingUnion->GetHeight() };
 
     if (IsEmpty(column, row, width, height)) {
-        coatingUnion->ShowCoatingObjects(scene_);
+        coatingUnion->ShowSprites(scene_);
 
         size_t vecCol{ GetVectorColumn_(column) };
         size_t vecRow{ GetVectorRow_(row) };
@@ -421,17 +424,23 @@ void rtm::WorldController::AddCrossroad_(int column, int row, LinesCounts linesC
         return;
     }
 
-    AddCoatingUnion_(column, row, std::make_shared<CrossroadObject>(column, row, linesCounts, controlUnitType));
+    CrossroadObject* coatingUnion{ new CrossroadObject{ column, row, linesCounts, controlUnitType } };
+
+    AddControlUnit_(coatingUnion->GetControlUnit());
+    AddCoatingUnion_(column, row, CoatingUnionShared{ coatingUnion });
 }
 
-void rtm::WorldController::AddTCrossroad_(int column, int row, LinesCounts linesCounts, AngleType nullDirection, 
+void rtm::WorldController::AddTCrossroad_(int column, int row, LinesCounts linesCounts, AngleType nullDirection,
     ControlUnitType controlUnitType)
 {
     if (!IsCorrectColumn(column) || !IsCorrectRow(row)) {
         return;
     }
 
-    AddCoatingUnion_(column, row, std::make_shared<CrossroadObject>(column, row, linesCounts, nullDirection, controlUnitType));
+    CrossroadObject* coatingUnion{ new CrossroadObject{ column, row, linesCounts, nullDirection, controlUnitType } };
+
+    AddControlUnit_(coatingUnion->GetControlUnit());
+    AddCoatingUnion_(column, row, CoatingUnionShared{ coatingUnion });
 }
 
 void rtm::WorldController::AddTurt_(int column, int row, size_t linesCount, bool isRight, AngleType angle)
@@ -441,6 +450,11 @@ void rtm::WorldController::AddTurt_(int column, int row, size_t linesCount, bool
     }
 
     AddCoatingUnion_(column, row, std::make_shared<TurnObject>(column, row, linesCount, isRight, angle));
+}
+
+void rtm::WorldController::AddControlUnit_(ControlUnitShared controlUnit)
+{
+    controlUnits_.push_back(controlUnit);
 }
 
 void rtm::WorldController::AddStaticObject_(int column, int row, StaticShared staticObject)
@@ -514,7 +528,7 @@ void rtm::WorldController::RemoveCoatingObjects_()
     for (auto& col : coatingUnions_) {
         for (auto& elem : col) {
             if (elem) {
-                elem->ReleaseCoatingObjects(scene_);
+                elem->ReleaseSprites(scene_);
                 elem.reset();
             }
         }

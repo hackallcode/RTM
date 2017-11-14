@@ -57,12 +57,11 @@ namespace rtm {
 
     int const BACKGROUND_Z_ORDER{ 0 };
     int const COATING_OBJECT_Z_ORDER{ 1 };
-    int const BACKWARD_SIGNAL_Z_ORDER{ 2 };
-    int const LEFTWARD_SIGNAL_Z_ORDER{ 3 };
-    int const RIGHTWARD_SIGNAL_Z_ORDER{ 4 };
-    int const FORWARD_SIGNAL_Z_ORDER{ 5 };
-    int const VEHICLE_OBJECT_Z_ORDER{ 6 };
-    int const MAP_OBJECT_Z_ORDER{ 7 };
+    int const LEFTWARD_SIGNAL_Z_ORDER{ 2 };
+    int const RIGHTWARD_SIGNAL_Z_ORDER{ 3 };
+    int const FORWARD_SIGNAL_Z_ORDER{ 4 };
+    int const VEHICLE_OBJECT_Z_ORDER{ 5 };
+    int const MAP_OBJECT_Z_ORDER{ 6 };
 
     /* AREA OF VISIBILITY */
 

@@ -89,9 +89,6 @@ void rtm::CoatingObject::SetDirectionAvailability(AngleType angle, bool status)
     availableDirections_[angle] = status;
 }
 
-void rtm::CoatingObject::Update(WorldController* const world)
-{}
-
 void rtm::CoatingObject::SetSprite_(cocos2d::Sprite* const sprite)
 {
     sprite_ = sprite;

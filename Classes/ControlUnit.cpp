@@ -9,31 +9,28 @@ rtm::ControlUnit::ControlUnit()
     , linesCounts_{ 0, 0, 0, 0 }
     , nullDirection_{ NullAngle }
     , signals_{ DEFAULT_CROSSROAD_SIGNALS }
-    , isSpritesInit_{ false }
     , time_{ 0.f }
 {}
 
-rtm::ControlUnit::ControlUnit(ControlUnitType controlUnitType, int column, int row, LinesCounts linesCounts)
-    : type_{ controlUnitType }
+rtm::ControlUnit::ControlUnit(ControlUnitType type, int column, int row, LinesCounts linesCounts)
+    : type_{ type }
     , column_{ column }
     , row_{ row }
     , linesCounts_{ linesCounts }
     , nullDirection_{ NullAngle }
     , signals_{ DEFAULT_CROSSROAD_SIGNALS }
-    , isSpritesInit_{ false }
     , time_{ 0.f }
 {
     InitSignals_();
 }
 
-rtm::ControlUnit::ControlUnit(ControlUnitType controlUnitType, int column, int row, LinesCounts linesCounts, AngleType nullDirection)
-    : type_{ controlUnitType }
+rtm::ControlUnit::ControlUnit(ControlUnitType type, int column, int row, LinesCounts linesCounts, AngleType nullDirection)
+    : type_{ type }
     , column_{ column }
     , row_{ row }
     , linesCounts_{ linesCounts }
     , nullDirection_{ nullDirection }
     , signals_{ DEFAULT_CROSSROAD_SIGNALS }
-    , isSpritesInit_{ false }
     , time_{ 0.f }
 {
     InitSignals_();
@@ -41,28 +38,25 @@ rtm::ControlUnit::ControlUnit(ControlUnitType controlUnitType, int column, int r
 
 void rtm::ControlUnit::Update(WorldController* const world)
 {
-    if (!isSpritesInit_) {
-        InitSprites_(world->GetScene());
-    }
-
     time_ += world->GetDeltaTime();
     switch (type_)
     {
     case rtm::ControlUnitNo1:
         if (time_ > 10.f) {
             if (signals_[Upward][Upward] == Allowed) {
-                signals_[Upward][Upward] = Closed;
-                signals_[Downward][Downward] = Closed;
+                signals_[Upward][Upward] = Forbidden;
+                signals_[Downward][Downward] = Forbidden;
                 signals_[Rightward][Rightward] = Allowed;
                 signals_[Leftward][Leftward] = Allowed;
             }
             else {
                 signals_[Upward][Upward] = Allowed;
                 signals_[Downward][Downward] = Allowed;
-                signals_[Rightward][Rightward] = Closed;
-                signals_[Leftward][Leftward] = Closed;
+                signals_[Rightward][Rightward] = Forbidden;
+                signals_[Leftward][Leftward] = Forbidden;
             }
             ResetSprites_();
+            time_ = 0.f;
         }
         break;
     }
@@ -99,13 +93,25 @@ void rtm::ControlUnit::InitSignals_()
         // Set "green lines"
         signals_[Upward][Upward] = Allowed;
         signals_[Downward][Downward] = Allowed;
+        // Set "red lines"
+        signals_[Rightward][Rightward] = Forbidden;
+        signals_[Leftward][Leftward] = Forbidden;
         break;
     }
 }
 
-void rtm::ControlUnit::InitSprites_(WorldScene* const scene)
+void rtm::ControlUnit::ShowSprites(WorldScene* const scene)
 {
     for (size_t i = 0; i < 4; ++i) {
+        // If from TCrossroad's nullDirection
+        if ((i + 2) % 4 == nullDirection_) {
+            sprites_[i][0] = { nullptr, nullptr, nullptr };
+            sprites_[i][1] = { nullptr, nullptr, nullptr };
+            sprites_[i][2] = { nullptr, nullptr, nullptr };
+            continue;
+        }
+
+        // Create sprites
         for (size_t k = 0; k < 5; ++k) {
             sprites_[i][0][k] = cocos2d::Sprite::create(GetSignalFile_(ForwardSignal + k));
             sprites_[i][1][k] = cocos2d::Sprite::create(GetSignalFile_(RightwardSignal + k));
@@ -169,18 +175,32 @@ void rtm::ControlUnit::InitSprites_(WorldScene* const scene)
         float x{ CellToPixel(col) };
         float y{ CellToPixel(row) };
         if (i == Upward || i == Downward) {
-            x += CELL_SIZE * linesCounts_[i] / 2;
+            x += CELL_SIZE * (linesCounts_[i] - 1) / 2;
         }
         else if (i == Rightward || i == Leftward) {
-            y += CELL_SIZE * linesCounts_[i] / 2;
+            y += CELL_SIZE * (linesCounts_[i] - 1) / 2;
         }
 
         // Set position
         for (size_t k = 0; k < 5; ++k) {
+            float angle{ 0 };
+            if (i == Rightward) {
+                angle = 90.f;
+            }
+            else if (i == Downward) {
+                angle = 180.f;
+            }
+            else if (i == Leftward) {
+                angle = -90.f;
+            }
+
+            scene->addChild(sprites_[i][0][k], FORWARD_SIGNAL_Z_ORDER);
+            scene->addChild(sprites_[i][1][k], LEFTWARD_SIGNAL_Z_ORDER);
+            scene->addChild(sprites_[i][2][k], RIGHTWARD_SIGNAL_Z_ORDER);
             for (size_t l = 0; l < 3; ++l) {
-                scene->addChild(sprites_[i][l][k]);
                 sprites_[i][l][k]->setAnchorPoint(cocos2d::Vec2{ 0.5, 0.5 });
                 sprites_[i][l][k]->setPosition(cocos2d::Vec2{ x, y });
+                sprites_[i][l][k]->setRotation(angle);
             }
         }
     }
@@ -188,13 +208,36 @@ void rtm::ControlUnit::InitSprites_(WorldScene* const scene)
     ResetSprites_();
 }
 
+void rtm::ControlUnit::ReleaseSprites(WorldScene * const scene)
+{
+    for (size_t i = 0; i < 4; ++i) {
+        for (size_t l = 0; l < 3; ++l) {
+            for (size_t k = 0; k < 5; ++k) {
+                if (sprites_[i][l][k] != nullptr) {
+                    scene->removeChild(sprites_[i][l][k]);
+                    sprites_[i][l][k] = nullptr;
+                }
+            }
+        }
+    }
+}
+
 void rtm::ControlUnit::ResetSprites_()
 {
     for (size_t i = 0; i < 4; ++i) {
         for (size_t k = 0; k < 5; ++k) {
-            sprites_[i][0][k]->setVisible(signals_[i][i] == k); // Forward
-            sprites_[i][1][k]->setVisible(signals_[i][(i - 1) % 4] == k); // Left
-            sprites_[i][2][k]->setVisible(signals_[i][(i + 1) % 4] == k); // Right
+            // Forward
+            if (sprites_[i][0][k] != nullptr) {
+                sprites_[i][0][k]->setVisible(signals_[i][i] == k);
+            }
+            // Left
+            if (sprites_[i][1][k] != nullptr) {
+                sprites_[i][1][k]->setVisible(signals_[i][(i - 1) % 4] == k);
+            }
+            // Right
+            if (sprites_[i][2][k] != nullptr) {
+                sprites_[i][2][k]->setVisible(signals_[i][(i + 1) % 4] == k);
+            }
         }
     }
 }
