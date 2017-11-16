@@ -13,7 +13,8 @@ rtm::VehicleObject::VehicleObject()
     , finalSpeed_{ 0.f }
     , brakingFactor_{ 0.f }
     , brakingDistance_{ 0.f }
-    , remainingAngle_{ 0.f }
+    , rotationAngle_{ 0.f }
+    , rotationRadius_{ 0.f }
     , remainingOffset_{ 0.f }
     , remainingOffsetAngle_{ 0.f }
     , wasCollision_{ false }
@@ -31,7 +32,8 @@ rtm::VehicleObject::VehicleObject(cocos2d::Sprite* const sprite, int column, int
     , finalSpeed_{ 0.f }
     , brakingFactor_{ 0.f }
     , brakingDistance_{ 0.f }
-    , remainingAngle_{ 0.f }
+    , rotationAngle_{ 0.f }
+    , rotationRadius_{ 0.f }
     , remainingOffset_{ 0.f }
     , remainingOffsetAngle_{ 0.f }
     , wasCollision_{ false }
@@ -52,7 +54,8 @@ rtm::VehicleObject::VehicleObject(std::string const& filename, int column, int r
     , finalSpeed_{ 0.f }
     , brakingFactor_{ 0.f }
     , brakingDistance_{ 0.f }
-    , remainingAngle_{ 0.f }
+    , rotationAngle_{ 0.f }
+    , rotationRadius_{ 0.f }
     , remainingOffset_{ 0.f }
     , remainingOffsetAngle_{ 0.f }
     , wasCollision_{ false }
@@ -75,8 +78,9 @@ void rtm::VehicleObject::Update(WorldController* const world)
         MoveForward_();
     }
 
-    Move_(world);
+    BeforeMoving_(world);
     DynamicObject::Update(world);
+    AfterMoving_(world);
 }
 
 bool rtm::VehicleObject::MoveForward_()
@@ -103,11 +107,11 @@ bool rtm::VehicleObject::Stop_()
 
 bool rtm::VehicleObject::Rotate_(float angle)
 {
-    if (isRotation_ == MustStart || isRotation_ == Started) {
+    if (isRotation_ == MustStart || isRotation_ == Started || angle == 0.f) {
         return false;
     }
     else {
-        remainingAngle_ = RoundAngle(angle); // Angle of rotation
+        rotationAngle_ = RoundAngle(angle); // Angle of rotation
         isRotation_ = MustStart;
         return true;
     }
@@ -171,21 +175,67 @@ rtm::CoatingObject* rtm::VehicleObject::CheckForwardCoating_(WorldController* co
     int col{ PixelToCell(GetX()) };
     int row{ PixelToCell(GetY()) };
 
-    if (IsSameAngles(GetAngle(), ANGLE_UP)) {
-        return world->GetCoatingObject(col, row + delta);
+    if (delta == 0) {
+        if (world->IsCorrectColumn(col) && world->IsCorrectRow(row)) {
+            return world->GetCoatingObject(col, row);
+        }
     }
-    else if (IsSameAngles(GetAngle(), ANGLE_RIGHT)) {
-        return world->GetCoatingObject(col + delta, row);
+    if (SameAngles(GetAngle(), ANGLE_UP)) {
+        if (world->IsCorrectColumn(col) && world->IsCorrectRow(row + delta)) {
+            return world->GetCoatingObject(col, row + delta);
+        }
     }
-    else if (IsSameAngles(GetAngle(), ANGLE_DOWN)) {
-        return world->GetCoatingObject(col, row - delta);
+    else if (SameAngles(GetAngle(), ANGLE_RIGHT)) {
+        if (world->IsCorrectColumn(col + delta) && world->IsCorrectRow(row)) {
+            return world->GetCoatingObject(col + delta, row);
+        }
     }
-    else if (IsSameAngles(GetAngle(), ANGLE_LEFT)) {
-        return world->GetCoatingObject(col - delta, row);
+    else if (SameAngles(GetAngle(), ANGLE_DOWN)) {
+        if (world->IsCorrectColumn(col) && world->IsCorrectRow(row - delta)) {
+            return world->GetCoatingObject(col, row - delta);
+        }
     }
-    else {
-        return nullptr;
+    else if (SameAngles(GetAngle(), ANGLE_LEFT)) {
+        if (world->IsCorrectColumn(col - delta) && world->IsCorrectRow(row)) {
+            return world->GetCoatingObject(col - delta, row);
+        }
     }
+    
+    return nullptr;
+}
+
+rtm::CoatingUnion* rtm::VehicleObject::CheckForwardCoatingUnion_(WorldController* const world, int delta)
+{
+    int col{ PixelToCell(GetX()) };
+    int row{ PixelToCell(GetY()) };
+
+    if (delta == 0) {
+        if (world->IsCorrectColumn(col) && world->IsCorrectRow(row)) {
+            return world->GetCoatingUnion(col, row);
+        }
+    }
+    else if (SameAngles(GetAngle(), ANGLE_UP)) {
+        if (world->IsCorrectColumn(col) && world->IsCorrectRow(row + delta)) {
+            return world->GetCoatingUnion(col, row + delta);
+        }
+    }
+    else if (SameAngles(GetAngle(), ANGLE_RIGHT)) {
+        if (world->IsCorrectColumn(col + delta) && world->IsCorrectRow(row)) {
+            return world->GetCoatingUnion(col + delta, row);
+        }
+    }
+    else if (SameAngles(GetAngle(), ANGLE_DOWN)) {
+        if (world->IsCorrectColumn(col) && world->IsCorrectRow(row - delta)) {
+            return world->GetCoatingUnion(col, row - delta);
+        }
+    }
+    else if (SameAngles(GetAngle(), ANGLE_LEFT)) {
+        if (world->IsCorrectColumn(col - delta) && world->IsCorrectRow(row)) {
+            return world->GetCoatingUnion(col - delta, row);
+        }
+    }
+
+    return nullptr;
 }
 
 rtm::DynamicObject* rtm::VehicleObject::CheckForwardArea_(WorldController* const world, float radius, float angle, float angleShift)
@@ -216,7 +266,7 @@ rtm::DynamicObject* rtm::VehicleObject::CheckRotationArea_(WorldController* cons
         world,
         ROTATION_VIEW_RADIUS,
         ROTATION_VIEW_ANGLE,
-        remainingAngle_ < 0 ? ROTATION_VIEW_ANGLE_SHIFT : -ROTATION_VIEW_ANGLE_SHIFT
+        rotationAngle_ < 0 ? ROTATION_VIEW_ANGLE_SHIFT : -ROTATION_VIEW_ANGLE_SHIFT
     );
 }
 
@@ -230,12 +280,17 @@ rtm::DynamicObject* rtm::VehicleObject::CheckLineChangingArea_(WorldController* 
     );
 }
 
-void rtm::VehicleObject::Move_(WorldController* const world)
+void rtm::VehicleObject::BeforeMoving_(WorldController* const world)
 {
+    Movement_(world);
     LineChanging_(world);
     Rotation_(world);
-    Movement_(world);
     SpeedChanging_(world);
+}
+
+void rtm::VehicleObject::AfterMoving_(WorldController * const world)
+{
+    SmoothBrakingCounter(world);
 }
 
 bool rtm::VehicleObject::MovementStart_(WorldController* const world)
@@ -257,24 +312,36 @@ bool rtm::VehicleObject::MovementEnd_(WorldController* const world)
 
 bool rtm::VehicleObject::RotationStart_(WorldController* const world)
 {
+    rotationRadius_ = ROTATION_RADIUS - DistanceToSkippedCenter(GetX(), GetY(), GetAngle());
     return true;
 }
 
 bool rtm::VehicleObject::RotationTick_(WorldController* const world)
 {
     // Angular frequency
-    float delta{ world->GetDeltaTime() * GetSpeed() / CELL_SIZE };
-    delta = remainingAngle_ > 0.f ? MIN(delta, remainingAngle_) : MAX(-delta, remainingAngle_);
+    float delta{ rotationRadius_ != 0.f ? GetLastDelta() / rotationRadius_ : rotationAngle_ };
+    delta = rotationAngle_ > 0.f ? MIN(delta, rotationAngle_) : MAX(-delta, rotationAngle_);
 
     // Offets
     SetAngle_(GetAngle() + delta);
-    remainingAngle_ -= delta;
+    rotationAngle_ -= delta;
 
     // End
-    if (remainingAngle_ == 0.f) {
-        SetX_(RoundCoord(GetX(), 2 * COORD_DELTA));
-        SetY_(RoundCoord(GetY(), 2 * COORD_DELTA));
+    if (rotationAngle_ == 0.f) {
         SetAngle_(RoundAngle(GetAngle()));
+
+        AngleType angle{ AngleToAngleType(GetAngle()) };
+        if (angle == Up || angle == Down) {
+            SetX_(RoundToCenter(GetX()));
+        }
+        else if (angle == Left || angle == Right) {
+            SetY_(RoundToCenter(GetY()));
+        }
+        else {
+            SetX_(RoundCoordinate(GetX()));
+            SetY_(RoundCoordinate(GetY()));
+        }
+
         return true;
     }
 
@@ -294,26 +361,41 @@ bool rtm::VehicleObject::LineChangingStart(WorldController* const world)
 bool rtm::VehicleObject::LineChangingTick_(WorldController* const world)
 {
     // Angle between speed and normal relative to it
-    float delta{ remainingOffsetAngle_ - GetAngle() };
-
-    // Begin
-    if (IsSameCoords(remainingOffset_, CELL_SIZE)) {
-        Rotate_(delta > 0.f ? F_PI_4 : -F_PI_4);
-    }
-    // I want to come back on my way!
-    else if (IsSameCoords(remainingOffset_, CELL_SIZE / 4)) {
-        Rotate_(delta > 0.f ? -F_PI_4 : F_PI_4);
-    }
+    float angleDelta{ remainingOffsetAngle_ - GetAngle() };
+    // Normal delta of speed
+    float coordsDelta{ abs(FTA::cos(angleDelta) * GetLastDelta()) };
 
     // Normal offset relative to speed
-    remainingOffset_ -= MIN(abs(FTA::cos(delta) * GetSpeed() * world->GetDeltaTime()), remainingOffset_);
+    remainingOffset_ -= MIN(coordsDelta, remainingOffset_);
 
     // End
     if (remainingOffset_ == 0.f) {
         remainingOffsetAngle_ = 0.f;
-        SetX_(RoundCoord(GetX(), 2 * COORD_DELTA));
-        SetY_(RoundCoord(GetY(), 2 * COORD_DELTA));
+        
+        AngleType angle{ AngleToAngleType(GetAngle()) };
+        // Hard round
+        if (angle == Up || angle == Down) {
+            SetX_(RoundToCenter(GetX()));
+        }
+        else if (angle == Left || angle == Right) {
+            SetY_(RoundToCenter(GetY()));
+        }
+        // Light round
+        else {
+            SetX_(RoundCoordinate(GetX()));
+            SetY_(RoundCoordinate(GetY()));
+        }
+
         return true;
+    }
+
+    // Begin
+    if (SameCoordinates(remainingOffset_, CELL_SIZE, coordsDelta)) {
+        Rotate_(angleDelta > 0.f ? F_PI_4 : -F_PI_4);
+    }
+    // I want to come back on my way!
+    else if (SameCoordinates(remainingOffset_, CELL_SIZE / 4, coordsDelta)) {
+        Rotate_(angleDelta > 0.f ? -F_PI_4 : F_PI_4);
     }
 
     return false;
@@ -385,13 +467,7 @@ void rtm::VehicleObject::SpeedChanging_(WorldController* const world)
 {
     // Smooth braking
     if (brakingDistance_ > 0.f) {
-        SetFinalSpeed_(brakingDistance_);
-        if (brakingDistance_ < 0.f || IsSameCoords(brakingDistance_, 0.f)) {
-            SetX_(GetX() + brakingDistance_ * sin(GetAngle()));
-            SetY_(GetY() + brakingDistance_ * cos(GetAngle()));
-            brakingDistance_ = 0.f;
-            SetFinalSpeed_(0.f);
-        }
+        SetFinalSpeed_(max(brakingDistance_, COORD_DELTA * world->GetDeltaTime()));
     }
     // Acceleration
     if (GetSpeed() < finalSpeed_) {
@@ -412,8 +488,14 @@ void rtm::VehicleObject::SpeedChanging_(WorldController* const world)
             SetSpeed_(finalSpeed_);
         }
     }
-    // Smooth braking counter
+}
+
+void rtm::VehicleObject::SmoothBrakingCounter(WorldController * const world)
+{
     if (brakingDistance_ > 0.f) {
-        brakingDistance_ -= GetSpeed() * world->GetDeltaTime();
+        brakingDistance_ -= GetLastDelta();
+        if (brakingDistance_ < 0.f) {
+            brakingDistance_ = 0;
+        }
     }
 }

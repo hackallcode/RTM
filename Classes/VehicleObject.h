@@ -36,13 +36,16 @@ namespace rtm {
 
         // Sight
         CoatingObject* CheckForwardCoating_(WorldController* const world, int delta = 1);
+        CoatingUnion* CheckForwardCoatingUnion_(WorldController* const world, int delta = 1);
+
         DynamicObject* CheckForwardArea_(WorldController* const world, float radius, float angle, float angleShift);
         DynamicObject* CheckMovingArea_(WorldController* const world);
         DynamicObject* CheckRotationArea_(WorldController* const world);
         DynamicObject* CheckLineChangingArea_(WorldController* const world);
 
         // Maneuver
-        virtual void Move_(WorldController* const world);
+        virtual void BeforeMoving_(WorldController* const world);
+        virtual void AfterMoving_(WorldController* const world);
         
         virtual bool MovementStart_(WorldController* const world);
         virtual bool MovementTick_(WorldController* const world);
@@ -66,7 +69,8 @@ namespace rtm {
         float finalSpeed_;
         float brakingFactor_;
         float brakingDistance_;
-        float remainingAngle_;
+        float rotationAngle_;
+        float rotationRadius_;
         float remainingOffset_;
         float remainingOffsetAngle_;
         bool wasCollision_;
@@ -75,6 +79,7 @@ namespace rtm {
         void Rotation_(WorldController* const world);
         void Movement_(WorldController* const world);
         void SpeedChanging_(WorldController* const world);
+        void SmoothBrakingCounter(WorldController* const world);
     };
 }
 

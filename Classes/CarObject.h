@@ -22,15 +22,14 @@ namespace rtm {
         virtual bool MovementTick_(WorldController* const world) override;
         virtual bool MovementEnd_(WorldController* const world) override;
 
-        virtual bool RotationStart_(WorldController* const world) override;
-
         virtual bool LineChangingStart(WorldController* const world) override;
 
     private:
         float recommendedSpeed_;
         float desiredSpeed_;
         bool hasDesiredSpeed_;
-        bool forwardSightEnabled_;
+        bool waitForSignal_;
+        AngleType desiredDirection_;
                 
         void SetDesiredSpeed_(float speed);
         void ResetDesiredSpeed_();

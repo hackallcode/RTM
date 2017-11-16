@@ -21,7 +21,7 @@ rtm::CoatingMatrix rtm::TurnObject::RightTurnMatrix(int column, int row, size_t 
 {
     CoatingMatrix inputDriveway{ DrivewayObject::DrivewayMatrix(column, row, linesCount, linesCount, angle) };
     CoatingMatrix outputDriveway{
-        DrivewayObject::DrivewayMatrix(column, row, linesCount, linesCount, AngleTypeSum(angle, Right))
+        DrivewayObject::DrivewayMatrix(column, row, linesCount, linesCount, SumAngleTypes(angle, Right))
     };
 
     CoatingMatrix result{ linesCount };
@@ -111,7 +111,7 @@ rtm::CoatingMatrix rtm::TurnObject::RightTurnMatrix(int column, int row, size_t 
     }
 
     // Block backward directions
-    AngleType backwardAngle{ AngleTypeSum(angle, Down) };
+    AngleType backwardAngle{ SumAngleTypes(angle, Down) };
     for (size_t i = 0; i < linesCount; ++i) {
         if (angle == Up || angle == Down) {
             result[i][linesCount - 1 - i]->SetDirectionAvailability(backwardAngle, false);
@@ -128,10 +128,10 @@ rtm::CoatingMatrix rtm::TurnObject::LeftTurnMatrix(int column, int row, size_t l
 {
     CoatingMatrix inputDriveway{ DrivewayObject::DrivewayMatrix(column, row, linesCount, linesCount, angle) };
     CoatingMatrix outputDriveway{
-        DrivewayObject::DrivewayMatrix(column, row, linesCount, linesCount, AngleTypeSum(angle, Left))
+        DrivewayObject::DrivewayMatrix(column, row, linesCount, linesCount, SumAngleTypes(angle, Left))
     };
 
-    AngleType coatingAngle{ AngleTypeSum(angle, Right) };
+    AngleType coatingAngle{ SumAngleTypes(angle, Right) };
     CoatingMatrix result{ linesCount };
     for (size_t i = 0; i < linesCount; ++i) {
         result[i] = CoatingVector{ linesCount };
@@ -219,7 +219,7 @@ rtm::CoatingMatrix rtm::TurnObject::LeftTurnMatrix(int column, int row, size_t l
     }
 
     // Block backward directions
-    AngleType backwardAngle{ AngleTypeSum(angle, Down) };
+    AngleType backwardAngle{ SumAngleTypes(angle, Down) };
     for (size_t i = 0; i < linesCount; ++i) {
         if (angle == Up || angle == Down) {
             result[i][i]->SetDirectionAvailability(backwardAngle, false);

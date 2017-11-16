@@ -1,12 +1,18 @@
 #include "CarObject.h"
 #include "CoatingObject.h"
+#include "CoatingUnion.h"
+#include "DrivewayObject.h"
+#include "CrossroadObject.h"
+#include "ControlUnit.h"
+#include "WorldController.h"
 
 rtm::CarObject::CarObject()
     : VehicleObject{}
     , recommendedSpeed_{ 0.f }
     , desiredSpeed_{ 0.f }
     , hasDesiredSpeed_{ false }
-    , forwardSightEnabled_{ false }
+    , waitForSignal_{ false }
+    , desiredDirection_{ NullAngle }
 {}
 
 rtm::CarObject::CarObject(cocos2d::Sprite* const sprite, int column, int row, float angle, float maxSpeed, float acceleration)
@@ -14,7 +20,8 @@ rtm::CarObject::CarObject(cocos2d::Sprite* const sprite, int column, int row, fl
     , recommendedSpeed_{ GetMaxSpeed_() }
     , desiredSpeed_{ 0.f }
     , hasDesiredSpeed_{ false }
-    , forwardSightEnabled_{ true }
+    , waitForSignal_{ false }
+    , desiredDirection_{ AngleToAngleType(angle) }
 {}
 
 rtm::CarObject::CarObject(std::string const& filename, int column, int row, float angle, float maxSpeed, float acceleration)
@@ -22,7 +29,8 @@ rtm::CarObject::CarObject(std::string const& filename, int column, int row, floa
     , recommendedSpeed_{ GetMaxSpeed_() }
     , desiredSpeed_{ 0.f }
     , hasDesiredSpeed_{ false }
-    , forwardSightEnabled_{ true }
+    , waitForSignal_{ false }
+    , desiredDirection_{ AngleToAngleType(angle) }
 {}
 
 rtm::CarObject::CarObject(CarType type, int column, int row, float angle)
@@ -38,33 +46,6 @@ rtm::CarObject::CarObject(CarType type, int column, int row, float angle)
 
 void rtm::CarObject::Update(WorldController* const world)
 {
-    switch (GetCaseNumber()) {
-    case 3:
-        if (IsSameCoords(GetX(), 20.5 * CELL_SIZE) && (
-            IsSameCoords(GetY(), 10.5 * CELL_SIZE) || IsSameCoords(GetY(), 20.5 * CELL_SIZE)
-            )) {
-            ChangeLine_(LEFT);
-        }
-        break;
-    case 4:
-        if (IsSameCoords(GetX(), 20.5 * CELL_SIZE) && (
-            IsSameCoords(GetY(), 11.5 * CELL_SIZE) || IsSameCoords(GetY(), 21.5 * CELL_SIZE)
-            )) {
-            ChangeLine_(RIGHT);
-        }
-        break;
-    case 5:
-        if (IsSameCoords(GetY(), 14.5 * CELL_SIZE)) {
-            Rotate_(ANGLE_RIGHT);
-        }
-        break;
-    case 6:
-        if (IsSameCoords(GetY(), 14.5 * CELL_SIZE)) {
-            Rotate_(ANGLE_LEFT);
-        }
-        break;
-    }
-
     VehicleObject::Update(world);
 }
 
@@ -87,24 +68,22 @@ bool rtm::CarObject::MovementTick_(WorldController* const world)
     }
 
     // Check other vehicles
-    if (forwardSightEnabled_) {
-        DynamicObject* object{ CheckMovingArea_(world) };
-        if (object != nullptr) {
-            float newSpeed{ object->GetSpeed() * FT::cos(object->GetAngle() - GetAngle()) };
-            // If forward
-            if (newSpeed >= 0.f) {
-                SetBrakingFactor_(1.f);
-                SetFinalSpeed_(min(GetFinalSpeed_(), newSpeed)); // If towards each other
-            }
-            // If towards
-            else {
-                SetBrakingFactor_(2.f);
-                SetFinalSpeed_(0.f);
-            }
-        }
-        else {
+    DynamicObject* object{ CheckMovingArea_(world) };
+    if (object != nullptr) {
+        float newSpeed{ object->GetSpeed() * FT::cos(object->GetAngle() - GetAngle()) };
+        // If forward
+        if (newSpeed >= 0.f) {
             SetBrakingFactor_(1.f);
+            SetFinalSpeed_(min(GetFinalSpeed_(), newSpeed)); // If towards each other
         }
+        // If towards
+        else {
+            SetBrakingFactor_(2.f);
+            SetFinalSpeed_(0.f);
+        }
+    }
+    else {
+        SetBrakingFactor_(1.f);
     }
 
     return false;
@@ -114,18 +93,6 @@ bool rtm::CarObject::MovementEnd_(WorldController* const world)
 {
     SetFinalSpeed_(0.f);
     return true;
-}
-
-bool rtm::CarObject::RotationStart_(WorldController* const world)
-{
-    if (CheckRotationArea_(world) == nullptr) {
-        ResetDesiredSpeed_();
-        return true;
-    }
-    else {
-        SetDesiredSpeed_(0.f);
-        return false;
-    }
 }
 
 bool rtm::CarObject::LineChangingStart(WorldController* const world)
@@ -159,46 +126,80 @@ void rtm::CarObject::CheckRoadAhead_(WorldController* const world)
         return;
     }
 
-    // If not in center of cell
-    if (!IsInCenter(GetX()) || !IsInCenter(GetY())) {
-        return;
-    }
+    // If waiting for signal
+    if (waitForSignal_) {
+        // Coating union ahead and it type
+        CoatingUnion* currentCoatingUnion{ CheckForwardCoatingUnion_(world, 0) };
+        CoatingType currentCoatingType{ currentCoatingUnion == nullptr ? NoCoatingUnion : currentCoatingUnion->GetType() };
 
-    // Coating ahead
-    CoatingObject* coating{ CheckForwardCoating_(world, 1) };
-    if (coating != nullptr) {
-        // If has no forward road coating
-        if (!coating->IsDirectionAvailable(AngleToAngleType(GetAngle()))) {
-            if (coating->IsDirectionAvailable(AngleToAngleType(GetAngle() + ANGLE_RIGHT))) {
-                forwardSightEnabled_ = true;
+        // If crossroad
+        if (currentCoatingType == CrossroadType || currentCoatingType == TCrossroadType) {
+            CrossroadObject* crossroad{ static_cast<CrossroadObject*>(currentCoatingUnion) };
+            DirectionType from{ AngleToDirection(GetAngle()) };
+
+            SignalType signal{ crossroad->GetControlUnit()->GetSignal(from, AngleTypeToDirection(desiredDirection_)) };
+            if (signal == NotWorking || signal == Allowed) {
                 ResetDesiredSpeed_();
-                Rotate_(ANGLE_RIGHT);
-            }
-            else if (coating->IsDirectionAvailable(AngleToAngleType(GetAngle() + ANGLE_LEFT))) {
-                forwardSightEnabled_ = true;
-                ResetDesiredSpeed_();
-                Rotate_(ANGLE_LEFT);
-            }
-            //else if (coating->IsDirectionAvailable(AngleToAngleType(GetAngle() + ANGLE_DOWN))) {
-            //    forwardSightEnabled_ = true;
-            //    ResetDesiredSpeed_();
-            //    Rotate_(ANGLE_DOWN);
-            //}
-            else {
-                SetDesiredSpeed_(0.f);
+                waitForSignal_ = false;
             }
         }
     }
-    else {
-        // Coating throw one cell
-        CoatingObject* farCoating{ CheckForwardCoating_(world, 2) };
-        if (farCoating != nullptr) {
-            // If T-crossroad
-            if (!farCoating->IsDirectionAvailable(AngleToAngleType(GetAngle()))
-                && farCoating->HasDirection(AngleToAngleType(GetAngle() + ANGLE_RIGHT))
-                && farCoating->HasDirection(AngleToAngleType(GetAngle() + ANGLE_LEFT))) {
-                forwardSightEnabled_ = false;
-                StopAtDistance_(abs(FT::length(GetX() - farCoating->GetX(), GetY() - farCoating->GetY()) - CELL_SIZE));
+    // If cross center of cell
+    else if (CenterIsCrossed(GetX(), GetY(), GetAngle(), GetLastDelta())) {
+        CoatingObject* nextCoating{ CheckForwardCoating_(world, 1) };
+        if (nextCoating != nullptr) {
+            // If has no forward road coating
+            if (GetAngle() != AngleTypeToAngle(desiredDirection_) && nextCoating->IsDirectionAvailable(desiredDirection_)) {
+                Rotate_(NormalizeAngle(AngleTypeToAngle(desiredDirection_) - GetAngle()));
+            }
+            else if (!nextCoating->IsDirectionAvailable(AngleToAngleType(GetAngle()))) {
+                if (nextCoating->IsDirectionAvailable(AngleToAngleType(GetAngle() + ANGLE_RIGHT))) {
+                    desiredDirection_ = AngleToAngleType(AngleTypeToAngle(desiredDirection_) + ANGLE_RIGHT);
+                    Rotate_(ANGLE_RIGHT);
+                }
+                else if (nextCoating->IsDirectionAvailable(AngleToAngleType(GetAngle() + ANGLE_LEFT))) {
+                    desiredDirection_ = AngleToAngleType(AngleTypeToAngle(desiredDirection_) + ANGLE_LEFT);
+                    Rotate_(ANGLE_LEFT);
+                }
+                else {
+                    SetDesiredSpeed_(0.f);
+                }
+            }
+        }
+
+        // Coating union under car and ahead
+        CoatingUnion* currentCoatingUnion{ CheckForwardCoatingUnion_(world, 0) };
+        CoatingUnion* nextCoatingUnion{ CheckForwardCoatingUnion_(world, 1) };
+        // Their types
+        CoatingType currentCoatingType{ currentCoatingUnion == nullptr ? NoCoatingUnion : currentCoatingUnion->GetType() };
+        CoatingType nextCoatingType{ nextCoatingUnion == nullptr ? NoCoatingUnion : nextCoatingUnion->GetType() };
+
+        if (nextCoatingType == CrossroadType  && currentCoatingType != CrossroadType ||
+            nextCoatingType == TCrossroadType && currentCoatingType != TCrossroadType) {
+            CrossroadObject* crossroad{ static_cast<CrossroadObject*>(nextCoatingUnion) };
+            DirectionType from{ AngleToDirection(GetAngle()) };
+
+            if (currentCoatingType == DrivewayType) {
+                DrivewayObject* driveway{ static_cast<DrivewayObject*>(currentCoatingUnion) };
+                AngleType newDirection{ NullAngle };
+
+                if (driveway->isLeftLine(GetX(), GetY())) {
+                    newDirection = AngleToAngleType(GetAngle() - F_PI_2);
+                }
+                else if (driveway->isRightLine(GetX(), GetY())) {
+                    newDirection = AngleToAngleType(GetAngle() + F_PI_2);
+                }
+
+                if (newDirection != NullAngle && crossroad->GetControlUnit()->GetSignal(from, AngleTypeToDirection(newDirection)) != Closed) {
+                    desiredDirection_ = newDirection;
+                }
+            }
+
+            SignalType signal{ crossroad->GetControlUnit()->GetSignal(from, AngleTypeToDirection(desiredDirection_)) };
+            if (signal == Warning || signal == Forbidden || signal == Closed) {
+                StopAtDistance_(abs(FTA::length(GetX() - nextCoating->GetX(), GetY() - nextCoating->GetY())));
+                SetDesiredSpeed_(0.f);
+                waitForSignal_ = true;
             }
         }
     }

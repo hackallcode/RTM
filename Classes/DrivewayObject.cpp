@@ -4,14 +4,24 @@
 
 rtm::DrivewayObject::DrivewayObject()
     : CoatingUnion{}
+    , column_{ 0 }
+    , row_{ 0 }
+    , width_{ 0 }
+    , height_{ 0 }
     , angle_{ Up }
     , length_{ 0.f }
+    , linesCount_{ 0 }
 {}
 
 rtm::DrivewayObject::DrivewayObject(int column, int row, size_t width, size_t height, AngleType angle)
     : CoatingUnion{ DrivewayType, column, row, std::move(DrivewayObject::DrivewayMatrix(column, row, width, height, angle)) }
+    , column_{ column }
+    , row_{ row }
+    , width_{ width }
+    , height_{ height }
     , angle_{ angle }
     , length_{ CountLength_(GetWidth(), GetHeight(), angle) }
+    , linesCount_{ CountLines_(GetWidth(), GetHeight(), angle) }
 {}
 
 rtm::CoatingMatrix rtm::DrivewayObject::DrivewayMatrix(int column, int row,
@@ -73,18 +83,18 @@ rtm::CoatingMatrix rtm::DrivewayObject::DrivewayMatrix(int column, int row,
                 type
                 , column + i
                 , row + j
-                , AngleTypeSum(angle, extraDirection)
-            );
+                , SumAngleTypes(angle, extraDirection)
+                );
 
             // Block backward direction
             result[i][j]->SetDirectionAvailability(
-                AngleTypeSum(angle, DownLeft), false
+                SumAngleTypes(angle, DownLeft), false
             );
             result[i][j]->SetDirectionAvailability(
-                AngleTypeSum(angle, Down), false
+                SumAngleTypes(angle, Down), false
             );
             result[i][j]->SetDirectionAvailability(
-                AngleTypeSum(angle, DownRight), false
+                SumAngleTypes(angle, DownRight), false
             );
         }
     }
@@ -101,6 +111,87 @@ float rtm::DrivewayObject::GetLength() const
     return length_;
 }
 
+size_t rtm::DrivewayObject::GetLinesCount() const
+{
+    return linesCount_;
+}
+
+bool rtm::DrivewayObject::isRightLine(int column, int row) const
+{
+    if (angle_ == Up) {
+        return column == column_ + width_ - 1;
+    }
+    else if (angle_ == Left) {
+        return row == row_ + height_ - 1;
+    }
+    else if (angle_ == Down) {
+        return column == column_;
+    }
+    else if (angle_ == Right) {
+        return row == row_;
+    }
+    else {
+        return false;
+    }
+}
+
+bool rtm::DrivewayObject::isRightLine(float x, float y) const
+{
+    if (angle_ == Up) {
+        return PixelToCell(x) == column_ + width_ - 1;
+    }
+    else if (angle_ == Left) {
+        return PixelToCell(y) == row_ + height_ - 1;
+    }
+    else if (angle_ == Down) {
+        return PixelToCell(x) == column_;
+    }
+    else if (angle_ == Right) {
+        return PixelToCell(y) == row_;
+    }
+    else {
+        return false;
+    }
+}
+
+bool rtm::DrivewayObject::isLeftLine(int column, int row) const
+{
+    if (angle_ == Up) {
+        return column == column_;
+    }
+    else if (angle_ == Left) {
+        return row == row_;
+    }
+    else if (angle_ == Down) {
+        return column == column_ + width_ - 1;
+    }
+    else if (angle_ == Right) {
+        return row == row_ + height_ - 1;
+    }
+    else {
+        return false;
+    }
+}
+
+bool rtm::DrivewayObject::isLeftLine(float x, float y) const
+{
+    if (angle_ == Up) {
+        return PixelToCell(x) == column_;        
+    }
+    else if (angle_ == Left) {
+        return PixelToCell(y) == row_;        
+    }
+    else if (angle_ == Down) {
+        return PixelToCell(x) == column_ + width_ - 1;
+    }
+    else if (angle_ == Right) {
+        return PixelToCell(y) == row_ + height_ - 1;
+    }
+    else {
+        return false;
+    }
+}
+
 float rtm::DrivewayObject::CountLength_(size_t width, size_t height, AngleType angle)
 {
     if (angle == Up || angle == Down) {
@@ -109,11 +200,20 @@ float rtm::DrivewayObject::CountLength_(size_t width, size_t height, AngleType a
     else if (angle == Left || angle == Right) {
         return static_cast<float>(width);
     }
-    else if (angle == UpRight || angle == DownRight ||
-        angle == DownLeft || angle == UpLeft) {
-        return FT::length(width, height);
-    }
     else {
         return 0.f;
+    }
+}
+
+size_t rtm::DrivewayObject::CountLines_(size_t width, size_t height, AngleType angle)
+{
+    if (angle == Up || angle == Down) {
+        return width;
+    }
+    else if (angle == Left || angle == Right) {
+        return height;
+    }
+    else {
+        return 0;
     }
 }

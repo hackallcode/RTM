@@ -10,6 +10,7 @@ rtm::ControlUnit::ControlUnit()
     , nullDirection_{ NullAngle }
     , signals_{ DEFAULT_CROSSROAD_SIGNALS }
     , time_{ 0.f }
+    , state_{ 0 }
 {}
 
 rtm::ControlUnit::ControlUnit(ControlUnitType type, int column, int row, LinesCounts linesCounts)
@@ -20,6 +21,7 @@ rtm::ControlUnit::ControlUnit(ControlUnitType type, int column, int row, LinesCo
     , nullDirection_{ NullAngle }
     , signals_{ DEFAULT_CROSSROAD_SIGNALS }
     , time_{ 0.f }
+    , state_{ 0 }
 {
     InitSignals_();
 }
@@ -32,6 +34,7 @@ rtm::ControlUnit::ControlUnit(ControlUnitType type, int column, int row, LinesCo
     , nullDirection_{ nullDirection }
     , signals_{ DEFAULT_CROSSROAD_SIGNALS }
     , time_{ 0.f }
+    , state_{ 0 }
 {
     InitSignals_();
 }
@@ -42,22 +45,48 @@ void rtm::ControlUnit::Update(WorldController* const world)
     switch (type_)
     {
     case rtm::ControlUnitNo1:
-        if (time_ > 10.f) {
-            if (signals_[Upward][Upward] == Allowed) {
-                signals_[Upward][Upward] = Forbidden;
-                signals_[Downward][Downward] = Forbidden;
-                signals_[Rightward][Rightward] = Allowed;
-                signals_[Leftward][Leftward] = Allowed;
-            }
-            else {
-                signals_[Upward][Upward] = Allowed;
-                signals_[Downward][Downward] = Allowed;
-                signals_[Rightward][Rightward] = Forbidden;
-                signals_[Leftward][Leftward] = Forbidden;
-            }
-            ResetSprites_();
+        if (time_ > 10.f && state_ == 0) {
+            signals_[Upward][Upward] = Warning;
+            signals_[Downward][Downward] = Warning;
+            ++state_;
+        }
+        else if (time_ > 11.f && state_ == 1) {
+            signals_[Upward][Upward] = Forbidden;
+            signals_[Downward][Downward] = Forbidden;
+            ++state_;
+        }
+        else if (time_ > 12.f && state_ == 2) {
+            signals_[Rightward][Rightward] = Warning;
+            signals_[Leftward][Leftward] = Warning;
+            ++state_;
+        }
+        else if (time_ > 13.f && state_ == 3) {
+            signals_[Rightward][Rightward] = Allowed;
+            signals_[Leftward][Leftward] = Allowed;
+            ++state_;
+        }
+        else if (time_ > 23.f && state_ == 4) {
+            signals_[Rightward][Rightward] = Warning;
+            signals_[Leftward][Leftward] = Warning;
+            ++state_;
+        }
+        else if (time_ > 24.f && state_ == 5) {
+            signals_[Rightward][Rightward] = Forbidden;
+            signals_[Leftward][Leftward] = Forbidden;
+            ++state_;
+        }
+        else if (time_ > 25.f && state_ == 6) {
+            signals_[Upward][Upward] = Warning;
+            signals_[Downward][Downward] = Warning;
+            ++state_;
+        }
+        else if (time_ > 26.f && state_ == 7) {
+            signals_[Upward][Upward] = Allowed;
+            signals_[Downward][Downward] = Allowed;
+            state_ = 0;
             time_ = 0.f;
         }
+        ResetSprites_();
         break;
     }
 }
@@ -67,29 +96,43 @@ rtm::ControlUnit::operator bool() const
     return type_ != NoControlUnit;
 }
 
-rtm::TrafficLightSignal rtm::ControlUnit::GetSignal(DirectionType from, DirectionType to) const
+rtm::SignalType rtm::ControlUnit::GetSignal(DirectionType from, DirectionType to) const
 {
     return signals_[from][to];
 }
 
 void rtm::ControlUnit::InitSignals_()
 {
+    for (size_t i{ 0 }; i < 4; ++i) {
+        // Close null direction
+        if (nullDirection_ != NullDirection) {
+            signals_[i][nullDirection_] = Closed;
+        }
+        // Close empty directions
+        if (linesCounts_[i] == 0) {
+            for (size_t j{ 0 }; j < 4; ++j) {
+                signals_[j][i] = Closed;
+            }
+        }
+    }
+
     switch (type_)
     {
-    case rtm::ControlUnitNo1:
+    case NoControlUnit:
+        // Close back turn
+        for (size_t i{ 0 }; i < 4; ++i) {
+            signals_[i][(i + 2) % 4] = Closed;
+        }
+        break;
+    case ControlUnitNo1:
         // Close turns
-        signals_[Upward][Leftward] = Closed;
-        signals_[Upward][Rightward] = Closed;
-        signals_[Upward][Downward] = Closed;
-        signals_[Rightward][Upward] = Closed;
-        signals_[Rightward][Downward] = Closed;
-        signals_[Rightward][Leftward] = Closed;
-        signals_[Downward][Rightward] = Closed;
-        signals_[Downward][Leftward] = Closed;
-        signals_[Downward][Upward] = Closed;
-        signals_[Leftward][Downward] = Closed;
-        signals_[Leftward][Upward] = Closed;
-        signals_[Leftward][Rightward] = Closed;
+        for (size_t i{ 0 }; i < 4; ++i) {
+            for (size_t j{ 0 }; j < 4; ++j) {
+                if (i != j) {
+                    signals_[i][j] = Closed;
+                }
+            }
+        }
         // Set "green lines"
         signals_[Upward][Upward] = Allowed;
         signals_[Downward][Downward] = Allowed;

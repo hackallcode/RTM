@@ -14,6 +14,7 @@ namespace rtm {
         virtual ~DynamicObject() = default;
 
         float GetSpeed() const;
+        float GetLastDelta() const;
         bool HasCollision() const;
 
         virtual void Update(WorldController* const world);
@@ -30,6 +31,7 @@ namespace rtm {
 
     private:
         float speed_;
+        float lastDelta_;
         bool hasCollision_;
 
         bool IsNear_(WorldObject const* const other) const;

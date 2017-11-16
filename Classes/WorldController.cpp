@@ -13,8 +13,10 @@ rtm::WorldController::WorldController()
     , columnsCount_{ 0 }
     , rowsCount_{ 0 }
     , deltaTime_{ 0.f }
+    , timeFactor_{ 0 }
     , background_{ nullptr }
     , coatingUnions_{}
+    , controlUnits_{}
     , staticObjects_{}
     , dynamicObjects_{}
 {}
@@ -24,8 +26,10 @@ rtm::WorldController::WorldController(WorldScene* const scene)
     , columnsCount_{ static_cast<size_t>(trunc(scene_->getContentSize().width / CELL_SIZE)) + 2 * HIDDEN_AREA_SIZE }
     , rowsCount_{ static_cast<size_t>(trunc(scene_->getContentSize().height / CELL_SIZE)) + 2 * HIDDEN_AREA_SIZE }
     , deltaTime_{ 0.f }
+    , timeFactor_{ 1 }
     , background_{ nullptr }
     , coatingUnions_{ columnsCount_ }
+    , controlUnits_{}
     , staticObjects_{ columnsCount_ }
     , dynamicObjects_{}
 {
@@ -54,7 +58,7 @@ rtm::WorldController::WorldController(WorldScene* const scene, MapNumber number)
 
 void rtm::WorldController::Update(float time)
 {
-    deltaTime_ = time;
+    deltaTime_ = time * timeFactor_;
 
     for (auto& controlUnit : controlUnits_) {
         controlUnit->Update(this);
@@ -62,14 +66,10 @@ void rtm::WorldController::Update(float time)
 
     for (auto& it{ dynamicObjects_.begin() }; it != dynamicObjects_.end();) {
         DynamicObject& obj{ **it };
-
         obj.Update(this);
-        if (
-            // Not allowable position
-            (!IsAllowableColumn(PixelToCell(obj.GetX())) || !IsAllowableRow(PixelToCell(obj.GetY()))) &&
-            // In center of cell
-            IsInCenter(obj.GetX()) && IsInCenter(obj.GetY())
-            ) {
+
+        // Not allowable position
+        if (!IsAllowableColumn(PixelToCell(obj.GetX())) || !IsAllowableRow(PixelToCell(obj.GetY()))) {
             scene_->removeChild(obj.GetSprite());
             it = dynamicObjects_.erase(it);
         }
@@ -100,6 +100,11 @@ float rtm::WorldController::GetDeltaTime() const
     return deltaTime_;
 }
 
+int rtm::WorldController::GetTimeFactor() const
+{
+    return timeFactor_;
+}
+
 rtm::CoatingObject* rtm::WorldController::GetCoatingObject(int column, int row)
 {
     CoatingUnionShared& coatingUnion{ coatingUnions_[GetVectorColumn_(column)][GetVectorRow_(row)] };
@@ -109,6 +114,11 @@ rtm::CoatingObject* rtm::WorldController::GetCoatingObject(int column, int row)
     else {
         return nullptr;
     }
+}
+
+rtm::CoatingUnion* rtm::WorldController::GetCoatingUnion(int column, int row)
+{
+    return coatingUnions_[GetVectorColumn_(column)][GetVectorRow_(row)].get();
 }
 
 rtm::StaticObject* rtm::WorldController::GetStaticObject(int column, int row)
@@ -167,6 +177,11 @@ bool rtm::WorldController::IsVisibleRow(int row)
     return row >= 0 && row < GetRealColumn_(rowsCount_);
 }
 
+void rtm::WorldController::SetTimeFactor(int factor)
+{
+    timeFactor_ = factor;
+}
+
 bool rtm::WorldController::LoadMap(std::string const& filename)
 {
     std::ifstream fin{ filename, std::ios::in | std::ios::binary };
@@ -220,60 +235,8 @@ bool rtm::WorldController::LoadMap(MapNumber number)
 void rtm::WorldController::Reset()
 {
     RemoveDynamicObjects_();
-}
-
-void rtm::WorldController::AddTestObjects()
-{
-    AddDriveway_(1, 1, 3, 1, Up);
-    AddDriveway_(1, 3, 3, 1, Right);
-    AddDriveway_(5, 1, 1, 3, Up);
-    AddDriveway_(7, 1, 1, 3, Right);
-    AddDriveway_(1, 7, 3, 1, Down);
-    AddDriveway_(1, 9, 3, 1, Left);
-    AddDriveway_(5, 7, 1, 3, Down);
-    AddDriveway_(7, 7, 1, 3, Left);
-
-    AddCrossroad_(9, 1, { 1, 1, 0, 0 });
-    AddCrossroad_(13, 1, { 2, 1, 0, 0 });
-    AddCrossroad_(18, 1, { 1, 2, 0, 0 });
-    AddCrossroad_(22, 1, { 2, 2, 0, 0 });
-    AddCrossroad_(27, 1, { 3, 3, 0, 0 });
-    AddCrossroad_(9, 7, { 0, 0, 1, 1 });
-    AddCrossroad_(13, 7, { 0, 0, 2, 1 });
-    AddCrossroad_(18, 7, { 0, 0, 1, 2 });
-    AddCrossroad_(22, 7, { 0, 0, 2, 2 });
-    AddCrossroad_(27, 7, { 0, 0, 3, 3 });
-
-    AddTCrossroad_(33, 1, { 1, 1, 0, 0 }, Up);
-    AddTCrossroad_(37, 1, { 2, 1, 0, 0 }, Up);
-    AddTCrossroad_(42, 1, { 1, 2, 0, 0 }, Up);
-    AddTCrossroad_(46, 1, { 2, 2, 0, 0 }, Up);
-    AddTCrossroad_(51, 1, { 3, 3, 0, 0 }, Up);
-    AddTCrossroad_(33, 7, { 0, 0, 1, 1 }, Right);
-    AddTCrossroad_(37, 7, { 0, 0, 2, 1 }, Right);
-    AddTCrossroad_(42, 7, { 0, 0, 1, 2 }, Right);
-    AddTCrossroad_(46, 7, { 0, 0, 2, 2 }, Right);
-    AddTCrossroad_(51, 7, { 0, 0, 3, 3 }, Right);
-}
-
-void rtm::WorldController::AddCar(CarType type, int column, int row, float angle)
-{
-    AddCar_(type, column, row, angle);
-}
-
-void rtm::WorldController::RemoveCoatingObjects()
-{
-    RemoveCoatingObjects_();
-}
-
-void rtm::WorldController::RemoveStaticObjects()
-{
     RemoveStaticObjects_();
-}
-
-void rtm::WorldController::RemoveDynamicObjects()
-{
-    RemoveDynamicObjects_();
+    RemoveCoatingObjects_();
 }
 
 bool rtm::WorldController::IsEmpty(int column, int row, size_t width, size_t height)

@@ -85,125 +85,28 @@ void rtm::keyListener(cocos2d::EventKeyboard::KeyCode code, cocos2d::Event* even
     else if (code == cocos2d::EventKeyboard::KeyCode::KEY_R) {
         GLOBAL_WORLD_SCENE->restart();
     }
-    else if (code == cocos2d::EventKeyboard::KeyCode::KEY_F1) {
-        GLOBAL_WORLD_SCENE->getMap()->RemoveCoatingObjects();
-    }
-    else if (code == cocos2d::EventKeyboard::KeyCode::KEY_F2) {
-        GLOBAL_WORLD_SCENE->getMap()->RemoveStaticObjects();
-    }
-    else if (code == cocos2d::EventKeyboard::KeyCode::KEY_F3) {
-        GLOBAL_WORLD_SCENE->getMap()->RemoveDynamicObjects();
-    }
     
     auto& map = GLOBAL_WORLD_SCENE->getMap();
-    if (code == cocos2d::EventKeyboard::KeyCode::KEY_0) {
-        SetCaseNumber(0);
-        map->AddCar(CarTypeNo2, 30, 30, ANGLE_DOWN);
-        map->AddCar(CarTypeNo2, 30, 15, ANGLE_UP);
-        map->AddCar(CarTypeNo2, 20, 10, ANGLE_RIGHT);
-        map->AddCar(CarTypeNo2, 40, 10, ANGLE_LEFT);
+    
+    static bool isTimeFactorWaiting{ false };    
+    if (isTimeFactorWaiting) {
+        isTimeFactorWaiting = false;
+        int intCode{ static_cast<int>(code) };
+        int rangeBegin{ static_cast<int>(cocos2d::EventKeyboard::KeyCode::KEY_0) };
+        int rangeEnd{ static_cast<int>(cocos2d::EventKeyboard::KeyCode::KEY_9) };
+            
+        if (rangeBegin <= intCode && intCode <= rangeEnd) {
+            map->SetTimeFactor(intCode - rangeBegin);
+        }
     }
-    else if (code == cocos2d::EventKeyboard::KeyCode::KEY_1) {
-        SetCaseNumber(1);
-
-        map->AddCar(CarTypeNo2, 20, 10, ANGLE_UP);
-        map->AddCar(CarTypeNo1, 20, 15, ANGLE_UP);
-        map->AddCar(CarTypeNo2, 20, 30, ANGLE_UP);
-        map->AddCar(CarTypeNo2, 20, 30, ANGLE_UP);
-
-        map->AddCar(CarTypeNo2, 25, 15, ANGLE_UP);
-        map->AddCar(CarTypeNo2, 25, 30, ANGLE_UP);
-        map->AddCar(CarTypeNo2, 25, 30, ANGLE_UP);
-
-        map->AddCar(CarTypeNo2, 30, 30, ANGLE_DOWN);
-        map->AddCar(CarTypeNo1, 30, 25, ANGLE_DOWN);
-        map->AddCar(CarTypeNo2, 30, 10, ANGLE_DOWN);
-        map->AddCar(CarTypeNo2, 30, 10, ANGLE_DOWN);
-
-        map->AddCar(CarTypeNo2, 35, 25, ANGLE_DOWN);
-        map->AddCar(CarTypeNo2, 35, 10, ANGLE_DOWN);
-        map->AddCar(CarTypeNo2, 35, 10, ANGLE_DOWN);
+    else if (code == cocos2d::EventKeyboard::KeyCode::KEY_B) {
+        isTimeFactorWaiting = true;
     }
-    else if (code == cocos2d::EventKeyboard::KeyCode::KEY_2) {
-        SetCaseNumber(2);
 
-        map->AddCar(CarTypeNo2, 25, 10, ANGLE_RIGHT);
-        map->AddCar(CarTypeNo1, 30, 10, ANGLE_RIGHT);
-        map->AddCar(CarTypeNo2, 45, 10, ANGLE_RIGHT);
-        map->AddCar(CarTypeNo2, 45, 10, ANGLE_RIGHT);
-
-        map->AddCar(CarTypeNo2, 30, 15, ANGLE_RIGHT);
-        map->AddCar(CarTypeNo2, 45, 15, ANGLE_RIGHT);
-        map->AddCar(CarTypeNo2, 45, 15, ANGLE_RIGHT);
-
-        map->AddCar(CarTypeNo2, 45, 20, ANGLE_LEFT);
-        map->AddCar(CarTypeNo1, 40, 20, ANGLE_LEFT);
-        map->AddCar(CarTypeNo2, 25, 20, ANGLE_LEFT);
-        map->AddCar(CarTypeNo2, 25, 20, ANGLE_LEFT);
-
-        map->AddCar(CarTypeNo2, 40, 25, ANGLE_LEFT);
-        map->AddCar(CarTypeNo2, 25, 25, ANGLE_LEFT);
-        map->AddCar(CarTypeNo2, 25, 25, ANGLE_LEFT);
-    }
-    else if (code == cocos2d::EventKeyboard::KeyCode::KEY_3) {
-        SetCaseNumber(3);
-
-        map->AddCar(CarTypeNo1, 15, 10, ANGLE_RIGHT);
-        map->AddCar(CarTypeNo1, 16, 11, ANGLE_RIGHT);
-        map->AddCar(CarTypeNo2, 15, 20, ANGLE_RIGHT);
-        map->AddCar(CarTypeNo2, 16, 21, ANGLE_RIGHT);
-    }
-    else if (code == cocos2d::EventKeyboard::KeyCode::KEY_4) {
-        SetCaseNumber(4);
-
-        map->AddCar(CarTypeNo1, 15, 11, ANGLE_RIGHT);
-        map->AddCar(CarTypeNo1, 16, 10, ANGLE_RIGHT);
-        map->AddCar(CarTypeNo2, 15, 21, ANGLE_RIGHT);
-        map->AddCar(CarTypeNo2, 16, 20, ANGLE_RIGHT);
-    }
-    else if (code == cocos2d::EventKeyboard::KeyCode::KEY_5) {
-        SetCaseNumber(5);
-
-        map->AddCar(CarTypeNo1, 15, 15, ANGLE_RIGHT);
-        map->AddCar(CarTypeNo1, 20, 10, ANGLE_UP);
-        map->AddCar(CarTypeNo2, 30, 15, ANGLE_RIGHT);
-        map->AddCar(CarTypeNo2, 35, 10, ANGLE_UP);
-    }
-    else if (code == cocos2d::EventKeyboard::KeyCode::KEY_6) {
-        SetCaseNumber(6);
-
-        map->AddCar(CarTypeNo1, 20, 15, ANGLE_LEFT);
-        map->AddCar(CarTypeNo1, 15, 10, ANGLE_UP);
-        map->AddCar(CarTypeNo2, 35, 15, ANGLE_LEFT);
-        map->AddCar(CarTypeNo2, 30, 10, ANGLE_UP);
-    }
-    else if (code == cocos2d::EventKeyboard::KeyCode::KEY_7) {
-        SetCaseNumber(7);
-
-        map->AddCar(CarTypeNo2, 30, 10, ANGLE_UP);
-        map->AddCar(CarTypeNo2, 15, 14, ANGLE_RIGHT);
-        map->AddCar(CarTypeNo2, 30, 25, ANGLE_DOWN);
-        map->AddCar(CarTypeNo2, 45, 14, ANGLE_LEFT);
-    }
-    else if (code == cocos2d::EventKeyboard::KeyCode::KEY_8) {
-        SetCaseNumber(8);
-
-        map->AddCar(CarTypeNo2, 27, 20, ANGLE_RIGHT);
-        map->AddCar(CarTypeNo2, 33, 20, ANGLE_RIGHT);
-        map->AddCar(CarTypeNo2, 33, 20, ANGLE_RIGHT);
-    }
-    else if (code == cocos2d::EventKeyboard::KeyCode::KEY_9) {
-        SetCaseNumber(9);
-
-        map->AddCar(CarTypeNo2, 32, 34, ANGLE_UP);
-        map->AddCar(CarTypeNo2, 61, 15, ANGLE_RIGHT);
-        map->AddCar(CarTypeNo2, 32, 3, ANGLE_DOWN);
-        map->AddCar(CarTypeNo2, 4, 15, ANGLE_LEFT);
-    }
-    else if (code == cocos2d::EventKeyboard::KeyCode::KEY_T) {
-        map->AddTestObjects();
-    }
     else if (code == cocos2d::EventKeyboard::KeyCode::KEY_M) {
         map->LoadMap(MapNumberNo1);
+    }
+    else if (code == cocos2d::EventKeyboard::KeyCode::KEY_T) {
+        map->LoadMap(MapNumberNo2);
     }
 }

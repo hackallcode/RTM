@@ -41,7 +41,7 @@ namespace rtm {
     float const ANGLE_DOWN{ -F_PI };
     float const ANGLE_LEFT{ -F_PI_2 };
     float const ANGLE_UP_RIGHT{ F_PI_4 };
-    float const ANGLE_DOWN_RIGHT{ F_PI_2 - F_PI_4 };
+    float const ANGLE_DOWN_RIGHT{ F_PI - F_PI_4 };
     float const ANGLE_DOWN_LEFT{ -F_PI + F_PI_4 };
     float const ANGLE_UP_LEFT{ -F_PI_4 };
 
@@ -53,6 +53,7 @@ namespace rtm {
     /* MAP PARAMETERS */
 
     size_t const CELL_SIZE{ 30 };
+    size_t const ROTATION_RADIUS{ CELL_SIZE };
     size_t const HIDDEN_AREA_SIZE{ 3 };
 
     int const BACKGROUND_Z_ORDER{ 0 };
@@ -103,13 +104,14 @@ namespace rtm {
     };
 
     enum DirectionType {
-        Upward = 0
+        NullDirection = -1
+        , Upward = 0
         , Rightward
         , Downward
         , Leftward
     };
 
-    enum TrafficLightSignal {
+    enum SignalType {
         NotWorking = 0
         , Allowed
         , Warning
@@ -129,13 +131,13 @@ namespace rtm {
     using Directions = std::array<bool, 8>;
     using LinesCounts = std::array<size_t, 4>;
 
-    using DirectionSignals = std::array<TrafficLightSignal, 4>;
+    using DirectionSignals = std::array<SignalType, 4>;
     using CrossroadSignals = std::array<DirectionSignals, 4>;
 
     using SignalSprites = std::array<cocos2d::Sprite*, 5>;
     using SignalsSprites = std::array<SignalSprites, 3>;
     using DirectionsSignalSprites = std::array<SignalsSprites, 4>;
-    
+
     /* FILENAMES */
 
     std::string const BACKGROUND_FILENAME_MASK{ "res/background/BackgroundNo%No%.png" };
@@ -149,6 +151,7 @@ namespace rtm {
 
     enum MapNumber {
         MapNumberNo1 = 1
+        , MapNumberNo2 = 2
     };
 
     enum BackgroundNumber {
@@ -158,7 +161,8 @@ namespace rtm {
     /* COATINGS */
 
     enum CoatingType {
-        CoatingUnionType = 0
+        NoCoatingUnion = -1
+        , CoatingUnionType = 0
         , DrivewayType
         , CrossroadType
         , TCrossroadType
@@ -285,32 +289,33 @@ namespace rtm {
 
     /* COMPARATORS AND ROUNDERS */
 
-    bool IsSameCoords(float a, float b, float delta = COORD_DELTA);
-    float RoundCoord(float coord, float delta = COORD_DELTA);
-    bool IsSameAngles(float a, float b, float delta = ANGLE_DELTA);
+    bool SameCoordinates(float a, float b, float delta = COORD_DELTA);
+    float RoundCoordinate(float coordinate, float delta = COORD_DELTA);
+    float RoundToCenter(float coordinate);
+    bool InCenter(float coordinate, float delta = COORD_DELTA);
+    float DistanceToSkippedCenter(float x, float y, float angle);
+    bool CenterIsCrossed(float x, float y, float angle, float lastDelta);
+
+    bool SameAngles(float a, float b, float delta = ANGLE_DELTA);
     float RoundAngle(float angle, float delta = ANGLE_DELTA);
     float NormalizeAngle(float angle);
-    bool IsInCenter(float coordinate);
-    float CellCenterRound(float coordinate);
 
     /* CONVERTERS */
 
     int PixelToCell(float coordinate);
     float CellToPixel(int cellNumber);
     AngleType AngleToAngleType(float angle);
-    float AngleTypeToAngle(AngleType angle);
     DirectionType AngleToDirection(float angle);
-    float AngleToDirection(DirectionType angle);
+    float AngleTypeToAngle(AngleType angle);
+    DirectionType AngleTypeToDirection(AngleType angle);
+    float DirectionToAngle(DirectionType direction);
+    AngleType DirectionToAngleType(DirectionType direction);
 
     /* OTHER */
 
-    AngleType AngleTypeSum(AngleType a, AngleType b);
+    AngleType SumAngleTypes(AngleType a, AngleType b);
+
     float CountDeceleration(float maxSpeed);
-
-    /* TODO: Delete (only for tests) */
-
-    int GetCaseNumber();
-    void SetCaseNumber(int number);
 }
 
 #endif // __GLOBAL_INCLUDED__

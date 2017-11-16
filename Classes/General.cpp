@@ -1,14 +1,14 @@
 #include "General.h"
 
-bool rtm::IsSameCoords(float a, float b, float delta)
+bool rtm::SameCoordinates(float a, float b, float delta)
 {
     return abs(a - b) <= delta;
 }
 
-float rtm::RoundCoord(float coord, float delta)
+float rtm::RoundCoordinate(float coord, float delta)
 {
     float rounded{ CellToPixel(PixelToCell(coord)) };
-    if (IsSameCoords(coord, rounded, delta)) {
+    if (SameCoordinates(coord, rounded, delta)) {
         return rounded;
     }
     else {
@@ -16,7 +16,63 @@ float rtm::RoundCoord(float coord, float delta)
     }
 }
 
-bool rtm::IsSameAngles(float a, float b, float delta)
+float rtm::RoundToCenter(float coordinate)
+{
+    return CellToPixel(PixelToCell(coordinate));
+}
+
+bool rtm::InCenter(float coordinate, float delta)
+{
+    return SameCoordinates(RoundToCenter(coordinate), coordinate, delta);
+}
+
+float rtm::DistanceToSkippedCenter(float x, float y, float angle)
+{
+    switch (AngleToAngleType(angle))
+    {
+    case rtm::Up: {
+        return y - RoundToCenter(y - CELL_SIZE / 2);
+    }
+    case rtm::Right: {
+        return x - RoundToCenter(x - CELL_SIZE / 2);
+    }
+    case rtm::Down: {
+        return RoundToCenter(y + CELL_SIZE / 2) - y;
+    }
+    case rtm::Left: {
+        return RoundToCenter(x + CELL_SIZE / 2) - x;
+    }
+    default:
+        return 0.f;
+    }
+}
+
+bool rtm::CenterIsCrossed(float x, float y, float angle, float lastDelta)
+{
+    switch (AngleToAngleType(angle))
+    {
+    case rtm::Up: {
+        float center{ RoundToCenter(y) };
+        return y - lastDelta <= center && center <= y;
+    }
+    case rtm::Right: {
+        float center{ RoundToCenter(x) };
+        return x - lastDelta <= center && center <= x;
+    }
+    case rtm::Down: {
+        float center{ RoundToCenter(y) };
+        return y <= center && center <= y + lastDelta;
+    }
+    case rtm::Left: {
+        float center{ RoundToCenter(x) };
+        return x <= center && center <= x + lastDelta;
+    }
+    default:
+        return false;
+    }
+}
+
+bool rtm::SameAngles(float a, float b, float delta)
 {
     return abs(a - b) <= delta;
 }
@@ -24,7 +80,7 @@ bool rtm::IsSameAngles(float a, float b, float delta)
 float rtm::RoundAngle(float angle, float delta)
 {
     float rounded{ F_PI_4 * round(angle / F_PI_4) };
-    if (IsSameAngles(angle, rounded, delta)) {
+    if (SameAngles(angle, rounded, delta)) {
         return rounded;
     }
     else {
@@ -37,16 +93,6 @@ float rtm::NormalizeAngle(float angle)
     while (angle < -F_PI) angle += F_2_PI;
     while (angle >= F_PI) angle -= F_2_PI;
     return angle;
-}
-
-bool rtm::IsInCenter(float coordinate)
-{
-    return IsSameCoords(CellCenterRound(coordinate), coordinate);
-}
-
-float rtm::CellCenterRound(float coordinate)
-{
-    return CellToPixel(PixelToCell(coordinate));
 }
 
 int rtm::PixelToCell(float coordinate)
@@ -62,32 +108,52 @@ float rtm::CellToPixel(int cellNumber)
 rtm::AngleType rtm::AngleToAngleType(float angle)
 {
     angle = NormalizeAngle(angle);
-    if (IsSameAngles(angle, ANGLE_UP, F_PI_8)) {
+    if (SameAngles(angle, ANGLE_UP, F_PI_8)) {
         return Up;
     }
-    else if (IsSameAngles(angle, ANGLE_RIGHT, F_PI_8)) {
+    else if (SameAngles(angle, ANGLE_RIGHT, F_PI_8)) {
         return Right;
     }
-    else if (IsSameAngles(angle, ANGLE_DOWN, F_PI_8)) {
+    else if (SameAngles(angle, ANGLE_DOWN, F_PI_8)) {
         return Down;
     }
-    else if (IsSameAngles(angle, ANGLE_LEFT, F_PI_8)) {
+    else if (SameAngles(angle, ANGLE_LEFT, F_PI_8)) {
         return Left;
     }
-    else if (IsSameAngles(angle, ANGLE_UP_RIGHT, F_PI_8)) {
+    else if (SameAngles(angle, ANGLE_UP_RIGHT, F_PI_8)) {
         return UpRight;
     }
-    else if (IsSameAngles(angle, ANGLE_DOWN_RIGHT, F_PI_8)) {
+    else if (SameAngles(angle, ANGLE_DOWN_RIGHT, F_PI_8)) {
         return DownRight;
     }
-    else if (IsSameAngles(angle, ANGLE_DOWN_LEFT, F_PI_8)) {
+    else if (SameAngles(angle, ANGLE_DOWN_LEFT, F_PI_8)) {
         return DownLeft;
     }
-    else if (IsSameAngles(angle, ANGLE_UP_LEFT, F_PI_8)) {
+    else if (SameAngles(angle, ANGLE_UP_LEFT, F_PI_8)) {
         return UpLeft;
     }
     else {
-        return Up;
+        return NullAngle;
+    }
+}
+
+rtm::DirectionType rtm::AngleToDirection(float angle)
+{
+    angle = NormalizeAngle(angle);
+    if (SameAngles(angle, ANGLE_UP, F_PI_4)) {
+        return Upward;
+    }
+    else if (SameAngles(angle, ANGLE_RIGHT, F_PI_4)) {
+        return Rightward;
+    }
+    else if (SameAngles(angle, ANGLE_DOWN, F_PI_4)) {
+        return Downward;
+    }
+    else if (SameAngles(angle, ANGLE_LEFT, F_PI_4)) {
+        return Leftward;
+    }
+    else {
+        return NullDirection;
     }
 }
 
@@ -115,27 +181,23 @@ float rtm::AngleTypeToAngle(AngleType angle)
     }
 }
 
-rtm::DirectionType rtm::AngleToDirection(float angle)
+rtm::DirectionType rtm::AngleTypeToDirection(AngleType angle)
 {
-    angle = NormalizeAngle(angle);
-    if (IsSameAngles(angle, ANGLE_UP, F_PI_4)) {
+    switch (angle) {
+    case Up:
         return Upward;
-    }
-    else if (IsSameAngles(angle, ANGLE_RIGHT, F_PI_4)) {
+    case Right:
         return Rightward;
-    }
-    else if (IsSameAngles(angle, ANGLE_DOWN, F_PI_4)) {
+    case Down:
         return Downward;
-    }
-    else if (IsSameAngles(angle, ANGLE_LEFT, F_PI_4)) {
+    case Left:
         return Leftward;
-    }
-    else {
-        return Upward;
+    default:
+        return NullDirection;
     }
 }
 
-float rtm::AngleToDirection(DirectionType direction)
+float rtm::DirectionToAngle(DirectionType direction)
 {
     switch (direction)
     {
@@ -152,25 +214,28 @@ float rtm::AngleToDirection(DirectionType direction)
     }
 }
 
-rtm::AngleType rtm::AngleTypeSum(AngleType a, AngleType b)
+rtm::AngleType rtm::DirectionToAngleType(DirectionType direction)
+{
+    switch (direction)
+    {
+    case rtm::Upward:
+        return Up;
+    case rtm::Rightward:
+        return Right;
+    case rtm::Downward:
+        return Down;
+    case rtm::Leftward:
+        return Left;
+    default:
+        return NullAngle;
+    }
+}
+
+rtm::AngleType rtm::SumAngleTypes(AngleType a, AngleType b)
 {
     return AngleToAngleType(AngleTypeToAngle(a) + AngleTypeToAngle(b));
 }
 
 float rtm::CountDeceleration(float maxSpeed) {
     return (maxSpeed * maxSpeed) / (2 * CELL_SIZE);
-}
-
-/* TODO: Delete (only for tests) */
-
-int caseNumber_ = -1;
-
-int rtm::GetCaseNumber()
-{
-    return caseNumber_;
-}
-
-void rtm::SetCaseNumber(int number)
-{
-    caseNumber_ = number;
 }

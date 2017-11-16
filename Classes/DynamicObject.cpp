@@ -38,18 +38,21 @@ bool HaveIntersection(cocos2d::Point a1, cocos2d::Point a2, cocos2d::Point b1, c
 rtm::DynamicObject::DynamicObject()
     : WorldObject{}
     , speed_{ 0.f }
+    , lastDelta_{ 0.f }
     , hasCollision_{ false }
 {}
 
 rtm::DynamicObject::DynamicObject(cocos2d::Sprite* sprite, float x, float y, float angle, float speed)
     : WorldObject{ sprite, x, y, angle }
     , speed_{ speed }
+    , lastDelta_{ 0.f }
     , hasCollision_{ false }
 {}
 
 rtm::DynamicObject::DynamicObject(std::string const& filename, float x, float y, float angle, float speed)
     : WorldObject{ filename, x, y, angle }
     , speed_{ speed }
+    , lastDelta_{ 0.f }
     , hasCollision_{ false }
 {}
 
@@ -66,10 +69,16 @@ bool rtm::DynamicObject::HasCollision() const
 void rtm::DynamicObject::Update(WorldController* const world)
 {
     if (speed_ != 0.f) {
-        SetX_(GetX() + speed_ * sin(GetAngle()) * world->GetDeltaTime());
-        SetY_(GetY() + speed_ * cos(GetAngle()) * world->GetDeltaTime());
+        lastDelta_ = speed_ * world->GetDeltaTime();
+        SetX_(GetX() + lastDelta_ * sin(GetAngle()));
+        SetY_(GetY() + lastDelta_ * cos(GetAngle()));
         PositionUpdate_();
     }
+}
+
+float rtm::DynamicObject::GetLastDelta() const
+{
+    return lastDelta_;
 }
 
 void rtm::DynamicObject::SetSpeed_(float speed)
@@ -92,7 +101,7 @@ bool rtm::DynamicObject::IsBeholding_(WorldObject const* const other, float radi
     float deltaY{ other->GetY() - GetY() };
     // If object is near (to shorten time of calculation)
     if (FT::length(deltaX, deltaY) < radius) {
-        if (IsSameAngles(NormalizeAngle(FT::atan2(deltaX, deltaY) - GetAngle()), angleShift, angle)) {
+        if (SameAngles(NormalizeAngle(FT::atan2(deltaX, deltaY) - GetAngle()), angleShift, angle)) {
             return true;
         }
     }

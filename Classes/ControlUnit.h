@@ -16,7 +16,7 @@ namespace rtm {
         void Update(WorldController* const world);
 
         operator bool() const;
-        TrafficLightSignal GetSignal(DirectionType from, DirectionType to) const;
+        SignalType GetSignal(DirectionType from, DirectionType to) const;
 
         void ShowSprites(WorldScene* const scene);
         void ReleaseSprites(WorldScene* const scene);
@@ -30,6 +30,7 @@ namespace rtm {
         CrossroadSignals signals_;
         DirectionsSignalSprites sprites_;
         float time_;
+        size_t state_;
 
         void InitSignals_();
         void ResetSprites_();
