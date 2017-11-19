@@ -2,6 +2,26 @@
 #include "WorldController.h"
 #include "WorldScene.h"
 
+///////////////////////
+//  LOCAL FUNCTIONS  //
+///////////////////////
+
+inline size_t LeftwardIndex(size_t forwardIndex) {
+    return (forwardIndex - 1) % 4;
+}
+
+inline size_t RightwardIndex(size_t forwardIndex) {
+    return (forwardIndex + 1) % 4;
+}
+
+inline size_t BackwardIndex(size_t forwardIndex) {
+    return (forwardIndex + 2) % 4;
+}
+
+///////////////////////
+//  CLASS FUNCTIONS  //
+///////////////////////
+
 rtm::ControlUnit::ControlUnit()
     : type_{ NoControlUnit }
     , column_{ 0 }
@@ -45,47 +65,142 @@ void rtm::ControlUnit::Update(WorldController* const world)
     switch (type_)
     {
     case rtm::ControlUnitNo1:
-        if (time_ > 10.f && state_ == 0) {
-            signals_[Upward][Upward] = Warning;
-            signals_[Downward][Downward] = Warning;
-            ++state_;
+        if (state_ == 0 && time_ > 10.f) {
+            UpdateSignal_(Upward, Upward, Warning);
+            UpdateSignal_(Upward, LeftwardIndex(Upward), Warning);
+            UpdateSignal_(Upward, RightwardIndex(Upward), Warning);
+            IncState_();
         }
-        else if (time_ > 11.f && state_ == 1) {
-            signals_[Upward][Upward] = Forbidden;
-            signals_[Downward][Downward] = Forbidden;
-            ++state_;
+        else if (state_ == 1 && time_ > 1.f) {
+            UpdateSignal_(Upward, Upward, Forbidden);
+            UpdateSignal_(Upward, LeftwardIndex(Upward), Forbidden);
+            UpdateSignal_(Upward, RightwardIndex(Upward), Forbidden);
+            if (nullDirection_ != Left && linesCounts_[Right] > 0) {
+                IncState_();
+            }
+            else {
+                if (nullDirection_ != Up && linesCounts_[Down] > 0) {
+                    SetState_(6);
+                }
+                else {
+                    SetState_(10);
+                }
+            }
+        } 
+        else if (state_ == 2 && time_ > 3.f) {            
+            UpdateSignal_(Rightward, Rightward, Warning);
+            UpdateSignal_(Rightward, LeftwardIndex(Rightward), Warning);
+            UpdateSignal_(Rightward, RightwardIndex(Rightward), Warning);
+            IncState_();
         }
-        else if (time_ > 12.f && state_ == 2) {
-            signals_[Rightward][Rightward] = Warning;
-            signals_[Leftward][Leftward] = Warning;
-            ++state_;
+        else if (state_ == 3 && time_ > 1.f) {
+            UpdateSignal_(Rightward, Rightward, Allowed);
+            UpdateSignal_(Rightward, LeftwardIndex(Rightward), Allowed);
+            UpdateSignal_(Rightward, RightwardIndex(Rightward), Allowed);
+            IncState_();
+        } else if (state_ == 4 && time_ > 10.f) {
+            UpdateSignal_(Rightward, Rightward, Warning);
+            UpdateSignal_(Rightward, LeftwardIndex(Rightward), Warning);
+            UpdateSignal_(Rightward, RightwardIndex(Rightward), Warning);
+            IncState_();
         }
-        else if (time_ > 13.f && state_ == 3) {
-            signals_[Rightward][Rightward] = Allowed;
-            signals_[Leftward][Leftward] = Allowed;
-            ++state_;
+        else if (state_ == 5 && time_ > 1.f) {
+            UpdateSignal_(Rightward, Rightward, Forbidden);
+            UpdateSignal_(Rightward, LeftwardIndex(Rightward), Forbidden);
+            UpdateSignal_(Rightward, RightwardIndex(Rightward), Forbidden);
+            if (nullDirection_ != Up && linesCounts_[Down] > 0) {
+                IncState_();
+            }
+            else {
+                if (nullDirection_ != Right && linesCounts_[Left] > 0) {
+                    SetState_(10);
+                }
+                else {
+                    SetState_(14);
+                }
+            }
         }
-        else if (time_ > 23.f && state_ == 4) {
-            signals_[Rightward][Rightward] = Warning;
-            signals_[Leftward][Leftward] = Warning;
-            ++state_;
+        else if (state_ == 6 && time_ > 3.f) {
+            UpdateSignal_(Downward, Downward, Warning);
+            UpdateSignal_(Downward, LeftwardIndex(Downward), Warning);
+            UpdateSignal_(Downward, RightwardIndex(Downward), Warning);
+            IncState_();
         }
-        else if (time_ > 24.f && state_ == 5) {
-            signals_[Rightward][Rightward] = Forbidden;
-            signals_[Leftward][Leftward] = Forbidden;
-            ++state_;
+        else if (state_ == 7 && time_ > 1.f) {
+            UpdateSignal_(Downward, Downward, Allowed);
+            UpdateSignal_(Downward, LeftwardIndex(Downward), Allowed);
+            UpdateSignal_(Downward, RightwardIndex(Downward), Allowed);
+            IncState_();
         }
-        else if (time_ > 25.f && state_ == 6) {
-            signals_[Upward][Upward] = Warning;
-            signals_[Downward][Downward] = Warning;
-            ++state_;
+        else if(state_ == 8 && time_ > 10.f) {
+            UpdateSignal_(Downward, Downward, Warning);
+            UpdateSignal_(Downward, LeftwardIndex(Downward), Warning);
+            UpdateSignal_(Downward, RightwardIndex(Downward), Warning);
+            IncState_();
         }
-        else if (time_ > 26.f && state_ == 7) {
-            signals_[Upward][Upward] = Allowed;
-            signals_[Downward][Downward] = Allowed;
-            state_ = 0;
-            time_ = 0.f;
+        else if (state_ == 9 && time_ > 1.f) {
+            UpdateSignal_(Downward, Downward, Forbidden);
+            UpdateSignal_(Downward, LeftwardIndex(Downward), Forbidden);
+            UpdateSignal_(Downward, RightwardIndex(Downward), Forbidden);
+            if (nullDirection_ != Right && linesCounts_[Left] > 0) {
+                IncState_();
+            }
+            else {
+                if (nullDirection_ != Down && linesCounts_[Up] > 0) {
+                    SetState_(14);
+                }
+                else {
+                    SetState_(2);
+                }
+            }
         }
+        else if (state_ == 10 && time_ > 3.f) {
+            UpdateSignal_(Leftward, Leftward, Warning);
+            UpdateSignal_(Leftward, LeftwardIndex(Leftward), Warning);
+            UpdateSignal_(Leftward, RightwardIndex(Leftward), Warning);
+            IncState_();
+        }
+        else if (state_ == 11 && time_ > 1.f) {
+            UpdateSignal_(Leftward, Leftward, Allowed);
+            UpdateSignal_(Leftward, LeftwardIndex(Leftward), Allowed);
+            UpdateSignal_(Leftward, RightwardIndex(Leftward), Allowed);
+            IncState_();
+        }
+        else if(state_ == 12 && time_ > 10.f) {
+            UpdateSignal_(Leftward, Leftward, Warning);
+            UpdateSignal_(Leftward, LeftwardIndex(Leftward), Warning);
+            UpdateSignal_(Leftward, RightwardIndex(Leftward), Warning);
+            IncState_();
+        }
+        else if (state_ == 13 && time_ > 1.f) {
+            UpdateSignal_(Leftward, Leftward, Forbidden);
+            UpdateSignal_(Leftward, LeftwardIndex(Leftward), Forbidden);
+            UpdateSignal_(Leftward, RightwardIndex(Leftward), Forbidden);
+            if (nullDirection_ != Down && linesCounts_[Up] > 0) {
+                IncState_();
+            }
+            else {
+                if (nullDirection_ != Left && linesCounts_[Right] > 0) {
+                    SetState_(2);
+                }
+                else {
+                    SetState_(6);
+                }
+            }
+        }
+        else if (state_ == 14 && time_ > 3.f) {
+            UpdateSignal_(Upward, Upward, Warning);
+            UpdateSignal_(Upward, LeftwardIndex(Upward), Warning);
+            UpdateSignal_(Upward, RightwardIndex(Upward), Warning);
+            IncState_();
+        }
+        else if (state_ == 15 && time_ > 1.f) {
+            UpdateSignal_(Upward, Upward, Allowed);
+            UpdateSignal_(Upward, LeftwardIndex(Upward), Allowed);
+            UpdateSignal_(Upward, RightwardIndex(Upward), Allowed);
+            ResetState_();
+        }
+        else
         ResetSprites_();
         break;
     }
@@ -104,11 +219,11 @@ rtm::SignalType rtm::ControlUnit::GetSignal(DirectionType from, DirectionType to
 void rtm::ControlUnit::InitSignals_()
 {
     for (size_t i{ 0 }; i < 4; ++i) {
-        // Close null direction
+        // Close directions to null direction
         if (nullDirection_ != NullDirection) {
             signals_[i][nullDirection_] = Closed;
         }
-        // Close empty directions
+        // Close empty directions (without lines)
         if (linesCounts_[i] == 0) {
             for (size_t j{ 0 }; j < 4; ++j) {
                 signals_[j][i] = Closed;
@@ -121,24 +236,39 @@ void rtm::ControlUnit::InitSignals_()
     case NoControlUnit:
         // Close back turn
         for (size_t i{ 0 }; i < 4; ++i) {
-            signals_[i][(i + 2) % 4] = Closed;
+            signals_[i][BackwardIndex(i)] = Closed;
         }
         break;
     case ControlUnitNo1:
-        // Close turns
+        // Close back turn
         for (size_t i{ 0 }; i < 4; ++i) {
-            for (size_t j{ 0 }; j < 4; ++j) {
-                if (i != j) {
-                    signals_[i][j] = Closed;
-                }
+            signals_[i][BackwardIndex(i)] = Closed;
+        }
+        DirectionType firstDirection{ NullDirection };
+        if (nullDirection_ != Down && linesCounts_[Up] > 0) {
+            firstDirection = Upward;
+            SetState_(0);
+        }
+        else {
+            if (nullDirection_ != Left && linesCounts_[Right] > 0) {
+                firstDirection = Rightward;
+                SetState_(4);
+            }
+            else {
+                firstDirection = Leftward;
+                SetState_(8);
             }
         }
         // Set "green lines"
-        signals_[Upward][Upward] = Allowed;
-        signals_[Downward][Downward] = Allowed;
+        UpdateSignal_(firstDirection, firstDirection, Allowed);
+        UpdateSignal_(firstDirection, LeftwardIndex(firstDirection), Allowed);
+        UpdateSignal_(firstDirection, RightwardIndex(firstDirection), Allowed);
         // Set "red lines"
-        signals_[Rightward][Rightward] = Forbidden;
-        signals_[Leftward][Leftward] = Forbidden;
+        for (size_t i{ RightwardIndex(firstDirection) }; i != firstDirection; i = RightwardIndex(i)) {
+            UpdateSignal_(i, i, Forbidden);
+            UpdateSignal_(i, LeftwardIndex(i), Forbidden);
+            UpdateSignal_(i, RightwardIndex(i), Forbidden);
+        }
         break;
     }
 }
@@ -147,18 +277,18 @@ void rtm::ControlUnit::ShowSprites(WorldScene* const scene)
 {
     for (size_t i = 0; i < 4; ++i) {
         // If from TCrossroad's nullDirection
-        if ((i + 2) % 4 == nullDirection_) {
-            sprites_[i][0] = { nullptr, nullptr, nullptr };
-            sprites_[i][1] = { nullptr, nullptr, nullptr };
-            sprites_[i][2] = { nullptr, nullptr, nullptr };
+        if (BackwardIndex(i) == nullDirection_) {
+            sprites_[i][ForwardSignalIndex] = { nullptr, nullptr, nullptr };
+            sprites_[i][LeftwardSignalIndex] = { nullptr, nullptr, nullptr };
+            sprites_[i][RightwardSignalIndex] = { nullptr, nullptr, nullptr };
             continue;
         }
 
         // Create sprites
         for (size_t k = 0; k < 5; ++k) {
-            sprites_[i][0][k] = cocos2d::Sprite::create(GetSignalFile_(ForwardSignal + k));
-            sprites_[i][1][k] = cocos2d::Sprite::create(GetSignalFile_(RightwardSignal + k));
-            sprites_[i][2][k] = cocos2d::Sprite::create(GetSignalFile_(LeftwardSignal + k));
+            sprites_[i][ForwardSignalIndex][k] = cocos2d::Sprite::create(GetSignalFile_(ForwardSignalId + k));
+            sprites_[i][LeftwardSignalIndex][k] = cocos2d::Sprite::create(GetSignalFile_(LeftwardSignalId + k));
+            sprites_[i][RightwardSignalIndex][k] = cocos2d::Sprite::create(GetSignalFile_(RightwardSignalId + k));
         }
 
         // Calc coords
@@ -237,9 +367,9 @@ void rtm::ControlUnit::ShowSprites(WorldScene* const scene)
                 angle = -90.f;
             }
 
-            scene->addChild(sprites_[i][0][k], FORWARD_SIGNAL_Z_ORDER);
-            scene->addChild(sprites_[i][1][k], LEFTWARD_SIGNAL_Z_ORDER);
-            scene->addChild(sprites_[i][2][k], RIGHTWARD_SIGNAL_Z_ORDER);
+            scene->addChild(sprites_[i][ForwardSignalIndex][k], FORWARD_SIGNAL_Z_ORDER);
+            scene->addChild(sprites_[i][LeftwardSignalIndex][k], LEFTWARD_SIGNAL_Z_ORDER);
+            scene->addChild(sprites_[i][RightwardSignalIndex][k], RIGHTWARD_SIGNAL_Z_ORDER);
             for (size_t l = 0; l < 3; ++l) {
                 sprites_[i][l][k]->setAnchorPoint(cocos2d::Vec2{ 0.5, 0.5 });
                 sprites_[i][l][k]->setPosition(cocos2d::Vec2{ x, y });
@@ -270,19 +400,43 @@ void rtm::ControlUnit::ResetSprites_()
     for (size_t i = 0; i < 4; ++i) {
         for (size_t k = 0; k < 5; ++k) {
             // Forward
-            if (sprites_[i][0][k] != nullptr) {
-                sprites_[i][0][k]->setVisible(signals_[i][i] == k);
+            if (sprites_[i][ForwardSignalIndex][k] != nullptr) {
+                sprites_[i][ForwardSignalIndex][k]->setVisible(signals_[i][i] == k);
             }
             // Left
-            if (sprites_[i][1][k] != nullptr) {
-                sprites_[i][1][k]->setVisible(signals_[i][(i - 1) % 4] == k);
+            if (sprites_[i][LeftwardSignalIndex][k] != nullptr) {
+                sprites_[i][LeftwardSignalIndex][k]->setVisible(signals_[i][LeftwardIndex(i)] == k);
             }
-            // Right
-            if (sprites_[i][2][k] != nullptr) {
-                sprites_[i][2][k]->setVisible(signals_[i][(i + 1) % 4] == k);
+            // Right            
+            if (sprites_[i][RightwardSignalIndex][k] != nullptr) {
+                sprites_[i][RightwardSignalIndex][k]->setVisible(signals_[i][RightwardIndex(i)] == k);
             }
         }
     }
+}
+
+void rtm::ControlUnit::UpdateSignal_(size_t i, size_t j, SignalType signal)
+{
+    if (signals_[i][j] != Closed) {
+        signals_[i][j] = signal;
+    }
+}
+
+void rtm::ControlUnit::IncState_()
+{
+    ++state_;
+    time_ = 0.f;
+}
+
+void rtm::ControlUnit::SetState_(size_t state)
+{
+    state_ = state;
+    time_ = 0.f;
+}
+
+void rtm::ControlUnit::ResetState_()
+{
+    SetState_(0);
 }
 
 std::string rtm::ControlUnit::GetSignalFile_(size_t id)

@@ -87,6 +87,7 @@ rtm::CoatingMatrix rtm::CrossroadObject::CrossroadMatrix(int column, int row, Li
     // Block backward directions    
     for (size_t i = 1; i <= lastCol - 1; ++i) {
         for (size_t j = 1; j <= lastRow - 1; ++j) {
+            // Add object if not init
             if (!result[i][j]) {
                 result[i][j] = std::make_unique<RoadCoating>(RoadTypeNo7, column + i, row + j, Up);
             }

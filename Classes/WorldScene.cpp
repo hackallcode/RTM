@@ -93,7 +93,7 @@ void rtm::keyListener(cocos2d::EventKeyboard::KeyCode code, cocos2d::Event* even
         isTimeFactorWaiting = false;
         int intCode{ static_cast<int>(code) };
         int rangeBegin{ static_cast<int>(cocos2d::EventKeyboard::KeyCode::KEY_0) };
-        int rangeEnd{ static_cast<int>(cocos2d::EventKeyboard::KeyCode::KEY_9) };
+        int rangeEnd{ static_cast<int>(cocos2d::EventKeyboard::KeyCode::KEY_4) };
             
         if (rangeBegin <= intCode && intCode <= rangeEnd) {
             map->SetTimeFactor(intCode - rangeBegin);

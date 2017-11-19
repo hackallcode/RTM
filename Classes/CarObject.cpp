@@ -68,22 +68,24 @@ bool rtm::CarObject::MovementTick_(WorldController* const world)
     }
 
     // Check other vehicles
-    DynamicObject* object{ CheckMovingArea_(world) };
-    if (object != nullptr) {
-        float newSpeed{ object->GetSpeed() * FT::cos(object->GetAngle() - GetAngle()) };
-        // If forward
-        if (newSpeed >= 0.f) {
-            SetBrakingFactor_(1.f);
-            SetFinalSpeed_(min(GetFinalSpeed_(), newSpeed)); // If towards each other
+    if (!IsRotation_() && !IsLineChanging_()) {
+        DynamicObject* object{ CheckMovingArea_(world) };
+        if (object != nullptr) {
+            float newSpeed{ object->GetSpeed() * FT::cos(object->GetAngle() - GetAngle()) };
+            // If forward
+            if (newSpeed >= 0.f) {
+                SetBrakingFactor_(1.f);
+                SetFinalSpeed_(min(GetFinalSpeed_(), newSpeed)); // If towards each other
+            }
+            // If towards
+            else {
+                SetBrakingFactor_(2.f);
+                SetFinalSpeed_(0.f);
+            }
         }
-        // If towards
         else {
-            SetBrakingFactor_(2.f);
-            SetFinalSpeed_(0.f);
+            SetBrakingFactor_(1.f);
         }
-    }
-    else {
-        SetBrakingFactor_(1.f);
     }
 
     return false;
@@ -121,11 +123,6 @@ void rtm::CarObject::ResetDesiredSpeed_()
 
 void rtm::CarObject::CheckRoadAhead_(WorldController* const world)
 {
-    // If does another movement
-    if (IsRotation_() != NotStarted || IsLineChanging_() != NotStarted) {
-        return;
-    }
-
     // If waiting for signal
     if (waitForSignal_) {
         // Coating union ahead and it type
@@ -144,8 +141,9 @@ void rtm::CarObject::CheckRoadAhead_(WorldController* const world)
             }
         }
     }
+
     // If cross center of cell
-    else if (CenterIsCrossed(GetX(), GetY(), GetAngle(), GetLastDelta())) {
+    if (CenterIsCrossed(GetX(), GetY(), GetAngle(), GetLastDelta()) && !IsRotation_() && !IsLineChanging_()) {
         CoatingObject* nextCoating{ CheckForwardCoating_(world, 1) };
         if (nextCoating != nullptr) {
             // If has no forward road coating
@@ -181,17 +179,39 @@ void rtm::CarObject::CheckRoadAhead_(WorldController* const world)
 
             if (currentCoatingType == DrivewayType) {
                 DrivewayObject* driveway{ static_cast<DrivewayObject*>(currentCoatingUnion) };
-                AngleType newDirection{ NullAngle };
-
-                if (driveway->isLeftLine(GetX(), GetY())) {
-                    newDirection = AngleToAngleType(GetAngle() - F_PI_2);
-                }
-                else if (driveway->isRightLine(GetX(), GetY())) {
-                    newDirection = AngleToAngleType(GetAngle() + F_PI_2);
+                
+                bool mustTurn{ false };
+                if (crossroad->GetControlUnit()->GetSignal(from, AngleTypeToDirection(desiredDirection_)) == Closed) {
+                    mustTurn = true;
                 }
 
-                if (newDirection != NullAngle && crossroad->GetControlUnit()->GetSignal(from, AngleTypeToDirection(newDirection)) != Closed) {
-                    desiredDirection_ = newDirection;
+                bool rightTurn{ false };
+                AngleType rightDirection{ AngleToAngleType(GetAngle() + ANGLE_RIGHT) };
+                if (crossroad->GetControlUnit()->GetSignal(from, AngleTypeToDirection(rightDirection)) != Closed) {
+                    rightTurn = true;
+                }
+
+                bool leftTurn{ false };
+                AngleType leftDirection{ AngleToAngleType(GetAngle() + ANGLE_LEFT) };
+                if (crossroad->GetControlUnit()->GetSignal(from, AngleTypeToDirection(leftDirection)) != Closed) {
+                    leftTurn = true;
+                }
+
+                if (mustTurn) {
+                    if (!rightTurn) {
+                        desiredDirection_ = leftDirection;
+                    }
+                    else {
+                        desiredDirection_ = rightDirection;
+                    }
+                }
+                else {
+                    if (driveway->isRightLine(GetX(), GetY()) && rightTurn) {
+                        desiredDirection_ = rightDirection;
+                    }
+                    else if (driveway->isLeftLine(GetX(), GetY()) && leftTurn) {
+                        desiredDirection_ = leftDirection;
+                    }
                 }
             }
 

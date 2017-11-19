@@ -35,6 +35,11 @@ namespace rtm {
         void InitSignals_();
         void ResetSprites_();
 
+        void UpdateSignal_(size_t i, size_t j, SignalType signal);
+        void IncState_();
+        void SetState_(size_t state);
+        void ResetState_();
+
         static std::string GetSignalFile_(size_t id);
     };
 }

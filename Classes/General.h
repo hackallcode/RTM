@@ -240,10 +240,15 @@ namespace rtm {
         , ControlUnitNo1 = 1
     };
 
-    enum SignalId {
-        ForwardSignal = 1
-        , LeftwardSignal = 6
-        , RightwardSignal = 11
+    enum DirectionSignalIndex {
+        ForwardSignalIndex = 0
+        , LeftwardSignalIndex
+        , RightwardSignalIndex
+    };
+    enum SignalFileId {
+        ForwardSignalId = 1
+        , LeftwardSignalId = 6
+        , RightwardSignalId = 11
     };
 
     DirectionSignals const DEFAULT_DIRECTIONS_SIGNALS = { NotWorking, NotWorking, NotWorking };

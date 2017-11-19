@@ -114,7 +114,7 @@ rtm::AngleType rtm::AngleToAngleType(float angle)
     else if (SameAngles(angle, ANGLE_RIGHT, F_PI_8)) {
         return Right;
     }
-    else if (SameAngles(angle, ANGLE_DOWN, F_PI_8)) {
+    else if (SameAngles(angle, ANGLE_DOWN, F_PI_8) || SameAngles(angle, -ANGLE_DOWN, F_PI_8)) {
         return Down;
     }
     else if (SameAngles(angle, ANGLE_LEFT, F_PI_8)) {
@@ -146,7 +146,7 @@ rtm::DirectionType rtm::AngleToDirection(float angle)
     else if (SameAngles(angle, ANGLE_RIGHT, F_PI_4)) {
         return Rightward;
     }
-    else if (SameAngles(angle, ANGLE_DOWN, F_PI_4)) {
+    else if (SameAngles(angle, ANGLE_DOWN, F_PI_4) || SameAngles(angle, -ANGLE_DOWN, F_PI_4)) {
         return Downward;
     }
     else if (SameAngles(angle, ANGLE_LEFT, F_PI_4)) {
