@@ -3,7 +3,7 @@
 
 // #define USE_AUDIO_ENGINE 1
 // #define USE_SIMPLE_AUDIO_ENGINE 1
-#define FULL_SCREEN_MODE 0
+#define FULL_SCREEN_MODE 1
 #if (!FULL_SCREEN_MODE)
     #define FRAME_SIZE_NAME resolutionSizeNo4
 #endif

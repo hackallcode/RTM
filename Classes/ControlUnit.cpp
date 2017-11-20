@@ -86,8 +86,8 @@ void rtm::ControlUnit::Update(WorldController* const world)
                     SetState_(10);
                 }
             }
-        } 
-        else if (state_ == 2 && time_ > 3.f) {            
+        }
+        else if (state_ == 2 && time_ > 3.f) {
             UpdateSignal_(Rightward, Rightward, Warning);
             UpdateSignal_(Rightward, LeftwardIndex(Rightward), Warning);
             UpdateSignal_(Rightward, RightwardIndex(Rightward), Warning);
@@ -98,7 +98,8 @@ void rtm::ControlUnit::Update(WorldController* const world)
             UpdateSignal_(Rightward, LeftwardIndex(Rightward), Allowed);
             UpdateSignal_(Rightward, RightwardIndex(Rightward), Allowed);
             IncState_();
-        } else if (state_ == 4 && time_ > 10.f) {
+        }
+        else if (state_ == 4 && time_ > 10.f) {
             UpdateSignal_(Rightward, Rightward, Warning);
             UpdateSignal_(Rightward, LeftwardIndex(Rightward), Warning);
             UpdateSignal_(Rightward, RightwardIndex(Rightward), Warning);
@@ -132,7 +133,7 @@ void rtm::ControlUnit::Update(WorldController* const world)
             UpdateSignal_(Downward, RightwardIndex(Downward), Allowed);
             IncState_();
         }
-        else if(state_ == 8 && time_ > 10.f) {
+        else if (state_ == 8 && time_ > 10.f) {
             UpdateSignal_(Downward, Downward, Warning);
             UpdateSignal_(Downward, LeftwardIndex(Downward), Warning);
             UpdateSignal_(Downward, RightwardIndex(Downward), Warning);
@@ -166,7 +167,7 @@ void rtm::ControlUnit::Update(WorldController* const world)
             UpdateSignal_(Leftward, RightwardIndex(Leftward), Allowed);
             IncState_();
         }
-        else if(state_ == 12 && time_ > 10.f) {
+        else if (state_ == 12 && time_ > 10.f) {
             UpdateSignal_(Leftward, Leftward, Warning);
             UpdateSignal_(Leftward, LeftwardIndex(Leftward), Warning);
             UpdateSignal_(Leftward, RightwardIndex(Leftward), Warning);
@@ -201,7 +202,7 @@ void rtm::ControlUnit::Update(WorldController* const world)
             ResetState_();
         }
         else
-        ResetSprites_();
+            ResetSprites_();
         break;
     }
 }
@@ -278,17 +279,43 @@ void rtm::ControlUnit::ShowSprites(WorldScene* const scene)
     for (size_t i = 0; i < 4; ++i) {
         // If from TCrossroad's nullDirection
         if (BackwardIndex(i) == nullDirection_) {
-            sprites_[i][ForwardSignalIndex] = { nullptr, nullptr, nullptr };
-            sprites_[i][LeftwardSignalIndex] = { nullptr, nullptr, nullptr };
-            sprites_[i][RightwardSignalIndex] = { nullptr, nullptr, nullptr };
+            sprites_[i][ForwardSignalIndex] = { nullptr, nullptr, nullptr, nullptr, nullptr };
+            sprites_[i][LeftwardSignalIndex] = { nullptr, nullptr, nullptr, nullptr, nullptr };
+            sprites_[i][RightwardSignalIndex] = { nullptr, nullptr, nullptr, nullptr, nullptr };
             continue;
         }
 
-        // Create sprites
-        for (size_t k = 0; k < 5; ++k) {
+        bool hasSprites{ false };
+
+        // Forward sprites
+        if (signals_[i][i] == Closed || signals_[i][i] == NotWorking) {
+            sprites_[i][ForwardSignalIndex] = { nullptr, nullptr, nullptr, nullptr, nullptr };
+        }
+        else for (size_t k = 0; k < 5; ++k) {
             sprites_[i][ForwardSignalIndex][k] = cocos2d::Sprite::create(GetSignalFile_(ForwardSignalId + k));
+            hasSprites = true;
+        }
+
+        // Leftward sprites
+        if (signals_[i][LeftwardIndex(i)] == Closed || signals_[i][LeftwardIndex(i)] == NotWorking) {
+            sprites_[i][LeftwardSignalIndex] = { nullptr, nullptr, nullptr, nullptr, nullptr };
+        }
+        else for (size_t k = 0; k < 5; ++k) {
             sprites_[i][LeftwardSignalIndex][k] = cocos2d::Sprite::create(GetSignalFile_(LeftwardSignalId + k));
+            hasSprites = true;
+        }
+
+        // Rightward sprites
+        if (signals_[i][RightwardIndex(i)] == Closed || signals_[i][RightwardIndex(i)] == NotWorking) {
+            sprites_[i][RightwardSignalIndex] = { nullptr, nullptr, nullptr, nullptr, nullptr };
+        }
+        else for (size_t k = 0; k < 5; ++k) {
             sprites_[i][RightwardSignalIndex][k] = cocos2d::Sprite::create(GetSignalFile_(RightwardSignalId + k));
+            hasSprites = true;
+        }
+
+        if (!hasSprites) {
+            continue;
         }
 
         // Calc coords
@@ -354,26 +381,34 @@ void rtm::ControlUnit::ShowSprites(WorldScene* const scene)
             y += CELL_SIZE * (linesCounts_[i] - 1) / 2;
         }
 
+        float angle{ 0 };
+        if (i == Rightward) {
+            angle = 90.f;
+        }
+        else if (i == Downward) {
+            angle = 180.f;
+        }
+        else if (i == Leftward) {
+            angle = -90.f;
+        }
+
         // Set position
-        for (size_t k = 0; k < 5; ++k) {
-            float angle{ 0 };
-            if (i == Rightward) {
-                angle = 90.f;
+        for (size_t l = 0; l < 3; ++l) {
+            int zOrder{ FORWARD_SIGNAL_Z_ORDER };
+            if (zOrder == LeftwardSignalIndex) {
+                zOrder = LEFTWARD_SIGNAL_Z_ORDER;
             }
-            else if (i == Downward) {
-                angle = 180.f;
-            }
-            else if (i == Leftward) {
-                angle = -90.f;
+            else if (zOrder == RightwardSignalIndex) {
+                zOrder = RIGHTWARD_SIGNAL_Z_ORDER;
             }
 
-            scene->addChild(sprites_[i][ForwardSignalIndex][k], FORWARD_SIGNAL_Z_ORDER);
-            scene->addChild(sprites_[i][LeftwardSignalIndex][k], LEFTWARD_SIGNAL_Z_ORDER);
-            scene->addChild(sprites_[i][RightwardSignalIndex][k], RIGHTWARD_SIGNAL_Z_ORDER);
-            for (size_t l = 0; l < 3; ++l) {
-                sprites_[i][l][k]->setAnchorPoint(cocos2d::Vec2{ 0.5, 0.5 });
-                sprites_[i][l][k]->setPosition(cocos2d::Vec2{ x, y });
-                sprites_[i][l][k]->setRotation(angle);
+            for (size_t k = 0; k < 5; ++k) {
+                if (sprites_[i][l][k] != nullptr) {
+                    scene->addChild(sprites_[i][l][k], zOrder);
+                    sprites_[i][l][k]->setAnchorPoint(cocos2d::Vec2{ 0.5, 0.5 });
+                    sprites_[i][l][k]->setPosition(cocos2d::Vec2{ x, y });
+                    sprites_[i][l][k]->setRotation(angle);
+                }
             }
         }
     }

@@ -68,24 +68,29 @@ bool rtm::CarObject::MovementTick_(WorldController* const world)
     }
 
     // Check other vehicles
+    DynamicObject* object{ nullptr };
     if (!IsRotation_() && !IsLineChanging_()) {
-        DynamicObject* object{ CheckMovingArea_(world) };
-        if (object != nullptr) {
-            float newSpeed{ object->GetSpeed() * FT::cos(object->GetAngle() - GetAngle()) };
-            // If forward
-            if (newSpeed >= 0.f) {
-                SetBrakingFactor_(1.f);
-                SetFinalSpeed_(min(GetFinalSpeed_(), newSpeed)); // If towards each other
-            }
-            // If towards
-            else {
-                SetBrakingFactor_(2.f);
-                SetFinalSpeed_(0.f);
-            }
-        }
-        else {
+        object = CheckMovingArea_(world);
+    }
+    else if (IsRotation_() && !IsLineChanging_()) {
+        object = CheckRotationArea_(world);
+    }
+
+    if (object != nullptr) {
+        float newSpeed{ object->GetSpeed() * FT::cos(object->GetAngle() - GetAngle()) - COORD_DELTA };
+        // If forward
+        if (newSpeed >= 0.f) {
             SetBrakingFactor_(1.f);
+            SetFinalSpeed_(min(GetFinalSpeed_(), newSpeed)); // If towards each other
         }
+        // If towards
+        else {
+            SetBrakingFactor_(2.f);
+            SetFinalSpeed_(0.f);
+        }
+    }
+    else {
+        SetBrakingFactor_(1.f);
     }
 
     return false;
@@ -168,70 +173,70 @@ void rtm::CarObject::CheckRoadAhead_(WorldController* const world)
                     SetDesiredSpeed_(0.f);
                 }
             }
-        }
 
-        // Coating union under car and ahead
-        CoatingUnion* currentCoatingUnion{ CheckForwardCoatingUnion_(world, 0) };
-        CoatingUnion* nextCoatingUnion{ CheckForwardCoatingUnion_(world, 1) };
-        // Their types
-        CoatingType currentCoatingType{ currentCoatingUnion == nullptr ? NoCoatingUnion : currentCoatingUnion->GetType() };
-        CoatingType nextCoatingType{ nextCoatingUnion == nullptr ? NoCoatingUnion : nextCoatingUnion->GetType() };
+            // Coating union under car and ahead
+            CoatingUnion* currentCoatingUnion{ CheckForwardCoatingUnion_(world, 0) };
+            CoatingUnion* nextCoatingUnion{ CheckForwardCoatingUnion_(world, 1) };
+            // Their types
+            CoatingType currentCoatingType{ currentCoatingUnion == nullptr ? NoCoatingUnion : currentCoatingUnion->GetType() };
+            CoatingType nextCoatingType{ nextCoatingUnion == nullptr ? NoCoatingUnion : nextCoatingUnion->GetType() };
 
-        if (currentCoatingUnion != nextCoatingUnion && (nextCoatingType == CrossroadType || nextCoatingType == TCrossroadType)) {
-            CrossroadObject* crossroad{ static_cast<CrossroadObject*>(nextCoatingUnion) };
-            DirectionType from{ AngleToDirection(GetAngle()) };
+            if (currentCoatingUnion != nextCoatingUnion && (nextCoatingType == CrossroadType || nextCoatingType == TCrossroadType)) {
+                CrossroadObject* crossroad{ static_cast<CrossroadObject*>(nextCoatingUnion) };
+                DirectionType from{ AngleToDirection(GetAngle()) };
 
-            bool mustTurn{ false };
-            if (crossroad->GetControlUnit()->GetSignal(from, AngleTypeToDirection(desiredDirection_)) == Closed) {
-                mustTurn = true;
-            }
-
-            bool hasRightTurn{ false };
-            AngleType rightDirection{ AngleToAngleType(GetAngle() + ANGLE_RIGHT) };
-            if (crossroad->GetControlUnit()->GetSignal(from, AngleTypeToDirection(rightDirection)) != Closed) {
-                hasRightTurn = true;
-            }
-
-            bool hasLeftTurn{ false };
-            AngleType leftDirection{ AngleToAngleType(GetAngle() + ANGLE_LEFT) };
-            if (crossroad->GetControlUnit()->GetSignal(from, AngleTypeToDirection(leftDirection)) != Closed) {
-                hasLeftTurn = true;
-            }
-
-            if (mustTurn) {
-                if (!hasRightTurn) {
-                    desiredDirection_ = leftDirection;
+                bool mustTurn{ false };
+                if (crossroad->GetControlUnit()->GetSignal(from, AngleTypeToDirection(desiredDirection_)) == Closed) {
+                    mustTurn = true;
                 }
-                else {
-                    desiredDirection_ = rightDirection;
-                }
-            }
-            else {
-                if (currentCoatingType == DrivewayType) {
-                    DrivewayObject* driveway{ static_cast<DrivewayObject*>(currentCoatingUnion) };
 
-                    if (driveway->isRightLine(GetX(), GetY()) && hasRightTurn && rand() % 2 == 0) {
-                        desiredDirection_ = rightDirection;
-                    }
-                    else if (driveway->isLeftLine(GetX(), GetY()) && hasLeftTurn && rand() % 2 == 0) {
+                bool hasRightTurn{ false };
+                AngleType rightDirection{ AngleToAngleType(GetAngle() + ANGLE_RIGHT) };
+                if (crossroad->GetControlUnit()->GetSignal(from, AngleTypeToDirection(rightDirection)) != Closed) {
+                    hasRightTurn = true;
+                }
+
+                bool hasLeftTurn{ false };
+                AngleType leftDirection{ AngleToAngleType(GetAngle() + ANGLE_LEFT) };
+                if (crossroad->GetControlUnit()->GetSignal(from, AngleTypeToDirection(leftDirection)) != Closed) {
+                    hasLeftTurn = true;
+                }
+
+                if (mustTurn) {
+                    if (!hasRightTurn) {
                         desiredDirection_ = leftDirection;
+                    }
+                    else {
+                        desiredDirection_ = rightDirection;
                     }
                 }
                 else {
-                    size_t randDirection{ rand() % static_cast<size_t>(1 + (hasRightTurn ? 1 : 0) + (hasLeftTurn ? 1 : 0)) };
-                    if (hasRightTurn && randDirection == 0) {
-                        desiredDirection_ = rightDirection;
+                    if (currentCoatingType == DrivewayType) {
+                        DrivewayObject* driveway{ static_cast<DrivewayObject*>(currentCoatingUnion) };
+
+                        if (driveway->isRightLine(GetX(), GetY()) && hasRightTurn && rand() % 2 == 0) {
+                            desiredDirection_ = rightDirection;
+                        }
+                        else if (driveway->isLeftLine(GetX(), GetY()) && hasLeftTurn && rand() % 2 == 0) {
+                            desiredDirection_ = leftDirection;
+                        }
                     }
-                    else if (hasLeftTurn && randDirection == 1) {
-                        desiredDirection_ = leftDirection;
+                    else {
+                        size_t randDirection{ rand() % static_cast<size_t>(1 + (hasRightTurn ? 1 : 0) + (hasLeftTurn ? 1 : 0)) };
+                        if (hasRightTurn && randDirection == 0) {
+                            desiredDirection_ = rightDirection;
+                        }
+                        else if (hasLeftTurn && randDirection == 1) {
+                            desiredDirection_ = leftDirection;
+                        }
                     }
                 }
-            }
 
-            SignalType signal{ crossroad->GetControlUnit()->GetSignal(from, AngleTypeToDirection(desiredDirection_)) };
-            if (signal == Warning || signal == Forbidden || signal == Closed) {
-                StopAtDistance_(abs(FTA::length(GetX() - nextCoating->GetX(), GetY() - nextCoating->GetY())));
-                waitForSignal_ = true;
+                SignalType signal{ crossroad->GetControlUnit()->GetSignal(from, AngleTypeToDirection(desiredDirection_)) };
+                if (signal == Warning || signal == Forbidden || signal == Closed) {
+                    StopAtDistance_(abs(FTA::length(GetX() - nextCoating->GetX(), GetY() - nextCoating->GetY())));
+                    waitForSignal_ = true;
+                }
             }
         }
     }

@@ -76,6 +76,36 @@ void rtm::DynamicObject::Update(WorldController* const world)
     }
 }
 
+bool rtm::DynamicObject::IsNearOthers(WorldController* const world)
+{
+    auto& dynamicObjs = world->GetDynamicObjects();
+
+    // Dynamic objects
+    for (size_t i{ 0 }; i < dynamicObjs.size(); ++i) {
+        if (IsNear_(dynamicObjs[i].get())) {
+            return true;
+        }
+    }
+
+    // Static objects
+    int column{ PixelToCell(GetX()) };
+    int row{ PixelToCell(GetY()) };
+    for (int k{ column - 1 }; k <= column + 1; ++k) {
+        for (int l{ row - 1 }; l <= row + 1; ++l) {
+            if (world->IsCorrectColumn(column) && world->IsCorrectRow(row)) {
+                StaticObject* staticObject{ world->GetStaticObject(k, l) };
+                if (staticObject != nullptr) {
+                    if (IsNear_(staticObject)) {
+                        return true;
+                    }
+                }
+            }
+        }
+    }
+
+    return false;
+}
+
 float rtm::DynamicObject::GetLastDelta() const
 {
     return lastDelta_;
@@ -195,17 +225,15 @@ void rtm::CheckCollisions(WorldController* const world)
         obj->SetCollisionFlag_(false);
     }
     for (size_t i{ 0 }; i < dynamicObjs.size(); ++i) {
+        // Dynamic objects
         for (size_t j{ i + 1 }; j < dynamicObjs.size(); ++j) {
-            if (i == j) {
-                continue;
-            }
-            else {
-                if (dynamicObjs[i]->IsIntersecting_(dynamicObjs[j].get())) {
-                    dynamicObjs[i]->SetCollisionFlag_(true);
-                    dynamicObjs[j]->SetCollisionFlag_(true);
-                }
+            if (dynamicObjs[i]->IsIntersecting_(dynamicObjs[j].get())) {
+                dynamicObjs[i]->SetCollisionFlag_(true);
+                dynamicObjs[j]->SetCollisionFlag_(true);
             }
         }
+
+        // Static objects
         if (!dynamicObjs[i]->HasCollision()) {
             int column{ PixelToCell(dynamicObjs[i]->GetX()) };
             int row{ PixelToCell(dynamicObjs[i]->GetY()) };

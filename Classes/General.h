@@ -54,7 +54,7 @@ namespace rtm {
 
     size_t const CELL_SIZE{ 30 };
     size_t const ROTATION_RADIUS{ CELL_SIZE };
-    size_t const HIDDEN_AREA_SIZE{ 3 };
+    size_t const HIDDEN_AREA_SIZE{ 2 };
 
     int const BACKGROUND_Z_ORDER{ 0 };
     int const COATING_OBJECT_Z_ORDER{ 1 };
@@ -66,12 +66,12 @@ namespace rtm {
 
     /* AREA OF VISIBILITY */
 
-    float const VIEW_RADIUS{ 75.f };
-    float const VIEW_ANGLE{ 20.5f * DEG_RAD };
+    float const VIEW_RADIUS{ 60.f };
+    float const VIEW_ANGLE{ 25.f * DEG_RAD };
     float const VIEW_ANGLE_SHIFT{ 0.f };
 
-    float const ROTATION_VIEW_RADIUS{ 55.f };
-    float const ROTATION_VIEW_ANGLE{ 45.f * DEG_RAD };
+    float const ROTATION_VIEW_RADIUS{ 50.f };
+    float const ROTATION_VIEW_ANGLE{ 30.5f * DEG_RAD };
     float const ROTATION_VIEW_ANGLE_SHIFT{ 30.f * DEG_RAD };
 
     float const LINE_CHANGING_VIEW_RADIUS{ 60.f };
@@ -111,12 +111,34 @@ namespace rtm {
         , Leftward
     };
 
+    enum CoatingType {
+        NoCoatingUnion = -1
+        , CoatingUnionType = 0
+        , DrivewayType
+        , CrossroadType
+        , TCrossroadType
+        , TurnType
+    };
+
+    enum DirectionSignalIndex {
+        ForwardSignalIndex = 0
+        , LeftwardSignalIndex
+        , RightwardSignalIndex
+    };
+
     enum SignalType {
         NotWorking = 0
         , Allowed
         , Warning
         , Forbidden
         , Closed
+    };
+
+    enum StateType {
+        NotStarted
+        , MustStart
+        , Started
+        , MustStop
     };
 
     using WorldControllerUnique = std::unique_ptr<WorldController>;
@@ -138,6 +160,14 @@ namespace rtm {
     using SignalsSprites = std::array<SignalSprites, 3>;
     using DirectionsSignalSprites = std::array<SignalsSprites, 4>;
 
+    DirectionSignals const DEFAULT_DIRECTIONS_SIGNALS = { NotWorking, NotWorking, NotWorking };
+    CrossroadSignals const DEFAULT_CROSSROAD_SIGNALS = {
+        DEFAULT_DIRECTIONS_SIGNALS
+        , DEFAULT_DIRECTIONS_SIGNALS
+        , DEFAULT_DIRECTIONS_SIGNALS
+        , DEFAULT_DIRECTIONS_SIGNALS
+    };
+
     /* FILENAMES */
 
     std::string const BACKGROUND_FILENAME_MASK{ "res/background/BackgroundNo%No%.png" };
@@ -151,23 +181,14 @@ namespace rtm {
 
     enum MapNumber {
         MapNumberNo1 = 1
-        , MapNumberNo2 = 2
     };
 
     enum BackgroundNumber {
         BackgroundNumberNo1 = 1
+        , BackgroundNumberNo2
     };
 
     /* COATINGS */
-
-    enum CoatingType {
-        NoCoatingUnion = -1
-        , CoatingUnionType = 0
-        , DrivewayType
-        , CrossroadType
-        , TCrossroadType
-        , TurnType
-    };
 
     enum RoadType {
         RoadTypeNo1 = 1
@@ -240,23 +261,10 @@ namespace rtm {
         , ControlUnitNo1 = 1
     };
 
-    enum DirectionSignalIndex {
-        ForwardSignalIndex = 0
-        , LeftwardSignalIndex
-        , RightwardSignalIndex
-    };
     enum SignalFileId {
         ForwardSignalId = 1
         , LeftwardSignalId = 6
         , RightwardSignalId = 11
-    };
-
-    DirectionSignals const DEFAULT_DIRECTIONS_SIGNALS = { NotWorking, NotWorking, NotWorking };
-    CrossroadSignals const DEFAULT_CROSSROAD_SIGNALS = {
-        DEFAULT_DIRECTIONS_SIGNALS
-        , DEFAULT_DIRECTIONS_SIGNALS
-        , DEFAULT_DIRECTIONS_SIGNALS
-        , DEFAULT_DIRECTIONS_SIGNALS
     };
 
     /* MAP OBJECT */
@@ -266,32 +274,35 @@ namespace rtm {
         , BuildingTypeNo2
         , BuildingTypeNo3
         , BuildingTypeNo4
+        , BuildingTypeNo5
     };
 
     /* VEHICLE */
 
-    enum StateType {
-        NotStarted
-        , MustStart
-        , Started
-        , MustStop
-    };
-
     enum CarType {
         CarTypeNo1 = 1
         , CarTypeNo2
+        , CarTypeNo3
+        , CarTypeNo4
+        , CarTypeNo5
     };
 
-    std::array<float, 3> const CARS_MAX_SPEEDS = {
+    std::array<float, 6> const CARS_MAX_SPEEDS = {
           0.f   // [0]
         , 21.f  // [1]
-        , 36.f  // [2]
+        , 24.f  // [2]
+        , 30.f  // [3]
+        , 33.f  // [4]
+        , 36.f  // [5]
     };
 
-    std::array<float, 3> const CARS_ACCELERATIONS = {
+    std::array<float, 6> const CARS_ACCELERATIONS = {
           0.f   // [0]
-        , 2.f   // [1]
-        , 9.f   // [2]
+        , 3.f   // [1]
+        , 4.f   // [2]
+        , 6.f   // [3]
+        , 8.25f // [4]
+        , 12.f  // [5]
     };
 
     /* COMPARATORS AND ROUNDERS */
@@ -321,7 +332,6 @@ namespace rtm {
     /* OTHER */
 
     AngleType SumAngleTypes(AngleType a, AngleType b);
-
     float CountDeceleration(float maxSpeed);
 }
 

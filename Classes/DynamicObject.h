@@ -18,6 +18,7 @@ namespace rtm {
         bool HasCollision() const;
 
         virtual void Update(WorldController* const world);
+        bool IsNearOthers(WorldController* const world);
 
         friend void CheckCollisions(WorldController* const world);
 

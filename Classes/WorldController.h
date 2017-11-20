@@ -37,6 +37,8 @@ namespace rtm {
         bool LoadMap(std::string const& filename);
         bool LoadMap(MapNumber number);
         void SpawnCar();
+        void RemoveAccidents();
+        void RemoveVehicles();
         void Reset();
 
     private:
@@ -44,7 +46,7 @@ namespace rtm {
         size_t columnsCount_;
         size_t rowsCount_;
         float deltaTime_;
-        float time_;
+        float spawnTime_;
         int timeFactor_;
         size_t spawnCol_;
         size_t spawnRow_;

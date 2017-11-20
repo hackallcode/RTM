@@ -13,7 +13,7 @@ rtm::WorldController::WorldController()
     , columnsCount_{ 0 }
     , rowsCount_{ 0 }
     , deltaTime_{ 0.f }
-    , time_{ 0.f }
+    , spawnTime_{ 0.f }
     , timeFactor_{ 0 }
     , spawnCol_{ 0 }
     , spawnRow_{ 0 }
@@ -31,7 +31,7 @@ rtm::WorldController::WorldController(WorldScene* const scene)
     , columnsCount_{ static_cast<size_t>(trunc(scene_->getContentSize().width / CELL_SIZE)) + 2 * HIDDEN_AREA_SIZE }
     , rowsCount_{ static_cast<size_t>(trunc(scene_->getContentSize().height / CELL_SIZE)) + 2 * HIDDEN_AREA_SIZE }
     , deltaTime_{ 0.f }
-    , time_{ 0.f }
+    , spawnTime_{ 0.f }
     , timeFactor_{ 1 }
     , spawnCol_{ 0 }
     , spawnRow_{ 0 }
@@ -69,15 +69,15 @@ rtm::WorldController::WorldController(WorldScene* const scene, MapNumber number)
 void rtm::WorldController::Update(float time)
 {
     deltaTime_ = time * timeFactor_;
-    time_ += deltaTime_;
+    spawnTime_ += deltaTime_;
 
     for (auto& controlUnit : controlUnits_) {
         controlUnit->Update(this);
     }
 
-    if (time_ > 60.f) {
+    if (spawnTime_ > 10.f) {
         SpawnCar();
-        time_ = 0.f;
+        spawnTime_ = 0.f;
     }
 
     for (auto& it{ dynamicObjects_.begin() }; it != dynamicObjects_.end();) {
@@ -261,7 +261,27 @@ bool rtm::WorldController::LoadMap(MapNumber number)
 
 void rtm::WorldController::SpawnCar()
 {
-    AddCar_(CarTypeNo2, spawnCol_, spawnRow_, spawnAngle_);
+    AddCar_(static_cast<CarType>(rand() % 5 + 1), spawnCol_, spawnRow_, spawnAngle_);
+}
+
+void rtm::WorldController::RemoveAccidents()
+{
+    for (auto& it{ dynamicObjects_.begin() }; it != dynamicObjects_.end();) {
+        DynamicObject& obj{ **it };
+        
+        if (obj.HasCollision()) {
+            scene_->removeChild(obj.GetSprite());
+            it = dynamicObjects_.erase(it);
+        }
+        else {
+            ++it;
+        }
+    }
+}
+
+void rtm::WorldController::RemoveVehicles()
+{
+    RemoveDynamicObjects_();
 }
 
 void rtm::WorldController::Reset()
@@ -483,8 +503,10 @@ void rtm::WorldController::AddDynamicObject_(int column, int row, DynamicShared 
         return;
     }
 
-    scene_->addChild(dynamicObject->GetSprite(), VEHICLE_OBJECT_Z_ORDER);
-    dynamicObjects_.push_back(dynamicObject);
+    if (!dynamicObject->IsNearOthers(this)) {
+        scene_->addChild(dynamicObject->GetSprite(), VEHICLE_OBJECT_Z_ORDER);
+        dynamicObjects_.push_back(dynamicObject);
+    }
 }
 
 void rtm::WorldController::AddCar_(CarType type, int column, int row, float angle)

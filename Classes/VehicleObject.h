@@ -74,7 +74,6 @@ namespace rtm {
         float rotationRadius_;
         float remainingOffset_;
         float remainingOffsetAngle_;
-        bool wasCollision_;
 
         void LineChanging_(WorldController* const world);
         void Rotation_(WorldController* const world);

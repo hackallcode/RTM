@@ -237,5 +237,5 @@ rtm::AngleType rtm::SumAngleTypes(AngleType a, AngleType b)
 }
 
 float rtm::CountDeceleration(float maxSpeed) {
-    return (maxSpeed * maxSpeed) / (2 * CELL_SIZE);
+    return (maxSpeed * maxSpeed) / (0.75 * VIEW_RADIUS);
 }

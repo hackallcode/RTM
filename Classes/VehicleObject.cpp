@@ -17,7 +17,6 @@ rtm::VehicleObject::VehicleObject()
     , rotationRadius_{ 0.f }
     , remainingOffset_{ 0.f }
     , remainingOffsetAngle_{ 0.f }
-    , wasCollision_{ false }
 {}
 
 rtm::VehicleObject::VehicleObject(cocos2d::Sprite* const sprite, int column, int row, float angle,
@@ -36,7 +35,6 @@ rtm::VehicleObject::VehicleObject(cocos2d::Sprite* const sprite, int column, int
     , rotationRadius_{ 0.f }
     , remainingOffset_{ 0.f }
     , remainingOffsetAngle_{ 0.f }
-    , wasCollision_{ false }
 {
     SetBrakingFactor_(1.f);
     MoveForward_();
@@ -58,7 +56,6 @@ rtm::VehicleObject::VehicleObject(std::string const& filename, int column, int r
     , rotationRadius_{ 0.f }
     , remainingOffset_{ 0.f }
     , remainingOffsetAngle_{ 0.f }
-    , wasCollision_{ false }
 {
     SetBrakingFactor_(1.f);
     MoveForward_();
@@ -67,20 +64,13 @@ rtm::VehicleObject::VehicleObject(std::string const& filename, int column, int r
 void rtm::VehicleObject::Update(WorldController* const world)
 {
     if (HasCollision()) {
-        if (!wasCollision_) {
-            wasCollision_ = true;
-            Stop_();
-            SetSpeed_(0.f);
-        }
+        SetSpeed_(0);
     }
-    else if (wasCollision_) {
-        wasCollision_ = false;
-        MoveForward_();
+    else {
+        BeforeMoving_(world);
+        DynamicObject::Update(world);
+        AfterMoving_(world);
     }
-
-    BeforeMoving_(world);
-    DynamicObject::Update(world);
-    AfterMoving_(world);
 }
 
 bool rtm::VehicleObject::MoveForward_()
@@ -257,22 +247,24 @@ rtm::DynamicObject* rtm::VehicleObject::CheckForwardArea_(WorldController* const
 
 rtm::DynamicObject* rtm::VehicleObject::CheckMovingArea_(WorldController* const world)
 {
-    return CheckForwardArea_(
-        world,
-        VIEW_RADIUS,
-        VIEW_ANGLE,
-        VIEW_ANGLE_SHIFT
-    );
+    return CheckForwardArea_(world, VIEW_RADIUS, VIEW_ANGLE, VIEW_ANGLE_SHIFT);
 }
 
 rtm::DynamicObject* rtm::VehicleObject::CheckRotationArea_(WorldController* const world)
 {
-    return CheckForwardArea_(
-        world,
-        ROTATION_VIEW_RADIUS,
-        ROTATION_VIEW_ANGLE,
-        rotationAngle_ < 0 ? ROTATION_VIEW_ANGLE_SHIFT : -ROTATION_VIEW_ANGLE_SHIFT
-    );
+    float radius{ ROTATION_VIEW_RADIUS };
+    float angle{ ROTATION_VIEW_ANGLE };
+    float angleShift{ rotationAngle_ > 0 ? ROTATION_VIEW_ANGLE_SHIFT : -ROTATION_VIEW_ANGLE_SHIFT };
+
+    if (abs(rotationAngle_) < F_PI_4) {
+        float factor{ abs(rotationAngle_) / F_PI_4 };
+
+        radius = radius * factor + VIEW_RADIUS * (1 - factor);
+        angle = angle * factor + VIEW_ANGLE * (1 - factor);
+        angleShift = angleShift * factor + VIEW_ANGLE_SHIFT * (1 - factor);
+    }
+    
+    return CheckForwardArea_(world, radius, angle, angleShift);
 }
 
 rtm::DynamicObject* rtm::VehicleObject::CheckLineChangingArea_(WorldController* const world)
@@ -472,7 +464,10 @@ void rtm::VehicleObject::SpeedChanging_(WorldController* const world)
 {
     // Smooth braking
     if (IsBraking_()) {
-        SetFinalSpeed_(min(GetFinalSpeed_(), max(brakingDistance_, COORD_DELTA * world->GetDeltaTime())));
+        SetFinalSpeed_(min(
+            GetFinalSpeed_(),
+            max(GetMaxSpeed_() * brakingDistance_ / CELL_SIZE, COORD_DELTA * world->GetDeltaTime())
+        ));
     }
     // Acceleration
     if (GetSpeed() < finalSpeed_) {

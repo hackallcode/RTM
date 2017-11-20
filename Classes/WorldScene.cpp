@@ -103,13 +103,13 @@ void rtm::keyListener(cocos2d::EventKeyboard::KeyCode code, cocos2d::Event* even
         isTimeFactorWaiting = true;
     }
 
-    else if (code == cocos2d::EventKeyboard::KeyCode::KEY_M) {
-        map->LoadMap(MapNumberNo1);
-    }
     else if (code == cocos2d::EventKeyboard::KeyCode::KEY_S) {
         map->SpawnCar();
     }
-    else if (code == cocos2d::EventKeyboard::KeyCode::KEY_T) {
-        map->LoadMap(MapNumberNo2);
+    else if (code == cocos2d::EventKeyboard::KeyCode::KEY_A) {
+        map->RemoveAccidents();
+    }
+    else if (code == cocos2d::EventKeyboard::KeyCode::KEY_F1) {
+        map->RemoveVehicles();
     }
 }
