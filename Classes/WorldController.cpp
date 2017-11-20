@@ -13,7 +13,12 @@ rtm::WorldController::WorldController()
     , columnsCount_{ 0 }
     , rowsCount_{ 0 }
     , deltaTime_{ 0.f }
+    , time_{ 0.f }
     , timeFactor_{ 0 }
+    , spawnCol_{ 0 }
+    , spawnRow_{ 0 }
+    , spawnAngle_{ 0.f }
+    , lastMapFile_{}
     , background_{ nullptr }
     , coatingUnions_{}
     , controlUnits_{}
@@ -26,7 +31,12 @@ rtm::WorldController::WorldController(WorldScene* const scene)
     , columnsCount_{ static_cast<size_t>(trunc(scene_->getContentSize().width / CELL_SIZE)) + 2 * HIDDEN_AREA_SIZE }
     , rowsCount_{ static_cast<size_t>(trunc(scene_->getContentSize().height / CELL_SIZE)) + 2 * HIDDEN_AREA_SIZE }
     , deltaTime_{ 0.f }
+    , time_{ 0.f }
     , timeFactor_{ 1 }
+    , spawnCol_{ 0 }
+    , spawnRow_{ 0 }
+    , spawnAngle_{ 0.f }
+    , lastMapFile_{}
     , background_{ nullptr }
     , coatingUnions_{ columnsCount_ }
     , controlUnits_{}
@@ -59,9 +69,15 @@ rtm::WorldController::WorldController(WorldScene* const scene, MapNumber number)
 void rtm::WorldController::Update(float time)
 {
     deltaTime_ = time * timeFactor_;
+    time_ += deltaTime_;
 
     for (auto& controlUnit : controlUnits_) {
         controlUnit->Update(this);
+    }
+
+    if (time_ > 60.f) {
+        SpawnCar();
+        time_ = 0.f;
     }
 
     for (auto& it{ dynamicObjects_.begin() }; it != dynamicObjects_.end();) {
@@ -198,6 +214,17 @@ bool rtm::WorldController::LoadMap(std::string const& filename)
         }
     }
 
+    lastMapFile_ = filename;
+
+    // Spawn
+    {
+        char spawn[3];
+        fin.read(spawn, 3 * sizeof(char));
+        spawnCol_ = spawn[0];
+        spawnRow_ = spawn[1];
+        spawnAngle_ = AngleTypeToAngle(static_cast<AngleType>(spawn[2]));
+    }
+
     // Objects count
     uint16_t objectsCount;
     if (!fin.read((char*)&objectsCount, sizeof(uint16_t))) {
@@ -232,11 +259,14 @@ bool rtm::WorldController::LoadMap(MapNumber number)
     return LoadMap(WorldController::GetClassFile_(number));
 }
 
+void rtm::WorldController::SpawnCar()
+{
+    AddCar_(CarTypeNo2, spawnCol_, spawnRow_, spawnAngle_);
+}
+
 void rtm::WorldController::Reset()
 {
-    RemoveDynamicObjects_();
-    RemoveStaticObjects_();
-    RemoveCoatingObjects_();
+    LoadMap(lastMapFile_);
 }
 
 bool rtm::WorldController::IsEmpty(int column, int row, size_t width, size_t height)

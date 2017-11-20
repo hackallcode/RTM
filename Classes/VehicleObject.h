@@ -27,6 +27,7 @@ namespace rtm {
         bool IsMovement_() const;
         bool IsRotation_() const;
         bool IsLineChanging_() const;
+        bool IsBraking_() const;
         float GetMaxSpeed_() const;
         float GetFinalSpeed_() const;
 

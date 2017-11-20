@@ -264,6 +264,8 @@ namespace rtm {
     enum BuildingType {
         BuildingTypeNo1 = 1
         , BuildingTypeNo2
+        , BuildingTypeNo3
+        , BuildingTypeNo4
     };
 
     /* VEHICLE */

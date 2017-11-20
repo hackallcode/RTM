@@ -145,6 +145,11 @@ bool rtm::VehicleObject::IsLineChanging_() const
     return isLineChanging_ != NotStarted;
 }
 
+bool rtm::VehicleObject::IsBraking_() const
+{
+    return brakingDistance_ > 0;
+}
+
 float rtm::VehicleObject::GetMaxSpeed_() const
 {
     return maxSpeed_;
@@ -466,8 +471,8 @@ void rtm::VehicleObject::Movement_(WorldController* const world)
 void rtm::VehicleObject::SpeedChanging_(WorldController* const world)
 {
     // Smooth braking
-    if (brakingDistance_ > 0.f) {
-        SetFinalSpeed_(max(brakingDistance_, COORD_DELTA * world->GetDeltaTime()));
+    if (IsBraking_()) {
+        SetFinalSpeed_(min(GetFinalSpeed_(), max(brakingDistance_, COORD_DELTA * world->GetDeltaTime())));
     }
     // Acceleration
     if (GetSpeed() < finalSpeed_) {
@@ -492,7 +497,7 @@ void rtm::VehicleObject::SpeedChanging_(WorldController* const world)
 
 void rtm::VehicleObject::SmoothBrakingCounter(WorldController * const world)
 {
-    if (brakingDistance_ > 0.f) {
+    if (IsBraking_()) {
         brakingDistance_ -= GetLastDelta();
         if (brakingDistance_ < 0.f) {
             brakingDistance_ = 0;

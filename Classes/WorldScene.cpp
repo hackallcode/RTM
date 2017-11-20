@@ -106,6 +106,9 @@ void rtm::keyListener(cocos2d::EventKeyboard::KeyCode code, cocos2d::Event* even
     else if (code == cocos2d::EventKeyboard::KeyCode::KEY_M) {
         map->LoadMap(MapNumberNo1);
     }
+    else if (code == cocos2d::EventKeyboard::KeyCode::KEY_S) {
+        map->SpawnCar();
+    }
     else if (code == cocos2d::EventKeyboard::KeyCode::KEY_T) {
         map->LoadMap(MapNumberNo2);
     }
