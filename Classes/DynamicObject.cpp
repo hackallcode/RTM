@@ -19,7 +19,7 @@ bool RangesHaveIntersection(float a1, float a2, float b1, float b2)
     if (b1 > b2) {
         std::swap(b1, b2);
     }
-    return max(a1, b1) <= min(a2, b2);
+    return std::max(a1, b1) <= std::min(a2, b2);
 }
 
 bool HaveIntersection(cocos2d::Point a1, cocos2d::Point a2, cocos2d::Point b1, cocos2d::Point b2)

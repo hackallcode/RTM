@@ -29,11 +29,14 @@ namespace rtm {
         float desiredSpeed_;
         bool hasDesiredSpeed_;
         bool waitForSignal_;
+        bool waitForTurn_;
         AngleType desiredDirection_;
                 
         void SetDesiredSpeed_(float speed);
         void ResetDesiredSpeed_();
 
+        void CheckCoatingAhead_(WorldController* const world);
+        void CheckCoatingUnionAhead_(WorldController* const world);
         void CheckRoadAhead_(WorldController* const world);
 
         static std::string GetClassFile_(CarType type);

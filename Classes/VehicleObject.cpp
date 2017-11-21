@@ -152,7 +152,7 @@ float rtm::VehicleObject::GetFinalSpeed_() const
 
 void rtm::VehicleObject::SetFinalSpeed_(float speed)
 {
-    finalSpeed_ = min(speed, maxSpeed_);
+    finalSpeed_ = std::min(speed, maxSpeed_);
 }
 
 void rtm::VehicleObject::SetBrakingFactor_(float factor)
@@ -265,6 +265,12 @@ rtm::DynamicObject* rtm::VehicleObject::CheckRotationArea_(WorldController* cons
     }
     
     return CheckForwardArea_(world, radius, angle, angleShift);
+}
+
+rtm::DynamicObject* rtm::VehicleObject::CheckTurnArea_(WorldController* const world)
+{
+    float angleShift{ rotationAngle_ > 0 ? TURN_VIEW_ANGLE_SHIFT : -TURN_VIEW_ANGLE_SHIFT };
+    return CheckForwardArea_(world, TURN_VIEW_RADIUS, TURN_VIEW_ANGLE, angleShift);
 }
 
 rtm::DynamicObject* rtm::VehicleObject::CheckLineChangingArea_(WorldController* const world)
@@ -464,9 +470,9 @@ void rtm::VehicleObject::SpeedChanging_(WorldController* const world)
 {
     // Smooth braking
     if (IsBraking_()) {
-        SetFinalSpeed_(min(
+        SetFinalSpeed_(std::min(
             GetFinalSpeed_(),
-            max(GetMaxSpeed_() * brakingDistance_ / CELL_SIZE, COORD_DELTA * world->GetDeltaTime())
+            std::max(GetMaxSpeed_() * brakingDistance_ / CELL_SIZE, COORD_DELTA * world->GetDeltaTime())
         ));
     }
     // Acceleration

@@ -8,15 +8,9 @@
 #include <memory>
 #include <fstream>
 #include <vector>
+#include <algorithm>
 #include "cocos2d.h"
 #include "fasttrigo.h"
-
-#ifndef min
-#define min(a,b) (((a) < (b)) ? (a) : (b))
-#endif
-#ifndef max
-#define max(a,b) (((a) > (b)) ? (a) : (b))
-#endif
 
 namespace rtm {
 
@@ -72,7 +66,11 @@ namespace rtm {
 
     float const ROTATION_VIEW_RADIUS{ 50.f };
     float const ROTATION_VIEW_ANGLE{ 30.5f * DEG_RAD };
-    float const ROTATION_VIEW_ANGLE_SHIFT{ 30.f * DEG_RAD };
+    float const ROTATION_VIEW_ANGLE_SHIFT{ 29.5f * DEG_RAD };
+
+    float const TURN_VIEW_RADIUS{ 65.f };
+    float const TURN_VIEW_ANGLE{ 22.5f * DEG_RAD };
+    float const TURN_VIEW_ANGLE_SHIFT{ -52.5f * DEG_RAD };
 
     float const LINE_CHANGING_VIEW_RADIUS{ 60.f };
     float const LINE_CHANGING_VIEW_ANGLE{ 30.f * DEG_RAD };
@@ -156,16 +154,25 @@ namespace rtm {
     using DirectionSignals = std::array<SignalType, 4>;
     using CrossroadSignals = std::array<DirectionSignals, 4>;
 
-    using SignalSprites = std::array<cocos2d::Sprite*, 5>;
-    using SignalsSprites = std::array<SignalSprites, 3>;
-    using DirectionsSignalSprites = std::array<SignalsSprites, 4>;
-
     DirectionSignals const DEFAULT_DIRECTIONS_SIGNALS = { NotWorking, NotWorking, NotWorking };
     CrossroadSignals const DEFAULT_CROSSROAD_SIGNALS = {
         DEFAULT_DIRECTIONS_SIGNALS
         , DEFAULT_DIRECTIONS_SIGNALS
         , DEFAULT_DIRECTIONS_SIGNALS
         , DEFAULT_DIRECTIONS_SIGNALS
+    };
+
+    using SignalSprites = std::array<cocos2d::Sprite*, 5>;
+    using SignalsSprites = std::array<SignalSprites, 3>;
+    using DirectionsSignalSprites = std::array<SignalsSprites, 4>;
+
+    SignalSprites const DEFAULT_SIGNAL_SPRITES = { nullptr, nullptr, nullptr, nullptr, nullptr };
+    SignalsSprites const DEFAULT_SIGNALS_SPRITES = { DEFAULT_SIGNAL_SPRITES, DEFAULT_SIGNAL_SPRITES, DEFAULT_SIGNAL_SPRITES };
+    DirectionsSignalSprites const DEFAULT_DIRECTIONS_SIGNAL_SPRITES = {
+        DEFAULT_SIGNALS_SPRITES
+        , DEFAULT_SIGNALS_SPRITES
+        , DEFAULT_SIGNALS_SPRITES
+        , DEFAULT_SIGNALS_SPRITES
     };
 
     /* FILENAMES */
@@ -208,10 +215,11 @@ namespace rtm {
         , RoadTypeNo15
         , RoadTypeNo16
         , RoadTypeNo17
+        , RoadTypeNo18
     };
 
     // Coefficient of resistance
-    std::array<float, 18> const ROADS_RESISTANCES = {
+    std::array<float, 19> const ROADS_RESISTANCES = {
           0.f   // [0]
         , 1.f   // [1]
         , 1.f   // [2]
@@ -230,10 +238,11 @@ namespace rtm {
         , 1.f   // [15]
         , 1.f   // [16]
         , 1.f   // [17]
+        , 1.f   // [18]
     };
 
     // Enabled directions (top, right, bottom, left, tor-right, bottom-right, bottom-left, top-left)
-    std::array<Directions, 18> const ROADS_DIRECTIONS = {
+    std::array<Directions, 19> const ROADS_DIRECTIONS = {
           Directions{ false, false, false, false, false, false, false, false }  // [0]
         , Directions{ true, false, true, false, false, false, false, false }    // [1]
         , Directions{ true, false, true, false, true, true, false, false }      // [2]
@@ -252,6 +261,7 @@ namespace rtm {
         , Directions{ false, true, true, false, false, false, false, false }    // [15]
         , Directions{ false, true, true, false, false, false, false, false }    // [16]
         , Directions{ false, true, true, false, false, false, false, false }    // [17]
+        , Directions{ false, false, false, false, false, false, false, false }  // [18]
     };
 
     /* CONTROL UNITS */
@@ -312,6 +322,7 @@ namespace rtm {
     float RoundToCenter(float coordinate);
     bool InCenter(float coordinate, float delta = COORD_DELTA);
     float DistanceToSkippedCenter(float x, float y, float angle);
+    float DistanceToNextCenter(float x, float y, float angle);
     bool CenterIsCrossed(float x, float y, float angle, float lastDelta);
 
     bool SameAngles(float a, float b, float delta = ANGLE_DELTA);

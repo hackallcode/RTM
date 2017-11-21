@@ -47,6 +47,27 @@ float rtm::DistanceToSkippedCenter(float x, float y, float angle)
     }
 }
 
+float rtm::DistanceToNextCenter(float x, float y, float angle)
+{
+    switch (AngleToAngleType(angle))
+    {
+    case rtm::Up: {
+        return CellToPixel(PixelToCell(y) + 1) - y;
+    }
+    case rtm::Right: {
+        return CellToPixel(PixelToCell(x) + 1) - x;
+    }
+    case rtm::Down: {
+        return y - CellToPixel(PixelToCell(y) - 1);
+    }
+    case rtm::Left: {
+        return x - CellToPixel(PixelToCell(x) - 1);
+    }
+    default:
+        return 0.f;
+    }
+}
+
 bool rtm::CenterIsCrossed(float x, float y, float angle, float lastDelta)
 {
     switch (AngleToAngleType(angle))

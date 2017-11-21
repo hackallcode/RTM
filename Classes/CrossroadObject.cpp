@@ -66,6 +66,11 @@ rtm::CoatingMatrix rtm::CrossroadObject::CrossroadMatrix(int column, int row, Li
     //////////////////////////////
     // Center of crossroad
 
+    result[0][0] = std::make_unique<RoadCoating>(RoadTypeNo18, column, row, Right);
+    result[0][lastRow] = std::make_unique<RoadCoating>(RoadTypeNo18, column, row + lastRow, Down);
+    result[lastCol][0] = std::make_unique<RoadCoating>(RoadTypeNo18, column + lastCol, row, Up);
+    result[lastCol][lastRow] = std::make_unique<RoadCoating>(RoadTypeNo18, column + lastCol, row + lastRow, Left);
+
     if (width == 3 && height == 3) {
         result[1][1] = std::make_unique<RoadCoating>(RoadTypeNo4, column + 1, row + 1, Up);
     }
@@ -172,6 +177,23 @@ rtm::CoatingMatrix rtm::CrossroadObject::TCrossroadMatrix(int column, int row, L
     CoatingMatrix result{ width };
     for (size_t i = 0; i <= lastCol; ++i) {
         result[i] = CoatingVector{ height };
+    }
+
+    if (nullDirection == Up) {
+        result[0][0] = std::make_unique<RoadCoating>(RoadTypeNo18, column, row, Right);
+        result[lastCol][0] = std::make_unique<RoadCoating>(RoadTypeNo18, column + lastCol, row, Up);
+    }
+    else if (nullDirection == Right) {
+        result[0][0] = std::make_unique<RoadCoating>(RoadTypeNo18, column, row, Right);
+        result[0][lastRow] = std::make_unique<RoadCoating>(RoadTypeNo18, column, row + lastRow, Down);
+    }
+    else if (nullDirection == Down) {
+        result[0][lastRow] = std::make_unique<RoadCoating>(RoadTypeNo18, column, row + lastRow, Down);
+        result[lastCol][lastRow] = std::make_unique<RoadCoating>(RoadTypeNo18, column + lastCol, row + lastRow, Left);
+    }
+    else if (nullDirection == Left) {
+        result[lastCol][0] = std::make_unique<RoadCoating>(RoadTypeNo18, column + lastCol, row, Up);
+        result[lastCol][lastRow] = std::make_unique<RoadCoating>(RoadTypeNo18, column + lastCol, row + lastRow, Left);
     }
 
     if (crossroadWidth == 1 && crossroadHeight == 1) {
@@ -342,6 +364,11 @@ rtm::CoatingMatrix rtm::CrossroadObject::TCrossroadMatrix(int column, int row, L
     }
 
     return result;
+}
+
+rtm::AngleType rtm::CrossroadObject::GetNullDirection() const
+{
+    return nullDirection_;
 }
 
 rtm::ControlUnitShared rtm::CrossroadObject::GetControlUnit() const

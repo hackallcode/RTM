@@ -19,6 +19,7 @@ namespace rtm {
 
         virtual ~CrossroadObject() = default;
 
+        AngleType GetNullDirection() const;
         ControlUnitShared GetControlUnit() const;
 
         virtual void ShowSprites(WorldScene* const scene) override;

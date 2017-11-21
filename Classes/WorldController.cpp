@@ -261,7 +261,7 @@ bool rtm::WorldController::LoadMap(MapNumber number)
 
 void rtm::WorldController::SpawnCar()
 {
-    AddCar_(static_cast<CarType>(rand() % 5 + 1), spawnCol_, spawnRow_, spawnAngle_);
+    AddCar_(static_cast<CarType>(rand() % 5 + 1), spawnCol_, spawnRow_, spawnAngle_, true);
 }
 
 void rtm::WorldController::RemoveAccidents()
@@ -318,7 +318,7 @@ void rtm::WorldController::GenerateObject_(char* params, char count)
             break;
         case 2:
             if (count == 7) {
-                AddTurt_(params[2], params[3], params[4], params[5], static_cast<AngleType>(params[6]));
+                AddTurt_(params[2], params[3], params[4], static_cast<AngleType>(params[6]), params[5]);
             }
             break;
         case 3:
@@ -456,13 +456,13 @@ void rtm::WorldController::AddTCrossroad_(int column, int row, LinesCounts lines
     AddCoatingUnion_(column, row, CoatingUnionShared{ coatingUnion });
 }
 
-void rtm::WorldController::AddTurt_(int column, int row, size_t linesCount, bool isRight, AngleType angle)
+void rtm::WorldController::AddTurt_(int column, int row, size_t linesCount, AngleType angle, bool isRight)
 {
     if (!IsCorrectColumn(column) || !IsCorrectRow(row)) {
         return;
     }
 
-    AddCoatingUnion_(column, row, std::make_shared<TurnObject>(column, row, linesCount, isRight, angle));
+    AddCoatingUnion_(column, row, std::make_shared<TurnObject>(column, row, linesCount, angle, isRight));
 }
 
 void rtm::WorldController::AddControlUnit_(ControlUnitShared controlUnit)
@@ -497,25 +497,25 @@ void rtm::WorldController::AddBuilding_(BuildingType type, int column, int row, 
     AddStaticObject_(column, row, std::make_shared<BuildingObject>(type, column, row, angle));
 }
 
-void rtm::WorldController::AddDynamicObject_(int column, int row, DynamicShared dynamicObject)
+void rtm::WorldController::AddDynamicObject_(int column, int row, DynamicShared dynamicObject, bool isSafe)
 {
     if (!IsAllowableColumn(column) || !IsAllowableRow(row)) {
         return;
     }
 
-    if (!dynamicObject->IsNearOthers(this)) {
+    if (!isSafe || !dynamicObject->IsNearOthers(this)) {
         scene_->addChild(dynamicObject->GetSprite(), VEHICLE_OBJECT_Z_ORDER);
         dynamicObjects_.push_back(dynamicObject);
     }
 }
 
-void rtm::WorldController::AddCar_(CarType type, int column, int row, float angle)
+void rtm::WorldController::AddCar_(CarType type, int column, int row, float angle, bool isSafe)
 {
     if (!IsAllowableColumn(column) || !IsAllowableRow(row)) {
         return;
     }
 
-    AddDynamicObject_(column, row, std::make_shared<CarObject>(type, column, row, angle));
+    AddDynamicObject_(column, row, std::make_shared<CarObject>(type, column, row, angle), isSafe);
 }
 
 size_t rtm::WorldController::GetVectorColumn_(int column)

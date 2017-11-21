@@ -29,6 +29,7 @@ rtm::ControlUnit::ControlUnit()
     , linesCounts_{ 0, 0, 0, 0 }
     , nullDirection_{ NullAngle }
     , signals_{ DEFAULT_CROSSROAD_SIGNALS }
+    , sprites_{ DEFAULT_DIRECTIONS_SIGNAL_SPRITES }
     , time_{ 0.f }
     , state_{ 0 }
 {}
@@ -40,6 +41,7 @@ rtm::ControlUnit::ControlUnit(ControlUnitType type, int column, int row, LinesCo
     , linesCounts_{ linesCounts }
     , nullDirection_{ NullAngle }
     , signals_{ DEFAULT_CROSSROAD_SIGNALS }
+    , sprites_{ DEFAULT_DIRECTIONS_SIGNAL_SPRITES }
     , time_{ 0.f }
     , state_{ 0 }
 {
@@ -53,6 +55,7 @@ rtm::ControlUnit::ControlUnit(ControlUnitType type, int column, int row, LinesCo
     , linesCounts_{ linesCounts }
     , nullDirection_{ nullDirection }
     , signals_{ DEFAULT_CROSSROAD_SIGNALS }
+    , sprites_{ DEFAULT_DIRECTIONS_SIGNAL_SPRITES }
     , time_{ 0.f }
     , state_{ 0 }
 {

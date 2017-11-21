@@ -72,15 +72,15 @@ namespace rtm {
             ControlUnitType controlUnitType = NoControlUnit);
         void AddTCrossroad_(int column, int row, LinesCounts linesCounts, AngleType nullDirection,
             ControlUnitType controlUnitType = NoControlUnit);
-        void AddTurt_(int column, int row, size_t linesCount, bool isRight, AngleType angle);
+        void AddTurt_(int column, int row, size_t linesCount, AngleType angle, bool isRight);
         
         void AddControlUnit_(ControlUnitShared controlUnit);
 
         void AddStaticObject_(int column, int row, StaticShared staticObject);
         void AddBuilding_(BuildingType type, int column, int row, float angle);
 
-        void AddDynamicObject_(int column, int row, DynamicShared dynamicObject);
-        void AddCar_(CarType type, int column, int row, float angle);
+        void AddDynamicObject_(int column, int row, DynamicShared dynamicObject, bool isSafe = false);
+        void AddCar_(CarType type, int column, int row, float angle, bool isSafe = false);
 
         static inline size_t GetVectorColumn_(int column);
         static inline size_t GetVectorRow_(int row);

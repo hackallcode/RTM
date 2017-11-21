@@ -42,6 +42,7 @@ namespace rtm {
         DynamicObject* CheckForwardArea_(WorldController* const world, float radius, float angle, float angleShift);
         DynamicObject* CheckMovingArea_(WorldController* const world);
         DynamicObject* CheckRotationArea_(WorldController* const world);
+        DynamicObject* CheckTurnArea_(WorldController* const world);
         DynamicObject* CheckLineChangingArea_(WorldController* const world);
 
         // Maneuver

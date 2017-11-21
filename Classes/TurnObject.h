@@ -9,7 +9,7 @@ namespace rtm {
     {
     public:
         TurnObject();
-        TurnObject(int column, int row, size_t linesCount, bool isRight, AngleType angle);
+        TurnObject(int column, int row, size_t linesCount, AngleType angle, bool isRight);
 
         static CoatingMatrix RightTurnMatrix(int column, int row, size_t linesCount, AngleType angle);
         static CoatingMatrix LeftTurnMatrix(int column, int row, size_t linesCount, AngleType angle);

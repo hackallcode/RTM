@@ -3,7 +3,7 @@
 
 // #define USE_AUDIO_ENGINE 1
 // #define USE_SIMPLE_AUDIO_ENGINE 1
-#define FULL_SCREEN_MODE 1
+#define FULL_SCREEN_MODE 0
 #if (!FULL_SCREEN_MODE)
     #define FRAME_SIZE_NAME resolutionSizeNo4
 #endif
@@ -88,7 +88,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     //director->setDisplayStats(true);
 
     // set FPS. the default value is 1.0/60 if you don't call this
-    director->setAnimationInterval(1.0f / 60);
+    director->setAnimationInterval(1.0f / 120);
 
     // Set the design resolution
     glview->setDesignResolutionSize(designResolutionSize.width, designResolutionSize.height, ResolutionPolicy::NO_BORDER);
