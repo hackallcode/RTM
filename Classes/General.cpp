@@ -26,27 +26,6 @@ bool rtm::InCenter(float coordinate, float delta)
     return SameCoordinates(RoundToCenter(coordinate), coordinate, delta);
 }
 
-float rtm::DistanceToSkippedCenter(float x, float y, float angle)
-{
-    switch (AngleToAngleType(angle))
-    {
-    case rtm::Up: {
-        return y - RoundToCenter(y - CELL_SIZE / 2);
-    }
-    case rtm::Right: {
-        return x - RoundToCenter(x - CELL_SIZE / 2);
-    }
-    case rtm::Down: {
-        return RoundToCenter(y + CELL_SIZE / 2) - y;
-    }
-    case rtm::Left: {
-        return RoundToCenter(x + CELL_SIZE / 2) - x;
-    }
-    default:
-        return 0.f;
-    }
-}
-
 float rtm::DistanceToNextCenter(float x, float y, float angle)
 {
     switch (AngleToAngleType(angle))

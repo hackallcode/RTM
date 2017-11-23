@@ -8,11 +8,11 @@ namespace rtm {
     {
     public:
         CoatingUnion();
-        CoatingUnion(CoatingType type, int column, int row, CoatingMatrix&& objects);
+        CoatingUnion(CoatingUnionType type, int column, int row, CoatingMatrix&& objects);
 
         virtual ~CoatingUnion() = default;
 
-        CoatingType GetType() const;
+        CoatingUnionType GetType() const;
         size_t GetWidth() const;
         size_t GetHeight() const;
         CoatingUnique const& GetCoatingObject(int column, int row) const;
@@ -21,11 +21,11 @@ namespace rtm {
         bool IsCorrectColumn(int column) const;
         bool IsCorrectRow(int row) const;
 
-        virtual void ShowSprites(WorldScene* const scene);
-        virtual void ReleaseSprites(WorldScene* const scene);
+        virtual void ShowSprites(cocos2d::Layer* const scene);
+        virtual void ReleaseSprites(cocos2d::Layer* const scene);
 
     private:
-        CoatingType type_;
+        CoatingUnionType type_;
         int column_;
         int row_;
         size_t width_;

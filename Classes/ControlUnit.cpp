@@ -277,7 +277,7 @@ void rtm::ControlUnit::InitSignals_()
     }
 }
 
-void rtm::ControlUnit::ShowSprites(WorldScene* const scene)
+void rtm::ControlUnit::ShowSprites(cocos2d::Layer* const scene)
 {
     for (size_t i = 0; i < 4; ++i) {
         // If from TCrossroad's nullDirection
@@ -419,7 +419,7 @@ void rtm::ControlUnit::ShowSprites(WorldScene* const scene)
     ResetSprites_();
 }
 
-void rtm::ControlUnit::ReleaseSprites(WorldScene * const scene)
+void rtm::ControlUnit::ReleaseSprites(cocos2d::Layer* const scene)
 {
     for (size_t i = 0; i < 4; ++i) {
         for (size_t l = 0; l < 3; ++l) {

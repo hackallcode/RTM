@@ -376,7 +376,7 @@ rtm::ControlUnitShared rtm::CrossroadObject::GetControlUnit() const
     return controlUnit_;
 }
 
-void rtm::CrossroadObject::ShowSprites(WorldScene* const scene)
+void rtm::CrossroadObject::ShowSprites(cocos2d::Layer* const scene)
 {
     CoatingUnion::ShowSprites(scene);
     if (controlUnit_) {
@@ -384,7 +384,7 @@ void rtm::CrossroadObject::ShowSprites(WorldScene* const scene)
     }
 }
 
-void rtm::CrossroadObject::ReleaseSprites(WorldScene* const scene)
+void rtm::CrossroadObject::ReleaseSprites(cocos2d::Layer* const scene)
 {
     CoatingUnion::ReleaseSprites(scene);
     if (controlUnit_) {

@@ -48,9 +48,11 @@ namespace rtm {
 
     size_t const CELL_SIZE{ 30 };
     size_t const ROTATION_RADIUS{ CELL_SIZE };
-    size_t const HIDDEN_AREA_SIZE{ 2 };
+    float const MIN_TIME_FACTOR{ 0.5f };
+    float const MAX_TIME_FACTOR{ 4.f };
 
-    int const BACKGROUND_Z_ORDER{ 0 };
+    int const BACKGROUND_Z_ORDER{ -1 };
+    int const MAIN_Z_ORDER{ 0 };
     int const COATING_OBJECT_Z_ORDER{ 1 };
     int const LEFTWARD_SIGNAL_Z_ORDER{ 2 };
     int const RIGHTWARD_SIGNAL_Z_ORDER{ 3 };
@@ -87,6 +89,12 @@ namespace rtm {
     class StaticObject;
     class DynamicObject;
 
+    struct SpawnType {
+        int column;
+        int row;
+        float angle;
+    };
+
     /* TYPES */
 
     enum AngleType {
@@ -109,9 +117,8 @@ namespace rtm {
         , Leftward
     };
 
-    enum CoatingType {
+    enum CoatingUnionType {
         NoCoatingUnion = -1
-        , CoatingUnionType = 0
         , DrivewayType
         , CrossroadType
         , TCrossroadType
@@ -140,20 +147,32 @@ namespace rtm {
     };
 
     using WorldControllerUnique = std::unique_ptr<WorldController>;
+    using SpawnVector = std::vector<SpawnType>;
+
     using CoatingUnique = std::unique_ptr<CoatingObject>;
     using CoatingVector = std::vector<CoatingUnique>;
     using CoatingMatrix = std::vector<CoatingVector>;
+
     using CoatingUnionShared = std::shared_ptr<CoatingUnion>;
+    using CoatingUnionVector = std::vector<CoatingUnionShared>;
+    using CoatingUnionMatrix = std::vector<CoatingUnionVector>;
+
     using ControlUnitShared = std::shared_ptr<ControlUnit>;
+    using ControlUnitVector = std::vector<ControlUnitShared>;
+
     using StaticShared = std::shared_ptr<StaticObject>;
+    using StaticVector = std::vector<StaticShared>;
+    using StaticMatrix = std::vector<StaticVector>;
+
     using DynamicShared = std::shared_ptr<DynamicObject>;
+    using DynamicVector = std::vector<DynamicShared>;
 
     using Directions = std::array<bool, 8>;
     using LinesCounts = std::array<size_t, 4>;
 
     using DirectionSignals = std::array<SignalType, 4>;
     using CrossroadSignals = std::array<DirectionSignals, 4>;
-
+    
     DirectionSignals const DEFAULT_DIRECTIONS_SIGNALS = { NotWorking, NotWorking, NotWorking };
     CrossroadSignals const DEFAULT_CROSSROAD_SIGNALS = {
         DEFAULT_DIRECTIONS_SIGNALS
@@ -196,6 +215,10 @@ namespace rtm {
     };
 
     /* COATINGS */
+
+    enum CoatingType {
+        AsphaltCoating = 0
+    };
 
     enum RoadType {
         RoadTypeNo1 = 1
@@ -321,7 +344,6 @@ namespace rtm {
     float RoundCoordinate(float coordinate, float delta = COORD_DELTA);
     float RoundToCenter(float coordinate);
     bool InCenter(float coordinate, float delta = COORD_DELTA);
-    float DistanceToSkippedCenter(float x, float y, float angle);
     float DistanceToNextCenter(float x, float y, float angle);
     bool CenterIsCrossed(float x, float y, float angle, float lastDelta);
 

@@ -3,7 +3,7 @@
 #include "WorldScene.h"
 
 rtm::CoatingUnion::CoatingUnion()
-    : type_{ CoatingUnionType }
+    : type_{ NoCoatingUnion }
     , column_{ 0 }
     , row_{ 0 }
     , width_{ 0 }
@@ -11,7 +11,7 @@ rtm::CoatingUnion::CoatingUnion()
     , objects_{}
 {}
 
-rtm::CoatingUnion::CoatingUnion(CoatingType type, int column, int row, CoatingMatrix&& objects)
+rtm::CoatingUnion::CoatingUnion(CoatingUnionType type, int column, int row, CoatingMatrix&& objects)
     : type_{ type }
     , column_{ column }
     , row_{ row }
@@ -27,7 +27,7 @@ rtm::CoatingUnion::CoatingUnion(CoatingType type, int column, int row, CoatingMa
     }
 }
 
-rtm::CoatingType rtm::CoatingUnion::GetType() const
+rtm::CoatingUnionType rtm::CoatingUnion::GetType() const
 {
     return type_;
 }
@@ -52,7 +52,7 @@ bool rtm::CoatingUnion::IsCorrectRow(int row) const
     return row >= row_ && row < static_cast<int>(row_ + height_);
 }
 
-void rtm::CoatingUnion::ShowSprites(WorldScene* const scene)
+void rtm::CoatingUnion::ShowSprites(cocos2d::Layer* const scene)
 {
     for (auto& col : objects_) {
         for (auto& elem : col) {
@@ -65,7 +65,7 @@ void rtm::CoatingUnion::ShowSprites(WorldScene* const scene)
     }
 }
 
-void rtm::CoatingUnion::ReleaseSprites(WorldScene* const scene)
+void rtm::CoatingUnion::ReleaseSprites(cocos2d::Layer* const scene)
 {
     for (auto& col : objects_) {
         for (auto& elem : col) {

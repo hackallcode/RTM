@@ -68,8 +68,8 @@ bool rtm::DynamicObject::HasCollision() const
 
 void rtm::DynamicObject::Update(WorldController* const world)
 {
+    lastDelta_ = speed_ * world->GetDeltaTime();
     if (speed_ != 0.f) {
-        lastDelta_ = speed_ * world->GetDeltaTime();
         SetX_(GetX() + lastDelta_ * sin(GetAngle()));
         SetY_(GetY() + lastDelta_ * cos(GetAngle()));
         PositionUpdate_();
@@ -211,10 +211,7 @@ bool rtm::DynamicObject::IsIntersecting_(WorldObject const* const other) const
 
 bool rtm::DynamicObject::IsNear_(WorldObject const* const other) const
 {
-    float distance{ FT::length(other->GetX() - GetX(), other->GetY() - GetY()) };
-    float radius{ FT::length(GetWidth() / 2, GetHeight() / 2) };
-    float otherRadius{ FT::length(other->GetWidth() / 2, other->GetHeight() / 2) };
-    return distance <= radius + otherRadius;
+    return GetSprite()->getBoundingBox().intersectsRect(other->GetSprite()->getBoundingBox());
 }
 
 void rtm::CheckCollisions(WorldController* const world)

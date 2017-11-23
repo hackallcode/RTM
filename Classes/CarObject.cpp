@@ -59,6 +59,10 @@ bool rtm::CarObject::MovementStart_(WorldController* const world)
 
 bool rtm::CarObject::MovementTick_(WorldController* const world)
 {
+    if (GetY() > 1030) {
+        int error{ 0 };
+    }
+
     // Check roads
     CheckRoadAhead_(world);
 
@@ -159,8 +163,8 @@ void rtm::CarObject::CheckCoatingUnionAhead_(WorldController * const world)
     CoatingUnion* currentCoatingUnion{ CheckForwardCoatingUnion_(world, 0) };
     CoatingUnion* nextCoatingUnion{ CheckForwardCoatingUnion_(world, 1) };
     // Their types
-    CoatingType currentCoatingType{ currentCoatingUnion == nullptr ? NoCoatingUnion : currentCoatingUnion->GetType() };
-    CoatingType nextCoatingType{ nextCoatingUnion == nullptr ? NoCoatingUnion : nextCoatingUnion->GetType() };
+    CoatingUnionType currentCoatingType{ currentCoatingUnion == nullptr ? NoCoatingUnion : currentCoatingUnion->GetType() };
+    CoatingUnionType nextCoatingType{ nextCoatingUnion == nullptr ? NoCoatingUnion : nextCoatingUnion->GetType() };
 
     if (currentCoatingUnion != nextCoatingUnion && (nextCoatingType == CrossroadType || nextCoatingType == TCrossroadType)) {
         CrossroadObject* crossroad{ static_cast<CrossroadObject*>(nextCoatingUnion) };
@@ -239,7 +243,7 @@ void rtm::CarObject::CheckRoadAhead_(WorldController* const world)
 
         // Coating union ahead and it type
         CoatingUnion* currentCoatingUnion{ CheckForwardCoatingUnion_(world, 0) };
-        CoatingType currentCoatingType{ currentCoatingUnion == nullptr ? NoCoatingUnion : currentCoatingUnion->GetType() };
+        CoatingUnionType currentCoatingType{ currentCoatingUnion == nullptr ? NoCoatingUnion : currentCoatingUnion->GetType() };
 
         // If crossroad
         if (currentCoatingType == CrossroadType || currentCoatingType == TCrossroadType) {

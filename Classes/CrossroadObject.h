@@ -22,8 +22,8 @@ namespace rtm {
         AngleType GetNullDirection() const;
         ControlUnitShared GetControlUnit() const;
 
-        virtual void ShowSprites(WorldScene* const scene) override;
-        virtual void ReleaseSprites(WorldScene* const scene) override;
+        virtual void ShowSprites(cocos2d::Layer* const scene) override;
+        virtual void ReleaseSprites(cocos2d::Layer* const scene) override;
 
     private:
         LinesCounts linesCounts_;

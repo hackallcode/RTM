@@ -18,8 +18,8 @@ namespace rtm {
         operator bool() const;
         SignalType GetSignal(DirectionType from, DirectionType to) const;
 
-        void ShowSprites(WorldScene* const scene);
-        void ReleaseSprites(WorldScene* const scene);
+        void ShowSprites(cocos2d::Layer* const scene);
+        void ReleaseSprites(cocos2d::Layer* const scene);
 
     private:
         ControlUnitType type_;

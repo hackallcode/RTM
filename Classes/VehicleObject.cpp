@@ -315,7 +315,7 @@ bool rtm::VehicleObject::MovementEnd_(WorldController* const world)
 
 bool rtm::VehicleObject::RotationStart_(WorldController* const world)
 {
-    rotationRadius_ = ROTATION_RADIUS - DistanceToSkippedCenter(GetX(), GetY(), GetAngle());
+    rotationRadius_ = DistanceToNextCenter(GetX(), GetY(), GetAngle());
     return true;
 }
 

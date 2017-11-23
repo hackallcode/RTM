@@ -8,18 +8,63 @@
 #include "BuildingObject.h"
 #include "CarObject.h"
 
+///////////////////////
+//  LOCAL FUNCTIONS  //
+///////////////////////
+
+class EofException
+    : public std::exception
+{};
+
+template<typename T>
+void ReadBytes(std::ifstream& fin, T* out, size_t count = 1)
+{
+    fin.read((char*)(out), count);
+    if (fin.eof()) {
+        throw EofException();
+    }
+}
+
+uint16_t BytesUnion(uint8_t lo, uint8_t hi)
+{
+    union {
+        uint16_t value;
+        struct { uint8_t lo; uint8_t hi; };
+    } result;
+    result.lo = lo;
+    result.hi = hi;
+    return result.value;
+}
+
+uint32_t BytesUnion(uint8_t lo, uint8_t lo_mid, uint8_t hi_mid, uint8_t hi)
+{
+    union {
+        uint16_t value;
+        struct { uint8_t lo; uint8_t lo_mid; uint8_t hi_mid; uint8_t hi; };
+    } result;
+    result.lo = lo;
+    result.lo_mid = lo_mid;
+    result.hi_mid = hi_mid;
+    result.hi = hi;
+    return result.value;
+}
+
+///////////////////////
+//  CLASS FUNCTIONS  //
+///////////////////////
+
 rtm::WorldController::WorldController()
     : scene_{ nullptr }
+    , mainLayer_{ nullptr }
+    , isPause_{ false }
+    , hiddenArea_{ 0 }
     , columnsCount_{ 0 }
     , rowsCount_{ 0 }
+    , spawns_{}
     , deltaTime_{ 0.f }
     , spawnTime_{ 0.f }
     , timeFactor_{ 0 }
-    , spawnCol_{ 0 }
-    , spawnRow_{ 0 }
-    , spawnAngle_{ 0.f }
     , lastMapFile_{}
-    , background_{ nullptr }
     , coatingUnions_{}
     , controlUnits_{}
     , staticObjects_{}
@@ -28,31 +73,21 @@ rtm::WorldController::WorldController()
 
 rtm::WorldController::WorldController(WorldScene* const scene)
     : scene_{ scene }
-    , columnsCount_{ static_cast<size_t>(trunc(scene_->getContentSize().width / CELL_SIZE)) + 2 * HIDDEN_AREA_SIZE }
-    , rowsCount_{ static_cast<size_t>(trunc(scene_->getContentSize().height / CELL_SIZE)) + 2 * HIDDEN_AREA_SIZE }
+    , mainLayer_{ scene->GetMainLayer() }
+    , isPause_{ true }
+    , hiddenArea_{ 0 }
+    , columnsCount_{ 0 }
+    , rowsCount_{ 0 }
+    , spawns_{}
     , deltaTime_{ 0.f }
     , spawnTime_{ 0.f }
     , timeFactor_{ 1 }
-    , spawnCol_{ 0 }
-    , spawnRow_{ 0 }
-    , spawnAngle_{ 0.f }
     , lastMapFile_{}
-    , background_{ nullptr }
-    , coatingUnions_{ columnsCount_ }
+    , coatingUnions_{}
     , controlUnits_{}
-    , staticObjects_{ columnsCount_ }
+    , staticObjects_{}
     , dynamicObjects_{}
-{
-    // Init coating objects array
-    for (auto& col : coatingUnions_) {
-        col = std::vector<CoatingUnionShared>{ rowsCount_ };
-    }
-
-    // Init static objects array
-    for (auto& col : staticObjects_) {
-        col = std::vector<StaticShared>{ rowsCount_ };
-    }
-}
+{}
 
 rtm::WorldController::WorldController(WorldScene* const scene, std::string const& filename)
     : WorldController{ scene }
@@ -68,6 +103,10 @@ rtm::WorldController::WorldController(WorldScene* const scene, MapNumber number)
 
 void rtm::WorldController::Update(float time)
 {
+    if (isPause_) {
+        return;
+    }
+
     deltaTime_ = time * timeFactor_;
     spawnTime_ += deltaTime_;
 
@@ -86,7 +125,7 @@ void rtm::WorldController::Update(float time)
 
         // Not allowable position
         if (!IsAllowableColumn(PixelToCell(obj.GetX())) || !IsAllowableRow(PixelToCell(obj.GetY()))) {
-            scene_->removeChild(obj.GetSprite());
+            mainLayer_->removeChild(obj.GetSprite());
             it = dynamicObjects_.erase(it);
         }
         else {
@@ -96,19 +135,19 @@ void rtm::WorldController::Update(float time)
     CheckCollisions(this);
 }
 
-rtm::WorldScene* rtm::WorldController::GetScene() const
+cocos2d::Layer* rtm::WorldController::GetScene() const
 {
-    return scene_;
+    return mainLayer_;
 }
 
 size_t rtm::WorldController::GetColumnsCount() const
 {
-    return columnsCount_;
+    return columnsCount_ - 2 * hiddenArea_;
 }
 
 size_t rtm::WorldController::GetRowsCount() const
 {
-    return rowsCount_;
+    return rowsCount_ - 2 * hiddenArea_;
 }
 
 float rtm::WorldController::GetDeltaTime() const
@@ -116,7 +155,7 @@ float rtm::WorldController::GetDeltaTime() const
     return deltaTime_;
 }
 
-int rtm::WorldController::GetTimeFactor() const
+float rtm::WorldController::GetTimeFactor() const
 {
     return timeFactor_;
 }
@@ -153,6 +192,11 @@ std::vector<rtm::DynamicShared>& rtm::WorldController::GetDynamicObjects()
     return dynamicObjects_;
 }
 
+bool rtm::WorldController::IsPause()
+{
+    return isPause_;
+}
+
 bool rtm::WorldController::IsCorrectColumn(int column)
 {
     return 0 <= GetVectorColumn_(column) && GetVectorColumn_(column) < columnsCount_;
@@ -170,7 +214,7 @@ bool rtm::WorldController::IsAllowableColumn(int column)
     //    GetVectorColumn_(column) < columnsCount_ - HIDDEN_AREA_SIZE + allowedHiddenArea;
 
     // Optimized
-    return -1 <= column && column <= static_cast<int>(columnsCount_ - HIDDEN_AREA_SIZE - HIDDEN_AREA_SIZE);
+    return -1 <= column && column <= static_cast<int>(columnsCount_ - 2 * hiddenArea_);
 }
 
 bool rtm::WorldController::IsAllowableRow(int row)
@@ -180,7 +224,7 @@ bool rtm::WorldController::IsAllowableRow(int row)
     //    GetVectorRow_(row) < rowsCount_ - HIDDEN_AREA_SIZE + allowedHiddenArea;
 
     // Optimized
-    return -1 <= row && row <= static_cast<int>(rowsCount_ - HIDDEN_AREA_SIZE - HIDDEN_AREA_SIZE);
+    return -1 <= row && row <= static_cast<int>(rowsCount_ - 2 * hiddenArea_);
 }
 
 bool rtm::WorldController::IsVisibleColumn(int column)
@@ -193,7 +237,7 @@ bool rtm::WorldController::IsVisibleRow(int row)
     return row >= 0 && row < GetRealColumn_(rowsCount_);
 }
 
-void rtm::WorldController::SetTimeFactor(int factor)
+void rtm::WorldController::SetTimeFactor(float factor)
 {
     timeFactor_ = factor;
 }
@@ -205,53 +249,84 @@ bool rtm::WorldController::LoadMap(std::string const& filename)
         return false;
     }
 
-    // Check file format
-    {
+    bool result{ true };
+    try {
+        // Check file format and remember last file
         char type[4];
-        fin.read(type, 4 * sizeof(char));
-        if (type[0] != 'R' || type[1] != 'T' || type[2] != 'M' || type[3] != 'M') {
-            return false;
+        ReadBytes(fin, type, 4);
+        if (type[0] != 'R' || type[1] != 'T' || type[2] != 'M' || type[3] != 'M') return false;
+        lastMapFile_ = filename;
+
+        // Clear old map
+        CloseMap_();
+
+        // Background
+        uint8_t backgroundId{ 0 };
+        ReadBytes(fin, &backgroundId);
+        scene_->SetBackground(static_cast<BackgroundNumber>(backgroundId));
+
+        // Sizes
+        ReadBytes(fin, &columnsCount_, 2);
+        ReadBytes(fin, &rowsCount_, 2);
+        ReadBytes(fin, &hiddenArea_);
+
+        columnsCount_ += 2 * hiddenArea_;
+        rowsCount_ += 2 * hiddenArea_;
+
+        // Init coating objects array
+        coatingUnions_ = CoatingUnionMatrix{ columnsCount_ };
+        for (auto& col : coatingUnions_) {
+            col = CoatingUnionVector{ rowsCount_ };
         }
+
+        // Init static objects array
+        staticObjects_ = StaticMatrix{ columnsCount_ };
+        for (auto& col : staticObjects_) {
+            col = StaticVector{ rowsCount_ };
+        }
+
+        // Spawns
+        uint16_t spawnsCount{ 0 };
+        ReadBytes(fin, &spawnsCount, 2);
+        for (uint16_t i = 0; i < spawnsCount; ++i) {
+            uint8_t spawnParams[5];
+            ReadBytes(fin, spawnParams, 5);
+
+            SpawnType newSpawn;
+            newSpawn.column = BytesUnion(spawnParams[0], spawnParams[1]);
+            newSpawn.row = BytesUnion(spawnParams[2], spawnParams[3]);
+            newSpawn.angle = AngleTypeToAngle(static_cast<AngleType>(spawnParams[4]));
+
+            spawns_.push_back(newSpawn);
+        }
+
+        // Objects
+        uint32_t objectsCount{ 0 };
+        ReadBytes(fin, &objectsCount, 4);
+        for (uint32_t i = 0; i < objectsCount; ++i) {
+            // Object params count
+            uint8_t paramsCount{ 0 };
+            ReadBytes(fin, &paramsCount);
+
+            // Object params
+            std::unique_ptr<uint8_t> params{ new uint8_t[paramsCount] };
+            ReadBytes(fin, params.get(), paramsCount);
+
+            // Generating objects
+            if (!GenerateObject_(params.get(), paramsCount)) {
+                result = false;
+            }
+        }
+
+        // Continue playing
+        Play();
     }
-
-    lastMapFile_ = filename;
-
-    // Spawn
-    {
-        char spawn[3];
-        fin.read(spawn, 3 * sizeof(char));
-        spawnCol_ = spawn[0];
-        spawnRow_ = spawn[1];
-        spawnAngle_ = AngleTypeToAngle(static_cast<AngleType>(spawn[2]));
-    }
-
-    // Objects count
-    uint16_t objectsCount;
-    if (!fin.read((char*)&objectsCount, sizeof(uint16_t))) {
-        return false;
-    }
-
-    RemoveCoatingObjects_();
-    RemoveStaticObjects_();
-    RemoveDynamicObjects_();
-
-    for (uint16_t i = 0; i < objectsCount && !fin.eof(); ++i) {
-        // Object params count
-        char paramsCount;
-        fin.read(&paramsCount, sizeof(char));
-
-        // Object params
-        char* params = new char[paramsCount];
-        fin.read(params, paramsCount * sizeof(char));
-
-        // Generating objects
-        GenerateObject_(params, paramsCount);
-
-        delete[] params;
+    catch (EofException&) {
+        result = false;
     }
 
     fin.close();
-    return true;
+    return result;
 }
 
 bool rtm::WorldController::LoadMap(MapNumber number)
@@ -261,16 +336,18 @@ bool rtm::WorldController::LoadMap(MapNumber number)
 
 void rtm::WorldController::SpawnCar()
 {
-    AddCar_(static_cast<CarType>(rand() % 5 + 1), spawnCol_, spawnRow_, spawnAngle_, true);
+    for (auto& spawn : spawns_) {
+        AddCar_(static_cast<CarType>(rand() % 5 + 1), spawn.column, spawn.row, spawn.angle, true);
+    }
 }
 
 void rtm::WorldController::RemoveAccidents()
 {
     for (auto& it{ dynamicObjects_.begin() }; it != dynamicObjects_.end();) {
         DynamicObject& obj{ **it };
-        
+
         if (obj.HasCollision()) {
-            scene_->removeChild(obj.GetSprite());
+            mainLayer_->removeChild(obj.GetSprite());
             it = dynamicObjects_.erase(it);
         }
         else {
@@ -281,7 +358,17 @@ void rtm::WorldController::RemoveAccidents()
 
 void rtm::WorldController::RemoveVehicles()
 {
-    RemoveDynamicObjects_();
+    ClearDynamicObjects_();
+}
+
+void rtm::WorldController::Play()
+{
+    isPause_ = false;
+}
+
+void rtm::WorldController::Pause()
+{
+    isPause_ = true;
 }
 
 void rtm::WorldController::Reset()
@@ -293,7 +380,7 @@ bool rtm::WorldController::IsEmpty(int column, int row, size_t width, size_t hei
 {
     for (size_t i = GetVectorColumn_(column); i < GetVectorColumn_(column) + width; ++i) {
         for (size_t j = GetVectorRow_(row); j < GetVectorRow_(row) + height; ++j) {
-            if (coatingUnions_[i][j]) {
+            if (coatingUnions_[i][j] || staticObjects_[i][j]) {
                 return false;
             }
         }
@@ -301,65 +388,76 @@ bool rtm::WorldController::IsEmpty(int column, int row, size_t width, size_t hei
     return true;
 }
 
-void rtm::WorldController::GenerateObject_(char* params, char count)
+bool rtm::WorldController::GenerateObject_(uint8_t* params, uint8_t count)
 {
-    if (count < 2) return;
+    if (count < 2) return false;
 
     switch (params[0]) {
     case 1:
-        SetBackground_(static_cast<BackgroundNumber>(params[1]));
+        switch (params[1]) {
+        case 1:
+            if (count == 12) {
+                return AddDriveway_(BytesUnion(params[3], params[4]), BytesUnion(params[5], params[6])
+                    , BytesUnion(params[7], params[8]), BytesUnion(params[9], params[10]), static_cast<AngleType>(params[11]));
+            }
+            break;
+        case 2:
+            if (count == 11) {
+                return AddTurt_(BytesUnion(params[4], params[5]), BytesUnion(params[6], params[7])
+                    , BytesUnion(params[8], params[9]), static_cast<AngleType>(params[10]), params[2]);
+            }
+            break;
+        case 3:
+            if (count == 15) {
+                LinesCounts linesCount{
+                    static_cast<size_t>(BytesUnion(params[7], params[8])),
+                    static_cast<size_t>(BytesUnion(params[9], params[10])),
+                    static_cast<size_t>(BytesUnion(params[11], params[12])),
+                    static_cast<size_t>(BytesUnion(params[13], params[14]))
+                };
+                return AddCrossroad_(BytesUnion(params[3], params[4]), BytesUnion(params[5], params[6]), linesCount);
+            }
+            else if (count == 16) {
+                LinesCounts linesCount{
+                    static_cast<size_t>(BytesUnion(params[7], params[8])),
+                    static_cast<size_t>(BytesUnion(params[9], params[10])),
+                    static_cast<size_t>(BytesUnion(params[11], params[12])),
+                    static_cast<size_t>(BytesUnion(params[13], params[14]))
+                };
+                return AddCrossroad_(BytesUnion(params[3], params[4]), BytesUnion(params[5], params[6])
+                    , linesCount, static_cast<ControlUnitType>(params[15]));
+            }
+            break;
+        case 4:
+            if (count == 16) {
+                LinesCounts linesCount{
+                    static_cast<size_t>(BytesUnion(params[7], params[8])),
+                    static_cast<size_t>(BytesUnion(params[9], params[10])),
+                    static_cast<size_t>(BytesUnion(params[11], params[12])),
+                    static_cast<size_t>(BytesUnion(params[13], params[14]))
+                };
+                return AddTCrossroad_(BytesUnion(params[3], params[4]), BytesUnion(params[5], params[6])
+                    , linesCount, static_cast<AngleType>(params[15]));
+            }
+            else if (count == 17) {
+                LinesCounts linesCount{
+                    static_cast<size_t>(BytesUnion(params[7], params[8])),
+                    static_cast<size_t>(BytesUnion(params[9], params[10])),
+                    static_cast<size_t>(BytesUnion(params[11], params[12])),
+                    static_cast<size_t>(BytesUnion(params[13], params[14]))
+                };
+                return AddTCrossroad_(BytesUnion(params[3], params[4]), BytesUnion(params[5], params[6])
+                    , linesCount, static_cast<AngleType>(params[15]), static_cast<ControlUnitType>(params[16]));
+            }
+            break;
+        }
         break;
     case 2:
         switch (params[1]) {
         case 1:
-            if (count == 7) {
-                AddDriveway_(params[2], params[3], params[4], params[5], static_cast<AngleType>(params[6]));
-            }
-            break;
-        case 2:
-            if (count == 7) {
-                AddTurt_(params[2], params[3], params[4], static_cast<AngleType>(params[6]), params[5]);
-            }
-            break;
-        case 3:
             if (count == 8) {
-                LinesCounts linesCount{
-                    static_cast<size_t>(params[4]),
-                    static_cast<size_t>(params[5]),
-                    static_cast<size_t>(params[6]),
-                    static_cast<size_t>(params[7])
-                };
-                AddCrossroad_(params[2], params[3], linesCount);
-            }
-            else if (count == 9) {
-                LinesCounts linesCount{
-                    static_cast<size_t>(params[4]),
-                    static_cast<size_t>(params[5]),
-                    static_cast<size_t>(params[6]),
-                    static_cast<size_t>(params[7])
-                };
-                AddCrossroad_(params[2], params[3], linesCount, static_cast<ControlUnitType>(params[8]));
-            }
-            break;
-        case 4:
-            if (count == 9) {
-                LinesCounts linesCount{
-                    static_cast<size_t>(params[4]),
-                    static_cast<size_t>(params[5]),
-                    static_cast<size_t>(params[6]),
-                    static_cast<size_t>(params[7])
-                };
-                AddTCrossroad_(params[2], params[3], linesCount, static_cast<AngleType>(params[8]));
-            }
-            else if (count == 10) {
-                LinesCounts linesCount{
-                    static_cast<size_t>(params[4]),
-                    static_cast<size_t>(params[5]),
-                    static_cast<size_t>(params[6]),
-                    static_cast<size_t>(params[7])
-                };
-                AddTCrossroad_(params[2], params[3], linesCount, static_cast<AngleType>(params[8]),
-                    static_cast<ControlUnitType>(params[9]));
+                return AddBuilding_(static_cast<BuildingType>(params[2]), BytesUnion(params[3], params[4])
+                    , BytesUnion(params[5], params[6]), AngleTypeToAngle(static_cast<AngleType>(params[7])));
             }
             break;
         }
@@ -367,50 +465,29 @@ void rtm::WorldController::GenerateObject_(char* params, char count)
     case 3:
         switch (params[1]) {
         case 1:
-            if (count == 6) {
-                AddBuilding_(static_cast<BuildingType>(params[2]), params[3], params[4], AngleTypeToAngle(static_cast<AngleType>(params[5])));
-            }
-            break;
-        }
-        break;
-    case 4:
-        switch (params[1]) {
-        case 1:
-            if (count == 6) {
-                AddCar_(static_cast<CarType>(params[2]), params[3], params[4], AngleTypeToAngle(static_cast<AngleType>(params[5])));
+            if (count == 8) {
+                return AddCar_(static_cast<CarType>(params[2]), BytesUnion(params[3], params[4])
+                    , BytesUnion(params[5], params[6]), AngleTypeToAngle(static_cast<AngleType>(params[7])));
             }
             break;
         }
         break;
     }
+
+    return false;
 }
 
-void rtm::WorldController::SetBackground_(std::string const& filename)
-{
-    if (background_ != nullptr) {
-        scene_->removeChild(background_);
-    }
-    background_ = cocos2d::Sprite::create(filename);
-    background_->setAnchorPoint(cocos2d::Vec2{ 0, 0 });
-    scene_->addChild(background_, BACKGROUND_Z_ORDER);
-}
-
-void rtm::WorldController::SetBackground_(BackgroundNumber number)
-{
-    SetBackground_(GetBackgroundFile_(number));
-}
-
-void rtm::WorldController::AddCoatingUnion_(int column, int row, CoatingUnionShared coatingUnion)
+bool rtm::WorldController::AddCoatingUnion_(int column, int row, CoatingUnionShared coatingUnion)
 {
     if (!IsCorrectColumn(column) || !IsCorrectRow(row)) {
-        return;
+        return false;
     }
 
     size_t width{ coatingUnion->GetWidth() };
     size_t height{ coatingUnion->GetHeight() };
 
     if (IsEmpty(column, row, width, height)) {
-        coatingUnion->ShowSprites(scene_);
+        coatingUnion->ShowSprites(mainLayer_);
 
         size_t vecCol{ GetVectorColumn_(column) };
         size_t vecRow{ GetVectorRow_(row) };
@@ -419,144 +496,171 @@ void rtm::WorldController::AddCoatingUnion_(int column, int row, CoatingUnionSha
                 coatingUnions_[i][j] = coatingUnion;
             }
         }
+        return true;
+    }
+    else {
+        return false;
     }
 }
 
-void rtm::WorldController::AddDriveway_(int column, int row, size_t width, size_t height, AngleType angle)
+bool rtm::WorldController::AddDriveway_(int column, int row, size_t width, size_t height, AngleType angle)
 {
     if (!IsCorrectColumn(column) || !IsCorrectRow(row)) {
-        return;
+        return false;
     }
 
-    AddCoatingUnion_(column, row, std::make_shared<DrivewayObject>(column, row, width, height, angle));
+    return AddCoatingUnion_(column, row, std::make_shared<DrivewayObject>(column, row, width, height, angle));
 }
 
-void rtm::WorldController::AddCrossroad_(int column, int row, LinesCounts linesCounts, ControlUnitType controlUnitType)
+bool rtm::WorldController::AddCrossroad_(int column, int row, LinesCounts linesCounts, ControlUnitType controlUnitType)
 {
     if (!IsCorrectColumn(column) || !IsCorrectRow(row)) {
-        return;
+        return false;
     }
 
     CrossroadObject* coatingUnion{ new CrossroadObject{ column, row, linesCounts, controlUnitType } };
-
     AddControlUnit_(coatingUnion->GetControlUnit());
-    AddCoatingUnion_(column, row, CoatingUnionShared{ coatingUnion });
+
+    return AddCoatingUnion_(column, row, CoatingUnionShared{ coatingUnion });
 }
 
-void rtm::WorldController::AddTCrossroad_(int column, int row, LinesCounts linesCounts, AngleType nullDirection,
+bool rtm::WorldController::AddTCrossroad_(int column, int row, LinesCounts linesCounts, AngleType nullDirection,
     ControlUnitType controlUnitType)
 {
     if (!IsCorrectColumn(column) || !IsCorrectRow(row)) {
-        return;
+        return false;
     }
 
     CrossroadObject* coatingUnion{ new CrossroadObject{ column, row, linesCounts, nullDirection, controlUnitType } };
-
     AddControlUnit_(coatingUnion->GetControlUnit());
-    AddCoatingUnion_(column, row, CoatingUnionShared{ coatingUnion });
+
+    return AddCoatingUnion_(column, row, CoatingUnionShared{ coatingUnion });
 }
 
-void rtm::WorldController::AddTurt_(int column, int row, size_t linesCount, AngleType angle, bool isRight)
+bool rtm::WorldController::AddTurt_(int column, int row, size_t linesCount, AngleType angle, bool isRight)
 {
     if (!IsCorrectColumn(column) || !IsCorrectRow(row)) {
-        return;
+        return false;
     }
 
-    AddCoatingUnion_(column, row, std::make_shared<TurnObject>(column, row, linesCount, angle, isRight));
+    return AddCoatingUnion_(column, row, std::make_shared<TurnObject>(column, row, linesCount, angle, isRight));
 }
 
-void rtm::WorldController::AddControlUnit_(ControlUnitShared controlUnit)
+bool rtm::WorldController::AddControlUnit_(ControlUnitShared controlUnit)
 {
     controlUnits_.push_back(controlUnit);
+    return true;
 }
 
-void rtm::WorldController::AddStaticObject_(int column, int row, StaticShared staticObject)
+bool rtm::WorldController::AddStaticObject_(int column, int row, StaticShared staticObject)
 {
     if (!IsCorrectColumn(column) || !IsCorrectRow(row)) {
-        return;
+        return false;
     }
 
-    scene_->addChild(staticObject->GetSprite(), MAP_OBJECT_Z_ORDER);
-
-    size_t vecCol{ GetVectorColumn_(column) };
-    size_t vecRow{ GetVectorRow_(row) };
-    if (staticObjects_[vecCol][vecRow]) {
-        if (staticObjects_[vecCol][vecRow]->GetSprite() != nullptr) {
-            scene_->removeChild(staticObjects_[vecCol][vecRow]->GetSprite());
-        }
+    if (IsEmpty(column, row)) {
+        mainLayer_->addChild(staticObject->GetSprite(), MAP_OBJECT_Z_ORDER);
+        staticObjects_[GetVectorColumn_(column)][GetVectorRow_(row)] = staticObject;
+        return true;
     }
-    staticObjects_[vecCol][vecRow] = staticObject;
+    else {
+        return false;
+    }
 }
 
-void rtm::WorldController::AddBuilding_(BuildingType type, int column, int row, float angle)
+bool rtm::WorldController::AddBuilding_(BuildingType type, int column, int row, float angle)
 {
     if (!IsCorrectColumn(column) || !IsCorrectRow(row)) {
-        return;
+        return false;
     }
 
-    AddStaticObject_(column, row, std::make_shared<BuildingObject>(type, column, row, angle));
+    return AddStaticObject_(column, row, std::make_shared<BuildingObject>(type, column, row, angle));
 }
 
-void rtm::WorldController::AddDynamicObject_(int column, int row, DynamicShared dynamicObject, bool isSafe)
+bool rtm::WorldController::AddDynamicObject_(int column, int row, DynamicShared dynamicObject, bool isSafe)
 {
     if (!IsAllowableColumn(column) || !IsAllowableRow(row)) {
-        return;
+        return false;
     }
 
     if (!isSafe || !dynamicObject->IsNearOthers(this)) {
-        scene_->addChild(dynamicObject->GetSprite(), VEHICLE_OBJECT_Z_ORDER);
+        mainLayer_->addChild(dynamicObject->GetSprite(), VEHICLE_OBJECT_Z_ORDER);
         dynamicObjects_.push_back(dynamicObject);
+        return true;
+    }
+    else {
+        return false;
     }
 }
 
-void rtm::WorldController::AddCar_(CarType type, int column, int row, float angle, bool isSafe)
+bool rtm::WorldController::AddCar_(CarType type, int column, int row, float angle, bool isSafe)
 {
     if (!IsAllowableColumn(column) || !IsAllowableRow(row)) {
-        return;
+        return false;
     }
 
-    AddDynamicObject_(column, row, std::make_shared<CarObject>(type, column, row, angle), isSafe);
+    return AddDynamicObject_(column, row, std::make_shared<CarObject>(type, column, row, angle), isSafe);
 }
 
 size_t rtm::WorldController::GetVectorColumn_(int column)
 {
-    return static_cast<size_t>(HIDDEN_AREA_SIZE + column);
+    return static_cast<size_t>(hiddenArea_ + column);
 }
 
 size_t rtm::WorldController::GetVectorRow_(int row)
 {
-    return static_cast<size_t>(HIDDEN_AREA_SIZE + row);
+    return static_cast<size_t>(hiddenArea_ + row);
 }
 
 int rtm::WorldController::GetRealColumn_(size_t column)
 {
-    return static_cast<int>(column - HIDDEN_AREA_SIZE);
+    return static_cast<int>(column - hiddenArea_);
 }
 
 int rtm::WorldController::GetRealRow_(size_t row)
 {
-    return static_cast<int>(row - HIDDEN_AREA_SIZE);
+    return static_cast<int>(row - hiddenArea_);
 }
 
-void rtm::WorldController::RemoveCoatingObjects_()
+void rtm::WorldController::CloseMap_()
+{
+    Pause();
+    ClearSpawns_();
+    ClearCoatingObjects_();
+    ClearControlUnits_();
+    ClearStaticObjects_();
+    ClearDynamicObjects_();
+}
+
+void rtm::WorldController::ClearSpawns_()
+{
+    spawns_.clear();
+}
+
+void rtm::WorldController::ClearCoatingObjects_()
 {
     for (auto& col : coatingUnions_) {
         for (auto& elem : col) {
             if (elem) {
-                elem->ReleaseSprites(scene_);
+                elem->ReleaseSprites(mainLayer_);
                 elem.reset();
             }
         }
     }
 }
 
-void rtm::WorldController::RemoveStaticObjects_()
+void rtm::WorldController::ClearControlUnits_()
+{
+    controlUnits_.clear();
+}
+
+void rtm::WorldController::ClearStaticObjects_()
 {
     for (auto& col : staticObjects_) {
         for (auto& elem : col) {
             if (elem) {
                 if (elem->GetSprite() != nullptr) {
-                    scene_->removeChild(elem->GetSprite());
+                    mainLayer_->removeChild(elem->GetSprite());
                 }
                 elem.reset();
             }
@@ -564,10 +668,10 @@ void rtm::WorldController::RemoveStaticObjects_()
     }
 }
 
-void rtm::WorldController::RemoveDynamicObjects_()
+void rtm::WorldController::ClearDynamicObjects_()
 {
     for (auto& obj : dynamicObjects_) {
-        scene_->removeChild(obj->GetSprite());
+        mainLayer_->removeChild(obj->GetSprite());
     }
     dynamicObjects_.clear();
 }
@@ -577,15 +681,6 @@ std::string rtm::WorldController::GetClassFile_(MapNumber number)
     std::string filename{ MAP_FILENAME_MASK };
     auto it{ filename.find("%No%") };
     filename.replace(it, 4, std::to_string(static_cast<int>(number)));
-
-    return filename;
-}
-
-std::string rtm::WorldController::GetBackgroundFile_(BackgroundNumber number)
-{
-    std::string filename{ BACKGROUND_FILENAME_MASK };
-    auto it{ filename.find("%No%") };
-    filename.replace(it, 4, std::to_string(number));
 
     return filename;
 }
