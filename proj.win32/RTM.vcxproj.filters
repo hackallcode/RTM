@@ -42,9 +42,6 @@
     <ClCompile Include="..\Classes\BuildingObject.cpp">
       <Filter>src\visible objects</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\fasttrigo.cpp">
-      <Filter>src\libraries</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\WorldController.cpp">
       <Filter>src\controllers</Filter>
     </ClCompile>
@@ -93,6 +90,9 @@
     <ClCompile Include="..\Classes\TurnObject.cpp">
       <Filter>src\abstract objects\coating unions</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\lib\fasttrigo.cpp">
+      <Filter>src\libraries</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -103,9 +103,6 @@
     </ClInclude>
     <ClInclude Include="..\Classes\BuildingObject.h">
       <Filter>src\visible objects</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\fasttrigo.h">
-      <Filter>src\libraries</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\WorldController.h">
       <Filter>src\controllers</Filter>
@@ -154,6 +151,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\TurnObject.h">
       <Filter>src\abstract objects\coating unions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\lib\fasttrigo.h">
+      <Filter>src\libraries</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

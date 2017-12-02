@@ -12,7 +12,7 @@ int WINAPI _tWinMain(HINSTANCE hInstance,
     UNREFERENCED_PARAMETER(hPrevInstance);
     UNREFERENCED_PARAMETER(lpCmdLine);
 
-    // create the application instance
+    // create application instance
     AppDelegate app;
     return Application::getInstance()->run();
 }

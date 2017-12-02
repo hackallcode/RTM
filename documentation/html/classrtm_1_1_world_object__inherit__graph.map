@@ -1,0 +1,8 @@
+<map id="rtm::WorldObject" name="rtm::WorldObject">
+<area shape="rect" id="node2" href="$classrtm_1_1_dynamic_object.html" title="Класс динамического объекта (который двигается, обновляется) " alt="" coords="5,80,144,107"/>
+<area shape="rect" id="node5" href="$classrtm_1_1_static_object.html" title="Класс статического объекта (который не обновляется) " alt="" coords="169,80,290,107"/>
+<area shape="rect" id="node3" href="$classrtm_1_1_vehicle_object.html" title="Класс транспорта (динамического объекта карты) " alt="" coords="9,155,140,181"/>
+<area shape="rect" id="node4" href="$classrtm_1_1_car_object.html" title="Класс, описывающий машины " alt="" coords="21,229,128,256"/>
+<area shape="rect" id="node6" href="$classrtm_1_1_map_object.html" title="Класс статического объекта карты " alt="" coords="173,155,285,181"/>
+<area shape="rect" id="node7" href="$classrtm_1_1_building_object.html" title="Класс, описывающий строения (здания) " alt="" coords="163,229,296,256"/>
+</map>

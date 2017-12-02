@@ -1,0 +1,1207 @@
+\hypertarget{namespacertm}{}\section{Пространство имен rtm}
+\label{namespacertm}\index{rtm@{rtm}}
+
+
+Пространство имен для проекта R\+TM.  
+
+
+\subsection*{Классы}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classrtm_1_1_building_object}{Building\+Object}
+\begin{DoxyCompactList}\small\item\em Класс, описывающий строения (здания) \end{DoxyCompactList}\item 
+class \hyperlink{classrtm_1_1_car_object}{Car\+Object}
+\begin{DoxyCompactList}\small\item\em Класс, описывающий машины \end{DoxyCompactList}\item 
+class \hyperlink{classrtm_1_1_coating_object}{Coating\+Object}
+\begin{DoxyCompactList}\small\item\em Класс покрытия секции карты \end{DoxyCompactList}\item 
+class \hyperlink{classrtm_1_1_coating_union}{Coating\+Union}
+\item 
+class \hyperlink{classrtm_1_1_control_unit}{Control\+Unit}
+\begin{DoxyCompactList}\small\item\em Класс управляющего блока (светофор) \end{DoxyCompactList}\item 
+class \hyperlink{classrtm_1_1_crossroad_object}{Crossroad\+Object}
+\begin{DoxyCompactList}\small\item\em Класс пересечения дорог \end{DoxyCompactList}\item 
+class \hyperlink{classrtm_1_1_driveway_object}{Driveway\+Object}
+\begin{DoxyCompactList}\small\item\em Класс прямой дороги \end{DoxyCompactList}\item 
+class \hyperlink{classrtm_1_1_dynamic_object}{Dynamic\+Object}
+\begin{DoxyCompactList}\small\item\em Класс динамического объекта (который двигается, обновляется) \end{DoxyCompactList}\item 
+class \hyperlink{classrtm_1_1_map_object}{Map\+Object}
+\begin{DoxyCompactList}\small\item\em Класс статического объекта карты \end{DoxyCompactList}\item 
+class \hyperlink{classrtm_1_1_road_coating}{Road\+Coating}
+\begin{DoxyCompactList}\small\item\em Класс, описывающий дороги \end{DoxyCompactList}\item 
+struct \hyperlink{structrtm_1_1_spawn_type}{Spawn\+Type}
+\begin{DoxyCompactList}\small\item\em Структура, описывающая параметры точки генерации объектов \end{DoxyCompactList}\item 
+class \hyperlink{classrtm_1_1_static_object}{Static\+Object}
+\begin{DoxyCompactList}\small\item\em Класс статического объекта (который не обновляется) \end{DoxyCompactList}\item 
+class \hyperlink{classrtm_1_1_turn_object}{Turn\+Object}
+\begin{DoxyCompactList}\small\item\em Класс поворота дороги \end{DoxyCompactList}\item 
+class \hyperlink{classrtm_1_1_vehicle_object}{Vehicle\+Object}
+\begin{DoxyCompactList}\small\item\em Класс транспорта (динамического объекта карты) \end{DoxyCompactList}\item 
+class \hyperlink{classrtm_1_1_world_controller}{World\+Controller}
+\begin{DoxyCompactList}\small\item\em Класс контроллера карты, связующее звено всех объектов \end{DoxyCompactList}\item 
+class \hyperlink{classrtm_1_1_world_object}{World\+Object}
+\begin{DoxyCompactList}\small\item\em Класс объекта мира (родитель всех условно объемных объектов) \end{DoxyCompactList}\item 
+class \hyperlink{classrtm_1_1_world_scene}{World\+Scene}
+\begin{DoxyCompactList}\small\item\em Класс главной сцены, на которой всё и происходит (для отрисовки) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Определения типов}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespacertm_a3081db54851f6008db32c1ee28d14ecf}\label{namespacertm_a3081db54851f6008db32c1ee28d14ecf}} 
+using \hyperlink{namespacertm_a3081db54851f6008db32c1ee28d14ecf}{World\+Controller\+Unique} = std\+::unique\+\_\+ptr$<$ \hyperlink{classrtm_1_1_world_controller}{World\+Controller} $>$
+\begin{DoxyCompactList}\small\item\em Умный указатель для класса \hyperlink{classrtm_1_1_world_controller}{World\+Controller}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacertm_a9945e0a1add3159b49ccf7bad512ad70}\label{namespacertm_a9945e0a1add3159b49ccf7bad512ad70}} 
+using \hyperlink{namespacertm_a9945e0a1add3159b49ccf7bad512ad70}{Spawn\+Vector} = std\+::vector$<$ \hyperlink{structrtm_1_1_spawn_type}{Spawn\+Type} $>$
+\begin{DoxyCompactList}\small\item\em Массив точек генерации объектов \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacertm_ab0ec616a26920aeaf720d04e041e8ce3}\label{namespacertm_ab0ec616a26920aeaf720d04e041e8ce3}} 
+using \hyperlink{namespacertm_ab0ec616a26920aeaf720d04e041e8ce3}{Coating\+Unique} = std\+::unique\+\_\+ptr$<$ \hyperlink{classrtm_1_1_coating_object}{Coating\+Object} $>$
+\begin{DoxyCompactList}\small\item\em Умный указатель для класса \hyperlink{classrtm_1_1_coating_object}{Coating\+Object}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacertm_ab16d0c62e4a4cf29f24dac0b8507faf6}\label{namespacertm_ab16d0c62e4a4cf29f24dac0b8507faf6}} 
+using \hyperlink{namespacertm_ab16d0c62e4a4cf29f24dac0b8507faf6}{Coating\+Vector} = std\+::vector$<$ \hyperlink{namespacertm_ab0ec616a26920aeaf720d04e041e8ce3}{Coating\+Unique} $>$
+\begin{DoxyCompactList}\small\item\em Массив объектов класса \hyperlink{classrtm_1_1_coating_object}{Coating\+Object}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacertm_ae3bb29510cfde424975be31866d2486e}\label{namespacertm_ae3bb29510cfde424975be31866d2486e}} 
+using \hyperlink{namespacertm_ae3bb29510cfde424975be31866d2486e}{Coating\+Matrix} = std\+::vector$<$ \hyperlink{namespacertm_ab16d0c62e4a4cf29f24dac0b8507faf6}{Coating\+Vector} $>$
+\begin{DoxyCompactList}\small\item\em Матрица объектов класса \hyperlink{classrtm_1_1_coating_object}{Coating\+Object}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacertm_a0b1daa4ff7c2591d8433d441f9e56e4c}\label{namespacertm_a0b1daa4ff7c2591d8433d441f9e56e4c}} 
+using \hyperlink{namespacertm_a0b1daa4ff7c2591d8433d441f9e56e4c}{Coating\+Union\+Shared} = std\+::shared\+\_\+ptr$<$ \hyperlink{classrtm_1_1_coating_union}{Coating\+Union} $>$
+\begin{DoxyCompactList}\small\item\em Умный указатель для класса \hyperlink{classrtm_1_1_coating_union}{Coating\+Union}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacertm_a230edca99ba683336f20c521a49d642f}\label{namespacertm_a230edca99ba683336f20c521a49d642f}} 
+using \hyperlink{namespacertm_a230edca99ba683336f20c521a49d642f}{Coating\+Union\+Vector} = std\+::vector$<$ \hyperlink{namespacertm_a0b1daa4ff7c2591d8433d441f9e56e4c}{Coating\+Union\+Shared} $>$
+\begin{DoxyCompactList}\small\item\em Массив объектов класса \hyperlink{classrtm_1_1_coating_union}{Coating\+Union}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacertm_adc6cbe68dc67c19da757de5768da04cc}\label{namespacertm_adc6cbe68dc67c19da757de5768da04cc}} 
+using \hyperlink{namespacertm_adc6cbe68dc67c19da757de5768da04cc}{Coating\+Union\+Matrix} = std\+::vector$<$ \hyperlink{namespacertm_a230edca99ba683336f20c521a49d642f}{Coating\+Union\+Vector} $>$
+\begin{DoxyCompactList}\small\item\em Матрица объектов класса \hyperlink{classrtm_1_1_coating_union}{Coating\+Union}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacertm_a64296d558b2fa02bbf5870afffd61fd9}\label{namespacertm_a64296d558b2fa02bbf5870afffd61fd9}} 
+using \hyperlink{namespacertm_a64296d558b2fa02bbf5870afffd61fd9}{Control\+Unit\+Shared} = std\+::shared\+\_\+ptr$<$ \hyperlink{classrtm_1_1_control_unit}{Control\+Unit} $>$
+\begin{DoxyCompactList}\small\item\em Умный указатель для класса \hyperlink{classrtm_1_1_control_unit}{Control\+Unit}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacertm_a4a3a9823e8a845d46e86793bb854caa1}\label{namespacertm_a4a3a9823e8a845d46e86793bb854caa1}} 
+using \hyperlink{namespacertm_a4a3a9823e8a845d46e86793bb854caa1}{Control\+Unit\+Vector} = std\+::vector$<$ \hyperlink{namespacertm_a64296d558b2fa02bbf5870afffd61fd9}{Control\+Unit\+Shared} $>$
+\begin{DoxyCompactList}\small\item\em Массив объектов класса \hyperlink{classrtm_1_1_control_unit}{Control\+Unit}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacertm_a80e2b49f975d8e515a73b3b579b88e07}\label{namespacertm_a80e2b49f975d8e515a73b3b579b88e07}} 
+using \hyperlink{namespacertm_a80e2b49f975d8e515a73b3b579b88e07}{Static\+Shared} = std\+::shared\+\_\+ptr$<$ \hyperlink{classrtm_1_1_static_object}{Static\+Object} $>$
+\begin{DoxyCompactList}\small\item\em Умный указатель для класса \hyperlink{classrtm_1_1_static_object}{Static\+Object}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacertm_ab562ef379aa32e4cbfe05536fc842bc3}\label{namespacertm_ab562ef379aa32e4cbfe05536fc842bc3}} 
+using \hyperlink{namespacertm_ab562ef379aa32e4cbfe05536fc842bc3}{Static\+Vector} = std\+::vector$<$ \hyperlink{namespacertm_a80e2b49f975d8e515a73b3b579b88e07}{Static\+Shared} $>$
+\begin{DoxyCompactList}\small\item\em Массив объектов класса \hyperlink{classrtm_1_1_static_object}{Static\+Object}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacertm_ad5f25e2b28cb92f41fe991faa7fcdd30}\label{namespacertm_ad5f25e2b28cb92f41fe991faa7fcdd30}} 
+using \hyperlink{namespacertm_ad5f25e2b28cb92f41fe991faa7fcdd30}{Static\+Matrix} = std\+::vector$<$ \hyperlink{namespacertm_ab562ef379aa32e4cbfe05536fc842bc3}{Static\+Vector} $>$
+\begin{DoxyCompactList}\small\item\em Матрица объектов класса \hyperlink{classrtm_1_1_static_object}{Static\+Object}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacertm_af668a936c29b476890a79ad1eb19e3cc}\label{namespacertm_af668a936c29b476890a79ad1eb19e3cc}} 
+using \hyperlink{namespacertm_af668a936c29b476890a79ad1eb19e3cc}{Dynamic\+Shared} = std\+::shared\+\_\+ptr$<$ \hyperlink{classrtm_1_1_dynamic_object}{Dynamic\+Object} $>$
+\begin{DoxyCompactList}\small\item\em Умный указатель для класса \hyperlink{classrtm_1_1_dynamic_object}{Dynamic\+Object}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacertm_a7fb21a6bf2f6f5947e2875093824c144}\label{namespacertm_a7fb21a6bf2f6f5947e2875093824c144}} 
+using \hyperlink{namespacertm_a7fb21a6bf2f6f5947e2875093824c144}{Dynamic\+Vector} = std\+::vector$<$ \hyperlink{namespacertm_af668a936c29b476890a79ad1eb19e3cc}{Dynamic\+Shared} $>$
+\begin{DoxyCompactList}\small\item\em Массив объектов класса \hyperlink{classrtm_1_1_dynamic_object}{Dynamic\+Object}. \end{DoxyCompactList}\item 
+using \hyperlink{namespacertm_a4776fbfe59834ff1a16838ad6735b69a}{Directions} = std\+::array$<$ bool, 8 $>$
+\item 
+using \hyperlink{namespacertm_a14457f3088a92b86a96686b72d3e4eea}{Lines\+Counts} = std\+::array$<$ size\+\_\+t, 4 $>$
+\item 
+using \hyperlink{namespacertm_a681634e130c2137fe63a658b0e0a5e46}{Direction\+Signals} = std\+::array$<$ \hyperlink{namespacertm_aadb7300c15d57429546fb0b7f8ee0ee6}{Signal\+Type}, 4 $>$
+\item 
+using \hyperlink{namespacertm_afa6df86cef8e2ebcc053ad994e440354}{Crossroad\+Signals} = std\+::array$<$ \hyperlink{namespacertm_a681634e130c2137fe63a658b0e0a5e46}{Direction\+Signals}, 4 $>$
+\item 
+using \hyperlink{namespacertm_ab6c6acbd1378bfe5755d77179a7131ff}{Signal\+Sprites} = std\+::array$<$ cocos2d\+::\+Sprite $\ast$, 5 $>$
+\item 
+using \hyperlink{namespacertm_a260109b3376dc38095724ee80ed72d8e}{Signals\+Sprites} = std\+::array$<$ \hyperlink{namespacertm_ab6c6acbd1378bfe5755d77179a7131ff}{Signal\+Sprites}, 3 $>$
+\item 
+using \hyperlink{namespacertm_ac9f276c8ed33ee992eb1a1f04a8254a0}{Directions\+Signal\+Sprites} = std\+::array$<$ \hyperlink{namespacertm_a260109b3376dc38095724ee80ed72d8e}{Signals\+Sprites}, 4 $>$
+\end{DoxyCompactItemize}
+\subsection*{Перечисления}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{namespacertm_a69dc82b16a0148c10962caa83d930f89}{Angle\+Type} \{ \newline
+\hyperlink{namespacertm_a69dc82b16a0148c10962caa83d930f89a4c9d89d07c6a731bb94e24961d96dc8a}{Null\+Angle} = -\/1, 
+\hyperlink{namespacertm_a69dc82b16a0148c10962caa83d930f89a71f9d728ef9acc426b82f976369b54ef}{Up} = 0, 
+\hyperlink{namespacertm_a69dc82b16a0148c10962caa83d930f89ac8d48eaf247eaed3ab5acb14be273d8b}{Right}, 
+\hyperlink{namespacertm_a69dc82b16a0148c10962caa83d930f89aa28006ebfdd318c956a42e94ac44864c}{Down}, 
+\newline
+\hyperlink{namespacertm_a69dc82b16a0148c10962caa83d930f89a1ad0ee38324cf04e20cfbb075c40ab7c}{Left}, 
+\hyperlink{namespacertm_a69dc82b16a0148c10962caa83d930f89a6f7178e79932d2d3ec9c804a91dc7df9}{Up\+Right}, 
+\hyperlink{namespacertm_a69dc82b16a0148c10962caa83d930f89a847a323475036ccc5a6b1f6d22efe258}{Down\+Right}, 
+\hyperlink{namespacertm_a69dc82b16a0148c10962caa83d930f89ae2a6b2c371919b52750ac2f860bd193c}{Down\+Left}, 
+\newline
+\hyperlink{namespacertm_a69dc82b16a0148c10962caa83d930f89a77042a35db6a2e7c4d19c77ad81e77c3}{Up\+Left}
+ \}\begin{DoxyCompactList}\small\item\em Тип для определения положения некоторых объектов и индикации разрешенных направлений на кусочке объекта \end{DoxyCompactList}
+\item 
+enum \hyperlink{namespacertm_a57b216f3aeb45041f3461bab08bc3aeb}{Direction\+Type} \{ \newline
+\hyperlink{namespacertm_a57b216f3aeb45041f3461bab08bc3aeba11d25fe9dbdfb448f588c5e547ca0e60}{Null\+Direction} = -\/1, 
+\hyperlink{namespacertm_a57b216f3aeb45041f3461bab08bc3aebae8620d33b874d653370594b4593deebe}{Upward} = 0, 
+\hyperlink{namespacertm_a57b216f3aeb45041f3461bab08bc3aebab05476a78be2c098fee8bd6defea9a58}{Rightward}, 
+\hyperlink{namespacertm_a57b216f3aeb45041f3461bab08bc3aeba6a4113106dcde01bab3ba06b5dce2dcd}{Downward}, 
+\newline
+\hyperlink{namespacertm_a57b216f3aeb45041f3461bab08bc3aeba5d89155822daa42b76f9c06b1b9c94bb}{Leftward}
+ \}\begin{DoxyCompactList}\small\item\em Тип для задания направления движения транспорта \end{DoxyCompactList}
+\item 
+enum \hyperlink{namespacertm_a6a0d424be5696f64038e5e84a79cabfa}{Coating\+Union\+Type} \{ \newline
+\hyperlink{namespacertm_a6a0d424be5696f64038e5e84a79cabfaaeeceb6bb067031e5bab66a4986f0da85}{No\+Coating\+Union} = -\/1, 
+\hyperlink{namespacertm_a6a0d424be5696f64038e5e84a79cabfaad3e63e8edfb44bd035c45f2cbac5e2ea}{Driveway\+Type}, 
+\hyperlink{namespacertm_a6a0d424be5696f64038e5e84a79cabfaa99f4b4957261e8e0028087e1faf73e66}{Crossroad\+Type}, 
+\hyperlink{namespacertm_a6a0d424be5696f64038e5e84a79cabfaaf6ed2ba75cfa7bd2651f31a64fd0e116}{T\+Crossroad\+Type}, 
+\newline
+\hyperlink{namespacertm_a6a0d424be5696f64038e5e84a79cabfaabe29616db907d70cdb28bf760a6558e4}{Turn\+Type}
+ \}\begin{DoxyCompactList}\small\item\em Возможные типы дорожных объединений \end{DoxyCompactList}
+\item 
+enum \hyperlink{namespacertm_a27eb93235356cdffe25fe6628e7eff14}{Direction\+Signal\+Index} \{ \hyperlink{namespacertm_a27eb93235356cdffe25fe6628e7eff14afd494a11c605354fdc2fef743b7c2352}{Forward\+Signal\+Index} = 0, 
+\hyperlink{namespacertm_a27eb93235356cdffe25fe6628e7eff14af0f9c75631e89e62c264c751a4fa903a}{Leftward\+Signal\+Index}, 
+\hyperlink{namespacertm_a27eb93235356cdffe25fe6628e7eff14ae8899ee31b187a850f80275563429876}{Rightward\+Signal\+Index}
+ \}\begin{DoxyCompactList}\small\item\em Индексы массива для каждого типа сигнала \end{DoxyCompactList}
+\item 
+enum \hyperlink{namespacertm_aadb7300c15d57429546fb0b7f8ee0ee6}{Signal\+Type} \{ \newline
+\hyperlink{namespacertm_aadb7300c15d57429546fb0b7f8ee0ee6ad63ea1c40cb745fd50a2efad23ccbd1f}{Not\+Working} = 0, 
+\hyperlink{namespacertm_aadb7300c15d57429546fb0b7f8ee0ee6abdebd193c23b52b2c94bd861a5cc9605}{Allowed}, 
+\hyperlink{namespacertm_aadb7300c15d57429546fb0b7f8ee0ee6a40122a9b70f06e7103f3136579e15bc1}{Warning}, 
+\hyperlink{namespacertm_aadb7300c15d57429546fb0b7f8ee0ee6a4dd5b3645f4a834fdd79e4c22cbc31ae}{Forbidden}, 
+\newline
+\hyperlink{namespacertm_aadb7300c15d57429546fb0b7f8ee0ee6a861510405768a65d00e9956410b8947b}{Closed}
+ \}\begin{DoxyCompactList}\small\item\em Возможные сигналы светофора \end{DoxyCompactList}
+\item 
+enum \hyperlink{namespacertm_a11aeba1786456e9bc054ffe33b454181}{State\+Type} \{ \hyperlink{namespacertm_a11aeba1786456e9bc054ffe33b454181afd51c4cf7056147b72f22239887e6253}{Not\+Started}, 
+\hyperlink{namespacertm_a11aeba1786456e9bc054ffe33b454181a96c2699f68e9fb747659d1c92e3e7e80}{Must\+Start}, 
+\hyperlink{namespacertm_a11aeba1786456e9bc054ffe33b454181a4ee7fb1538d76d158c3b83cc86ac1823}{Started}, 
+\hyperlink{namespacertm_a11aeba1786456e9bc054ffe33b454181af4b639b3d1f090ab120a66404d7874fc}{Must\+Stop}
+ \}\begin{DoxyCompactList}\small\item\em Возможные состояния для манёвров (движение, поворот, перестроение) \end{DoxyCompactList}
+\item 
+enum \hyperlink{namespacertm_aecd3929e64cd461eb3555b611f6fad95}{Coating\+Type} \{ \hyperlink{namespacertm_aecd3929e64cd461eb3555b611f6fad95a1f8f9e610f75384989d155de714ce952}{Asphalt\+Coating} = 0
+ \}\begin{DoxyCompactList}\small\item\em Индексы, начиная с которых начинаются текстуры покрытий определенного типа \end{DoxyCompactList}
+\item 
+enum \hyperlink{namespacertm_a4d86818f874975d3dc9f0f10feefc9c1}{Signal\+File\+Id} \{ \hyperlink{namespacertm_a4d86818f874975d3dc9f0f10feefc9c1a76558b4ee249fc454bbdb1d64d2fe0e9}{Forward\+Signal\+Id} = 1, 
+\hyperlink{namespacertm_a4d86818f874975d3dc9f0f10feefc9c1aeff2fccef911bffb13ae08bc9f2dd926}{Leftward\+Signal\+Id} = 6, 
+\hyperlink{namespacertm_a4d86818f874975d3dc9f0f10feefc9c1a9cbadfb5a62cec9d481f6525a51e5712}{Rightward\+Signal\+Id} = 11
+ \}\begin{DoxyCompactList}\small\item\em Индексы, начиная с которых начинаются текстуры сигналоа определенного типа \end{DoxyCompactList}
+\end{DoxyCompactItemize}
+\subsection*{Функции}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{namespacertm_a1fe2c356e3297343804842a57ce23a4b}{Check\+Collisions} (\hyperlink{classrtm_1_1_world_controller}{World\+Controller} $\ast$const world)
+\item 
+\hyperlink{namespacertm_a69dc82b16a0148c10962caa83d930f89}{Angle\+Type} \hyperlink{namespacertm_ac1ea2821fc44943e5c35d92e0c9cd5de}{Sum\+Angle\+Types} (\hyperlink{namespacertm_a69dc82b16a0148c10962caa83d930f89}{Angle\+Type} a, \hyperlink{namespacertm_a69dc82b16a0148c10962caa83d930f89}{Angle\+Type} b)
+\item 
+float \hyperlink{namespacertm_a37715773d85c66ba5c1bf11260836fd0}{Count\+Deceleration} (float max\+Speed)
+\end{DoxyCompactItemize}
+\begin{Indent}\textbf{ Функции для работы с параметрами положения объектов}\par
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{namespacertm_aa633b82b63b7cff4e9b08bf6a05ec383}{Same\+Coordinates} (float a, float b, float delta=\hyperlink{namespacertm_a9ae158a8873bdf59aa9872cdada6c657}{C\+O\+O\+R\+D\+\_\+\+D\+E\+L\+TA})
+\item 
+float \hyperlink{namespacertm_a511bf31b8bfc36474baaf915bc11a619}{Round\+Coordinate} (float coordinate, float delta=\hyperlink{namespacertm_a9ae158a8873bdf59aa9872cdada6c657}{C\+O\+O\+R\+D\+\_\+\+D\+E\+L\+TA})
+\item 
+float \hyperlink{namespacertm_aa2d382c50aa6366b09deaa529d1b3199}{Round\+To\+Center} (float coordinate)
+\item 
+bool \hyperlink{namespacertm_a030416c27fb4a5896aad3d102083897f}{In\+Center} (float coordinate, float delta=\hyperlink{namespacertm_a9ae158a8873bdf59aa9872cdada6c657}{C\+O\+O\+R\+D\+\_\+\+D\+E\+L\+TA})
+\item 
+float \hyperlink{namespacertm_aa546266dce0a8d2a50a7fe311e514668}{Distance\+To\+Next\+Center} (float x, float y, float angle)
+\item 
+bool \hyperlink{namespacertm_a69199b6d204d2ebf33b76e5a7ad52876}{Center\+Is\+Crossed} (float x, float y, float angle, float last\+Delta)
+\item 
+bool \hyperlink{namespacertm_abf5da499525e88711c6edfb76314f90b}{Same\+Angles} (float a, float b, float delta=\hyperlink{namespacertm_ac78c5105838adb58682cb69a4c66efd7}{A\+N\+G\+L\+E\+\_\+\+D\+E\+L\+TA})
+\item 
+float \hyperlink{namespacertm_a2c9be06724a54815f6f2f638cf9ae613}{Round\+Angle} (float angle, float delta=\hyperlink{namespacertm_ac78c5105838adb58682cb69a4c66efd7}{A\+N\+G\+L\+E\+\_\+\+D\+E\+L\+TA})
+\item 
+float \hyperlink{namespacertm_a72a57dbe581a6743525e1920296d42fe}{Normalize\+Angle} (float angle)
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Конверторы схожих типов}\par
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{namespacertm_a390df6b8bc4a01befd946155150db744}{Pixel\+To\+Cell} (float coordinate)
+\item 
+float \hyperlink{namespacertm_af8d63f917ae1055a5766a0ba19542913}{Cell\+To\+Pixel} (int cell\+Number)
+\item 
+\hyperlink{namespacertm_a69dc82b16a0148c10962caa83d930f89}{Angle\+Type} \hyperlink{namespacertm_aea5ae6d368199e41611725e0db13c5c3}{Angle\+To\+Angle\+Type} (float angle)
+\item 
+\hyperlink{namespacertm_a57b216f3aeb45041f3461bab08bc3aeb}{Direction\+Type} \hyperlink{namespacertm_ac81b2243a62081233f7b549248b5a145}{Angle\+To\+Direction} (float angle)
+\item 
+float \hyperlink{namespacertm_ad13b014bcdda27e0ff2fb23f265e29e4}{Angle\+Type\+To\+Angle} (\hyperlink{namespacertm_a69dc82b16a0148c10962caa83d930f89}{Angle\+Type} angle)
+\item 
+\hyperlink{namespacertm_a57b216f3aeb45041f3461bab08bc3aeb}{Direction\+Type} \hyperlink{namespacertm_abeb9a79e27bc0c8c4c3e6cd9ec802627}{Angle\+Type\+To\+Direction} (\hyperlink{namespacertm_a69dc82b16a0148c10962caa83d930f89}{Angle\+Type} angle)
+\item 
+float \hyperlink{namespacertm_a173759dd130d0f30d1f90fba11506bd6}{Direction\+To\+Angle} (\hyperlink{namespacertm_a57b216f3aeb45041f3461bab08bc3aeb}{Direction\+Type} direction)
+\item 
+\hyperlink{namespacertm_a69dc82b16a0148c10962caa83d930f89}{Angle\+Type} \hyperlink{namespacertm_aa37fca29e3577b3389a9e8eb40d20d14}{Direction\+To\+Angle\+Type} (\hyperlink{namespacertm_a57b216f3aeb45041f3461bab08bc3aeb}{Direction\+Type} direction)
+\end{DoxyCompactItemize}
+\end{Indent}
+\subsection*{Переменные}
+\begin{Indent}\textbf{ Константы для флага is\+Right}\par
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespacertm_a92d29773a54951290dd89f754fb39a8c}\label{namespacertm_a92d29773a54951290dd89f754fb39a8c}} 
+bool const \hyperlink{namespacertm_a92d29773a54951290dd89f754fb39a8c}{L\+E\+FT} \{ false \}
+\begin{DoxyCompactList}\small\item\em Влево \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacertm_a18eb7493925a15e12096e1a6170c3da7}\label{namespacertm_a18eb7493925a15e12096e1a6170c3da7}} 
+bool const \hyperlink{namespacertm_a18eb7493925a15e12096e1a6170c3da7}{R\+I\+G\+HT} \{ true \}
+\begin{DoxyCompactList}\small\item\em Вправо \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Заранее посчитанные операции над {$\pi$}}\par
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespacertm_a7b6dbeacd7031c85947cce8529d19b0d}\label{namespacertm_a7b6dbeacd7031c85947cce8529d19b0d}} 
+float const \hyperlink{namespacertm_a7b6dbeacd7031c85947cce8529d19b0d}{F\+\_\+\+P\+I\+\_\+8} \{ 0.\+392699081698724154808f \}
+\begin{DoxyCompactList}\small\item\em {$\pi$} / 8 \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacertm_a5d5e98851be43c6884812bf293b09184}\label{namespacertm_a5d5e98851be43c6884812bf293b09184}} 
+float const \hyperlink{namespacertm_a5d5e98851be43c6884812bf293b09184}{F\+\_\+\+P\+I\+\_\+4} \{ 0.\+785398163397448309616f \}
+\begin{DoxyCompactList}\small\item\em {$\pi$} / 4 \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacertm_ae9fd4cc21cfc9e2331c1a9c3370aea30}\label{namespacertm_ae9fd4cc21cfc9e2331c1a9c3370aea30}} 
+float const \hyperlink{namespacertm_ae9fd4cc21cfc9e2331c1a9c3370aea30}{F\+\_\+\+P\+I\+\_\+2} \{ 1.\+57079632679489661923f \}
+\begin{DoxyCompactList}\small\item\em {$\pi$} / 2 \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacertm_ae15880ada663d5427ba0d78437ee5c26}\label{namespacertm_ae15880ada663d5427ba0d78437ee5c26}} 
+float const \hyperlink{namespacertm_ae15880ada663d5427ba0d78437ee5c26}{F\+\_\+\+PI} \{ 3.\+14159265358979323846f \}
+\begin{DoxyCompactList}\small\item\em {$\pi$} \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacertm_aecb3b230449fee3137e44125ab9ca20d}\label{namespacertm_aecb3b230449fee3137e44125ab9ca20d}} 
+float const \hyperlink{namespacertm_aecb3b230449fee3137e44125ab9ca20d}{F\+\_\+2\+\_\+\+PI} \{ 6.\+28318530717958647692f \}
+\begin{DoxyCompactList}\small\item\em 2 $\ast$ {$\pi$} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Константы для конвертации углов из радиан в градусы и обратно}\par
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespacertm_a797faf3037681ed7bc153db9eca6155e}\label{namespacertm_a797faf3037681ed7bc153db9eca6155e}} 
+float const \hyperlink{namespacertm_a797faf3037681ed7bc153db9eca6155e}{D\+E\+G\+\_\+\+R\+AD} \{ \hyperlink{namespacertm_ae15880ada663d5427ba0d78437ee5c26}{F\+\_\+\+PI} / 180.f \}
+\begin{DoxyCompactList}\small\item\em Коэффициент для перевода из градусов в радианы \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacertm_ad7147b92a6d3ba6f4b7e8d2f3e73153b}\label{namespacertm_ad7147b92a6d3ba6f4b7e8d2f3e73153b}} 
+float const \hyperlink{namespacertm_ad7147b92a6d3ba6f4b7e8d2f3e73153b}{R\+A\+D\+\_\+\+D\+EG} \{ 180.f / \hyperlink{namespacertm_ae15880ada663d5427ba0d78437ee5c26}{F\+\_\+\+PI} \}
+\begin{DoxyCompactList}\small\item\em Коэффициент для перевода из радиан в градусы \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Заранее посчитанные углы}\par
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespacertm_a2755f61661c6017691ba77b93ef499e6}\label{namespacertm_a2755f61661c6017691ba77b93ef499e6}} 
+float const \hyperlink{namespacertm_a2755f61661c6017691ba77b93ef499e6}{A\+N\+G\+L\+E\+\_\+\+UP} \{ 0.f \}
+\begin{DoxyCompactList}\small\item\em Угол вверх \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacertm_a39212dd73aa5a6387211cf776bdb64d8}\label{namespacertm_a39212dd73aa5a6387211cf776bdb64d8}} 
+float const \hyperlink{namespacertm_a39212dd73aa5a6387211cf776bdb64d8}{A\+N\+G\+L\+E\+\_\+\+R\+I\+G\+HT} \{ \hyperlink{namespacertm_ae9fd4cc21cfc9e2331c1a9c3370aea30}{F\+\_\+\+P\+I\+\_\+2} \}
+\begin{DoxyCompactList}\small\item\em Угол вправо \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacertm_a5a3672b45c2bfd3499c130529cacb724}\label{namespacertm_a5a3672b45c2bfd3499c130529cacb724}} 
+float const \hyperlink{namespacertm_a5a3672b45c2bfd3499c130529cacb724}{A\+N\+G\+L\+E\+\_\+\+D\+O\+WN} \{ -\/\hyperlink{namespacertm_ae15880ada663d5427ba0d78437ee5c26}{F\+\_\+\+PI} \}
+\begin{DoxyCompactList}\small\item\em Угол вниз \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacertm_a95c681ed5808f0a9b59770fb9bb20ece}\label{namespacertm_a95c681ed5808f0a9b59770fb9bb20ece}} 
+float const \hyperlink{namespacertm_a95c681ed5808f0a9b59770fb9bb20ece}{A\+N\+G\+L\+E\+\_\+\+L\+E\+FT} \{ -\/\hyperlink{namespacertm_ae9fd4cc21cfc9e2331c1a9c3370aea30}{F\+\_\+\+P\+I\+\_\+2} \}
+\begin{DoxyCompactList}\small\item\em Угол влево \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacertm_a68b99102779f6297a0de7656207f048a}\label{namespacertm_a68b99102779f6297a0de7656207f048a}} 
+float const \hyperlink{namespacertm_a68b99102779f6297a0de7656207f048a}{A\+N\+G\+L\+E\+\_\+\+U\+P\+\_\+\+R\+I\+G\+HT} \{ \hyperlink{namespacertm_a5d5e98851be43c6884812bf293b09184}{F\+\_\+\+P\+I\+\_\+4} \}
+\begin{DoxyCompactList}\small\item\em Угол по диагонали вверх вправо \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacertm_a40df5f56b94a2220d7c699a5579fed3e}\label{namespacertm_a40df5f56b94a2220d7c699a5579fed3e}} 
+float const \hyperlink{namespacertm_a40df5f56b94a2220d7c699a5579fed3e}{A\+N\+G\+L\+E\+\_\+\+D\+O\+W\+N\+\_\+\+R\+I\+G\+HT} \{ \hyperlink{namespacertm_ae15880ada663d5427ba0d78437ee5c26}{F\+\_\+\+PI} -\/ \hyperlink{namespacertm_a5d5e98851be43c6884812bf293b09184}{F\+\_\+\+P\+I\+\_\+4} \}
+\begin{DoxyCompactList}\small\item\em Угол по диагонали вниз вправо \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacertm_a4bed3c8feb0750037e813a56967b769f}\label{namespacertm_a4bed3c8feb0750037e813a56967b769f}} 
+float const \hyperlink{namespacertm_a4bed3c8feb0750037e813a56967b769f}{A\+N\+G\+L\+E\+\_\+\+D\+O\+W\+N\+\_\+\+L\+E\+FT} \{ -\/\hyperlink{namespacertm_ae15880ada663d5427ba0d78437ee5c26}{F\+\_\+\+PI} + \hyperlink{namespacertm_a5d5e98851be43c6884812bf293b09184}{F\+\_\+\+P\+I\+\_\+4} \}
+\begin{DoxyCompactList}\small\item\em Угол по диагонали вниз влево \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacertm_a90a064b89a319fb6acb1792093efe73a}\label{namespacertm_a90a064b89a319fb6acb1792093efe73a}} 
+float const \hyperlink{namespacertm_a90a064b89a319fb6acb1792093efe73a}{A\+N\+G\+L\+E\+\_\+\+U\+P\+\_\+\+L\+E\+FT} \{ -\/\hyperlink{namespacertm_a5d5e98851be43c6884812bf293b09184}{F\+\_\+\+P\+I\+\_\+4} \}
+\begin{DoxyCompactList}\small\item\em Угол по диагонали вверх влево \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Допустимые погрешности}\par
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespacertm_ac78c5105838adb58682cb69a4c66efd7}\label{namespacertm_ac78c5105838adb58682cb69a4c66efd7}} 
+float const \hyperlink{namespacertm_ac78c5105838adb58682cb69a4c66efd7}{A\+N\+G\+L\+E\+\_\+\+D\+E\+L\+TA} \{ 1.f $\ast$ \hyperlink{namespacertm_a797faf3037681ed7bc153db9eca6155e}{D\+E\+G\+\_\+\+R\+AD} \}
+\begin{DoxyCompactList}\small\item\em Погрешность для углов \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacertm_a9ae158a8873bdf59aa9872cdada6c657}\label{namespacertm_a9ae158a8873bdf59aa9872cdada6c657}} 
+float const \hyperlink{namespacertm_a9ae158a8873bdf59aa9872cdada6c657}{C\+O\+O\+R\+D\+\_\+\+D\+E\+L\+TA} \{ 1.f \}
+\begin{DoxyCompactList}\small\item\em Погрешность для координат \end{DoxyCompactList}\item 
+float const \hyperlink{namespacertm_ac6b72ea86e31b2b9ba35f29964ce0f5d}{N\+E\+A\+R\+\_\+\+D\+E\+L\+TA} \{ 1.f \}
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Парамметры карт}\par
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespacertm_a65de3c23461f4c4c935a5bb6e8a09732}\label{namespacertm_a65de3c23461f4c4c935a5bb6e8a09732}} 
+size\+\_\+t const \hyperlink{namespacertm_a65de3c23461f4c4c935a5bb6e8a09732}{C\+E\+L\+L\+\_\+\+S\+I\+ZE} \{ 30 \}
+\begin{DoxyCompactList}\small\item\em Длина (ширина) ячейки карты \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacertm_ad5621a798daeaed275db0f01f62dc031}\label{namespacertm_ad5621a798daeaed275db0f01f62dc031}} 
+size\+\_\+t const \hyperlink{namespacertm_ad5621a798daeaed275db0f01f62dc031}{R\+O\+T\+A\+T\+I\+O\+N\+\_\+\+R\+A\+D\+I\+US} \{ \hyperlink{namespacertm_a65de3c23461f4c4c935a5bb6e8a09732}{C\+E\+L\+L\+\_\+\+S\+I\+ZE} \}
+\begin{DoxyCompactList}\small\item\em Желаемый радиус поворота транспорта \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacertm_a242868592bdb0f0d14e93f7d25ed614e}\label{namespacertm_a242868592bdb0f0d14e93f7d25ed614e}} 
+float const \hyperlink{namespacertm_a242868592bdb0f0d14e93f7d25ed614e}{M\+I\+N\+\_\+\+T\+I\+M\+E\+\_\+\+F\+A\+C\+T\+OR} \{ 0.\+5f \}
+\begin{DoxyCompactList}\small\item\em Минимальный коэффициент ускорения времени. Если меньше 1, то замедлениие \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacertm_aca8c6c8fc95ff25eefdd5a0c902426b7}\label{namespacertm_aca8c6c8fc95ff25eefdd5a0c902426b7}} 
+float const \hyperlink{namespacertm_aca8c6c8fc95ff25eefdd5a0c902426b7}{M\+A\+X\+\_\+\+T\+I\+M\+E\+\_\+\+F\+A\+C\+T\+OR} \{ 4.f \}
+\begin{DoxyCompactList}\small\item\em Максимальный коэффициент ускорения времени \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Номера слоев для разных объектов. Чем больше, тем выше (ближе к нам)}\par
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespacertm_a7f35c0f618542e0c894a24be01f91878}\label{namespacertm_a7f35c0f618542e0c894a24be01f91878}} 
+int const \hyperlink{namespacertm_a7f35c0f618542e0c894a24be01f91878}{B\+A\+C\+K\+G\+R\+O\+U\+N\+D\+\_\+\+Z\+\_\+\+O\+R\+D\+ER} \{ -\/1 \}
+\begin{DoxyCompactList}\small\item\em Номер слоя для слоя фона \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacertm_a5d09d134857a2876fb1b43d255bf1d0d}\label{namespacertm_a5d09d134857a2876fb1b43d255bf1d0d}} 
+int const \hyperlink{namespacertm_a5d09d134857a2876fb1b43d255bf1d0d}{M\+A\+I\+N\+\_\+\+Z\+\_\+\+O\+R\+D\+ER} \{ 0 \}
+\begin{DoxyCompactList}\small\item\em Номер слоя для главного слоя (на нем все объекты) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacertm_a85a3b25dc036bde14f8874ebf9ef9cd2}\label{namespacertm_a85a3b25dc036bde14f8874ebf9ef9cd2}} 
+int const \hyperlink{namespacertm_a85a3b25dc036bde14f8874ebf9ef9cd2}{C\+O\+A\+T\+I\+N\+G\+\_\+\+O\+B\+J\+E\+C\+T\+\_\+\+Z\+\_\+\+O\+R\+D\+ER} \{ 1 \}
+\begin{DoxyCompactList}\small\item\em Номер слоя для покрытий (дорог) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacertm_ab06d47a1908b0e155bed9d703b2530dd}\label{namespacertm_ab06d47a1908b0e155bed9d703b2530dd}} 
+int const \hyperlink{namespacertm_ab06d47a1908b0e155bed9d703b2530dd}{L\+E\+F\+T\+W\+A\+R\+D\+\_\+\+S\+I\+G\+N\+A\+L\+\_\+\+Z\+\_\+\+O\+R\+D\+ER} \{ 2 \}
+\begin{DoxyCompactList}\small\item\em Номер слоя для левых стрелок светофора \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacertm_aa0a20b2a0c93ed1bcefafabde4a16f29}\label{namespacertm_aa0a20b2a0c93ed1bcefafabde4a16f29}} 
+int const \hyperlink{namespacertm_aa0a20b2a0c93ed1bcefafabde4a16f29}{R\+I\+G\+H\+T\+W\+A\+R\+D\+\_\+\+S\+I\+G\+N\+A\+L\+\_\+\+Z\+\_\+\+O\+R\+D\+ER} \{ 3 \}
+\begin{DoxyCompactList}\small\item\em Номер слоя для правых стрелок светофора \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacertm_ab7d75842630fd06af81c5b7af7b121a9}\label{namespacertm_ab7d75842630fd06af81c5b7af7b121a9}} 
+int const \hyperlink{namespacertm_ab7d75842630fd06af81c5b7af7b121a9}{F\+O\+R\+W\+A\+R\+D\+\_\+\+S\+I\+G\+N\+A\+L\+\_\+\+Z\+\_\+\+O\+R\+D\+ER} \{ 4 \}
+\begin{DoxyCompactList}\small\item\em Номер слоя для сфетофора в прямом направлении \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacertm_a1f9ff2936d20057085f7b0084e7a20ca}\label{namespacertm_a1f9ff2936d20057085f7b0084e7a20ca}} 
+int const \hyperlink{namespacertm_a1f9ff2936d20057085f7b0084e7a20ca}{V\+E\+H\+I\+C\+L\+E\+\_\+\+O\+B\+J\+E\+C\+T\+\_\+\+Z\+\_\+\+O\+R\+D\+ER} \{ 5 \}
+\begin{DoxyCompactList}\small\item\em Номер слоя для транспорта \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacertm_a93638d5f93c88f66fa540452aba5d658}\label{namespacertm_a93638d5f93c88f66fa540452aba5d658}} 
+int const \hyperlink{namespacertm_a93638d5f93c88f66fa540452aba5d658}{M\+A\+P\+\_\+\+O\+B\+J\+E\+C\+T\+\_\+\+Z\+\_\+\+O\+R\+D\+ER} \{ 6 \}
+\begin{DoxyCompactList}\small\item\em Номер слоя для статичных объектов карты \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Область видимости при движении вперед}\par
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespacertm_a6ae2631935a995c34abce1c62fa3dcd7}\label{namespacertm_a6ae2631935a995c34abce1c62fa3dcd7}} 
+float const \hyperlink{namespacertm_a6ae2631935a995c34abce1c62fa3dcd7}{V\+I\+E\+W\+\_\+\+R\+A\+D\+I\+US} \{ 60.f \}
+\begin{DoxyCompactList}\small\item\em Радиус \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacertm_af0ecac808d3938e77a20990f1947c8fd}\label{namespacertm_af0ecac808d3938e77a20990f1947c8fd}} 
+float const \hyperlink{namespacertm_af0ecac808d3938e77a20990f1947c8fd}{V\+I\+E\+W\+\_\+\+A\+N\+G\+LE} \{ 24.f $\ast$ \hyperlink{namespacertm_a797faf3037681ed7bc153db9eca6155e}{D\+E\+G\+\_\+\+R\+AD} \}
+\begin{DoxyCompactList}\small\item\em Ширина угла в каждую сторону \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacertm_a10eed490bb183c7853ac317d82e0b1cd}\label{namespacertm_a10eed490bb183c7853ac317d82e0b1cd}} 
+float const \hyperlink{namespacertm_a10eed490bb183c7853ac317d82e0b1cd}{V\+I\+E\+W\+\_\+\+A\+N\+G\+L\+E\+\_\+\+S\+H\+I\+FT} \{ 0.f \}
+\begin{DoxyCompactList}\small\item\em Сдвиг области обзора \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Область видимости при повороте}\par
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespacertm_ae9ea4dbfd2f4bb3b5c6bf1c5ea7227d7}\label{namespacertm_ae9ea4dbfd2f4bb3b5c6bf1c5ea7227d7}} 
+float const \hyperlink{namespacertm_ae9ea4dbfd2f4bb3b5c6bf1c5ea7227d7}{R\+O\+T\+A\+T\+I\+O\+N\+\_\+\+V\+I\+E\+W\+\_\+\+R\+A\+D\+I\+US} \{ 50.f \}
+\begin{DoxyCompactList}\small\item\em Радиус \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacertm_ab5d83fa039813239add636c5dfe1c64d}\label{namespacertm_ab5d83fa039813239add636c5dfe1c64d}} 
+float const \hyperlink{namespacertm_ab5d83fa039813239add636c5dfe1c64d}{R\+O\+T\+A\+T\+I\+O\+N\+\_\+\+V\+I\+E\+W\+\_\+\+A\+N\+G\+LE} \{ 30.\+5f $\ast$ D\+E\+G\+\_\+\+R\+A\+D \}
+\begin{DoxyCompactList}\small\item\em Ширина угла в каждую сторону \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacertm_ab2e47618aa31260d6890c18525f611fa}\label{namespacertm_ab2e47618aa31260d6890c18525f611fa}} 
+float const \hyperlink{namespacertm_ab2e47618aa31260d6890c18525f611fa}{R\+O\+T\+A\+T\+I\+O\+N\+\_\+\+V\+I\+E\+W\+\_\+\+A\+N\+G\+L\+E\+\_\+\+S\+H\+I\+FT} \{ 29.\+5f $\ast$ D\+E\+G\+\_\+\+R\+A\+D \}
+\begin{DoxyCompactList}\small\item\em Сдвиг области обзора \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Область видимости незадолго до поворота}\par
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespacertm_ae00afb2f4895bee23fd6b18359aa0923}\label{namespacertm_ae00afb2f4895bee23fd6b18359aa0923}} 
+float const \hyperlink{namespacertm_ae00afb2f4895bee23fd6b18359aa0923}{T\+U\+R\+N\+\_\+\+V\+I\+E\+W\+\_\+\+R\+A\+D\+I\+US} \{ 75.f \}
+\begin{DoxyCompactList}\small\item\em Радиус \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacertm_a2bed018eeea8988507e7a65059a3ff98}\label{namespacertm_a2bed018eeea8988507e7a65059a3ff98}} 
+float const \hyperlink{namespacertm_a2bed018eeea8988507e7a65059a3ff98}{T\+U\+R\+N\+\_\+\+V\+I\+E\+W\+\_\+\+A\+N\+G\+LE} \{ 30.f $\ast$ \hyperlink{namespacertm_a797faf3037681ed7bc153db9eca6155e}{D\+E\+G\+\_\+\+R\+AD} \}
+\begin{DoxyCompactList}\small\item\em Ширина угла в каждую сторону \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacertm_ae725fc045c1a7417fa006a279e675deb}\label{namespacertm_ae725fc045c1a7417fa006a279e675deb}} 
+float const \hyperlink{namespacertm_ae725fc045c1a7417fa006a279e675deb}{T\+U\+R\+N\+\_\+\+V\+I\+E\+W\+\_\+\+A\+N\+G\+L\+E\+\_\+\+S\+H\+I\+FT} \{ 10.f $\ast$ \hyperlink{namespacertm_a797faf3037681ed7bc153db9eca6155e}{D\+E\+G\+\_\+\+R\+AD} \}
+\begin{DoxyCompactList}\small\item\em Сдвиг области обзора \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Область видимости на нерегулируемом перекрестке}\par
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespacertm_ae5df71baa1c995b0418d8e22252ba6fa}\label{namespacertm_ae5df71baa1c995b0418d8e22252ba6fa}} 
+float const \hyperlink{namespacertm_ae5df71baa1c995b0418d8e22252ba6fa}{C\+R\+O\+S\+S\+R\+O\+A\+D\+\_\+\+V\+I\+E\+W\+\_\+\+R\+A\+D\+I\+US} \{ 65.f \}
+\begin{DoxyCompactList}\small\item\em Радиус \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacertm_a5b9c1ba0abe7dd1259bc4c34a0022cda}\label{namespacertm_a5b9c1ba0abe7dd1259bc4c34a0022cda}} 
+float const \hyperlink{namespacertm_a5b9c1ba0abe7dd1259bc4c34a0022cda}{C\+R\+O\+S\+S\+R\+O\+A\+D\+\_\+\+V\+I\+E\+W\+\_\+\+A\+N\+G\+LE} \{ 22.\+5f $\ast$ D\+E\+G\+\_\+\+R\+A\+D \}
+\begin{DoxyCompactList}\small\item\em Ширина угла в каждую сторону \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacertm_ae04c779dfc5b406c04ff9a549423c910}\label{namespacertm_ae04c779dfc5b406c04ff9a549423c910}} 
+float const \hyperlink{namespacertm_ae04c779dfc5b406c04ff9a549423c910}{C\+R\+O\+S\+S\+R\+O\+A\+D\+\_\+\+V\+I\+E\+W\+\_\+\+A\+N\+G\+L\+E\+\_\+\+S\+H\+I\+FT} \{ -\/52.\+5f $\ast$ D\+E\+G\+\_\+\+R\+A\+D \}
+\begin{DoxyCompactList}\small\item\em Сдвиг области обзора \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Область видимости до перестроения}\par
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespacertm_a83f35114e81818841a5e8ae7463a8d5e}\label{namespacertm_a83f35114e81818841a5e8ae7463a8d5e}} 
+float const \hyperlink{namespacertm_a83f35114e81818841a5e8ae7463a8d5e}{L\+I\+N\+E\+\_\+\+C\+H\+A\+N\+G\+I\+N\+G\+\_\+\+V\+I\+E\+W\+\_\+\+R\+A\+D\+I\+US} \{ 60.f \}
+\begin{DoxyCompactList}\small\item\em Радиус \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacertm_aeb42dcb687f8cae295280ee962474804}\label{namespacertm_aeb42dcb687f8cae295280ee962474804}} 
+float const \hyperlink{namespacertm_aeb42dcb687f8cae295280ee962474804}{L\+I\+N\+E\+\_\+\+C\+H\+A\+N\+G\+I\+N\+G\+\_\+\+V\+I\+E\+W\+\_\+\+A\+N\+G\+LE} \{ 30.f $\ast$ \hyperlink{namespacertm_a797faf3037681ed7bc153db9eca6155e}{D\+E\+G\+\_\+\+R\+AD} \}
+\begin{DoxyCompactList}\small\item\em Ширина угла в каждую сторону \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacertm_acf2e734084d7bb5ff2828b1db966cae6}\label{namespacertm_acf2e734084d7bb5ff2828b1db966cae6}} 
+float const \hyperlink{namespacertm_acf2e734084d7bb5ff2828b1db966cae6}{L\+I\+N\+E\+\_\+\+C\+H\+A\+N\+G\+I\+N\+G\+\_\+\+V\+I\+E\+W\+\_\+\+A\+N\+G\+L\+E\+\_\+\+S\+H\+I\+FT} \{ 20.f $\ast$ \hyperlink{namespacertm_a797faf3037681ed7bc153db9eca6155e}{D\+E\+G\+\_\+\+R\+AD} \}
+\begin{DoxyCompactList}\small\item\em Сдвиг области обзора \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Значения по умолчанию}\par
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespacertm_ab5bb2d119539a5a60349a21fec8821f6}\label{namespacertm_ab5bb2d119539a5a60349a21fec8821f6}} 
+\hyperlink{namespacertm_a681634e130c2137fe63a658b0e0a5e46}{Direction\+Signals} const \hyperlink{namespacertm_ab5bb2d119539a5a60349a21fec8821f6}{D\+E\+F\+A\+U\+L\+T\+\_\+\+D\+I\+R\+E\+C\+T\+I\+O\+N\+S\+\_\+\+S\+I\+G\+N\+A\+LS} = \{ \hyperlink{namespacertm_aadb7300c15d57429546fb0b7f8ee0ee6ad63ea1c40cb745fd50a2efad23ccbd1f}{Not\+Working}, \hyperlink{namespacertm_aadb7300c15d57429546fb0b7f8ee0ee6ad63ea1c40cb745fd50a2efad23ccbd1f}{Not\+Working}, \hyperlink{namespacertm_aadb7300c15d57429546fb0b7f8ee0ee6ad63ea1c40cb745fd50a2efad23ccbd1f}{Not\+Working} \}
+\begin{DoxyCompactList}\small\item\em Значения по умолчанию для массива сигналов в одном направлении (светофора в этом направлении нет) \end{DoxyCompactList}\item 
+\hyperlink{namespacertm_afa6df86cef8e2ebcc053ad994e440354}{Crossroad\+Signals} const \hyperlink{namespacertm_ac3892e23135322d9026ef00af1a76344}{D\+E\+F\+A\+U\+L\+T\+\_\+\+C\+R\+O\+S\+S\+R\+O\+A\+D\+\_\+\+S\+I\+G\+N\+A\+LS}
+\begin{DoxyCompactList}\small\item\em Значения по умолчанию для массива сигналов всего перекрестка (светофора на перекрестке нет) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacertm_a47d97d0bbd767b6cb6b30b221f8d8a51}\label{namespacertm_a47d97d0bbd767b6cb6b30b221f8d8a51}} 
+\hyperlink{namespacertm_ab6c6acbd1378bfe5755d77179a7131ff}{Signal\+Sprites} const \hyperlink{namespacertm_a47d97d0bbd767b6cb6b30b221f8d8a51}{D\+E\+F\+A\+U\+L\+T\+\_\+\+S\+I\+G\+N\+A\+L\+\_\+\+S\+P\+R\+I\+T\+ES} = \{ nullptr, nullptr, nullptr, nullptr, nullptr \}
+\begin{DoxyCompactList}\small\item\em Пустой массив текстур сигналов для одного типа сигнала одного направления \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacertm_a83e72513cb0cd2f63cff211387bdbb31}\label{namespacertm_a83e72513cb0cd2f63cff211387bdbb31}} 
+\hyperlink{namespacertm_a260109b3376dc38095724ee80ed72d8e}{Signals\+Sprites} const \hyperlink{namespacertm_a83e72513cb0cd2f63cff211387bdbb31}{D\+E\+F\+A\+U\+L\+T\+\_\+\+S\+I\+G\+N\+A\+L\+S\+\_\+\+S\+P\+R\+I\+T\+ES} = \{ \hyperlink{namespacertm_a47d97d0bbd767b6cb6b30b221f8d8a51}{D\+E\+F\+A\+U\+L\+T\+\_\+\+S\+I\+G\+N\+A\+L\+\_\+\+S\+P\+R\+I\+T\+ES}, \hyperlink{namespacertm_a47d97d0bbd767b6cb6b30b221f8d8a51}{D\+E\+F\+A\+U\+L\+T\+\_\+\+S\+I\+G\+N\+A\+L\+\_\+\+S\+P\+R\+I\+T\+ES}, \hyperlink{namespacertm_a47d97d0bbd767b6cb6b30b221f8d8a51}{D\+E\+F\+A\+U\+L\+T\+\_\+\+S\+I\+G\+N\+A\+L\+\_\+\+S\+P\+R\+I\+T\+ES} \}
+\begin{DoxyCompactList}\small\item\em Пустой массив текстур сигналов для одного направления \end{DoxyCompactList}\item 
+\hyperlink{namespacertm_ac9f276c8ed33ee992eb1a1f04a8254a0}{Directions\+Signal\+Sprites} const \hyperlink{namespacertm_a88c10d12831a4c6e13e0babdf7c27b02}{D\+E\+F\+A\+U\+L\+T\+\_\+\+D\+I\+R\+E\+C\+T\+I\+O\+N\+S\+\_\+\+S\+I\+G\+N\+A\+L\+\_\+\+S\+P\+R\+I\+T\+ES}
+\begin{DoxyCompactList}\small\item\em Пустой массив текстур сигналов для всего перекрестка \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Маски названий файлов}\par
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespacertm_a100c48b48ca5735bfdf3d809fa5dae58}\label{namespacertm_a100c48b48ca5735bfdf3d809fa5dae58}} 
+std\+::string const \hyperlink{namespacertm_a100c48b48ca5735bfdf3d809fa5dae58}{B\+A\+C\+K\+G\+R\+O\+U\+N\+D\+\_\+\+F\+I\+L\+E\+N\+A\+M\+E\+\_\+\+M\+A\+SK} \{ \char`\"{}res/background/Background\+No\%No\%.png\char`\"{} \}
+\begin{DoxyCompactList}\small\item\em Маска файлов фонов \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacertm_ae29fce52eae57c27a760b021b774ca4e}\label{namespacertm_ae29fce52eae57c27a760b021b774ca4e}} 
+std\+::string const \hyperlink{namespacertm_ae29fce52eae57c27a760b021b774ca4e}{M\+A\+P\+\_\+\+F\+I\+L\+E\+N\+A\+M\+E\+\_\+\+M\+A\+SK} \{ \char`\"{}res/map/Map\+No\%No\%.rtmm\char`\"{} \}
+\begin{DoxyCompactList}\small\item\em Маска файлов карт \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacertm_acd3fb4c773d00c98945d16d14a03f380}\label{namespacertm_acd3fb4c773d00c98945d16d14a03f380}} 
+std\+::string const \hyperlink{namespacertm_acd3fb4c773d00c98945d16d14a03f380}{R\+O\+A\+D\+\_\+\+F\+I\+L\+E\+N\+A\+M\+E\+\_\+\+M\+A\+SK} \{ \char`\"{}res/coating/Road\+No\%No\%.png\char`\"{} \}
+\begin{DoxyCompactList}\small\item\em Маска файлов текстур дорог \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacertm_aa9d61ca4243a3f2479f27c61535fcc9d}\label{namespacertm_aa9d61ca4243a3f2479f27c61535fcc9d}} 
+std\+::string const \hyperlink{namespacertm_aa9d61ca4243a3f2479f27c61535fcc9d}{S\+I\+G\+N\+A\+L\+\_\+\+F\+I\+L\+E\+N\+A\+M\+E\+\_\+\+M\+A\+SK} \{ \char`\"{}res/signal/Signal\+No\%No\%.png\char`\"{} \}
+\begin{DoxyCompactList}\small\item\em Маска файлов текстур сигналов \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacertm_a7a49fe0b8d4f52458bfc22145e46faf5}\label{namespacertm_a7a49fe0b8d4f52458bfc22145e46faf5}} 
+std\+::string const \hyperlink{namespacertm_a7a49fe0b8d4f52458bfc22145e46faf5}{B\+U\+I\+L\+D\+I\+N\+G\+\_\+\+F\+I\+L\+E\+N\+A\+M\+E\+\_\+\+M\+A\+SK} \{ \char`\"{}res/static/Building\+No\%No\%.png\char`\"{} \}
+\begin{DoxyCompactList}\small\item\em Маска файлов текстур зданий \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacertm_a72fea838addb841a6ea0173857a8eff1}\label{namespacertm_a72fea838addb841a6ea0173857a8eff1}} 
+std\+::string const \hyperlink{namespacertm_a72fea838addb841a6ea0173857a8eff1}{C\+A\+R\+\_\+\+F\+I\+L\+E\+N\+A\+M\+E\+\_\+\+M\+A\+SK} \{ \char`\"{}res/vehicle/Car\+No\%No\%.png\char`\"{} \}
+\begin{DoxyCompactList}\small\item\em Маска файлов текстур машин \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Параметры дорог}\par
+\begin{DoxyCompactItemize}
+\item 
+std\+::array$<$ float, 2 $>$ const \hyperlink{namespacertm_a9f4d245ca5d201a5853914c175d0d17f}{R\+O\+A\+D\+S\+\_\+\+R\+E\+S\+I\+S\+T\+A\+N\+C\+ES}
+\item 
+std\+::array$<$ \hyperlink{namespacertm_a4776fbfe59834ff1a16838ad6735b69a}{Directions}, 19 $>$ const \hyperlink{namespacertm_a7416fccc43126173ec6456c78f5474f9}{R\+O\+A\+D\+S\+\_\+\+D\+I\+R\+E\+C\+T\+I\+O\+NS}
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Параметры машин}\par
+\begin{DoxyCompactItemize}
+\item 
+std\+::array$<$ float, 6 $>$ const \hyperlink{namespacertm_ab4d4feaa707f2d1eba41feae3b46451f}{C\+A\+R\+S\+\_\+\+M\+A\+X\+\_\+\+S\+P\+E\+E\+DS}
+\item 
+std\+::array$<$ float, 6 $>$ const \hyperlink{namespacertm_acac83b872b644793530e7f6f4660c85e}{C\+A\+R\+S\+\_\+\+A\+C\+C\+E\+L\+E\+R\+A\+T\+I\+O\+NS}
+\end{DoxyCompactItemize}
+\end{Indent}
+
+
+\subsection{Подробное описание}
+Пространство имен для проекта R\+TM. 
+
+\subsection{Типы}
+\mbox{\Hypertarget{namespacertm_a4776fbfe59834ff1a16838ad6735b69a}\label{namespacertm_a4776fbfe59834ff1a16838ad6735b69a}} 
+\index{rtm@{rtm}!Directions@{Directions}}
+\index{Directions@{Directions}!rtm@{rtm}}
+\subsubsection{\texorpdfstring{Directions}{Directions}}
+{\footnotesize\ttfamily using \hyperlink{namespacertm_a4776fbfe59834ff1a16838ad6735b69a}{rtm\+::\+Directions} = typedef std\+::array$<$bool, 8$>$}
+
+Массив возможных направлений движений по кусочку объекта \begin{DoxySeeAlso}{См. также}
+\hyperlink{namespacertm_a69dc82b16a0148c10962caa83d930f89}{Angle\+Type} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{namespacertm_a14457f3088a92b86a96686b72d3e4eea}\label{namespacertm_a14457f3088a92b86a96686b72d3e4eea}} 
+\index{rtm@{rtm}!Lines\+Counts@{Lines\+Counts}}
+\index{Lines\+Counts@{Lines\+Counts}!rtm@{rtm}}
+\subsubsection{\texorpdfstring{Lines\+Counts}{LinesCounts}}
+{\footnotesize\ttfamily using \hyperlink{namespacertm_a14457f3088a92b86a96686b72d3e4eea}{rtm\+::\+Lines\+Counts} = typedef std\+::array$<$size\+\_\+t, 4$>$}
+
+Массив количества полос в каждом напрвлении для перекрестков \begin{DoxySeeAlso}{См. также}
+\hyperlink{namespacertm_a57b216f3aeb45041f3461bab08bc3aeb}{Direction\+Type} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{namespacertm_a681634e130c2137fe63a658b0e0a5e46}\label{namespacertm_a681634e130c2137fe63a658b0e0a5e46}} 
+\index{rtm@{rtm}!Direction\+Signals@{Direction\+Signals}}
+\index{Direction\+Signals@{Direction\+Signals}!rtm@{rtm}}
+\subsubsection{\texorpdfstring{Direction\+Signals}{DirectionSignals}}
+{\footnotesize\ttfamily using \hyperlink{namespacertm_a681634e130c2137fe63a658b0e0a5e46}{rtm\+::\+Direction\+Signals} = typedef std\+::array$<$\hyperlink{namespacertm_aadb7300c15d57429546fb0b7f8ee0ee6}{Signal\+Type}, 4$>$}
+
+Массив сигналов из одного напрвлениия в каждое \begin{DoxySeeAlso}{См. также}
+\hyperlink{namespacertm_a57b216f3aeb45041f3461bab08bc3aeb}{Direction\+Type} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{namespacertm_afa6df86cef8e2ebcc053ad994e440354}\label{namespacertm_afa6df86cef8e2ebcc053ad994e440354}} 
+\index{rtm@{rtm}!Crossroad\+Signals@{Crossroad\+Signals}}
+\index{Crossroad\+Signals@{Crossroad\+Signals}!rtm@{rtm}}
+\subsubsection{\texorpdfstring{Crossroad\+Signals}{CrossroadSignals}}
+{\footnotesize\ttfamily using \hyperlink{namespacertm_afa6df86cef8e2ebcc053ad994e440354}{rtm\+::\+Crossroad\+Signals} = typedef std\+::array$<$\hyperlink{namespacertm_a681634e130c2137fe63a658b0e0a5e46}{Direction\+Signals}, 4$>$}
+
+Массив сигналов для всех напрвлений перекрестка \begin{DoxySeeAlso}{См. также}
+\hyperlink{namespacertm_a57b216f3aeb45041f3461bab08bc3aeb}{Direction\+Type} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{namespacertm_ab6c6acbd1378bfe5755d77179a7131ff}\label{namespacertm_ab6c6acbd1378bfe5755d77179a7131ff}} 
+\index{rtm@{rtm}!Signal\+Sprites@{Signal\+Sprites}}
+\index{Signal\+Sprites@{Signal\+Sprites}!rtm@{rtm}}
+\subsubsection{\texorpdfstring{Signal\+Sprites}{SignalSprites}}
+{\footnotesize\ttfamily using \hyperlink{namespacertm_ab6c6acbd1378bfe5755d77179a7131ff}{rtm\+::\+Signal\+Sprites} = typedef std\+::array$<$cocos2d\+::\+Sprite$\ast$, 5$>$}
+
+Массив всех текстур сигналов из одного направления в одно \begin{DoxySeeAlso}{См. также}
+\hyperlink{namespacertm_aadb7300c15d57429546fb0b7f8ee0ee6}{Signal\+Type} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{namespacertm_a260109b3376dc38095724ee80ed72d8e}\label{namespacertm_a260109b3376dc38095724ee80ed72d8e}} 
+\index{rtm@{rtm}!Signals\+Sprites@{Signals\+Sprites}}
+\index{Signals\+Sprites@{Signals\+Sprites}!rtm@{rtm}}
+\subsubsection{\texorpdfstring{Signals\+Sprites}{SignalsSprites}}
+{\footnotesize\ttfamily using \hyperlink{namespacertm_a260109b3376dc38095724ee80ed72d8e}{rtm\+::\+Signals\+Sprites} = typedef std\+::array$<$\hyperlink{namespacertm_ab6c6acbd1378bfe5755d77179a7131ff}{Signal\+Sprites}, 3$>$}
+
+Массив всех текстур сигналов из одного направления в каждое (вперед, влево, вправо) \begin{DoxySeeAlso}{См. также}
+\hyperlink{namespacertm_a27eb93235356cdffe25fe6628e7eff14}{Direction\+Signal\+Index} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{namespacertm_ac9f276c8ed33ee992eb1a1f04a8254a0}\label{namespacertm_ac9f276c8ed33ee992eb1a1f04a8254a0}} 
+\index{rtm@{rtm}!Directions\+Signal\+Sprites@{Directions\+Signal\+Sprites}}
+\index{Directions\+Signal\+Sprites@{Directions\+Signal\+Sprites}!rtm@{rtm}}
+\subsubsection{\texorpdfstring{Directions\+Signal\+Sprites}{DirectionsSignalSprites}}
+{\footnotesize\ttfamily using \hyperlink{namespacertm_ac9f276c8ed33ee992eb1a1f04a8254a0}{rtm\+::\+Directions\+Signal\+Sprites} = typedef std\+::array$<$\hyperlink{namespacertm_a260109b3376dc38095724ee80ed72d8e}{Signals\+Sprites}, 4$>$}
+
+Массив всех текстур сигналов для перекрестка \begin{DoxySeeAlso}{См. также}
+\hyperlink{namespacertm_a57b216f3aeb45041f3461bab08bc3aeb}{Direction\+Type} 
+\end{DoxySeeAlso}
+
+
+\subsection{Перечисления}
+\mbox{\Hypertarget{namespacertm_a69dc82b16a0148c10962caa83d930f89}\label{namespacertm_a69dc82b16a0148c10962caa83d930f89}} 
+\index{rtm@{rtm}!Angle\+Type@{Angle\+Type}}
+\index{Angle\+Type@{Angle\+Type}!rtm@{rtm}}
+\subsubsection{\texorpdfstring{Angle\+Type}{AngleType}}
+{\footnotesize\ttfamily enum \hyperlink{namespacertm_a69dc82b16a0148c10962caa83d930f89}{rtm\+::\+Angle\+Type}}
+
+
+
+Тип для определения положения некоторых объектов и индикации разрешенных направлений на кусочке объекта 
+
+\begin{DoxyEnumFields}{Элементы перечислений}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Null\+Angle@{Null\+Angle}!rtm@{rtm}}\index{rtm@{rtm}!Null\+Angle@{Null\+Angle}}}\mbox{\Hypertarget{namespacertm_a69dc82b16a0148c10962caa83d930f89a4c9d89d07c6a731bb94e24961d96dc8a}\label{namespacertm_a69dc82b16a0148c10962caa83d930f89a4c9d89d07c6a731bb94e24961d96dc8a}} 
+Null\+Angle&Неинициализированный угол \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Up@{Up}!rtm@{rtm}}\index{rtm@{rtm}!Up@{Up}}}\mbox{\Hypertarget{namespacertm_a69dc82b16a0148c10962caa83d930f89a71f9d728ef9acc426b82f976369b54ef}\label{namespacertm_a69dc82b16a0148c10962caa83d930f89a71f9d728ef9acc426b82f976369b54ef}} 
+Up&Вверх \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Right@{Right}!rtm@{rtm}}\index{rtm@{rtm}!Right@{Right}}}\mbox{\Hypertarget{namespacertm_a69dc82b16a0148c10962caa83d930f89ac8d48eaf247eaed3ab5acb14be273d8b}\label{namespacertm_a69dc82b16a0148c10962caa83d930f89ac8d48eaf247eaed3ab5acb14be273d8b}} 
+Right&Вправо \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Down@{Down}!rtm@{rtm}}\index{rtm@{rtm}!Down@{Down}}}\mbox{\Hypertarget{namespacertm_a69dc82b16a0148c10962caa83d930f89aa28006ebfdd318c956a42e94ac44864c}\label{namespacertm_a69dc82b16a0148c10962caa83d930f89aa28006ebfdd318c956a42e94ac44864c}} 
+Down&Вниз \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Left@{Left}!rtm@{rtm}}\index{rtm@{rtm}!Left@{Left}}}\mbox{\Hypertarget{namespacertm_a69dc82b16a0148c10962caa83d930f89a1ad0ee38324cf04e20cfbb075c40ab7c}\label{namespacertm_a69dc82b16a0148c10962caa83d930f89a1ad0ee38324cf04e20cfbb075c40ab7c}} 
+Left&Влево \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Up\+Right@{Up\+Right}!rtm@{rtm}}\index{rtm@{rtm}!Up\+Right@{Up\+Right}}}\mbox{\Hypertarget{namespacertm_a69dc82b16a0148c10962caa83d930f89a6f7178e79932d2d3ec9c804a91dc7df9}\label{namespacertm_a69dc82b16a0148c10962caa83d930f89a6f7178e79932d2d3ec9c804a91dc7df9}} 
+Up\+Right&По диагонали вверх вправо \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Down\+Right@{Down\+Right}!rtm@{rtm}}\index{rtm@{rtm}!Down\+Right@{Down\+Right}}}\mbox{\Hypertarget{namespacertm_a69dc82b16a0148c10962caa83d930f89a847a323475036ccc5a6b1f6d22efe258}\label{namespacertm_a69dc82b16a0148c10962caa83d930f89a847a323475036ccc5a6b1f6d22efe258}} 
+Down\+Right&По диагонали вниз влево \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Down\+Left@{Down\+Left}!rtm@{rtm}}\index{rtm@{rtm}!Down\+Left@{Down\+Left}}}\mbox{\Hypertarget{namespacertm_a69dc82b16a0148c10962caa83d930f89ae2a6b2c371919b52750ac2f860bd193c}\label{namespacertm_a69dc82b16a0148c10962caa83d930f89ae2a6b2c371919b52750ac2f860bd193c}} 
+Down\+Left&По диагонали вниз влево \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Up\+Left@{Up\+Left}!rtm@{rtm}}\index{rtm@{rtm}!Up\+Left@{Up\+Left}}}\mbox{\Hypertarget{namespacertm_a69dc82b16a0148c10962caa83d930f89a77042a35db6a2e7c4d19c77ad81e77c3}\label{namespacertm_a69dc82b16a0148c10962caa83d930f89a77042a35db6a2e7c4d19c77ad81e77c3}} 
+Up\+Left&По диагонали вверх вправо \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{namespacertm_a57b216f3aeb45041f3461bab08bc3aeb}\label{namespacertm_a57b216f3aeb45041f3461bab08bc3aeb}} 
+\index{rtm@{rtm}!Direction\+Type@{Direction\+Type}}
+\index{Direction\+Type@{Direction\+Type}!rtm@{rtm}}
+\subsubsection{\texorpdfstring{Direction\+Type}{DirectionType}}
+{\footnotesize\ttfamily enum \hyperlink{namespacertm_a57b216f3aeb45041f3461bab08bc3aeb}{rtm\+::\+Direction\+Type}}
+
+
+
+Тип для задания направления движения транспорта 
+
+\begin{DoxyEnumFields}{Элементы перечислений}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Null\+Direction@{Null\+Direction}!rtm@{rtm}}\index{rtm@{rtm}!Null\+Direction@{Null\+Direction}}}\mbox{\Hypertarget{namespacertm_a57b216f3aeb45041f3461bab08bc3aeba11d25fe9dbdfb448f588c5e547ca0e60}\label{namespacertm_a57b216f3aeb45041f3461bab08bc3aeba11d25fe9dbdfb448f588c5e547ca0e60}} 
+Null\+Direction&Неинициализированное напрвление \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Upward@{Upward}!rtm@{rtm}}\index{rtm@{rtm}!Upward@{Upward}}}\mbox{\Hypertarget{namespacertm_a57b216f3aeb45041f3461bab08bc3aebae8620d33b874d653370594b4593deebe}\label{namespacertm_a57b216f3aeb45041f3461bab08bc3aebae8620d33b874d653370594b4593deebe}} 
+Upward&Направление вверх \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Rightward@{Rightward}!rtm@{rtm}}\index{rtm@{rtm}!Rightward@{Rightward}}}\mbox{\Hypertarget{namespacertm_a57b216f3aeb45041f3461bab08bc3aebab05476a78be2c098fee8bd6defea9a58}\label{namespacertm_a57b216f3aeb45041f3461bab08bc3aebab05476a78be2c098fee8bd6defea9a58}} 
+Rightward&Направление вправо \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Downward@{Downward}!rtm@{rtm}}\index{rtm@{rtm}!Downward@{Downward}}}\mbox{\Hypertarget{namespacertm_a57b216f3aeb45041f3461bab08bc3aeba6a4113106dcde01bab3ba06b5dce2dcd}\label{namespacertm_a57b216f3aeb45041f3461bab08bc3aeba6a4113106dcde01bab3ba06b5dce2dcd}} 
+Downward&Направление вниз \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Leftward@{Leftward}!rtm@{rtm}}\index{rtm@{rtm}!Leftward@{Leftward}}}\mbox{\Hypertarget{namespacertm_a57b216f3aeb45041f3461bab08bc3aeba5d89155822daa42b76f9c06b1b9c94bb}\label{namespacertm_a57b216f3aeb45041f3461bab08bc3aeba5d89155822daa42b76f9c06b1b9c94bb}} 
+Leftward&Направление влево \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{namespacertm_a6a0d424be5696f64038e5e84a79cabfa}\label{namespacertm_a6a0d424be5696f64038e5e84a79cabfa}} 
+\index{rtm@{rtm}!Coating\+Union\+Type@{Coating\+Union\+Type}}
+\index{Coating\+Union\+Type@{Coating\+Union\+Type}!rtm@{rtm}}
+\subsubsection{\texorpdfstring{Coating\+Union\+Type}{CoatingUnionType}}
+{\footnotesize\ttfamily enum \hyperlink{namespacertm_a6a0d424be5696f64038e5e84a79cabfa}{rtm\+::\+Coating\+Union\+Type}}
+
+
+
+Возможные типы дорожных объединений 
+
+\begin{DoxyEnumFields}{Элементы перечислений}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{No\+Coating\+Union@{No\+Coating\+Union}!rtm@{rtm}}\index{rtm@{rtm}!No\+Coating\+Union@{No\+Coating\+Union}}}\mbox{\Hypertarget{namespacertm_a6a0d424be5696f64038e5e84a79cabfaaeeceb6bb067031e5bab66a4986f0da85}\label{namespacertm_a6a0d424be5696f64038e5e84a79cabfaaeeceb6bb067031e5bab66a4986f0da85}} 
+No\+Coating\+Union&Неинициализированный тип \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Driveway\+Type@{Driveway\+Type}!rtm@{rtm}}\index{rtm@{rtm}!Driveway\+Type@{Driveway\+Type}}}\mbox{\Hypertarget{namespacertm_a6a0d424be5696f64038e5e84a79cabfaad3e63e8edfb44bd035c45f2cbac5e2ea}\label{namespacertm_a6a0d424be5696f64038e5e84a79cabfaad3e63e8edfb44bd035c45f2cbac5e2ea}} 
+Driveway\+Type&Прямая дорога \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Crossroad\+Type@{Crossroad\+Type}!rtm@{rtm}}\index{rtm@{rtm}!Crossroad\+Type@{Crossroad\+Type}}}\mbox{\Hypertarget{namespacertm_a6a0d424be5696f64038e5e84a79cabfaa99f4b4957261e8e0028087e1faf73e66}\label{namespacertm_a6a0d424be5696f64038e5e84a79cabfaa99f4b4957261e8e0028087e1faf73e66}} 
+Crossroad\+Type&Обычный перекресток \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{T\+Crossroad\+Type@{T\+Crossroad\+Type}!rtm@{rtm}}\index{rtm@{rtm}!T\+Crossroad\+Type@{T\+Crossroad\+Type}}}\mbox{\Hypertarget{namespacertm_a6a0d424be5696f64038e5e84a79cabfaaf6ed2ba75cfa7bd2651f31a64fd0e116}\label{namespacertm_a6a0d424be5696f64038e5e84a79cabfaaf6ed2ba75cfa7bd2651f31a64fd0e116}} 
+T\+Crossroad\+Type&Т-\/образный перекресток \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Turn\+Type@{Turn\+Type}!rtm@{rtm}}\index{rtm@{rtm}!Turn\+Type@{Turn\+Type}}}\mbox{\Hypertarget{namespacertm_a6a0d424be5696f64038e5e84a79cabfaabe29616db907d70cdb28bf760a6558e4}\label{namespacertm_a6a0d424be5696f64038e5e84a79cabfaabe29616db907d70cdb28bf760a6558e4}} 
+Turn\+Type&Поворот \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{namespacertm_a27eb93235356cdffe25fe6628e7eff14}\label{namespacertm_a27eb93235356cdffe25fe6628e7eff14}} 
+\index{rtm@{rtm}!Direction\+Signal\+Index@{Direction\+Signal\+Index}}
+\index{Direction\+Signal\+Index@{Direction\+Signal\+Index}!rtm@{rtm}}
+\subsubsection{\texorpdfstring{Direction\+Signal\+Index}{DirectionSignalIndex}}
+{\footnotesize\ttfamily enum \hyperlink{namespacertm_a27eb93235356cdffe25fe6628e7eff14}{rtm\+::\+Direction\+Signal\+Index}}
+
+
+
+Индексы массива для каждого типа сигнала 
+
+\begin{DoxyEnumFields}{Элементы перечислений}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Forward\+Signal\+Index@{Forward\+Signal\+Index}!rtm@{rtm}}\index{rtm@{rtm}!Forward\+Signal\+Index@{Forward\+Signal\+Index}}}\mbox{\Hypertarget{namespacertm_a27eb93235356cdffe25fe6628e7eff14afd494a11c605354fdc2fef743b7c2352}\label{namespacertm_a27eb93235356cdffe25fe6628e7eff14afd494a11c605354fdc2fef743b7c2352}} 
+Forward\+Signal\+Index&Сигнал в прямом напрвлении \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Leftward\+Signal\+Index@{Leftward\+Signal\+Index}!rtm@{rtm}}\index{rtm@{rtm}!Leftward\+Signal\+Index@{Leftward\+Signal\+Index}}}\mbox{\Hypertarget{namespacertm_a27eb93235356cdffe25fe6628e7eff14af0f9c75631e89e62c264c751a4fa903a}\label{namespacertm_a27eb93235356cdffe25fe6628e7eff14af0f9c75631e89e62c264c751a4fa903a}} 
+Leftward\+Signal\+Index&Сигнал в при повороте налево \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Rightward\+Signal\+Index@{Rightward\+Signal\+Index}!rtm@{rtm}}\index{rtm@{rtm}!Rightward\+Signal\+Index@{Rightward\+Signal\+Index}}}\mbox{\Hypertarget{namespacertm_a27eb93235356cdffe25fe6628e7eff14ae8899ee31b187a850f80275563429876}\label{namespacertm_a27eb93235356cdffe25fe6628e7eff14ae8899ee31b187a850f80275563429876}} 
+Rightward\+Signal\+Index&Сигнал в при повороте направо \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{namespacertm_aadb7300c15d57429546fb0b7f8ee0ee6}\label{namespacertm_aadb7300c15d57429546fb0b7f8ee0ee6}} 
+\index{rtm@{rtm}!Signal\+Type@{Signal\+Type}}
+\index{Signal\+Type@{Signal\+Type}!rtm@{rtm}}
+\subsubsection{\texorpdfstring{Signal\+Type}{SignalType}}
+{\footnotesize\ttfamily enum \hyperlink{namespacertm_aadb7300c15d57429546fb0b7f8ee0ee6}{rtm\+::\+Signal\+Type}}
+
+
+
+Возможные сигналы светофора 
+
+\begin{DoxyEnumFields}{Элементы перечислений}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Not\+Working@{Not\+Working}!rtm@{rtm}}\index{rtm@{rtm}!Not\+Working@{Not\+Working}}}\mbox{\Hypertarget{namespacertm_aadb7300c15d57429546fb0b7f8ee0ee6ad63ea1c40cb745fd50a2efad23ccbd1f}\label{namespacertm_aadb7300c15d57429546fb0b7f8ee0ee6ad63ea1c40cb745fd50a2efad23ccbd1f}} 
+Not\+Working&Светофор не работает (равносильно его отсутствию) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Allowed@{Allowed}!rtm@{rtm}}\index{rtm@{rtm}!Allowed@{Allowed}}}\mbox{\Hypertarget{namespacertm_aadb7300c15d57429546fb0b7f8ee0ee6abdebd193c23b52b2c94bd861a5cc9605}\label{namespacertm_aadb7300c15d57429546fb0b7f8ee0ee6abdebd193c23b52b2c94bd861a5cc9605}} 
+Allowed&Зеленый сигнал \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Warning@{Warning}!rtm@{rtm}}\index{rtm@{rtm}!Warning@{Warning}}}\mbox{\Hypertarget{namespacertm_aadb7300c15d57429546fb0b7f8ee0ee6a40122a9b70f06e7103f3136579e15bc1}\label{namespacertm_aadb7300c15d57429546fb0b7f8ee0ee6a40122a9b70f06e7103f3136579e15bc1}} 
+Warning&Желтый сигнал \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Forbidden@{Forbidden}!rtm@{rtm}}\index{rtm@{rtm}!Forbidden@{Forbidden}}}\mbox{\Hypertarget{namespacertm_aadb7300c15d57429546fb0b7f8ee0ee6a4dd5b3645f4a834fdd79e4c22cbc31ae}\label{namespacertm_aadb7300c15d57429546fb0b7f8ee0ee6a4dd5b3645f4a834fdd79e4c22cbc31ae}} 
+Forbidden&Красный сигнал \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Closed@{Closed}!rtm@{rtm}}\index{rtm@{rtm}!Closed@{Closed}}}\mbox{\Hypertarget{namespacertm_aadb7300c15d57429546fb0b7f8ee0ee6a861510405768a65d00e9956410b8947b}\label{namespacertm_aadb7300c15d57429546fb0b7f8ee0ee6a861510405768a65d00e9956410b8947b}} 
+Closed&В данном напрвлении движение запрещено \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{namespacertm_a11aeba1786456e9bc054ffe33b454181}\label{namespacertm_a11aeba1786456e9bc054ffe33b454181}} 
+\index{rtm@{rtm}!State\+Type@{State\+Type}}
+\index{State\+Type@{State\+Type}!rtm@{rtm}}
+\subsubsection{\texorpdfstring{State\+Type}{StateType}}
+{\footnotesize\ttfamily enum \hyperlink{namespacertm_a11aeba1786456e9bc054ffe33b454181}{rtm\+::\+State\+Type}}
+
+
+
+Возможные состояния для манёвров (движение, поворот, перестроение) 
+
+\begin{DoxyEnumFields}{Элементы перечислений}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Not\+Started@{Not\+Started}!rtm@{rtm}}\index{rtm@{rtm}!Not\+Started@{Not\+Started}}}\mbox{\Hypertarget{namespacertm_a11aeba1786456e9bc054ffe33b454181afd51c4cf7056147b72f22239887e6253}\label{namespacertm_a11aeba1786456e9bc054ffe33b454181afd51c4cf7056147b72f22239887e6253}} 
+Not\+Started&Не начато (не выполняется) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Must\+Start@{Must\+Start}!rtm@{rtm}}\index{rtm@{rtm}!Must\+Start@{Must\+Start}}}\mbox{\Hypertarget{namespacertm_a11aeba1786456e9bc054ffe33b454181a96c2699f68e9fb747659d1c92e3e7e80}\label{namespacertm_a11aeba1786456e9bc054ffe33b454181a96c2699f68e9fb747659d1c92e3e7e80}} 
+Must\+Start&Необходимо начать \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Started@{Started}!rtm@{rtm}}\index{rtm@{rtm}!Started@{Started}}}\mbox{\Hypertarget{namespacertm_a11aeba1786456e9bc054ffe33b454181a4ee7fb1538d76d158c3b83cc86ac1823}\label{namespacertm_a11aeba1786456e9bc054ffe33b454181a4ee7fb1538d76d158c3b83cc86ac1823}} 
+Started&Начато \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Must\+Stop@{Must\+Stop}!rtm@{rtm}}\index{rtm@{rtm}!Must\+Stop@{Must\+Stop}}}\mbox{\Hypertarget{namespacertm_a11aeba1786456e9bc054ffe33b454181af4b639b3d1f090ab120a66404d7874fc}\label{namespacertm_a11aeba1786456e9bc054ffe33b454181af4b639b3d1f090ab120a66404d7874fc}} 
+Must\+Stop&Необходимо закончить \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{namespacertm_aecd3929e64cd461eb3555b611f6fad95}\label{namespacertm_aecd3929e64cd461eb3555b611f6fad95}} 
+\index{rtm@{rtm}!Coating\+Type@{Coating\+Type}}
+\index{Coating\+Type@{Coating\+Type}!rtm@{rtm}}
+\subsubsection{\texorpdfstring{Coating\+Type}{CoatingType}}
+{\footnotesize\ttfamily enum \hyperlink{namespacertm_aecd3929e64cd461eb3555b611f6fad95}{rtm\+::\+Coating\+Type}}
+
+
+
+Индексы, начиная с которых начинаются текстуры покрытий определенного типа 
+
+\begin{DoxyEnumFields}{Элементы перечислений}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Asphalt\+Coating@{Asphalt\+Coating}!rtm@{rtm}}\index{rtm@{rtm}!Asphalt\+Coating@{Asphalt\+Coating}}}\mbox{\Hypertarget{namespacertm_aecd3929e64cd461eb3555b611f6fad95a1f8f9e610f75384989d155de714ce952}\label{namespacertm_aecd3929e64cd461eb3555b611f6fad95a1f8f9e610f75384989d155de714ce952}} 
+Asphalt\+Coating&Асфальтовое объект \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{namespacertm_a4d86818f874975d3dc9f0f10feefc9c1}\label{namespacertm_a4d86818f874975d3dc9f0f10feefc9c1}} 
+\index{rtm@{rtm}!Signal\+File\+Id@{Signal\+File\+Id}}
+\index{Signal\+File\+Id@{Signal\+File\+Id}!rtm@{rtm}}
+\subsubsection{\texorpdfstring{Signal\+File\+Id}{SignalFileId}}
+{\footnotesize\ttfamily enum \hyperlink{namespacertm_a4d86818f874975d3dc9f0f10feefc9c1}{rtm\+::\+Signal\+File\+Id}}
+
+
+
+Индексы, начиная с которых начинаются текстуры сигналоа определенного типа 
+
+\begin{DoxyEnumFields}{Элементы перечислений}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Forward\+Signal\+Id@{Forward\+Signal\+Id}!rtm@{rtm}}\index{rtm@{rtm}!Forward\+Signal\+Id@{Forward\+Signal\+Id}}}\mbox{\Hypertarget{namespacertm_a4d86818f874975d3dc9f0f10feefc9c1a76558b4ee249fc454bbdb1d64d2fe0e9}\label{namespacertm_a4d86818f874975d3dc9f0f10feefc9c1a76558b4ee249fc454bbdb1d64d2fe0e9}} 
+Forward\+Signal\+Id&Индекс сигнала для движения вперед \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Leftward\+Signal\+Id@{Leftward\+Signal\+Id}!rtm@{rtm}}\index{rtm@{rtm}!Leftward\+Signal\+Id@{Leftward\+Signal\+Id}}}\mbox{\Hypertarget{namespacertm_a4d86818f874975d3dc9f0f10feefc9c1aeff2fccef911bffb13ae08bc9f2dd926}\label{namespacertm_a4d86818f874975d3dc9f0f10feefc9c1aeff2fccef911bffb13ae08bc9f2dd926}} 
+Leftward\+Signal\+Id&Индекс сигнал для поворота налево \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Rightward\+Signal\+Id@{Rightward\+Signal\+Id}!rtm@{rtm}}\index{rtm@{rtm}!Rightward\+Signal\+Id@{Rightward\+Signal\+Id}}}\mbox{\Hypertarget{namespacertm_a4d86818f874975d3dc9f0f10feefc9c1a9cbadfb5a62cec9d481f6525a51e5712}\label{namespacertm_a4d86818f874975d3dc9f0f10feefc9c1a9cbadfb5a62cec9d481f6525a51e5712}} 
+Rightward\+Signal\+Id&Индекс сигнал для поворота направо \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\subsection{Функции}
+\mbox{\Hypertarget{namespacertm_a1fe2c356e3297343804842a57ce23a4b}\label{namespacertm_a1fe2c356e3297343804842a57ce23a4b}} 
+\index{rtm@{rtm}!Check\+Collisions@{Check\+Collisions}}
+\index{Check\+Collisions@{Check\+Collisions}!rtm@{rtm}}
+\subsubsection{\texorpdfstring{Check\+Collisions()}{CheckCollisions()}}
+{\footnotesize\ttfamily void rtm\+::\+Check\+Collisions (\begin{DoxyParamCaption}\item[{\hyperlink{classrtm_1_1_world_controller}{World\+Controller} $\ast$const}]{world }\end{DoxyParamCaption})}
+
+Функция для вычисления столкновений в мире 
+\begin{DoxyParams}{Аргументы}
+{\em world} & контроллер мира, в котором будут происходить вычисления \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{namespacertm_aa633b82b63b7cff4e9b08bf6a05ec383}\label{namespacertm_aa633b82b63b7cff4e9b08bf6a05ec383}} 
+\index{rtm@{rtm}!Same\+Coordinates@{Same\+Coordinates}}
+\index{Same\+Coordinates@{Same\+Coordinates}!rtm@{rtm}}
+\subsubsection{\texorpdfstring{Same\+Coordinates()}{SameCoordinates()}}
+{\footnotesize\ttfamily bool rtm\+::\+Same\+Coordinates (\begin{DoxyParamCaption}\item[{float}]{a,  }\item[{float}]{b,  }\item[{float}]{delta = {\ttfamily \hyperlink{namespacertm_a9ae158a8873bdf59aa9872cdada6c657}{C\+O\+O\+R\+D\+\_\+\+D\+E\+L\+TA}} }\end{DoxyParamCaption})}
+
+Функция для сравнения двух координат с определенной точностью 
+\begin{DoxyParams}{Аргументы}
+{\em a,b} & координаты, которые будут сравниваться \\
+\hline
+{\em delta} & максимальная разность между координатами \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+результат сравнения 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespacertm_a511bf31b8bfc36474baaf915bc11a619}\label{namespacertm_a511bf31b8bfc36474baaf915bc11a619}} 
+\index{rtm@{rtm}!Round\+Coordinate@{Round\+Coordinate}}
+\index{Round\+Coordinate@{Round\+Coordinate}!rtm@{rtm}}
+\subsubsection{\texorpdfstring{Round\+Coordinate()}{RoundCoordinate()}}
+{\footnotesize\ttfamily float rtm\+::\+Round\+Coordinate (\begin{DoxyParamCaption}\item[{float}]{coordinate,  }\item[{float}]{delta = {\ttfamily \hyperlink{namespacertm_a9ae158a8873bdf59aa9872cdada6c657}{C\+O\+O\+R\+D\+\_\+\+D\+E\+L\+TA}} }\end{DoxyParamCaption})}
+
+Функция пытается округлить координаты до центра клетки 
+\begin{DoxyParams}{Аргументы}
+{\em coordinate} & координата, которую будем пытаться округлить \\
+\hline
+{\em delta} & максимальное расстояние до центра клетки \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+если координата достаточно близка к центру, то координаты центра, иначе саму координату 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespacertm_aa2d382c50aa6366b09deaa529d1b3199}\label{namespacertm_aa2d382c50aa6366b09deaa529d1b3199}} 
+\index{rtm@{rtm}!Round\+To\+Center@{Round\+To\+Center}}
+\index{Round\+To\+Center@{Round\+To\+Center}!rtm@{rtm}}
+\subsubsection{\texorpdfstring{Round\+To\+Center()}{RoundToCenter()}}
+{\footnotesize\ttfamily float rtm\+::\+Round\+To\+Center (\begin{DoxyParamCaption}\item[{float}]{coordinate }\end{DoxyParamCaption})}
+
+Функция для округления координаты до центра клетки 
+\begin{DoxyParams}{Аргументы}
+{\em coordinate} & округляемая координата \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+координата ближайшего центра клетки 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespacertm_a030416c27fb4a5896aad3d102083897f}\label{namespacertm_a030416c27fb4a5896aad3d102083897f}} 
+\index{rtm@{rtm}!In\+Center@{In\+Center}}
+\index{In\+Center@{In\+Center}!rtm@{rtm}}
+\subsubsection{\texorpdfstring{In\+Center()}{InCenter()}}
+{\footnotesize\ttfamily bool rtm\+::\+In\+Center (\begin{DoxyParamCaption}\item[{float}]{coordinate,  }\item[{float}]{delta = {\ttfamily \hyperlink{namespacertm_a9ae158a8873bdf59aa9872cdada6c657}{C\+O\+O\+R\+D\+\_\+\+D\+E\+L\+TA}} }\end{DoxyParamCaption})}
+
+Функция для проверки координаты на центральность 
+\begin{DoxyParams}{Аргументы}
+{\em coordinate} & координата, которую проверяем \\
+\hline
+{\em delta} & максимальное расстояние до центра клетки \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+true, если в центре клетки, иначе false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespacertm_aa546266dce0a8d2a50a7fe311e514668}\label{namespacertm_aa546266dce0a8d2a50a7fe311e514668}} 
+\index{rtm@{rtm}!Distance\+To\+Next\+Center@{Distance\+To\+Next\+Center}}
+\index{Distance\+To\+Next\+Center@{Distance\+To\+Next\+Center}!rtm@{rtm}}
+\subsubsection{\texorpdfstring{Distance\+To\+Next\+Center()}{DistanceToNextCenter()}}
+{\footnotesize\ttfamily float rtm\+::\+Distance\+To\+Next\+Center (\begin{DoxyParamCaption}\item[{float}]{x,  }\item[{float}]{y,  }\item[{float}]{angle }\end{DoxyParamCaption})}
+
+Функция для нахождения расстояния до следующего центра клетка по ходу движения 
+\begin{DoxyParams}{Аргументы}
+{\em x,y} & координаты объекта \\
+\hline
+{\em angle} & направление движения (угол) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+расстояние до центра 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespacertm_a69199b6d204d2ebf33b76e5a7ad52876}\label{namespacertm_a69199b6d204d2ebf33b76e5a7ad52876}} 
+\index{rtm@{rtm}!Center\+Is\+Crossed@{Center\+Is\+Crossed}}
+\index{Center\+Is\+Crossed@{Center\+Is\+Crossed}!rtm@{rtm}}
+\subsubsection{\texorpdfstring{Center\+Is\+Crossed()}{CenterIsCrossed()}}
+{\footnotesize\ttfamily bool rtm\+::\+Center\+Is\+Crossed (\begin{DoxyParamCaption}\item[{float}]{x,  }\item[{float}]{y,  }\item[{float}]{angle,  }\item[{float}]{last\+Delta }\end{DoxyParamCaption})}
+
+Функция проверяет, пересек ли объект центр клетки (центральную линию, перпендикулярную направлению движения) 
+\begin{DoxyParams}{Аргументы}
+{\em x,y} & координаты объекта \\
+\hline
+{\em angle} & направление движения (угол) \\
+\hline
+{\em last\+Delta} & расстояние, которое объект прошёл за последнее перемещение \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+true, если пересек какой-\/либо центр 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespacertm_abf5da499525e88711c6edfb76314f90b}\label{namespacertm_abf5da499525e88711c6edfb76314f90b}} 
+\index{rtm@{rtm}!Same\+Angles@{Same\+Angles}}
+\index{Same\+Angles@{Same\+Angles}!rtm@{rtm}}
+\subsubsection{\texorpdfstring{Same\+Angles()}{SameAngles()}}
+{\footnotesize\ttfamily bool rtm\+::\+Same\+Angles (\begin{DoxyParamCaption}\item[{float}]{a,  }\item[{float}]{b,  }\item[{float}]{delta = {\ttfamily \hyperlink{namespacertm_ac78c5105838adb58682cb69a4c66efd7}{A\+N\+G\+L\+E\+\_\+\+D\+E\+L\+TA}} }\end{DoxyParamCaption})}
+
+Фукнция для сравнения двух углов 
+\begin{DoxyParams}{Аргументы}
+{\em a,b} & углы, которые будут сравниваться \\
+\hline
+{\em delta} & максимальная разность между углами \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+результат сравнения 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespacertm_a2c9be06724a54815f6f2f638cf9ae613}\label{namespacertm_a2c9be06724a54815f6f2f638cf9ae613}} 
+\index{rtm@{rtm}!Round\+Angle@{Round\+Angle}}
+\index{Round\+Angle@{Round\+Angle}!rtm@{rtm}}
+\subsubsection{\texorpdfstring{Round\+Angle()}{RoundAngle()}}
+{\footnotesize\ttfamily float rtm\+::\+Round\+Angle (\begin{DoxyParamCaption}\item[{float}]{angle,  }\item[{float}]{delta = {\ttfamily \hyperlink{namespacertm_ac78c5105838adb58682cb69a4c66efd7}{A\+N\+G\+L\+E\+\_\+\+D\+E\+L\+TA}} }\end{DoxyParamCaption})}
+
+Фукнция пытается округлить угол до одно из главных направлений (период {$\pi$}/4, т.\+е. 0, {$\pi$}/4, {$\pi$}/2, ...) 
+\begin{DoxyParams}{Аргументы}
+{\em angle} & угол, который будем пытаться округлить \\
+\hline
+{\em delta} & максимальная разность между исходным углом и округленным углом \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+округленный угол, если исходный был достаточно близок, иначе исходный угол 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespacertm_a72a57dbe581a6743525e1920296d42fe}\label{namespacertm_a72a57dbe581a6743525e1920296d42fe}} 
+\index{rtm@{rtm}!Normalize\+Angle@{Normalize\+Angle}}
+\index{Normalize\+Angle@{Normalize\+Angle}!rtm@{rtm}}
+\subsubsection{\texorpdfstring{Normalize\+Angle()}{NormalizeAngle()}}
+{\footnotesize\ttfamily float rtm\+::\+Normalize\+Angle (\begin{DoxyParamCaption}\item[{float}]{angle }\end{DoxyParamCaption})}
+
+Функция для нормализации угла до диапазона \mbox{[}-\/{$\pi$}/2;{$\pi$}/2) 
+\begin{DoxyParams}{Аргументы}
+{\em angle} & угол, который будем нормализовывать \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+нормализованный угол 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespacertm_a390df6b8bc4a01befd946155150db744}\label{namespacertm_a390df6b8bc4a01befd946155150db744}} 
+\index{rtm@{rtm}!Pixel\+To\+Cell@{Pixel\+To\+Cell}}
+\index{Pixel\+To\+Cell@{Pixel\+To\+Cell}!rtm@{rtm}}
+\subsubsection{\texorpdfstring{Pixel\+To\+Cell()}{PixelToCell()}}
+{\footnotesize\ttfamily int rtm\+::\+Pixel\+To\+Cell (\begin{DoxyParamCaption}\item[{float}]{coordinate }\end{DoxyParamCaption})}
+
+Функция для конвертации координаты в номер ячейки 
+\begin{DoxyParams}{Аргументы}
+{\em coordinate} & координата, которая будет конвертирована \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+номер ячейки 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespacertm_af8d63f917ae1055a5766a0ba19542913}\label{namespacertm_af8d63f917ae1055a5766a0ba19542913}} 
+\index{rtm@{rtm}!Cell\+To\+Pixel@{Cell\+To\+Pixel}}
+\index{Cell\+To\+Pixel@{Cell\+To\+Pixel}!rtm@{rtm}}
+\subsubsection{\texorpdfstring{Cell\+To\+Pixel()}{CellToPixel()}}
+{\footnotesize\ttfamily float rtm\+::\+Cell\+To\+Pixel (\begin{DoxyParamCaption}\item[{int}]{cell\+Number }\end{DoxyParamCaption})}
+
+Функция для конвертации номера ячейки в координату центра 
+\begin{DoxyParams}{Аргументы}
+{\em cell\+Number} & номер ячейки, который будет конвертирован \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+координата центра 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespacertm_aea5ae6d368199e41611725e0db13c5c3}\label{namespacertm_aea5ae6d368199e41611725e0db13c5c3}} 
+\index{rtm@{rtm}!Angle\+To\+Angle\+Type@{Angle\+To\+Angle\+Type}}
+\index{Angle\+To\+Angle\+Type@{Angle\+To\+Angle\+Type}!rtm@{rtm}}
+\subsubsection{\texorpdfstring{Angle\+To\+Angle\+Type()}{AngleToAngleType()}}
+{\footnotesize\ttfamily \hyperlink{namespacertm_a69dc82b16a0148c10962caa83d930f89}{rtm\+::\+Angle\+Type} rtm\+::\+Angle\+To\+Angle\+Type (\begin{DoxyParamCaption}\item[{float}]{angle }\end{DoxyParamCaption})}
+
+Функция для конвертации угла в угловой тип 
+\begin{DoxyParams}{Аргументы}
+{\em angle} & угол, который будет конвертирован \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+соответствующий угловой тип 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespacertm_ac81b2243a62081233f7b549248b5a145}\label{namespacertm_ac81b2243a62081233f7b549248b5a145}} 
+\index{rtm@{rtm}!Angle\+To\+Direction@{Angle\+To\+Direction}}
+\index{Angle\+To\+Direction@{Angle\+To\+Direction}!rtm@{rtm}}
+\subsubsection{\texorpdfstring{Angle\+To\+Direction()}{AngleToDirection()}}
+{\footnotesize\ttfamily \hyperlink{namespacertm_a57b216f3aeb45041f3461bab08bc3aeb}{rtm\+::\+Direction\+Type} rtm\+::\+Angle\+To\+Direction (\begin{DoxyParamCaption}\item[{float}]{angle }\end{DoxyParamCaption})}
+
+Функция для конвертации угла в напраление 
+\begin{DoxyParams}{Аргументы}
+{\em angle} & угол, который будет конвертирован \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+соответствующее напраление 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespacertm_ad13b014bcdda27e0ff2fb23f265e29e4}\label{namespacertm_ad13b014bcdda27e0ff2fb23f265e29e4}} 
+\index{rtm@{rtm}!Angle\+Type\+To\+Angle@{Angle\+Type\+To\+Angle}}
+\index{Angle\+Type\+To\+Angle@{Angle\+Type\+To\+Angle}!rtm@{rtm}}
+\subsubsection{\texorpdfstring{Angle\+Type\+To\+Angle()}{AngleTypeToAngle()}}
+{\footnotesize\ttfamily float rtm\+::\+Angle\+Type\+To\+Angle (\begin{DoxyParamCaption}\item[{\hyperlink{namespacertm_a69dc82b16a0148c10962caa83d930f89}{Angle\+Type}}]{angle }\end{DoxyParamCaption})}
+
+Функция для конвертации углового типа в угол 
+\begin{DoxyParams}{Аргументы}
+{\em angle} & уголовой тип, который будет конвертирован \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+соответствующий угол 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespacertm_abeb9a79e27bc0c8c4c3e6cd9ec802627}\label{namespacertm_abeb9a79e27bc0c8c4c3e6cd9ec802627}} 
+\index{rtm@{rtm}!Angle\+Type\+To\+Direction@{Angle\+Type\+To\+Direction}}
+\index{Angle\+Type\+To\+Direction@{Angle\+Type\+To\+Direction}!rtm@{rtm}}
+\subsubsection{\texorpdfstring{Angle\+Type\+To\+Direction()}{AngleTypeToDirection()}}
+{\footnotesize\ttfamily \hyperlink{namespacertm_a57b216f3aeb45041f3461bab08bc3aeb}{rtm\+::\+Direction\+Type} rtm\+::\+Angle\+Type\+To\+Direction (\begin{DoxyParamCaption}\item[{\hyperlink{namespacertm_a69dc82b16a0148c10962caa83d930f89}{Angle\+Type}}]{angle }\end{DoxyParamCaption})}
+
+Функция для конвертации углового типа в направление 
+\begin{DoxyParams}{Аргументы}
+{\em angle} & уголовой тип, который будет конвертирован \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+соответствующее направление 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespacertm_a173759dd130d0f30d1f90fba11506bd6}\label{namespacertm_a173759dd130d0f30d1f90fba11506bd6}} 
+\index{rtm@{rtm}!Direction\+To\+Angle@{Direction\+To\+Angle}}
+\index{Direction\+To\+Angle@{Direction\+To\+Angle}!rtm@{rtm}}
+\subsubsection{\texorpdfstring{Direction\+To\+Angle()}{DirectionToAngle()}}
+{\footnotesize\ttfamily float rtm\+::\+Direction\+To\+Angle (\begin{DoxyParamCaption}\item[{\hyperlink{namespacertm_a57b216f3aeb45041f3461bab08bc3aeb}{Direction\+Type}}]{direction }\end{DoxyParamCaption})}
+
+Функция для конвертации направления в угол 
+\begin{DoxyParams}{Аргументы}
+{\em direction} & направление, которое будет конвертировано \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+соответствующий угол 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespacertm_aa37fca29e3577b3389a9e8eb40d20d14}\label{namespacertm_aa37fca29e3577b3389a9e8eb40d20d14}} 
+\index{rtm@{rtm}!Direction\+To\+Angle\+Type@{Direction\+To\+Angle\+Type}}
+\index{Direction\+To\+Angle\+Type@{Direction\+To\+Angle\+Type}!rtm@{rtm}}
+\subsubsection{\texorpdfstring{Direction\+To\+Angle\+Type()}{DirectionToAngleType()}}
+{\footnotesize\ttfamily \hyperlink{namespacertm_a69dc82b16a0148c10962caa83d930f89}{rtm\+::\+Angle\+Type} rtm\+::\+Direction\+To\+Angle\+Type (\begin{DoxyParamCaption}\item[{\hyperlink{namespacertm_a57b216f3aeb45041f3461bab08bc3aeb}{Direction\+Type}}]{direction }\end{DoxyParamCaption})}
+
+Функция для конвертации направления в угловой тип 
+\begin{DoxyParams}{Аргументы}
+{\em direction} & направление, которое будет конвертировано \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+соответствующий угловой тип 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespacertm_ac1ea2821fc44943e5c35d92e0c9cd5de}\label{namespacertm_ac1ea2821fc44943e5c35d92e0c9cd5de}} 
+\index{rtm@{rtm}!Sum\+Angle\+Types@{Sum\+Angle\+Types}}
+\index{Sum\+Angle\+Types@{Sum\+Angle\+Types}!rtm@{rtm}}
+\subsubsection{\texorpdfstring{Sum\+Angle\+Types()}{SumAngleTypes()}}
+{\footnotesize\ttfamily \hyperlink{namespacertm_a69dc82b16a0148c10962caa83d930f89}{rtm\+::\+Angle\+Type} rtm\+::\+Sum\+Angle\+Types (\begin{DoxyParamCaption}\item[{\hyperlink{namespacertm_a69dc82b16a0148c10962caa83d930f89}{Angle\+Type}}]{a,  }\item[{\hyperlink{namespacertm_a69dc82b16a0148c10962caa83d930f89}{Angle\+Type}}]{b }\end{DoxyParamCaption})}
+
+Функция для суммирования двух угловых типов 
+\begin{DoxyParams}{Аргументы}
+{\em a,b} & угловые типы, которые будут складываться \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+сумма угловых типов (a + b) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespacertm_a37715773d85c66ba5c1bf11260836fd0}\label{namespacertm_a37715773d85c66ba5c1bf11260836fd0}} 
+\index{rtm@{rtm}!Count\+Deceleration@{Count\+Deceleration}}
+\index{Count\+Deceleration@{Count\+Deceleration}!rtm@{rtm}}
+\subsubsection{\texorpdfstring{Count\+Deceleration()}{CountDeceleration()}}
+{\footnotesize\ttfamily float rtm\+::\+Count\+Deceleration (\begin{DoxyParamCaption}\item[{float}]{max\+Speed }\end{DoxyParamCaption})}
+
+Функция для подсчёта рекомендуемого коэффициента замедления транспорта 
+\begin{DoxyParams}{Аргументы}
+{\em max\+Speed} & максимальная скорость транспорта \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+рекомендуемый коэффициент замедления 
+\end{DoxyReturn}
+
+
+\subsection{Переменные}
+\mbox{\Hypertarget{namespacertm_ac6b72ea86e31b2b9ba35f29964ce0f5d}\label{namespacertm_ac6b72ea86e31b2b9ba35f29964ce0f5d}} 
+\index{rtm@{rtm}!N\+E\+A\+R\+\_\+\+D\+E\+L\+TA@{N\+E\+A\+R\+\_\+\+D\+E\+L\+TA}}
+\index{N\+E\+A\+R\+\_\+\+D\+E\+L\+TA@{N\+E\+A\+R\+\_\+\+D\+E\+L\+TA}!rtm@{rtm}}
+\subsubsection{\texorpdfstring{N\+E\+A\+R\+\_\+\+D\+E\+L\+TA}{NEAR\_DELTA}}
+{\footnotesize\ttfamily float const rtm\+::\+N\+E\+A\+R\+\_\+\+D\+E\+L\+TA \{ 1.f \}}
+
+Максимальное расстояние до объектов, которые недалеко \begin{DoxySeeAlso}{См. также}
+\hyperlink{classrtm_1_1_dynamic_object}{Dynamic\+Object} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{namespacertm_ac3892e23135322d9026ef00af1a76344}\label{namespacertm_ac3892e23135322d9026ef00af1a76344}} 
+\index{rtm@{rtm}!D\+E\+F\+A\+U\+L\+T\+\_\+\+C\+R\+O\+S\+S\+R\+O\+A\+D\+\_\+\+S\+I\+G\+N\+A\+LS@{D\+E\+F\+A\+U\+L\+T\+\_\+\+C\+R\+O\+S\+S\+R\+O\+A\+D\+\_\+\+S\+I\+G\+N\+A\+LS}}
+\index{D\+E\+F\+A\+U\+L\+T\+\_\+\+C\+R\+O\+S\+S\+R\+O\+A\+D\+\_\+\+S\+I\+G\+N\+A\+LS@{D\+E\+F\+A\+U\+L\+T\+\_\+\+C\+R\+O\+S\+S\+R\+O\+A\+D\+\_\+\+S\+I\+G\+N\+A\+LS}!rtm@{rtm}}
+\subsubsection{\texorpdfstring{D\+E\+F\+A\+U\+L\+T\+\_\+\+C\+R\+O\+S\+S\+R\+O\+A\+D\+\_\+\+S\+I\+G\+N\+A\+LS}{DEFAULT\_CROSSROAD\_SIGNALS}}
+{\footnotesize\ttfamily \hyperlink{namespacertm_afa6df86cef8e2ebcc053ad994e440354}{Crossroad\+Signals} const rtm\+::\+D\+E\+F\+A\+U\+L\+T\+\_\+\+C\+R\+O\+S\+S\+R\+O\+A\+D\+\_\+\+S\+I\+G\+N\+A\+LS}
+
+{\bfseries Инициализатор}
+\begin{DoxyCode}
+= \{
+        \hyperlink{namespacertm_ab5bb2d119539a5a60349a21fec8821f6}{DEFAULT\_DIRECTIONS\_SIGNALS}
+        , \hyperlink{namespacertm_ab5bb2d119539a5a60349a21fec8821f6}{DEFAULT\_DIRECTIONS\_SIGNALS}
+        , DEFAULT\_DIRECTIONS\_SIGNALS
+        , DEFAULT\_DIRECTIONS\_SIGNALS
+    \}
+\end{DoxyCode}
+
+
+Значения по умолчанию для массива сигналов всего перекрестка (светофора на перекрестке нет) 
+
+\mbox{\Hypertarget{namespacertm_a88c10d12831a4c6e13e0babdf7c27b02}\label{namespacertm_a88c10d12831a4c6e13e0babdf7c27b02}} 
+\index{rtm@{rtm}!D\+E\+F\+A\+U\+L\+T\+\_\+\+D\+I\+R\+E\+C\+T\+I\+O\+N\+S\+\_\+\+S\+I\+G\+N\+A\+L\+\_\+\+S\+P\+R\+I\+T\+ES@{D\+E\+F\+A\+U\+L\+T\+\_\+\+D\+I\+R\+E\+C\+T\+I\+O\+N\+S\+\_\+\+S\+I\+G\+N\+A\+L\+\_\+\+S\+P\+R\+I\+T\+ES}}
+\index{D\+E\+F\+A\+U\+L\+T\+\_\+\+D\+I\+R\+E\+C\+T\+I\+O\+N\+S\+\_\+\+S\+I\+G\+N\+A\+L\+\_\+\+S\+P\+R\+I\+T\+ES@{D\+E\+F\+A\+U\+L\+T\+\_\+\+D\+I\+R\+E\+C\+T\+I\+O\+N\+S\+\_\+\+S\+I\+G\+N\+A\+L\+\_\+\+S\+P\+R\+I\+T\+ES}!rtm@{rtm}}
+\subsubsection{\texorpdfstring{D\+E\+F\+A\+U\+L\+T\+\_\+\+D\+I\+R\+E\+C\+T\+I\+O\+N\+S\+\_\+\+S\+I\+G\+N\+A\+L\+\_\+\+S\+P\+R\+I\+T\+ES}{DEFAULT\_DIRECTIONS\_SIGNAL\_SPRITES}}
+{\footnotesize\ttfamily \hyperlink{namespacertm_ac9f276c8ed33ee992eb1a1f04a8254a0}{Directions\+Signal\+Sprites} const rtm\+::\+D\+E\+F\+A\+U\+L\+T\+\_\+\+D\+I\+R\+E\+C\+T\+I\+O\+N\+S\+\_\+\+S\+I\+G\+N\+A\+L\+\_\+\+S\+P\+R\+I\+T\+ES}
+
+{\bfseries Инициализатор}
+\begin{DoxyCode}
+= \{
+        \hyperlink{namespacertm_a83e72513cb0cd2f63cff211387bdbb31}{DEFAULT\_SIGNALS\_SPRITES}
+        , \hyperlink{namespacertm_a83e72513cb0cd2f63cff211387bdbb31}{DEFAULT\_SIGNALS\_SPRITES}
+        , DEFAULT\_SIGNALS\_SPRITES
+        , DEFAULT\_SIGNALS\_SPRITES
+    \}
+\end{DoxyCode}
+
+
+Пустой массив текстур сигналов для всего перекрестка 
+
+\mbox{\Hypertarget{namespacertm_a9f4d245ca5d201a5853914c175d0d17f}\label{namespacertm_a9f4d245ca5d201a5853914c175d0d17f}} 
+\index{rtm@{rtm}!R\+O\+A\+D\+S\+\_\+\+R\+E\+S\+I\+S\+T\+A\+N\+C\+ES@{R\+O\+A\+D\+S\+\_\+\+R\+E\+S\+I\+S\+T\+A\+N\+C\+ES}}
+\index{R\+O\+A\+D\+S\+\_\+\+R\+E\+S\+I\+S\+T\+A\+N\+C\+ES@{R\+O\+A\+D\+S\+\_\+\+R\+E\+S\+I\+S\+T\+A\+N\+C\+ES}!rtm@{rtm}}
+\subsubsection{\texorpdfstring{R\+O\+A\+D\+S\+\_\+\+R\+E\+S\+I\+S\+T\+A\+N\+C\+ES}{ROADS\_RESISTANCES}}
+{\footnotesize\ttfamily std\+::array$<$float, 2$>$ const rtm\+::\+R\+O\+A\+D\+S\+\_\+\+R\+E\+S\+I\+S\+T\+A\+N\+C\+ES}
+
+{\bfseries Инициализатор}
+\begin{DoxyCode}
+= \{
+        0.f     
+        , 1.f   
+    \}
+\end{DoxyCode}
+Массив коэффициентов трения для каждого типа объекта \begin{DoxySeeAlso}{См. также}
+\hyperlink{namespacertm_aecd3929e64cd461eb3555b611f6fad95}{Coating\+Type} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{namespacertm_a7416fccc43126173ec6456c78f5474f9}\label{namespacertm_a7416fccc43126173ec6456c78f5474f9}} 
+\index{rtm@{rtm}!R\+O\+A\+D\+S\+\_\+\+D\+I\+R\+E\+C\+T\+I\+O\+NS@{R\+O\+A\+D\+S\+\_\+\+D\+I\+R\+E\+C\+T\+I\+O\+NS}}
+\index{R\+O\+A\+D\+S\+\_\+\+D\+I\+R\+E\+C\+T\+I\+O\+NS@{R\+O\+A\+D\+S\+\_\+\+D\+I\+R\+E\+C\+T\+I\+O\+NS}!rtm@{rtm}}
+\subsubsection{\texorpdfstring{R\+O\+A\+D\+S\+\_\+\+D\+I\+R\+E\+C\+T\+I\+O\+NS}{ROADS\_DIRECTIONS}}
+{\footnotesize\ttfamily std\+::array$<$\hyperlink{namespacertm_a4776fbfe59834ff1a16838ad6735b69a}{Directions}, 19$>$ const rtm\+::\+R\+O\+A\+D\+S\+\_\+\+D\+I\+R\+E\+C\+T\+I\+O\+NS}
+
+{\bfseries Инициализатор}
+\begin{DoxyCode}
+= \{
+          \hyperlink{namespacertm_a4776fbfe59834ff1a16838ad6735b69a}{Directions}\{ \textcolor{keyword}{false}, \textcolor{keyword}{false}, \textcolor{keyword}{false}, \textcolor{keyword}{false}, \textcolor{keyword}{false}, \textcolor{keyword}{false}, \textcolor{keyword}{false}, \textcolor{keyword}{false} \}  
+        , \hyperlink{namespacertm_a4776fbfe59834ff1a16838ad6735b69a}{Directions}\{ \textcolor{keyword}{true}, \textcolor{keyword}{false}, \textcolor{keyword}{true}, \textcolor{keyword}{false}, \textcolor{keyword}{false}, \textcolor{keyword}{false}, \textcolor{keyword}{false}, \textcolor{keyword}{false} \}    
+        , \hyperlink{namespacertm_a4776fbfe59834ff1a16838ad6735b69a}{Directions}\{ \textcolor{keyword}{true}, \textcolor{keyword}{false}, \textcolor{keyword}{true}, \textcolor{keyword}{false}, \textcolor{keyword}{true}, \textcolor{keyword}{true}, \textcolor{keyword}{false}, \textcolor{keyword}{false} \}      
+        , \hyperlink{namespacertm_a4776fbfe59834ff1a16838ad6735b69a}{Directions}\{ \textcolor{keyword}{true}, \textcolor{keyword}{false}, \textcolor{keyword}{true}, \textcolor{keyword}{false}, \textcolor{keyword}{true}, \textcolor{keyword}{true}, \textcolor{keyword}{true}, \textcolor{keyword}{true} \}        
+        , \hyperlink{namespacertm_a4776fbfe59834ff1a16838ad6735b69a}{Directions}\{ \textcolor{keyword}{true}, \textcolor{keyword}{true}, \textcolor{keyword}{true}, \textcolor{keyword}{true}, \textcolor{keyword}{false}, \textcolor{keyword}{false}, \textcolor{keyword}{false}, \textcolor{keyword}{false} \}      
+        , \hyperlink{namespacertm_a4776fbfe59834ff1a16838ad6735b69a}{Directions}\{ \textcolor{keyword}{true}, \textcolor{keyword}{true}, \textcolor{keyword}{true}, \textcolor{keyword}{true}, \textcolor{keyword}{false}, \textcolor{keyword}{false}, \textcolor{keyword}{false}, \textcolor{keyword}{false} \}      
+        , \hyperlink{namespacertm_a4776fbfe59834ff1a16838ad6735b69a}{Directions}\{ \textcolor{keyword}{true}, \textcolor{keyword}{true}, \textcolor{keyword}{true}, \textcolor{keyword}{true}, \textcolor{keyword}{false}, \textcolor{keyword}{false}, \textcolor{keyword}{false}, \textcolor{keyword}{false} \}      
+        , \hyperlink{namespacertm_a4776fbfe59834ff1a16838ad6735b69a}{Directions}\{ \textcolor{keyword}{true}, \textcolor{keyword}{true}, \textcolor{keyword}{true}, \textcolor{keyword}{true}, \textcolor{keyword}{false}, \textcolor{keyword}{false}, \textcolor{keyword}{false}, \textcolor{keyword}{false} \}      
+        , \hyperlink{namespacertm_a4776fbfe59834ff1a16838ad6735b69a}{Directions}\{ \textcolor{keyword}{false}, \textcolor{keyword}{true}, \textcolor{keyword}{true}, \textcolor{keyword}{true}, \textcolor{keyword}{false}, \textcolor{keyword}{false}, \textcolor{keyword}{false}, \textcolor{keyword}{false} \}     
+        , \hyperlink{namespacertm_a4776fbfe59834ff1a16838ad6735b69a}{Directions}\{ \textcolor{keyword}{false}, \textcolor{keyword}{true}, \textcolor{keyword}{true}, \textcolor{keyword}{true}, \textcolor{keyword}{false}, \textcolor{keyword}{false}, \textcolor{keyword}{false}, \textcolor{keyword}{false} \}     
+        , \hyperlink{namespacertm_a4776fbfe59834ff1a16838ad6735b69a}{Directions}\{ \textcolor{keyword}{false}, \textcolor{keyword}{true}, \textcolor{keyword}{true}, \textcolor{keyword}{true}, \textcolor{keyword}{false}, \textcolor{keyword}{false}, \textcolor{keyword}{false}, \textcolor{keyword}{false} \}     
+        , \hyperlink{namespacertm_a4776fbfe59834ff1a16838ad6735b69a}{Directions}\{ \textcolor{keyword}{false}, \textcolor{keyword}{true}, \textcolor{keyword}{true}, \textcolor{keyword}{true}, \textcolor{keyword}{false}, \textcolor{keyword}{false}, \textcolor{keyword}{false}, \textcolor{keyword}{false} \}     
+        , \hyperlink{namespacertm_a4776fbfe59834ff1a16838ad6735b69a}{Directions}\{ \textcolor{keyword}{true}, \textcolor{keyword}{false}, \textcolor{keyword}{false}, \textcolor{keyword}{false}, \textcolor{keyword}{false}, \textcolor{keyword}{false}, \textcolor{keyword}{true}, \textcolor{keyword}{true} \}     
+        , \hyperlink{namespacertm_a4776fbfe59834ff1a16838ad6735b69a}{Directions}\{ \textcolor{keyword}{false}, \textcolor{keyword}{false}, \textcolor{keyword}{true}, \textcolor{keyword}{false}, \textcolor{keyword}{false}, \textcolor{keyword}{false}, \textcolor{keyword}{true}, \textcolor{keyword}{true} \}     
+        , \hyperlink{namespacertm_a4776fbfe59834ff1a16838ad6735b69a}{Directions}\{ \textcolor{keyword}{false}, \textcolor{keyword}{true}, \textcolor{keyword}{true}, \textcolor{keyword}{false}, \textcolor{keyword}{false}, \textcolor{keyword}{false}, \textcolor{keyword}{false}, \textcolor{keyword}{false} \}    
+        , \hyperlink{namespacertm_a4776fbfe59834ff1a16838ad6735b69a}{Directions}\{ \textcolor{keyword}{false}, \textcolor{keyword}{true}, \textcolor{keyword}{true}, \textcolor{keyword}{false}, \textcolor{keyword}{false}, \textcolor{keyword}{false}, \textcolor{keyword}{false}, \textcolor{keyword}{false} \}    
+        , \hyperlink{namespacertm_a4776fbfe59834ff1a16838ad6735b69a}{Directions}\{ \textcolor{keyword}{false}, \textcolor{keyword}{true}, \textcolor{keyword}{true}, \textcolor{keyword}{false}, \textcolor{keyword}{false}, \textcolor{keyword}{false}, \textcolor{keyword}{false}, \textcolor{keyword}{false} \}    
+        , \hyperlink{namespacertm_a4776fbfe59834ff1a16838ad6735b69a}{Directions}\{ \textcolor{keyword}{false}, \textcolor{keyword}{true}, \textcolor{keyword}{true}, \textcolor{keyword}{false}, \textcolor{keyword}{false}, \textcolor{keyword}{false}, \textcolor{keyword}{false}, \textcolor{keyword}{false} \}    
+        , \hyperlink{namespacertm_a4776fbfe59834ff1a16838ad6735b69a}{Directions}\{ \textcolor{keyword}{false}, \textcolor{keyword}{false}, \textcolor{keyword}{false}, \textcolor{keyword}{false}, \textcolor{keyword}{false}, \textcolor{keyword}{false}, \textcolor{keyword}{false}, \textcolor{keyword}{false} \}  
+    \}
+\end{DoxyCode}
+Массив возможных направлений для каждой типа кучоска дороги \begin{DoxySeeAlso}{См. также}
+\hyperlink{classrtm_1_1_road_coating}{Road\+Coating} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{namespacertm_ab4d4feaa707f2d1eba41feae3b46451f}\label{namespacertm_ab4d4feaa707f2d1eba41feae3b46451f}} 
+\index{rtm@{rtm}!C\+A\+R\+S\+\_\+\+M\+A\+X\+\_\+\+S\+P\+E\+E\+DS@{C\+A\+R\+S\+\_\+\+M\+A\+X\+\_\+\+S\+P\+E\+E\+DS}}
+\index{C\+A\+R\+S\+\_\+\+M\+A\+X\+\_\+\+S\+P\+E\+E\+DS@{C\+A\+R\+S\+\_\+\+M\+A\+X\+\_\+\+S\+P\+E\+E\+DS}!rtm@{rtm}}
+\subsubsection{\texorpdfstring{C\+A\+R\+S\+\_\+\+M\+A\+X\+\_\+\+S\+P\+E\+E\+DS}{CARS\_MAX\_SPEEDS}}
+{\footnotesize\ttfamily std\+::array$<$float, 6$>$ const rtm\+::\+C\+A\+R\+S\+\_\+\+M\+A\+X\+\_\+\+S\+P\+E\+E\+DS}
+
+{\bfseries Инициализатор}
+\begin{DoxyCode}
+= \{
+          0.f   
+        , 21.f  
+        , 24.f  
+        , 30.f  
+        , 33.f  
+        , 36.f  
+    \}
+\end{DoxyCode}
+Массив максимальных скоростей для машин \begin{DoxySeeAlso}{См. также}
+\hyperlink{classrtm_1_1_car_object}{Car\+Object} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{namespacertm_acac83b872b644793530e7f6f4660c85e}\label{namespacertm_acac83b872b644793530e7f6f4660c85e}} 
+\index{rtm@{rtm}!C\+A\+R\+S\+\_\+\+A\+C\+C\+E\+L\+E\+R\+A\+T\+I\+O\+NS@{C\+A\+R\+S\+\_\+\+A\+C\+C\+E\+L\+E\+R\+A\+T\+I\+O\+NS}}
+\index{C\+A\+R\+S\+\_\+\+A\+C\+C\+E\+L\+E\+R\+A\+T\+I\+O\+NS@{C\+A\+R\+S\+\_\+\+A\+C\+C\+E\+L\+E\+R\+A\+T\+I\+O\+NS}!rtm@{rtm}}
+\subsubsection{\texorpdfstring{C\+A\+R\+S\+\_\+\+A\+C\+C\+E\+L\+E\+R\+A\+T\+I\+O\+NS}{CARS\_ACCELERATIONS}}
+{\footnotesize\ttfamily std\+::array$<$float, 6$>$ const rtm\+::\+C\+A\+R\+S\+\_\+\+A\+C\+C\+E\+L\+E\+R\+A\+T\+I\+O\+NS}
+
+{\bfseries Инициализатор}
+\begin{DoxyCode}
+= \{
+          0.f   
+        , 3.f   
+        , 4.f   
+        , 6.f   
+        , 8.25f 
+        , 12.f  
+    \}
+\end{DoxyCode}
+Массив ускорений для машин \begin{DoxySeeAlso}{См. также}
+\hyperlink{classrtm_1_1_car_object}{Car\+Object} 
+\end{DoxySeeAlso}

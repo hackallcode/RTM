@@ -1,0 +1,5 @@
+<map id="rtm::CoatingUnion" name="rtm::CoatingUnion">
+<area shape="rect" id="node2" href="$classrtm_1_1_crossroad_object.html" title="Класс пересечения дорог " alt="" coords="5,80,152,107"/>
+<area shape="rect" id="node3" href="$classrtm_1_1_driveway_object.html" title="Класс прямой дороги " alt="" coords="176,80,315,107"/>
+<area shape="rect" id="node4" href="$classrtm_1_1_turn_object.html" title="Класс поворота дороги " alt="" coords="339,80,451,107"/>
+</map>

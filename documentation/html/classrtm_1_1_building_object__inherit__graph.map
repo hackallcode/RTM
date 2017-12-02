@@ -1,0 +1,5 @@
+<map id="rtm::BuildingObject" name="rtm::BuildingObject">
+<area shape="rect" id="node2" href="$classrtm_1_1_map_object.html" title="Класс статического объекта карты " alt="" coords="16,155,128,181"/>
+<area shape="rect" id="node3" href="$classrtm_1_1_static_object.html" title="Класс статического объекта (который не обновляется) " alt="" coords="11,80,133,107"/>
+<area shape="rect" id="node4" href="$classrtm_1_1_world_object.html" title="Класс объекта мира (родитель всех условно объемных объектов) " alt="" coords="11,5,133,32"/>
+</map>

@@ -1,0 +1,230 @@
+\hypertarget{classrtm_1_1_coating_union}{}\section{Класс rtm\+:\+:Coating\+Union}
+\label{classrtm_1_1_coating_union}\index{rtm\+::\+Coating\+Union@{rtm\+::\+Coating\+Union}}
+
+
+{\ttfamily \#include $<$Coating\+Union.\+h$>$}
+
+
+
+Граф наследования\+:rtm\+:\+:Coating\+Union\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classrtm_1_1_coating_union__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classrtm_1_1_coating_union_aada3c299db0c6604b8a713d2ae87afbb}\label{classrtm_1_1_coating_union_aada3c299db0c6604b8a713d2ae87afbb}} 
+\hyperlink{classrtm_1_1_coating_union_aada3c299db0c6604b8a713d2ae87afbb}{Coating\+Union} ()
+\begin{DoxyCompactList}\small\item\em Конструктор по умолчанию \end{DoxyCompactList}\item 
+\hyperlink{classrtm_1_1_coating_union_ad5c97fb37269028e9058c37c10428255}{Coating\+Union} (\hyperlink{namespacertm_a6a0d424be5696f64038e5e84a79cabfa}{Coating\+Union\+Type} type, int column, int row, \hyperlink{namespacertm_ae3bb29510cfde424975be31866d2486e}{Coating\+Matrix} \&\&objects)
+\item 
+\mbox{\Hypertarget{classrtm_1_1_coating_union_a42d7554ae47b709c6518b84a9afe9a70}\label{classrtm_1_1_coating_union_a42d7554ae47b709c6518b84a9afe9a70}} 
+virtual \hyperlink{classrtm_1_1_coating_union_a42d7554ae47b709c6518b84a9afe9a70}{$\sim$\+Coating\+Union} ()=default
+\begin{DoxyCompactList}\small\item\em Деструктор по умолчанию \end{DoxyCompactList}\item 
+\hyperlink{namespacertm_a6a0d424be5696f64038e5e84a79cabfa}{Coating\+Union\+Type} \hyperlink{classrtm_1_1_coating_union_a6e679033a648837c2df2b3b1ea749efd}{Get\+Type} () const
+\item 
+size\+\_\+t \hyperlink{classrtm_1_1_coating_union_aca7956667dce60916e9cd225694a2818}{Get\+Width} () const
+\item 
+size\+\_\+t \hyperlink{classrtm_1_1_coating_union_ac9530320f820757aec11c51bcf8eb3cc}{Get\+Height} () const
+\item 
+\hyperlink{namespacertm_ab0ec616a26920aeaf720d04e041e8ce3}{Coating\+Unique} const  \& \hyperlink{classrtm_1_1_coating_union_acbcdbbd157f6d55597a54bb639a977f2}{Get\+Coating\+Object} (int column, int row) const
+\item 
+virtual float \hyperlink{classrtm_1_1_coating_union_adf3ec4f4e8399c455aaa73bfe726b4ce}{Get\+Length} () const
+\item 
+bool \hyperlink{classrtm_1_1_coating_union_a7f77378af1ea7473d10497ad01effcad}{Is\+Correct\+Column} (int column) const
+\item 
+bool \hyperlink{classrtm_1_1_coating_union_abbd51ea78ee3d798807827f6ee930540}{Is\+Correct\+Row} (int row) const
+\item 
+virtual void \hyperlink{classrtm_1_1_coating_union_ae95be187677aec759723edb4d14b35c1}{Show\+Sprites} (cocos2d\+::\+Layer $\ast$const layer)
+\item 
+virtual void \hyperlink{classrtm_1_1_coating_union_a4e046aae25ce91da0408ac31a0de4e21}{Release\+Sprites} (cocos2d\+::\+Layer $\ast$const layer)
+\end{DoxyCompactItemize}
+\subsection*{Защищенные члены}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{classrtm_1_1_coating_union_a1d2b6a339f6cafbe41d416f371cbed04}{Get\+Column\+\_\+} () const
+\item 
+int \hyperlink{classrtm_1_1_coating_union_ad283fd24e0c3347c569e3ea5772a9651}{Get\+Row\+\_\+} () const
+\end{DoxyCompactItemize}
+\subsection*{Закрытые данные}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classrtm_1_1_coating_union_ab8fd79074da6b4915bbbaec93befc0f0}\label{classrtm_1_1_coating_union_ab8fd79074da6b4915bbbaec93befc0f0}} 
+\hyperlink{namespacertm_a6a0d424be5696f64038e5e84a79cabfa}{Coating\+Union\+Type} \hyperlink{classrtm_1_1_coating_union_ab8fd79074da6b4915bbbaec93befc0f0}{type\+\_\+}
+\begin{DoxyCompactList}\small\item\em Тип объединения покрытий (получившегося элемента) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classrtm_1_1_coating_union_aef5f5d3f4ac06044fe4482bf60b01e77}\label{classrtm_1_1_coating_union_aef5f5d3f4ac06044fe4482bf60b01e77}} 
+int \hyperlink{classrtm_1_1_coating_union_aef5f5d3f4ac06044fe4482bf60b01e77}{column\+\_\+}
+\begin{DoxyCompactList}\small\item\em Левая колонка объединения \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classrtm_1_1_coating_union_aa7133c7a2059495ab4c02b1813e8abfb}\label{classrtm_1_1_coating_union_aa7133c7a2059495ab4c02b1813e8abfb}} 
+int \hyperlink{classrtm_1_1_coating_union_aa7133c7a2059495ab4c02b1813e8abfb}{row\+\_\+}
+\begin{DoxyCompactList}\small\item\em Нижняя строка объединения \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classrtm_1_1_coating_union_acab8ed30a66c786a3ac7d0edff914dbc}\label{classrtm_1_1_coating_union_acab8ed30a66c786a3ac7d0edff914dbc}} 
+size\+\_\+t \hyperlink{classrtm_1_1_coating_union_acab8ed30a66c786a3ac7d0edff914dbc}{width\+\_\+}
+\begin{DoxyCompactList}\small\item\em Ширина объединения \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classrtm_1_1_coating_union_abd65484b95a4b62e1c22146cb2a9d542}\label{classrtm_1_1_coating_union_abd65484b95a4b62e1c22146cb2a9d542}} 
+size\+\_\+t \hyperlink{classrtm_1_1_coating_union_abd65484b95a4b62e1c22146cb2a9d542}{height\+\_\+}
+\begin{DoxyCompactList}\small\item\em Высота объединения \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classrtm_1_1_coating_union_a805afd44081afec9f4e286436be1a735}\label{classrtm_1_1_coating_union_a805afd44081afec9f4e286436be1a735}} 
+\hyperlink{namespacertm_ae3bb29510cfde424975be31866d2486e}{Coating\+Matrix} \hyperlink{classrtm_1_1_coating_union_a805afd44081afec9f4e286436be1a735}{objects\+\_\+}
+\begin{DoxyCompactList}\small\item\em @Матрица объектов покрытий \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Подробное описание}
+Класс объединения покрытий \begin{DoxySeeAlso}{См. также}
+\hyperlink{classrtm_1_1_coating_object}{Coating\+Object} 
+\end{DoxySeeAlso}
+
+
+\subsection{Конструктор(ы)}
+\mbox{\Hypertarget{classrtm_1_1_coating_union_ad5c97fb37269028e9058c37c10428255}\label{classrtm_1_1_coating_union_ad5c97fb37269028e9058c37c10428255}} 
+\index{rtm\+::\+Coating\+Union@{rtm\+::\+Coating\+Union}!Coating\+Union@{Coating\+Union}}
+\index{Coating\+Union@{Coating\+Union}!rtm\+::\+Coating\+Union@{rtm\+::\+Coating\+Union}}
+\subsubsection{\texorpdfstring{Coating\+Union()}{CoatingUnion()}}
+{\footnotesize\ttfamily rtm\+::\+Coating\+Union\+::\+Coating\+Union (\begin{DoxyParamCaption}\item[{\hyperlink{namespacertm_a6a0d424be5696f64038e5e84a79cabfa}{Coating\+Union\+Type}}]{type,  }\item[{int}]{column,  }\item[{int}]{row,  }\item[{\hyperlink{namespacertm_ae3bb29510cfde424975be31866d2486e}{Coating\+Matrix} \&\&}]{objects }\end{DoxyParamCaption})}
+
+Конструктор по матрице покрытий 
+\begin{DoxyParams}{Аргументы}
+{\em type} & тип объединения покрытий (получившегося элемента) \\
+\hline
+{\em column} & левая колонка объединения \\
+\hline
+{\em row} & нижняя строка объединения \\
+\hline
+{\em objects} & матрица объектов покрытий \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Методы}
+\mbox{\Hypertarget{classrtm_1_1_coating_union_a6e679033a648837c2df2b3b1ea749efd}\label{classrtm_1_1_coating_union_a6e679033a648837c2df2b3b1ea749efd}} 
+\index{rtm\+::\+Coating\+Union@{rtm\+::\+Coating\+Union}!Get\+Type@{Get\+Type}}
+\index{Get\+Type@{Get\+Type}!rtm\+::\+Coating\+Union@{rtm\+::\+Coating\+Union}}
+\subsubsection{\texorpdfstring{Get\+Type()}{GetType()}}
+{\footnotesize\ttfamily \hyperlink{namespacertm_a6a0d424be5696f64038e5e84a79cabfa}{rtm\+::\+Coating\+Union\+Type} rtm\+::\+Coating\+Union\+::\+Get\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Функция для получения типа объединения \begin{DoxyReturn}{Возвращает}
+тип объединения 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classrtm_1_1_coating_union_aca7956667dce60916e9cd225694a2818}\label{classrtm_1_1_coating_union_aca7956667dce60916e9cd225694a2818}} 
+\index{rtm\+::\+Coating\+Union@{rtm\+::\+Coating\+Union}!Get\+Width@{Get\+Width}}
+\index{Get\+Width@{Get\+Width}!rtm\+::\+Coating\+Union@{rtm\+::\+Coating\+Union}}
+\subsubsection{\texorpdfstring{Get\+Width()}{GetWidth()}}
+{\footnotesize\ttfamily size\+\_\+t rtm\+::\+Coating\+Union\+::\+Get\+Width (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Функция для получения ширины объединения \begin{DoxyReturn}{Возвращает}
+ширина объединения 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classrtm_1_1_coating_union_ac9530320f820757aec11c51bcf8eb3cc}\label{classrtm_1_1_coating_union_ac9530320f820757aec11c51bcf8eb3cc}} 
+\index{rtm\+::\+Coating\+Union@{rtm\+::\+Coating\+Union}!Get\+Height@{Get\+Height}}
+\index{Get\+Height@{Get\+Height}!rtm\+::\+Coating\+Union@{rtm\+::\+Coating\+Union}}
+\subsubsection{\texorpdfstring{Get\+Height()}{GetHeight()}}
+{\footnotesize\ttfamily size\+\_\+t rtm\+::\+Coating\+Union\+::\+Get\+Height (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Функция для получения высоты объединения \begin{DoxyReturn}{Возвращает}
+высота объединения 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classrtm_1_1_coating_union_acbcdbbd157f6d55597a54bb639a977f2}\label{classrtm_1_1_coating_union_acbcdbbd157f6d55597a54bb639a977f2}} 
+\index{rtm\+::\+Coating\+Union@{rtm\+::\+Coating\+Union}!Get\+Coating\+Object@{Get\+Coating\+Object}}
+\index{Get\+Coating\+Object@{Get\+Coating\+Object}!rtm\+::\+Coating\+Union@{rtm\+::\+Coating\+Union}}
+\subsubsection{\texorpdfstring{Get\+Coating\+Object()}{GetCoatingObject()}}
+{\footnotesize\ttfamily \hyperlink{namespacertm_ab0ec616a26920aeaf720d04e041e8ce3}{rtm\+::\+Coating\+Unique} const  \& rtm\+::\+Coating\+Union\+::\+Get\+Coating\+Object (\begin{DoxyParamCaption}\item[{int}]{column,  }\item[{int}]{row }\end{DoxyParamCaption}) const}
+
+Функция для получения объекта 
+\begin{DoxyParams}{Аргументы}
+{\em column} & колонка (относительно всей карты), в которой находится объект \\
+\hline
+{\em row} & строка (относительно всей карты), в которой находится объект \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+умный указатель на объект 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classrtm_1_1_coating_union_adf3ec4f4e8399c455aaa73bfe726b4ce}\label{classrtm_1_1_coating_union_adf3ec4f4e8399c455aaa73bfe726b4ce}} 
+\index{rtm\+::\+Coating\+Union@{rtm\+::\+Coating\+Union}!Get\+Length@{Get\+Length}}
+\index{Get\+Length@{Get\+Length}!rtm\+::\+Coating\+Union@{rtm\+::\+Coating\+Union}}
+\subsubsection{\texorpdfstring{Get\+Length()}{GetLength()}}
+{\footnotesize\ttfamily float rtm\+::\+Coating\+Union\+::\+Get\+Length (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Функция для получения длины (количества покрытий) \begin{DoxyReturn}{Возвращает}
+длина 
+\end{DoxyReturn}
+
+
+Переопределяется в \hyperlink{classrtm_1_1_driveway_object_a5de41ef395ad8ccefb435e568f84ed40}{rtm\+::\+Driveway\+Object}.
+
+\mbox{\Hypertarget{classrtm_1_1_coating_union_a7f77378af1ea7473d10497ad01effcad}\label{classrtm_1_1_coating_union_a7f77378af1ea7473d10497ad01effcad}} 
+\index{rtm\+::\+Coating\+Union@{rtm\+::\+Coating\+Union}!Is\+Correct\+Column@{Is\+Correct\+Column}}
+\index{Is\+Correct\+Column@{Is\+Correct\+Column}!rtm\+::\+Coating\+Union@{rtm\+::\+Coating\+Union}}
+\subsubsection{\texorpdfstring{Is\+Correct\+Column()}{IsCorrectColumn()}}
+{\footnotesize\ttfamily bool rtm\+::\+Coating\+Union\+::\+Is\+Correct\+Column (\begin{DoxyParamCaption}\item[{int}]{column }\end{DoxyParamCaption}) const}
+
+Функция для проверки корректности колонки в данном объединении \begin{DoxyReturn}{Возвращает}
+true, если объединение содержит данную колонку, иначе false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classrtm_1_1_coating_union_abbd51ea78ee3d798807827f6ee930540}\label{classrtm_1_1_coating_union_abbd51ea78ee3d798807827f6ee930540}} 
+\index{rtm\+::\+Coating\+Union@{rtm\+::\+Coating\+Union}!Is\+Correct\+Row@{Is\+Correct\+Row}}
+\index{Is\+Correct\+Row@{Is\+Correct\+Row}!rtm\+::\+Coating\+Union@{rtm\+::\+Coating\+Union}}
+\subsubsection{\texorpdfstring{Is\+Correct\+Row()}{IsCorrectRow()}}
+{\footnotesize\ttfamily bool rtm\+::\+Coating\+Union\+::\+Is\+Correct\+Row (\begin{DoxyParamCaption}\item[{int}]{row }\end{DoxyParamCaption}) const}
+
+Функция для проверки корректности строки в данном объединении \begin{DoxyReturn}{Возвращает}
+true, если объединение содержит данную строку, иначе false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classrtm_1_1_coating_union_ae95be187677aec759723edb4d14b35c1}\label{classrtm_1_1_coating_union_ae95be187677aec759723edb4d14b35c1}} 
+\index{rtm\+::\+Coating\+Union@{rtm\+::\+Coating\+Union}!Show\+Sprites@{Show\+Sprites}}
+\index{Show\+Sprites@{Show\+Sprites}!rtm\+::\+Coating\+Union@{rtm\+::\+Coating\+Union}}
+\subsubsection{\texorpdfstring{Show\+Sprites()}{ShowSprites()}}
+{\footnotesize\ttfamily void rtm\+::\+Coating\+Union\+::\+Show\+Sprites (\begin{DoxyParamCaption}\item[{cocos2d\+::\+Layer $\ast$const}]{layer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Функция для добавления спрайтов на сцену 
+\begin{DoxyParams}{Аргументы}
+{\em layer} & слой, на который надо добавить спрайты управляющего блока \\
+\hline
+\end{DoxyParams}
+
+
+Переопределяется в \hyperlink{classrtm_1_1_crossroad_object_a2de2a5dac2ba2ca573cfa65a2633de9b}{rtm\+::\+Crossroad\+Object}.
+
+\mbox{\Hypertarget{classrtm_1_1_coating_union_a4e046aae25ce91da0408ac31a0de4e21}\label{classrtm_1_1_coating_union_a4e046aae25ce91da0408ac31a0de4e21}} 
+\index{rtm\+::\+Coating\+Union@{rtm\+::\+Coating\+Union}!Release\+Sprites@{Release\+Sprites}}
+\index{Release\+Sprites@{Release\+Sprites}!rtm\+::\+Coating\+Union@{rtm\+::\+Coating\+Union}}
+\subsubsection{\texorpdfstring{Release\+Sprites()}{ReleaseSprites()}}
+{\footnotesize\ttfamily void rtm\+::\+Coating\+Union\+::\+Release\+Sprites (\begin{DoxyParamCaption}\item[{cocos2d\+::\+Layer $\ast$const}]{layer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Функция для удаления спрайтов со сцены 
+\begin{DoxyParams}{Аргументы}
+{\em layer} & слой, с которого надо удалить спрайты управляющего блока \\
+\hline
+\end{DoxyParams}
+
+
+Переопределяется в \hyperlink{classrtm_1_1_crossroad_object_a92e9357697edecc69564fd4d40524a3b}{rtm\+::\+Crossroad\+Object}.
+
+\mbox{\Hypertarget{classrtm_1_1_coating_union_a1d2b6a339f6cafbe41d416f371cbed04}\label{classrtm_1_1_coating_union_a1d2b6a339f6cafbe41d416f371cbed04}} 
+\index{rtm\+::\+Coating\+Union@{rtm\+::\+Coating\+Union}!Get\+Column\+\_\+@{Get\+Column\+\_\+}}
+\index{Get\+Column\+\_\+@{Get\+Column\+\_\+}!rtm\+::\+Coating\+Union@{rtm\+::\+Coating\+Union}}
+\subsubsection{\texorpdfstring{Get\+Column\+\_\+()}{GetColumn\_()}}
+{\footnotesize\ttfamily int rtm\+::\+Coating\+Union\+::\+Get\+Column\+\_\+ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [protected]}}
+
+Функция для получения левой колонки объединения \begin{DoxyReturn}{Возвращает}
+левая колонка объединения 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classrtm_1_1_coating_union_ad283fd24e0c3347c569e3ea5772a9651}\label{classrtm_1_1_coating_union_ad283fd24e0c3347c569e3ea5772a9651}} 
+\index{rtm\+::\+Coating\+Union@{rtm\+::\+Coating\+Union}!Get\+Row\+\_\+@{Get\+Row\+\_\+}}
+\index{Get\+Row\+\_\+@{Get\+Row\+\_\+}!rtm\+::\+Coating\+Union@{rtm\+::\+Coating\+Union}}
+\subsubsection{\texorpdfstring{Get\+Row\+\_\+()}{GetRow\_()}}
+{\footnotesize\ttfamily int rtm\+::\+Coating\+Union\+::\+Get\+Row\+\_\+ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [protected]}}
+
+Функция для получения нижней строки объединения \begin{DoxyReturn}{Возвращает}
+нижняя строка объединения 
+\end{DoxyReturn}
+
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Vladimir/\+Documents/\+Visual Studio 2017/\+Projects/\+R\+T\+M/\+Classes/Coating\+Union.\+h\item 
+C\+:/\+Users/\+Vladimir/\+Documents/\+Visual Studio 2017/\+Projects/\+R\+T\+M/\+Classes/Coating\+Union.\+cpp\end{DoxyCompactItemize}

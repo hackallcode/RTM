@@ -1,0 +1,9 @@
+<map id="Иерархия классов. Графический вид." name="Иерархия классов. Графический вид.">
+<area shape="rect" id="node1" href="$classrtm_1_1_world_object.html" title="Класс объекта мира (родитель всех условно объемных объектов) " alt="" coords="5,31,127,57"/>
+<area shape="rect" id="node2" href="$classrtm_1_1_dynamic_object.html" title="Класс динамического объекта (который двигается, обновляется) " alt="" coords="175,5,313,32"/>
+<area shape="rect" id="node5" href="$classrtm_1_1_static_object.html" title="Класс статического объекта (который не обновляется) " alt="" coords="183,56,305,83"/>
+<area shape="rect" id="node3" href="$classrtm_1_1_vehicle_object.html" title="Класс транспорта (динамического объекта карты) " alt="" coords="361,5,492,32"/>
+<area shape="rect" id="node4" href="$classrtm_1_1_car_object.html" title="Класс, описывающий машины " alt="" coords="553,5,660,32"/>
+<area shape="rect" id="node6" href="$classrtm_1_1_map_object.html" title="Класс статического объекта карты " alt="" coords="371,56,483,83"/>
+<area shape="rect" id="node7" href="$classrtm_1_1_building_object.html" title="Класс, описывающий строения (здания) " alt="" coords="540,56,673,83"/>
+</map>

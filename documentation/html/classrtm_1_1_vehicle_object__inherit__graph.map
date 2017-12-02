@@ -1,0 +1,5 @@
+<map id="rtm::VehicleObject" name="rtm::VehicleObject">
+<area shape="rect" id="node4" href="$classrtm_1_1_car_object.html" title="Класс, описывающий машины " alt="" coords="21,229,128,256"/>
+<area shape="rect" id="node2" href="$classrtm_1_1_dynamic_object.html" title="Класс динамического объекта (который двигается, обновляется) " alt="" coords="5,80,144,107"/>
+<area shape="rect" id="node3" href="$classrtm_1_1_world_object.html" title="Класс объекта мира (родитель всех условно объемных объектов) " alt="" coords="14,5,135,32"/>
+</map>

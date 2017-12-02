@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>RTM: Исходный файл C:/Users/Vladimir/Documents/Visual Studio 2017/Projects/RTM/Classes/CoatingObject.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">RTM
+   &#160;<span id="projectnumber">0.1.0</span>
+   </div>
+   <div id="projectbrief">Road Traffic Model</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Поиск');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_0c68614ac8d8401edbf4146ded722294.html">Classes</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">CoatingObject.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef __COATING_OBJECTS_INCLUDED__</span></div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define __COATING_OBJECTS_INCLUDED__</span></div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;General.h&quot;</span></div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacertm.html">rtm</a> {</div><div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="classrtm_1_1_coating_object.html">    8</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classrtm_1_1_coating_object.html">CoatingObject</a></div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    {</div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="keyword">public</span>:</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        <a class="code" href="classrtm_1_1_coating_object.html#a4b6f326b459b1bbf6b66c08cd74d2f1a">CoatingObject</a>();</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <a class="code" href="classrtm_1_1_coating_object.html#a4b6f326b459b1bbf6b66c08cd74d2f1a">CoatingObject</a>(cocos2d::Sprite* <span class="keyword">const</span> sprite, <span class="keywordtype">int</span> column, <span class="keywordtype">int</span> row,</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;            <a class="code" href="namespacertm.html#a69dc82b16a0148c10962caa83d930f89">AngleType</a> angle, <span class="keywordtype">float</span> resistance, <a class="code" href="namespacertm.html#a4776fbfe59834ff1a16838ad6735b69a">Directions</a> directions);</div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <a class="code" href="classrtm_1_1_coating_object.html#a4b6f326b459b1bbf6b66c08cd74d2f1a">CoatingObject</a>(std::string <span class="keyword">const</span>&amp; filename, <span class="keywordtype">int</span> column, <span class="keywordtype">int</span> row,</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;            <a class="code" href="namespacertm.html#a69dc82b16a0148c10962caa83d930f89">AngleType</a> angle, <span class="keywordtype">float</span> resistance, <a class="code" href="namespacertm.html#a4776fbfe59834ff1a16838ad6735b69a">Directions</a> directions);</div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="keyword">virtual</span> <a class="code" href="classrtm_1_1_coating_object.html#aa181401eddb2b9c099c0d56dcbae4d0d">~CoatingObject</a>() = <span class="keywordflow">default</span>;</div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        cocos2d::Sprite* <a class="code" href="classrtm_1_1_coating_object.html#a5153c2be68353078dac8771cc9c361bb">GetSprite</a>() <span class="keyword">const</span>;</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keywordtype">float</span> <a class="code" href="classrtm_1_1_coating_object.html#a1680b004da834a1b885b4e22f09e84cc">GetResistance</a>() <span class="keyword">const</span>;</div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classrtm_1_1_coating_object.html#a88eb5287d899ca8e10e31de4192bbddc">HasDirection</a>(<a class="code" href="namespacertm.html#a69dc82b16a0148c10962caa83d930f89">AngleType</a> angle) <span class="keyword">const</span>;</div><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classrtm_1_1_coating_object.html#a4d7656260eaa296f1bfa2e957698c437">IsDirectionAvailable</a>(<a class="code" href="namespacertm.html#a69dc82b16a0148c10962caa83d930f89">AngleType</a> angle) <span class="keyword">const</span>;</div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classrtm_1_1_coating_object.html#a93eb37a24af3939337f6330209fae809">SetDirectionAvailability</a>(<a class="code" href="namespacertm.html#a69dc82b16a0148c10962caa83d930f89">AngleType</a> angle, <span class="keywordtype">bool</span> status);</div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keyword">protected</span>:</div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classrtm_1_1_coating_object.html#a1d0227cd023ce6e6bd475194b5cbfe2d">SetSprite_</a>(cocos2d::Sprite* <span class="keyword">const</span> sprite);</div><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keyword">private</span>:</div><div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="classrtm_1_1_coating_object.html#a5a50d8dce6f4c8f62869eac82b362b4b">   62</a></span>&#160;        cocos2d::Sprite* <a class="code" href="classrtm_1_1_coating_object.html#a5a50d8dce6f4c8f62869eac82b362b4b">sprite_</a>;</div><div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="classrtm_1_1_coating_object.html#af0952d3d8f3a52dc6f7da2b12a8728bc">   64</a></span>&#160;        <span class="keywordtype">float</span> <a class="code" href="classrtm_1_1_coating_object.html#af0952d3d8f3a52dc6f7da2b12a8728bc">x_</a>;</div><div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="classrtm_1_1_coating_object.html#a9aa381d87a817ab61a55f94538d9b6e0">   66</a></span>&#160;        <span class="keywordtype">float</span> <a class="code" href="classrtm_1_1_coating_object.html#a9aa381d87a817ab61a55f94538d9b6e0">y_</a>;</div><div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="classrtm_1_1_coating_object.html#a254720b1a903d8a0359f5d3ebe774bfb">   68</a></span>&#160;        <span class="keywordtype">float</span> <a class="code" href="classrtm_1_1_coating_object.html#a254720b1a903d8a0359f5d3ebe774bfb">resistance_</a>;</div><div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="classrtm_1_1_coating_object.html#a41be26c25937bd71ecbb5e1527446841">   70</a></span>&#160;        <a class="code" href="namespacertm.html#a4776fbfe59834ff1a16838ad6735b69a">Directions</a> <a class="code" href="classrtm_1_1_coating_object.html#a41be26c25937bd71ecbb5e1527446841">directions_</a>;</div><div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="classrtm_1_1_coating_object.html#ad542a00f5a714fee4f8ebc30e76746cc">   72</a></span>&#160;        <a class="code" href="namespacertm.html#a4776fbfe59834ff1a16838ad6735b69a">Directions</a> <a class="code" href="classrtm_1_1_coating_object.html#ad542a00f5a714fee4f8ebc30e76746cc">availableDirections_</a>;</div><div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div><div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classrtm_1_1_coating_object.html#a5bb5e11400d05dc2d50bfbd2021d3aac">SetX_</a>(<span class="keywordtype">float</span> x);</div><div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classrtm_1_1_coating_object.html#a3f67f750f8bf4b87a55655018c0c8d71">SetY_</a>(<span class="keywordtype">float</span> y);</div><div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    };</div><div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;}</div><div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div><div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="preprocessor">#endif // __COATING_OBJECTS_INCLUDED__</span></div><div class="ttc" id="classrtm_1_1_coating_object_html_a1680b004da834a1b885b4e22f09e84cc"><div class="ttname"><a href="classrtm_1_1_coating_object.html#a1680b004da834a1b885b4e22f09e84cc">rtm::CoatingObject::GetResistance</a></div><div class="ttdeci">float GetResistance() const</div><div class="ttdef"><b>Definition:</b> CoatingObject.cpp:62</div></div>
+<div class="ttc" id="classrtm_1_1_coating_object_html_a88eb5287d899ca8e10e31de4192bbddc"><div class="ttname"><a href="classrtm_1_1_coating_object.html#a88eb5287d899ca8e10e31de4192bbddc">rtm::CoatingObject::HasDirection</a></div><div class="ttdeci">bool HasDirection(AngleType angle) const</div><div class="ttdef"><b>Definition:</b> CoatingObject.cpp:67</div></div>
+<div class="ttc" id="namespacertm_html_a4776fbfe59834ff1a16838ad6735b69a"><div class="ttname"><a href="namespacertm.html#a4776fbfe59834ff1a16838ad6735b69a">rtm::Directions</a></div><div class="ttdeci">std::array&lt; bool, 8 &gt; Directions</div><div class="ttdef"><b>Definition:</b> General.h:313</div></div>
+<div class="ttc" id="classrtm_1_1_coating_object_html_a41be26c25937bd71ecbb5e1527446841"><div class="ttname"><a href="classrtm_1_1_coating_object.html#a41be26c25937bd71ecbb5e1527446841">rtm::CoatingObject::directions_</a></div><div class="ttdeci">Directions directions_</div><div class="ttdoc">Доступные направления </div><div class="ttdef"><b>Definition:</b> CoatingObject.h:70</div></div>
+<div class="ttc" id="classrtm_1_1_coating_object_html_a5a50d8dce6f4c8f62869eac82b362b4b"><div class="ttname"><a href="classrtm_1_1_coating_object.html#a5a50d8dce6f4c8f62869eac82b362b4b">rtm::CoatingObject::sprite_</a></div><div class="ttdeci">cocos2d::Sprite * sprite_</div><div class="ttdoc">Указатель на спрайт </div><div class="ttdef"><b>Definition:</b> CoatingObject.h:62</div></div>
+<div class="ttc" id="classrtm_1_1_coating_object_html_aa181401eddb2b9c099c0d56dcbae4d0d"><div class="ttname"><a href="classrtm_1_1_coating_object.html#aa181401eddb2b9c099c0d56dcbae4d0d">rtm::CoatingObject::~CoatingObject</a></div><div class="ttdeci">virtual ~CoatingObject()=default</div><div class="ttdoc">Деструктор по умолчанию </div></div>
+<div class="ttc" id="classrtm_1_1_coating_object_html_a254720b1a903d8a0359f5d3ebe774bfb"><div class="ttname"><a href="classrtm_1_1_coating_object.html#a254720b1a903d8a0359f5d3ebe774bfb">rtm::CoatingObject::resistance_</a></div><div class="ttdeci">float resistance_</div><div class="ttdoc">Сопротивление на покрытии </div><div class="ttdef"><b>Definition:</b> CoatingObject.h:68</div></div>
+<div class="ttc" id="classrtm_1_1_coating_object_html_a3f67f750f8bf4b87a55655018c0c8d71"><div class="ttname"><a href="classrtm_1_1_coating_object.html#a3f67f750f8bf4b87a55655018c0c8d71">rtm::CoatingObject::SetY_</a></div><div class="ttdeci">void SetY_(float y)</div><div class="ttdef"><b>Definition:</b> CoatingObject.cpp:100</div></div>
+<div class="ttc" id="classrtm_1_1_coating_object_html_a93eb37a24af3939337f6330209fae809"><div class="ttname"><a href="classrtm_1_1_coating_object.html#a93eb37a24af3939337f6330209fae809">rtm::CoatingObject::SetDirectionAvailability</a></div><div class="ttdeci">void SetDirectionAvailability(AngleType angle, bool status)</div><div class="ttdef"><b>Definition:</b> CoatingObject.cpp:77</div></div>
+<div class="ttc" id="classrtm_1_1_coating_object_html_a1d0227cd023ce6e6bd475194b5cbfe2d"><div class="ttname"><a href="classrtm_1_1_coating_object.html#a1d0227cd023ce6e6bd475194b5cbfe2d">rtm::CoatingObject::SetSprite_</a></div><div class="ttdeci">void SetSprite_(cocos2d::Sprite *const sprite)</div><div class="ttdef"><b>Definition:</b> CoatingObject.cpp:82</div></div>
+<div class="ttc" id="classrtm_1_1_coating_object_html_a4b6f326b459b1bbf6b66c08cd74d2f1a"><div class="ttname"><a href="classrtm_1_1_coating_object.html#a4b6f326b459b1bbf6b66c08cd74d2f1a">rtm::CoatingObject::CoatingObject</a></div><div class="ttdeci">CoatingObject()</div><div class="ttdoc">Конструктор по умолчанию </div><div class="ttdef"><b>Definition:</b> CoatingObject.cpp:3</div></div>
+<div class="ttc" id="classrtm_1_1_coating_object_html"><div class="ttname"><a href="classrtm_1_1_coating_object.html">rtm::CoatingObject</a></div><div class="ttdoc">Класс покрытия секции карты </div><div class="ttdef"><b>Definition:</b> CoatingObject.h:8</div></div>
+<div class="ttc" id="namespacertm_html_a69dc82b16a0148c10962caa83d930f89"><div class="ttname"><a href="namespacertm.html#a69dc82b16a0148c10962caa83d930f89">rtm::AngleType</a></div><div class="ttdeci">AngleType</div><div class="ttdoc">Тип для определения положения некоторых объектов и индикации разрешенных направлений на кусочке объек...</div><div class="ttdef"><b>Definition:</b> General.h:209</div></div>
+<div class="ttc" id="classrtm_1_1_coating_object_html_af0952d3d8f3a52dc6f7da2b12a8728bc"><div class="ttname"><a href="classrtm_1_1_coating_object.html#af0952d3d8f3a52dc6f7da2b12a8728bc">rtm::CoatingObject::x_</a></div><div class="ttdeci">float x_</div><div class="ttdoc">Абсцисса </div><div class="ttdef"><b>Definition:</b> CoatingObject.h:64</div></div>
+<div class="ttc" id="classrtm_1_1_coating_object_html_a5bb5e11400d05dc2d50bfbd2021d3aac"><div class="ttname"><a href="classrtm_1_1_coating_object.html#a5bb5e11400d05dc2d50bfbd2021d3aac">rtm::CoatingObject::SetX_</a></div><div class="ttdeci">void SetX_(float x)</div><div class="ttdef"><b>Definition:</b> CoatingObject.cpp:92</div></div>
+<div class="ttc" id="classrtm_1_1_coating_object_html_a9aa381d87a817ab61a55f94538d9b6e0"><div class="ttname"><a href="classrtm_1_1_coating_object.html#a9aa381d87a817ab61a55f94538d9b6e0">rtm::CoatingObject::y_</a></div><div class="ttdeci">float y_</div><div class="ttdoc">Ордината </div><div class="ttdef"><b>Definition:</b> CoatingObject.h:66</div></div>
+<div class="ttc" id="namespacertm_html"><div class="ttname"><a href="namespacertm.html">rtm</a></div><div class="ttdoc">Пространство имен для проекта RTM. </div><div class="ttdef"><b>Definition:</b> BuildingObject.h:6</div></div>
+<div class="ttc" id="classrtm_1_1_coating_object_html_a4d7656260eaa296f1bfa2e957698c437"><div class="ttname"><a href="classrtm_1_1_coating_object.html#a4d7656260eaa296f1bfa2e957698c437">rtm::CoatingObject::IsDirectionAvailable</a></div><div class="ttdeci">bool IsDirectionAvailable(AngleType angle) const</div><div class="ttdef"><b>Definition:</b> CoatingObject.cpp:72</div></div>
+<div class="ttc" id="classrtm_1_1_coating_object_html_ad542a00f5a714fee4f8ebc30e76746cc"><div class="ttname"><a href="classrtm_1_1_coating_object.html#ad542a00f5a714fee4f8ebc30e76746cc">rtm::CoatingObject::availableDirections_</a></div><div class="ttdeci">Directions availableDirections_</div><div class="ttdoc">Разрешенные направления </div><div class="ttdef"><b>Definition:</b> CoatingObject.h:72</div></div>
+<div class="ttc" id="classrtm_1_1_coating_object_html_a5153c2be68353078dac8771cc9c361bb"><div class="ttname"><a href="classrtm_1_1_coating_object.html#a5153c2be68353078dac8771cc9c361bb">rtm::CoatingObject::GetSprite</a></div><div class="ttdeci">cocos2d::Sprite * GetSprite() const</div><div class="ttdef"><b>Definition:</b> CoatingObject.cpp:57</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

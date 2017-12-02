@@ -1,0 +1,237 @@
+\hypertarget{classrtm_1_1_control_unit}{}\section{Класс rtm\+:\+:Control\+Unit}
+\label{classrtm_1_1_control_unit}\index{rtm\+::\+Control\+Unit@{rtm\+::\+Control\+Unit}}
+
+
+Класс управляющего блока (светофор)  
+
+
+
+
+{\ttfamily \#include $<$Control\+Unit.\+h$>$}
+
+\subsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classrtm_1_1_control_unit_a6faae9a6512a9f75fbe4c1c4b2f88090}\label{classrtm_1_1_control_unit_a6faae9a6512a9f75fbe4c1c4b2f88090}} 
+\hyperlink{classrtm_1_1_control_unit_a6faae9a6512a9f75fbe4c1c4b2f88090}{Control\+Unit} ()
+\begin{DoxyCompactList}\small\item\em Конструктор по умолчанию \end{DoxyCompactList}\item 
+\hyperlink{classrtm_1_1_control_unit_ac8a261d763f6d6632ce2c872710fe6b4}{Control\+Unit} (size\+\_\+t type, int column, int row, \hyperlink{namespacertm_a14457f3088a92b86a96686b72d3e4eea}{Lines\+Counts} lines\+Counts)
+\item 
+\hyperlink{classrtm_1_1_control_unit_a2c2c1f0f0196f0af82009f94bb875736}{Control\+Unit} (size\+\_\+t type, int column, int row, \hyperlink{namespacertm_a14457f3088a92b86a96686b72d3e4eea}{Lines\+Counts} lines\+Counts, \hyperlink{namespacertm_a69dc82b16a0148c10962caa83d930f89}{Angle\+Type} null\+Direction)
+\item 
+\mbox{\Hypertarget{classrtm_1_1_control_unit_a29e6e147ae6212c9bc7cc13c5d8fdc2c}\label{classrtm_1_1_control_unit_a29e6e147ae6212c9bc7cc13c5d8fdc2c}} 
+virtual \hyperlink{classrtm_1_1_control_unit_a29e6e147ae6212c9bc7cc13c5d8fdc2c}{$\sim$\+Control\+Unit} ()=default
+\begin{DoxyCompactList}\small\item\em Деструктор по умолчанию \end{DoxyCompactList}\item 
+void \hyperlink{classrtm_1_1_control_unit_afb3eba6577d912109784ac1d32338859}{Update} (\hyperlink{classrtm_1_1_world_controller}{World\+Controller} $\ast$const world)
+\item 
+\hyperlink{classrtm_1_1_control_unit_ab48f3a045d62fa1f251af2ece4b52d44}{operator bool} () const
+\item 
+\hyperlink{namespacertm_aadb7300c15d57429546fb0b7f8ee0ee6}{Signal\+Type} \hyperlink{classrtm_1_1_control_unit_afa3dcc399f2f5b7d0c1451aa65977da6}{Get\+Signal} (\hyperlink{namespacertm_a57b216f3aeb45041f3461bab08bc3aeb}{Direction\+Type} from, \hyperlink{namespacertm_a57b216f3aeb45041f3461bab08bc3aeb}{Direction\+Type} to) const
+\item 
+void \hyperlink{classrtm_1_1_control_unit_af126b136af6883970ded2a592c90d2b1}{Show\+Sprites} (cocos2d\+::\+Layer $\ast$const layer)
+\item 
+void \hyperlink{classrtm_1_1_control_unit_ac21d7c91d9c62fb58f29b2412ce4d4be}{Release\+Sprites} (cocos2d\+::\+Layer $\ast$const layer)
+\end{DoxyCompactItemize}
+\subsection*{Закрытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classrtm_1_1_control_unit_aeec72cf989ee126e9fb7a7b27c486f6b}\label{classrtm_1_1_control_unit_aeec72cf989ee126e9fb7a7b27c486f6b}} 
+void \hyperlink{classrtm_1_1_control_unit_aeec72cf989ee126e9fb7a7b27c486f6b}{Init\+Signals\+\_\+} ()
+\begin{DoxyCompactList}\small\item\em Функция для инициализации сигналов \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classrtm_1_1_control_unit_aca3d0de2c18e1b9fa1ca449e86328599}\label{classrtm_1_1_control_unit_aca3d0de2c18e1b9fa1ca449e86328599}} 
+void \hyperlink{classrtm_1_1_control_unit_aca3d0de2c18e1b9fa1ca449e86328599}{Reset\+Sprites\+\_\+} ()
+\begin{DoxyCompactList}\small\item\em Функция для отображения спрайтов в зависимости от массива сигналов \end{DoxyCompactList}\item 
+void \hyperlink{classrtm_1_1_control_unit_afacb521a6f7297b932a48edbbf0a10b2}{Update\+Signal\+\_\+} (size\+\_\+t i, size\+\_\+t j, \hyperlink{namespacertm_aadb7300c15d57429546fb0b7f8ee0ee6}{Signal\+Type} signal)
+\item 
+\mbox{\Hypertarget{classrtm_1_1_control_unit_a63302a181e4f6cf8ecfc9acd24acfdb9}\label{classrtm_1_1_control_unit_a63302a181e4f6cf8ecfc9acd24acfdb9}} 
+void \hyperlink{classrtm_1_1_control_unit_a63302a181e4f6cf8ecfc9acd24acfdb9}{Inc\+State\+\_\+} ()
+\begin{DoxyCompactList}\small\item\em Функция для инкремента номера состояния \end{DoxyCompactList}\item 
+void \hyperlink{classrtm_1_1_control_unit_adc15ad500c2e7edbe9bdac16a16a0eff}{Set\+State\+\_\+} (size\+\_\+t state)
+\item 
+\mbox{\Hypertarget{classrtm_1_1_control_unit_a8beeca4f58525c029a5879534304367e}\label{classrtm_1_1_control_unit_a8beeca4f58525c029a5879534304367e}} 
+void \hyperlink{classrtm_1_1_control_unit_a8beeca4f58525c029a5879534304367e}{Reset\+State\+\_\+} ()
+\begin{DoxyCompactList}\small\item\em Функция для сброса номера состояния \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Закрытые статические члены}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::string \hyperlink{classrtm_1_1_control_unit_ae30b470ee59e84fa14f1eb811a24d5ab}{Get\+Signal\+File\+\_\+} (size\+\_\+t id)
+\end{DoxyCompactItemize}
+\subsection*{Закрытые данные}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classrtm_1_1_control_unit_a831ba648d8df6aca6c2530bab19eae65}\label{classrtm_1_1_control_unit_a831ba648d8df6aca6c2530bab19eae65}} 
+size\+\_\+t \hyperlink{classrtm_1_1_control_unit_a831ba648d8df6aca6c2530bab19eae65}{type\+\_\+}
+\begin{DoxyCompactList}\small\item\em Номер типа управляющего блока (задает логику) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classrtm_1_1_control_unit_a9b3fa03f97a3f29e758e265c8ded4957}\label{classrtm_1_1_control_unit_a9b3fa03f97a3f29e758e265c8ded4957}} 
+int \hyperlink{classrtm_1_1_control_unit_a9b3fa03f97a3f29e758e265c8ded4957}{column\+\_\+}
+\begin{DoxyCompactList}\small\item\em Левая колонка перекрестка \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classrtm_1_1_control_unit_aa3b238e5b91281a493bfb3fb24d01d66}\label{classrtm_1_1_control_unit_aa3b238e5b91281a493bfb3fb24d01d66}} 
+int \hyperlink{classrtm_1_1_control_unit_aa3b238e5b91281a493bfb3fb24d01d66}{row\+\_\+}
+\begin{DoxyCompactList}\small\item\em Нижняя строка перекрестка \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classrtm_1_1_control_unit_a98e098f07ff00685089fa55f0b569802}\label{classrtm_1_1_control_unit_a98e098f07ff00685089fa55f0b569802}} 
+\hyperlink{namespacertm_a14457f3088a92b86a96686b72d3e4eea}{Lines\+Counts} \hyperlink{classrtm_1_1_control_unit_a98e098f07ff00685089fa55f0b569802}{lines\+Counts\+\_\+}
+\begin{DoxyCompactList}\small\item\em Количество полос в каждом направлении \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classrtm_1_1_control_unit_a2fe9307cb649d9c6a7f122e0363bca24}\label{classrtm_1_1_control_unit_a2fe9307cb649d9c6a7f122e0363bca24}} 
+\hyperlink{namespacertm_a69dc82b16a0148c10962caa83d930f89}{Angle\+Type} \hyperlink{classrtm_1_1_control_unit_a2fe9307cb649d9c6a7f122e0363bca24}{null\+Direction\+\_\+}
+\begin{DoxyCompactList}\small\item\em Сторона, в направлении которой нельзя двигаться \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classrtm_1_1_control_unit_aace48a89b42ac67686c879c5ae61023d}\label{classrtm_1_1_control_unit_aace48a89b42ac67686c879c5ae61023d}} 
+\hyperlink{namespacertm_afa6df86cef8e2ebcc053ad994e440354}{Crossroad\+Signals} \hyperlink{classrtm_1_1_control_unit_aace48a89b42ac67686c879c5ae61023d}{signals\+\_\+}
+\begin{DoxyCompactList}\small\item\em Все сигналы управляющего блока \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classrtm_1_1_control_unit_a907c89505cfec93598b95c7b3e7c4664}\label{classrtm_1_1_control_unit_a907c89505cfec93598b95c7b3e7c4664}} 
+\hyperlink{namespacertm_ac9f276c8ed33ee992eb1a1f04a8254a0}{Directions\+Signal\+Sprites} \hyperlink{classrtm_1_1_control_unit_a907c89505cfec93598b95c7b3e7c4664}{sprites\+\_\+}
+\begin{DoxyCompactList}\small\item\em Все спрайты управляющего блока \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classrtm_1_1_control_unit_a1496bfa46e8d33577118271087235e4d}\label{classrtm_1_1_control_unit_a1496bfa46e8d33577118271087235e4d}} 
+float \hyperlink{classrtm_1_1_control_unit_a1496bfa46e8d33577118271087235e4d}{time\+\_\+}
+\begin{DoxyCompactList}\small\item\em Время, прошедшее с последней смены сигнала \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classrtm_1_1_control_unit_ac5da371e562f8be0aa5529a80cb866b7}\label{classrtm_1_1_control_unit_ac5da371e562f8be0aa5529a80cb866b7}} 
+size\+\_\+t \hyperlink{classrtm_1_1_control_unit_ac5da371e562f8be0aa5529a80cb866b7}{state\+\_\+}
+\begin{DoxyCompactList}\small\item\em Номер состояния (для последовательного включения сигналов разных направлений) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Подробное описание}
+Класс управляющего блока (светофор) 
+
+\subsection{Конструктор(ы)}
+\mbox{\Hypertarget{classrtm_1_1_control_unit_ac8a261d763f6d6632ce2c872710fe6b4}\label{classrtm_1_1_control_unit_ac8a261d763f6d6632ce2c872710fe6b4}} 
+\index{rtm\+::\+Control\+Unit@{rtm\+::\+Control\+Unit}!Control\+Unit@{Control\+Unit}}
+\index{Control\+Unit@{Control\+Unit}!rtm\+::\+Control\+Unit@{rtm\+::\+Control\+Unit}}
+\subsubsection{\texorpdfstring{Control\+Unit()}{ControlUnit()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily rtm\+::\+Control\+Unit\+::\+Control\+Unit (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{type,  }\item[{int}]{column,  }\item[{int}]{row,  }\item[{\hyperlink{namespacertm_a14457f3088a92b86a96686b72d3e4eea}{Lines\+Counts}}]{lines\+Counts }\end{DoxyParamCaption})}
+
+Конструктор управляющего блока перекрестком 
+\begin{DoxyParams}{Аргументы}
+{\em type} & номер типа управляющего блока \\
+\hline
+{\em column} & левая колонка перекрестка \\
+\hline
+{\em row} & нижняя строка перекрестка \\
+\hline
+{\em lines\+Counts} & количество полос в каждом направлении \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classrtm_1_1_control_unit_a2c2c1f0f0196f0af82009f94bb875736}\label{classrtm_1_1_control_unit_a2c2c1f0f0196f0af82009f94bb875736}} 
+\index{rtm\+::\+Control\+Unit@{rtm\+::\+Control\+Unit}!Control\+Unit@{Control\+Unit}}
+\index{Control\+Unit@{Control\+Unit}!rtm\+::\+Control\+Unit@{rtm\+::\+Control\+Unit}}
+\subsubsection{\texorpdfstring{Control\+Unit()}{ControlUnit()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily rtm\+::\+Control\+Unit\+::\+Control\+Unit (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{type,  }\item[{int}]{column,  }\item[{int}]{row,  }\item[{\hyperlink{namespacertm_a14457f3088a92b86a96686b72d3e4eea}{Lines\+Counts}}]{lines\+Counts,  }\item[{\hyperlink{namespacertm_a69dc82b16a0148c10962caa83d930f89}{Angle\+Type}}]{null\+Direction }\end{DoxyParamCaption})}
+
+Конструктор управляющего блока перекрестком 
+\begin{DoxyParams}{Аргументы}
+{\em type} & номер типа управляющего блока \\
+\hline
+{\em column} & левая колонка перекрестка \\
+\hline
+{\em row} & нижняя строка перекрестка \\
+\hline
+{\em lines\+Counts} & количество полос в каждом направлении \\
+\hline
+{\em null\+Direction} & сторона, в направлении которой нельзя двигаться \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Методы}
+\mbox{\Hypertarget{classrtm_1_1_control_unit_afb3eba6577d912109784ac1d32338859}\label{classrtm_1_1_control_unit_afb3eba6577d912109784ac1d32338859}} 
+\index{rtm\+::\+Control\+Unit@{rtm\+::\+Control\+Unit}!Update@{Update}}
+\index{Update@{Update}!rtm\+::\+Control\+Unit@{rtm\+::\+Control\+Unit}}
+\subsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void rtm\+::\+Control\+Unit\+::\+Update (\begin{DoxyParamCaption}\item[{\hyperlink{classrtm_1_1_world_controller}{World\+Controller} $\ast$const}]{world }\end{DoxyParamCaption})}
+
+Функция обновления 
+\begin{DoxyParams}{Аргументы}
+{\em world} & контроллер мира, в котором находится объект \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classrtm_1_1_control_unit_ab48f3a045d62fa1f251af2ece4b52d44}\label{classrtm_1_1_control_unit_ab48f3a045d62fa1f251af2ece4b52d44}} 
+\index{rtm\+::\+Control\+Unit@{rtm\+::\+Control\+Unit}!operator bool@{operator bool}}
+\index{operator bool@{operator bool}!rtm\+::\+Control\+Unit@{rtm\+::\+Control\+Unit}}
+\subsubsection{\texorpdfstring{operator bool()}{operator bool()}}
+{\footnotesize\ttfamily rtm\+::\+Control\+Unit\+::operator bool (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Оператор преобразования в логический тип \begin{DoxyReturn}{Возвращает}
+true, если управляющий блок работает (меняются сигналы), иначе false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classrtm_1_1_control_unit_afa3dcc399f2f5b7d0c1451aa65977da6}\label{classrtm_1_1_control_unit_afa3dcc399f2f5b7d0c1451aa65977da6}} 
+\index{rtm\+::\+Control\+Unit@{rtm\+::\+Control\+Unit}!Get\+Signal@{Get\+Signal}}
+\index{Get\+Signal@{Get\+Signal}!rtm\+::\+Control\+Unit@{rtm\+::\+Control\+Unit}}
+\subsubsection{\texorpdfstring{Get\+Signal()}{GetSignal()}}
+{\footnotesize\ttfamily \hyperlink{namespacertm_aadb7300c15d57429546fb0b7f8ee0ee6}{rtm\+::\+Signal\+Type} rtm\+::\+Control\+Unit\+::\+Get\+Signal (\begin{DoxyParamCaption}\item[{\hyperlink{namespacertm_a57b216f3aeb45041f3461bab08bc3aeb}{Direction\+Type}}]{from,  }\item[{\hyperlink{namespacertm_a57b216f3aeb45041f3461bab08bc3aeb}{Direction\+Type}}]{to }\end{DoxyParamCaption}) const}
+
+Функция для получения сигнала (статуса направления) 
+\begin{DoxyParams}{Аргументы}
+{\em from} & направление, в котором транспорт движется \\
+\hline
+{\em to} & направление, в котором транспорт поедет дальше \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+сигнал в нужном направлении 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classrtm_1_1_control_unit_af126b136af6883970ded2a592c90d2b1}\label{classrtm_1_1_control_unit_af126b136af6883970ded2a592c90d2b1}} 
+\index{rtm\+::\+Control\+Unit@{rtm\+::\+Control\+Unit}!Show\+Sprites@{Show\+Sprites}}
+\index{Show\+Sprites@{Show\+Sprites}!rtm\+::\+Control\+Unit@{rtm\+::\+Control\+Unit}}
+\subsubsection{\texorpdfstring{Show\+Sprites()}{ShowSprites()}}
+{\footnotesize\ttfamily void rtm\+::\+Control\+Unit\+::\+Show\+Sprites (\begin{DoxyParamCaption}\item[{cocos2d\+::\+Layer $\ast$const}]{layer }\end{DoxyParamCaption})}
+
+Функция для добавления спрайтов на сцену 
+\begin{DoxyParams}{Аргументы}
+{\em layer} & слой, на который надо добавить спрайты управляющего блока \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classrtm_1_1_control_unit_ac21d7c91d9c62fb58f29b2412ce4d4be}\label{classrtm_1_1_control_unit_ac21d7c91d9c62fb58f29b2412ce4d4be}} 
+\index{rtm\+::\+Control\+Unit@{rtm\+::\+Control\+Unit}!Release\+Sprites@{Release\+Sprites}}
+\index{Release\+Sprites@{Release\+Sprites}!rtm\+::\+Control\+Unit@{rtm\+::\+Control\+Unit}}
+\subsubsection{\texorpdfstring{Release\+Sprites()}{ReleaseSprites()}}
+{\footnotesize\ttfamily void rtm\+::\+Control\+Unit\+::\+Release\+Sprites (\begin{DoxyParamCaption}\item[{cocos2d\+::\+Layer $\ast$const}]{layer }\end{DoxyParamCaption})}
+
+Функция для удаления спрайтов со сцены 
+\begin{DoxyParams}{Аргументы}
+{\em layer} & слой, с которого надо удалить спрайты управляющего блока \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classrtm_1_1_control_unit_afacb521a6f7297b932a48edbbf0a10b2}\label{classrtm_1_1_control_unit_afacb521a6f7297b932a48edbbf0a10b2}} 
+\index{rtm\+::\+Control\+Unit@{rtm\+::\+Control\+Unit}!Update\+Signal\+\_\+@{Update\+Signal\+\_\+}}
+\index{Update\+Signal\+\_\+@{Update\+Signal\+\_\+}!rtm\+::\+Control\+Unit@{rtm\+::\+Control\+Unit}}
+\subsubsection{\texorpdfstring{Update\+Signal\+\_\+()}{UpdateSignal\_()}}
+{\footnotesize\ttfamily void rtm\+::\+Control\+Unit\+::\+Update\+Signal\+\_\+ (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{i,  }\item[{size\+\_\+t}]{j,  }\item[{\hyperlink{namespacertm_aadb7300c15d57429546fb0b7f8ee0ee6}{Signal\+Type}}]{signal }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Функция для безопасной установки сигнала (если направление не закрыто) 
+\begin{DoxyParams}{Аргументы}
+{\em i} & индекс массива для исходного направления \\
+\hline
+{\em j} & индекс массива для конечного направления \\
+\hline
+{\em signal} & новый сигнал \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classrtm_1_1_control_unit_adc15ad500c2e7edbe9bdac16a16a0eff}\label{classrtm_1_1_control_unit_adc15ad500c2e7edbe9bdac16a16a0eff}} 
+\index{rtm\+::\+Control\+Unit@{rtm\+::\+Control\+Unit}!Set\+State\+\_\+@{Set\+State\+\_\+}}
+\index{Set\+State\+\_\+@{Set\+State\+\_\+}!rtm\+::\+Control\+Unit@{rtm\+::\+Control\+Unit}}
+\subsubsection{\texorpdfstring{Set\+State\+\_\+()}{SetState\_()}}
+{\footnotesize\ttfamily void rtm\+::\+Control\+Unit\+::\+Set\+State\+\_\+ (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{state }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Функция для установки номера состояния 
+\begin{DoxyParams}{Аргументы}
+{\em state} & новый номера состояния \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classrtm_1_1_control_unit_ae30b470ee59e84fa14f1eb811a24d5ab}\label{classrtm_1_1_control_unit_ae30b470ee59e84fa14f1eb811a24d5ab}} 
+\index{rtm\+::\+Control\+Unit@{rtm\+::\+Control\+Unit}!Get\+Signal\+File\+\_\+@{Get\+Signal\+File\+\_\+}}
+\index{Get\+Signal\+File\+\_\+@{Get\+Signal\+File\+\_\+}!rtm\+::\+Control\+Unit@{rtm\+::\+Control\+Unit}}
+\subsubsection{\texorpdfstring{Get\+Signal\+File\+\_\+()}{GetSignalFile\_()}}
+{\footnotesize\ttfamily std\+::string rtm\+::\+Control\+Unit\+::\+Get\+Signal\+File\+\_\+ (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+Функция для получения пути к файлу сигнала по номеру 
+\begin{DoxyParams}{Аргументы}
+{\em id} & номер стандартного сигнала \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+путь к файлу сигнала 
+\end{DoxyReturn}
+
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Vladimir/\+Documents/\+Visual Studio 2017/\+Projects/\+R\+T\+M/\+Classes/Control\+Unit.\+h\item 
+C\+:/\+Users/\+Vladimir/\+Documents/\+Visual Studio 2017/\+Projects/\+R\+T\+M/\+Classes/Control\+Unit.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,307 @@
+\hypertarget{classrtm_1_1_car_object}{}\section{Класс rtm\+:\+:Car\+Object}
+\label{classrtm_1_1_car_object}\index{rtm\+::\+Car\+Object@{rtm\+::\+Car\+Object}}
+
+
+Класс, описывающий машины  
+
+
+
+
+{\ttfamily \#include $<$Car\+Object.\+h$>$}
+
+
+
+Граф наследования\+:rtm\+:\+:Car\+Object\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=184pt]{classrtm_1_1_car_object__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classrtm_1_1_car_object_a7cc3a1d53d77c6b68e9b915455d41532}\label{classrtm_1_1_car_object_a7cc3a1d53d77c6b68e9b915455d41532}} 
+\hyperlink{classrtm_1_1_car_object_a7cc3a1d53d77c6b68e9b915455d41532}{Car\+Object} ()
+\begin{DoxyCompactList}\small\item\em Конструктор по умочанию \end{DoxyCompactList}\item 
+\hyperlink{classrtm_1_1_car_object_af260c7e577da1e4dd75d11ae73deb1e2}{Car\+Object} (cocos2d\+::\+Sprite $\ast$const sprite, int column, int row, float angle, float max\+Speed, float acceleration)
+\item 
+\hyperlink{classrtm_1_1_car_object_a1f376fdc4f75df46cefc98051b05be4b}{Car\+Object} (std\+::string const \&filename, int column, int row, float angle, float max\+Speed, float acceleration)
+\item 
+\hyperlink{classrtm_1_1_car_object_a9f40742f9e1deb7746c9207205be73b4}{Car\+Object} (size\+\_\+t type, int column, int row, float angle)
+\item 
+\mbox{\Hypertarget{classrtm_1_1_car_object_a6af110bb8064a0b32ffe97a72e3645cf}\label{classrtm_1_1_car_object_a6af110bb8064a0b32ffe97a72e3645cf}} 
+virtual \hyperlink{classrtm_1_1_car_object_a6af110bb8064a0b32ffe97a72e3645cf}{$\sim$\+Car\+Object} ()=default
+\begin{DoxyCompactList}\small\item\em Деструктор по умолчанию \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Защищенные члены}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool \hyperlink{classrtm_1_1_car_object_abbedfee1e8db8b12ea912d77efc4805c}{Movement\+Start\+\_\+} (\hyperlink{classrtm_1_1_world_controller}{World\+Controller} $\ast$const world) override
+\item 
+virtual bool \hyperlink{classrtm_1_1_car_object_abe89fea4893e244d9f6fb17c596b5ae0}{Movement\+Tick\+\_\+} (\hyperlink{classrtm_1_1_world_controller}{World\+Controller} $\ast$const world) override
+\item 
+virtual bool \hyperlink{classrtm_1_1_car_object_a24354013f953386699bbb3f4464adb0c}{Movement\+End\+\_\+} (\hyperlink{classrtm_1_1_world_controller}{World\+Controller} $\ast$const world) override
+\item 
+virtual bool \hyperlink{classrtm_1_1_car_object_a34063664a03d36d1308c80e064d1ae61}{Line\+Changing\+Start} (\hyperlink{classrtm_1_1_world_controller}{World\+Controller} $\ast$const world) override
+\end{DoxyCompactItemize}
+\subsection*{Закрытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classrtm_1_1_car_object_a7b2f6f775bca42de1f8a171967ef4a5b}\label{classrtm_1_1_car_object_a7b2f6f775bca42de1f8a171967ef4a5b}} 
+void \hyperlink{classrtm_1_1_car_object_a7b2f6f775bca42de1f8a171967ef4a5b}{Set\+Desired\+Speed\+\_\+} (float speed)
+\begin{DoxyCompactList}\small\item\em Функция для установки желаемой скорости \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classrtm_1_1_car_object_ac7d862334533fc10e079cec616f1c143}\label{classrtm_1_1_car_object_ac7d862334533fc10e079cec616f1c143}} 
+void \hyperlink{classrtm_1_1_car_object_ac7d862334533fc10e079cec616f1c143}{Reset\+Desired\+Speed\+\_\+} ()
+\begin{DoxyCompactList}\small\item\em Функция для сброса желаемой скорости \end{DoxyCompactList}\item 
+void \hyperlink{classrtm_1_1_car_object_a9e80c9029d84c425b43d6a0559d0c76c}{Check\+Coating\+Ahead\+\_\+} (\hyperlink{classrtm_1_1_world_controller}{World\+Controller} $\ast$const world)
+\item 
+void \hyperlink{classrtm_1_1_car_object_a0cd1f15e3b28edde4271b92da250339f}{Check\+Coating\+Union\+Ahead\+\_\+} (\hyperlink{classrtm_1_1_world_controller}{World\+Controller} $\ast$const world)
+\item 
+void \hyperlink{classrtm_1_1_car_object_a8d8a11c484ce1afd532b78688345f314}{Check\+Road\+Ahead\+\_\+} (\hyperlink{classrtm_1_1_world_controller}{World\+Controller} $\ast$const world)
+\end{DoxyCompactItemize}
+\subsection*{Закрытые статические члены}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::string \hyperlink{classrtm_1_1_car_object_adb159ab782445563511287d3535aa9f4}{Get\+Class\+File\+\_\+} (size\+\_\+t id)
+\item 
+static float \hyperlink{classrtm_1_1_car_object_a0e69f04edd9f51f57a1d0fd39e2b0976}{Get\+Class\+Max\+Speed\+\_\+} (size\+\_\+t id)
+\item 
+static float \hyperlink{classrtm_1_1_car_object_a45d798bf2079173c677358b4b54d4e2b}{Get\+Class\+Acceleration\+\_\+} (size\+\_\+t id)
+\end{DoxyCompactItemize}
+\subsection*{Закрытые данные}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classrtm_1_1_car_object_aeacdd9e29292eb69f5af3cef31aa02f7}\label{classrtm_1_1_car_object_aeacdd9e29292eb69f5af3cef31aa02f7}} 
+float \hyperlink{classrtm_1_1_car_object_aeacdd9e29292eb69f5af3cef31aa02f7}{recommended\+Speed\+\_\+}
+\begin{DoxyCompactList}\small\item\em Рекомендованная скорость \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classrtm_1_1_car_object_a1f90afc8d2b0787b7db6b183cb58159d}\label{classrtm_1_1_car_object_a1f90afc8d2b0787b7db6b183cb58159d}} 
+float \hyperlink{classrtm_1_1_car_object_a1f90afc8d2b0787b7db6b183cb58159d}{desired\+Speed\+\_\+}
+\begin{DoxyCompactList}\small\item\em Желаемая скорость (приоритетнее рекомендуемой) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classrtm_1_1_car_object_a4b41298c7c17d671a0676cafebf76543}\label{classrtm_1_1_car_object_a4b41298c7c17d671a0676cafebf76543}} 
+bool \hyperlink{classrtm_1_1_car_object_a4b41298c7c17d671a0676cafebf76543}{has\+Desired\+Speed\+\_\+}
+\begin{DoxyCompactList}\small\item\em Задана ли желаемая скорость \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classrtm_1_1_car_object_afedeeee4a90fe5febf5e164537cd9e3c}\label{classrtm_1_1_car_object_afedeeee4a90fe5febf5e164537cd9e3c}} 
+bool \hyperlink{classrtm_1_1_car_object_afedeeee4a90fe5febf5e164537cd9e3c}{is\+Turn\+Near\+\_\+}
+\begin{DoxyCompactList}\small\item\em Далеко ли следующий поворот \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classrtm_1_1_car_object_ae8dd4d2009bfee2951559f3207e26e1a}\label{classrtm_1_1_car_object_ae8dd4d2009bfee2951559f3207e26e1a}} 
+bool \hyperlink{classrtm_1_1_car_object_ae8dd4d2009bfee2951559f3207e26e1a}{is\+Right\+Turn\+\_\+}
+\begin{DoxyCompactList}\small\item\em Напрвление следующего поворота \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classrtm_1_1_car_object_a041532281ad637e2bf604f43089d6425}\label{classrtm_1_1_car_object_a041532281ad637e2bf604f43089d6425}} 
+bool \hyperlink{classrtm_1_1_car_object_a041532281ad637e2bf604f43089d6425}{wait\+For\+Signal\+\_\+}
+\begin{DoxyCompactList}\small\item\em Происходит ли сейчас ожидание сигнала светофора \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classrtm_1_1_car_object_ac9d8672c56c5b0aef99e05553a6b0acd}\label{classrtm_1_1_car_object_ac9d8672c56c5b0aef99e05553a6b0acd}} 
+bool \hyperlink{classrtm_1_1_car_object_ac9d8672c56c5b0aef99e05553a6b0acd}{wait\+For\+Turn\+\_\+}
+\begin{DoxyCompactList}\small\item\em Происходит ли сейчас ожидание освобождения нерегулируемого перекрестка \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classrtm_1_1_car_object_ae1ca1a36a1ebd0cb49759a3ff16f5885}\label{classrtm_1_1_car_object_ae1ca1a36a1ebd0cb49759a3ff16f5885}} 
+\hyperlink{namespacertm_a69dc82b16a0148c10962caa83d930f89}{Angle\+Type} \hyperlink{classrtm_1_1_car_object_ae1ca1a36a1ebd0cb49759a3ff16f5885}{desired\+Direction\+\_\+}
+\begin{DoxyCompactList}\small\item\em Желаемое направление движения (при первой возможности машина повернет) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Подробное описание}
+Класс, описывающий машины 
+
+\subsection{Конструктор(ы)}
+\mbox{\Hypertarget{classrtm_1_1_car_object_af260c7e577da1e4dd75d11ae73deb1e2}\label{classrtm_1_1_car_object_af260c7e577da1e4dd75d11ae73deb1e2}} 
+\index{rtm\+::\+Car\+Object@{rtm\+::\+Car\+Object}!Car\+Object@{Car\+Object}}
+\index{Car\+Object@{Car\+Object}!rtm\+::\+Car\+Object@{rtm\+::\+Car\+Object}}
+\subsubsection{\texorpdfstring{Car\+Object()}{CarObject()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily rtm\+::\+Car\+Object\+::\+Car\+Object (\begin{DoxyParamCaption}\item[{cocos2d\+::\+Sprite $\ast$const}]{sprite,  }\item[{int}]{column,  }\item[{int}]{row,  }\item[{float}]{angle,  }\item[{float}]{max\+Speed,  }\item[{float}]{acceleration }\end{DoxyParamCaption})}
+
+Конструктор с использованием уже готового спрайта 
+\begin{DoxyParams}{Аргументы}
+{\em sprite} & указатель на готовый спрайт \\
+\hline
+{\em column} & колонка, в которой необходимо отрисовать машину \\
+\hline
+{\em row} & строка, в которой необходимо отрисовать машину \\
+\hline
+{\em angle} & угол поворота машины \\
+\hline
+{\em max\+Speed} & максимальная скорость машины \\
+\hline
+{\em acceleration} & ускорение машины \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classrtm_1_1_car_object_a1f376fdc4f75df46cefc98051b05be4b}\label{classrtm_1_1_car_object_a1f376fdc4f75df46cefc98051b05be4b}} 
+\index{rtm\+::\+Car\+Object@{rtm\+::\+Car\+Object}!Car\+Object@{Car\+Object}}
+\index{Car\+Object@{Car\+Object}!rtm\+::\+Car\+Object@{rtm\+::\+Car\+Object}}
+\subsubsection{\texorpdfstring{Car\+Object()}{CarObject()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily rtm\+::\+Car\+Object\+::\+Car\+Object (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{filename,  }\item[{int}]{column,  }\item[{int}]{row,  }\item[{float}]{angle,  }\item[{float}]{max\+Speed,  }\item[{float}]{acceleration }\end{DoxyParamCaption})}
+
+Конструктор из файла 
+\begin{DoxyParams}{Аргументы}
+{\em filename} & путь к файлу инициализации \\
+\hline
+{\em column} & колонка, в которой необходимо отрисовать машину \\
+\hline
+{\em row} & строка, в которой необходимо отрисовать машину \\
+\hline
+{\em angle} & угол поворота машины \\
+\hline
+{\em max\+Speed} & максимальная скорость машины \\
+\hline
+{\em acceleration} & ускорение машины \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classrtm_1_1_car_object_a9f40742f9e1deb7746c9207205be73b4}\label{classrtm_1_1_car_object_a9f40742f9e1deb7746c9207205be73b4}} 
+\index{rtm\+::\+Car\+Object@{rtm\+::\+Car\+Object}!Car\+Object@{Car\+Object}}
+\index{Car\+Object@{Car\+Object}!rtm\+::\+Car\+Object@{rtm\+::\+Car\+Object}}
+\subsubsection{\texorpdfstring{Car\+Object()}{CarObject()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily rtm\+::\+Car\+Object\+::\+Car\+Object (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{type,  }\item[{int}]{column,  }\item[{int}]{row,  }\item[{float}]{angle }\end{DoxyParamCaption})}
+
+Конструктор стандартной машины 
+\begin{DoxyParams}{Аргументы}
+{\em type} & стандартный тип машины \\
+\hline
+{\em column} & колонка, в которой необходимо отрисовать машину \\
+\hline
+{\em row} & строка, в которой необходимо отрисовать машину \\
+\hline
+{\em angle} & угол поворота машины \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Методы}
+\mbox{\Hypertarget{classrtm_1_1_car_object_abbedfee1e8db8b12ea912d77efc4805c}\label{classrtm_1_1_car_object_abbedfee1e8db8b12ea912d77efc4805c}} 
+\index{rtm\+::\+Car\+Object@{rtm\+::\+Car\+Object}!Movement\+Start\+\_\+@{Movement\+Start\+\_\+}}
+\index{Movement\+Start\+\_\+@{Movement\+Start\+\_\+}!rtm\+::\+Car\+Object@{rtm\+::\+Car\+Object}}
+\subsubsection{\texorpdfstring{Movement\+Start\+\_\+()}{MovementStart\_()}}
+{\footnotesize\ttfamily bool rtm\+::\+Car\+Object\+::\+Movement\+Start\+\_\+ (\begin{DoxyParamCaption}\item[{\hyperlink{classrtm_1_1_world_controller}{World\+Controller} $\ast$const}]{world }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+Функция, которая просто пропускает выполнение родителя 
+\begin{DoxyParams}{Аргументы}
+{\em world} & контроллер мира, в котором находится объект \\
+\hline
+\end{DoxyParams}
+
+
+Переопределяет метод предка \hyperlink{classrtm_1_1_vehicle_object_aa02e0b8f3fa159939f370938e45abf88}{rtm\+::\+Vehicle\+Object}.
+
+\mbox{\Hypertarget{classrtm_1_1_car_object_abe89fea4893e244d9f6fb17c596b5ae0}\label{classrtm_1_1_car_object_abe89fea4893e244d9f6fb17c596b5ae0}} 
+\index{rtm\+::\+Car\+Object@{rtm\+::\+Car\+Object}!Movement\+Tick\+\_\+@{Movement\+Tick\+\_\+}}
+\index{Movement\+Tick\+\_\+@{Movement\+Tick\+\_\+}!rtm\+::\+Car\+Object@{rtm\+::\+Car\+Object}}
+\subsubsection{\texorpdfstring{Movement\+Tick\+\_\+()}{MovementTick\_()}}
+{\footnotesize\ttfamily bool rtm\+::\+Car\+Object\+::\+Movement\+Tick\+\_\+ (\begin{DoxyParamCaption}\item[{\hyperlink{classrtm_1_1_world_controller}{World\+Controller} $\ast$const}]{world }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+Функция для вычисления скорости 
+\begin{DoxyParams}{Аргументы}
+{\em world} & контроллер мира, в котором находится объект \\
+\hline
+\end{DoxyParams}
+
+
+Переопределяет метод предка \hyperlink{classrtm_1_1_vehicle_object_a06a920b3fe0df4fa4ca0687a9366426a}{rtm\+::\+Vehicle\+Object}.
+
+\mbox{\Hypertarget{classrtm_1_1_car_object_a24354013f953386699bbb3f4464adb0c}\label{classrtm_1_1_car_object_a24354013f953386699bbb3f4464adb0c}} 
+\index{rtm\+::\+Car\+Object@{rtm\+::\+Car\+Object}!Movement\+End\+\_\+@{Movement\+End\+\_\+}}
+\index{Movement\+End\+\_\+@{Movement\+End\+\_\+}!rtm\+::\+Car\+Object@{rtm\+::\+Car\+Object}}
+\subsubsection{\texorpdfstring{Movement\+End\+\_\+()}{MovementEnd\_()}}
+{\footnotesize\ttfamily bool rtm\+::\+Car\+Object\+::\+Movement\+End\+\_\+ (\begin{DoxyParamCaption}\item[{\hyperlink{classrtm_1_1_world_controller}{World\+Controller} $\ast$const}]{world }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+Функция обнуляет финальную скорость 
+\begin{DoxyParams}{Аргументы}
+{\em world} & контроллер мира, в котором находится объект \\
+\hline
+\end{DoxyParams}
+
+
+Переопределяет метод предка \hyperlink{classrtm_1_1_vehicle_object_a7e6c94902d1d544006ca8de63ba36860}{rtm\+::\+Vehicle\+Object}.
+
+\mbox{\Hypertarget{classrtm_1_1_car_object_a34063664a03d36d1308c80e064d1ae61}\label{classrtm_1_1_car_object_a34063664a03d36d1308c80e064d1ae61}} 
+\index{rtm\+::\+Car\+Object@{rtm\+::\+Car\+Object}!Line\+Changing\+Start@{Line\+Changing\+Start}}
+\index{Line\+Changing\+Start@{Line\+Changing\+Start}!rtm\+::\+Car\+Object@{rtm\+::\+Car\+Object}}
+\subsubsection{\texorpdfstring{Line\+Changing\+Start()}{LineChangingStart()}}
+{\footnotesize\ttfamily bool rtm\+::\+Car\+Object\+::\+Line\+Changing\+Start (\begin{DoxyParamCaption}\item[{\hyperlink{classrtm_1_1_world_controller}{World\+Controller} $\ast$const}]{world }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+Функция, описывающая движение перед перестроением 
+\begin{DoxyParams}{Аргументы}
+{\em world} & контроллер мира, в котором находится объект \\
+\hline
+\end{DoxyParams}
+
+
+Переопределяет метод предка \hyperlink{classrtm_1_1_vehicle_object_a8976be533dfa4704f7b221c79d1fce99}{rtm\+::\+Vehicle\+Object}.
+
+\mbox{\Hypertarget{classrtm_1_1_car_object_a9e80c9029d84c425b43d6a0559d0c76c}\label{classrtm_1_1_car_object_a9e80c9029d84c425b43d6a0559d0c76c}} 
+\index{rtm\+::\+Car\+Object@{rtm\+::\+Car\+Object}!Check\+Coating\+Ahead\+\_\+@{Check\+Coating\+Ahead\+\_\+}}
+\index{Check\+Coating\+Ahead\+\_\+@{Check\+Coating\+Ahead\+\_\+}!rtm\+::\+Car\+Object@{rtm\+::\+Car\+Object}}
+\subsubsection{\texorpdfstring{Check\+Coating\+Ahead\+\_\+()}{CheckCoatingAhead\_()}}
+{\footnotesize\ttfamily void rtm\+::\+Car\+Object\+::\+Check\+Coating\+Ahead\+\_\+ (\begin{DoxyParamCaption}\item[{\hyperlink{classrtm_1_1_world_controller}{World\+Controller} $\ast$const}]{world }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Функция для проверки объекта (повороты и т.\+д.) 
+\begin{DoxyParams}{Аргументы}
+{\em world} & контроллер мира, в котором находится объект \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classrtm_1_1_car_object_a0cd1f15e3b28edde4271b92da250339f}\label{classrtm_1_1_car_object_a0cd1f15e3b28edde4271b92da250339f}} 
+\index{rtm\+::\+Car\+Object@{rtm\+::\+Car\+Object}!Check\+Coating\+Union\+Ahead\+\_\+@{Check\+Coating\+Union\+Ahead\+\_\+}}
+\index{Check\+Coating\+Union\+Ahead\+\_\+@{Check\+Coating\+Union\+Ahead\+\_\+}!rtm\+::\+Car\+Object@{rtm\+::\+Car\+Object}}
+\subsubsection{\texorpdfstring{Check\+Coating\+Union\+Ahead\+\_\+()}{CheckCoatingUnionAhead\_()}}
+{\footnotesize\ttfamily void rtm\+::\+Car\+Object\+::\+Check\+Coating\+Union\+Ahead\+\_\+ (\begin{DoxyParamCaption}\item[{\hyperlink{classrtm_1_1_world_controller}{World\+Controller} $\ast$const}]{world }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Функция для проверки объединения покрытий (заранее тормозим перед светофорами и т.\+д.) 
+\begin{DoxyParams}{Аргументы}
+{\em world} & контроллер мира, в котором находится объект \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classrtm_1_1_car_object_a8d8a11c484ce1afd532b78688345f314}\label{classrtm_1_1_car_object_a8d8a11c484ce1afd532b78688345f314}} 
+\index{rtm\+::\+Car\+Object@{rtm\+::\+Car\+Object}!Check\+Road\+Ahead\+\_\+@{Check\+Road\+Ahead\+\_\+}}
+\index{Check\+Road\+Ahead\+\_\+@{Check\+Road\+Ahead\+\_\+}!rtm\+::\+Car\+Object@{rtm\+::\+Car\+Object}}
+\subsubsection{\texorpdfstring{Check\+Road\+Ahead\+\_\+()}{CheckRoadAhead\_()}}
+{\footnotesize\ttfamily void rtm\+::\+Car\+Object\+::\+Check\+Road\+Ahead\+\_\+ (\begin{DoxyParamCaption}\item[{\hyperlink{classrtm_1_1_world_controller}{World\+Controller} $\ast$const}]{world }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Функция для проверки дороги спереди (принятие решений) 
+\begin{DoxyParams}{Аргументы}
+{\em world} & контроллер мира, в котором находится объект \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classrtm_1_1_car_object_adb159ab782445563511287d3535aa9f4}\label{classrtm_1_1_car_object_adb159ab782445563511287d3535aa9f4}} 
+\index{rtm\+::\+Car\+Object@{rtm\+::\+Car\+Object}!Get\+Class\+File\+\_\+@{Get\+Class\+File\+\_\+}}
+\index{Get\+Class\+File\+\_\+@{Get\+Class\+File\+\_\+}!rtm\+::\+Car\+Object@{rtm\+::\+Car\+Object}}
+\subsubsection{\texorpdfstring{Get\+Class\+File\+\_\+()}{GetClassFile\_()}}
+{\footnotesize\ttfamily std\+::string rtm\+::\+Car\+Object\+::\+Get\+Class\+File\+\_\+ (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+Функция для получения пути к файлу стандартной машины по номеру 
+\begin{DoxyParams}{Аргументы}
+{\em id} & номер стандартной машины \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+путь к файлу машины 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classrtm_1_1_car_object_a0e69f04edd9f51f57a1d0fd39e2b0976}\label{classrtm_1_1_car_object_a0e69f04edd9f51f57a1d0fd39e2b0976}} 
+\index{rtm\+::\+Car\+Object@{rtm\+::\+Car\+Object}!Get\+Class\+Max\+Speed\+\_\+@{Get\+Class\+Max\+Speed\+\_\+}}
+\index{Get\+Class\+Max\+Speed\+\_\+@{Get\+Class\+Max\+Speed\+\_\+}!rtm\+::\+Car\+Object@{rtm\+::\+Car\+Object}}
+\subsubsection{\texorpdfstring{Get\+Class\+Max\+Speed\+\_\+()}{GetClassMaxSpeed\_()}}
+{\footnotesize\ttfamily float rtm\+::\+Car\+Object\+::\+Get\+Class\+Max\+Speed\+\_\+ (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+Функция для получения максимальной скорости стандартной машины по номеру 
+\begin{DoxyParams}{Аргументы}
+{\em id} & номер стандартной машины \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+максимальная скорость машины 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classrtm_1_1_car_object_a45d798bf2079173c677358b4b54d4e2b}\label{classrtm_1_1_car_object_a45d798bf2079173c677358b4b54d4e2b}} 
+\index{rtm\+::\+Car\+Object@{rtm\+::\+Car\+Object}!Get\+Class\+Acceleration\+\_\+@{Get\+Class\+Acceleration\+\_\+}}
+\index{Get\+Class\+Acceleration\+\_\+@{Get\+Class\+Acceleration\+\_\+}!rtm\+::\+Car\+Object@{rtm\+::\+Car\+Object}}
+\subsubsection{\texorpdfstring{Get\+Class\+Acceleration\+\_\+()}{GetClassAcceleration\_()}}
+{\footnotesize\ttfamily float rtm\+::\+Car\+Object\+::\+Get\+Class\+Acceleration\+\_\+ (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+Функция для получения ускорения стандартной машины по номеру 
+\begin{DoxyParams}{Аргументы}
+{\em id} & номер стандартной машины \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+ускорение машины 
+\end{DoxyReturn}
+
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Vladimir/\+Documents/\+Visual Studio 2017/\+Projects/\+R\+T\+M/\+Classes/Car\+Object.\+h\item 
+C\+:/\+Users/\+Vladimir/\+Documents/\+Visual Studio 2017/\+Projects/\+R\+T\+M/\+Classes/Car\+Object.\+cpp\end{DoxyCompactItemize}

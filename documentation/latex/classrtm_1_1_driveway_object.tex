@@ -1,0 +1,251 @@
+\hypertarget{classrtm_1_1_driveway_object}{}\section{Класс rtm\+:\+:Driveway\+Object}
+\label{classrtm_1_1_driveway_object}\index{rtm\+::\+Driveway\+Object@{rtm\+::\+Driveway\+Object}}
+
+
+Класс прямой дороги  
+
+
+
+
+{\ttfamily \#include $<$Driveway\+Object.\+h$>$}
+
+
+
+Граф наследования\+:rtm\+:\+:Driveway\+Object\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=184pt]{classrtm_1_1_driveway_object__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classrtm_1_1_driveway_object_a0db985799ef0297057c2e33284418a6b}\label{classrtm_1_1_driveway_object_a0db985799ef0297057c2e33284418a6b}} 
+\hyperlink{classrtm_1_1_driveway_object_a0db985799ef0297057c2e33284418a6b}{Driveway\+Object} ()
+\begin{DoxyCompactList}\small\item\em Конструктор по умолчанию \end{DoxyCompactList}\item 
+\hyperlink{classrtm_1_1_driveway_object_aa9f5531382b6be2c6fb0cde4160a9f90}{Driveway\+Object} (\hyperlink{namespacertm_aecd3929e64cd461eb3555b611f6fad95}{Coating\+Type} type, int column, int row, size\+\_\+t width, size\+\_\+t height, \hyperlink{namespacertm_a69dc82b16a0148c10962caa83d930f89}{Angle\+Type} angle)
+\item 
+\mbox{\Hypertarget{classrtm_1_1_driveway_object_a822b655b5c429ce2775a3999f77265a0}\label{classrtm_1_1_driveway_object_a822b655b5c429ce2775a3999f77265a0}} 
+virtual \hyperlink{classrtm_1_1_driveway_object_a822b655b5c429ce2775a3999f77265a0}{$\sim$\+Driveway\+Object} ()=default
+\begin{DoxyCompactList}\small\item\em Деструктор по умолчанию \end{DoxyCompactList}\item 
+virtual float \hyperlink{classrtm_1_1_driveway_object_a5de41ef395ad8ccefb435e568f84ed40}{Get\+Length} () const override
+\item 
+size\+\_\+t \hyperlink{classrtm_1_1_driveway_object_a239d7f4d9d5203d1f00cf60294e94151}{Get\+Lines\+Count} () const
+\item 
+bool \hyperlink{classrtm_1_1_driveway_object_ae427989fc802b24d06f6b7f83959be2a}{is\+Right\+Line} (int column, int row) const
+\item 
+bool \hyperlink{classrtm_1_1_driveway_object_addaa5faebb5469e8074a46f6c3584e56}{is\+Right\+Line} (float x, float y) const
+\item 
+bool \hyperlink{classrtm_1_1_driveway_object_aea7d711c9cf1ba995bc08d805373cc52}{is\+Left\+Line} (int column, int row) const
+\item 
+bool \hyperlink{classrtm_1_1_driveway_object_afa48600b7d87a38e6c690e3b1058d177}{is\+Left\+Line} (float x, float y) const
+\end{DoxyCompactItemize}
+\subsection*{Открытые статические члены}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{namespacertm_ae3bb29510cfde424975be31866d2486e}{Coating\+Matrix} \hyperlink{classrtm_1_1_driveway_object_ab89dd0516cf883cb0c3332ae0bbc1726}{Driveway\+Matrix} (\hyperlink{namespacertm_aecd3929e64cd461eb3555b611f6fad95}{Coating\+Type} type, int column, int row, size\+\_\+t width, size\+\_\+t height, \hyperlink{namespacertm_a69dc82b16a0148c10962caa83d930f89}{Angle\+Type} angle)
+\end{DoxyCompactItemize}
+\subsection*{Закрытые статические члены}
+\begin{DoxyCompactItemize}
+\item 
+static float \hyperlink{classrtm_1_1_driveway_object_a6ebdc5c00005dbc2e96243767ba33273}{Count\+Length\+\_\+} (size\+\_\+t width, size\+\_\+t height, \hyperlink{namespacertm_a69dc82b16a0148c10962caa83d930f89}{Angle\+Type} angle)
+\item 
+static size\+\_\+t \hyperlink{classrtm_1_1_driveway_object_af8a26a955200fde09d68d606a68c5f8c}{Count\+Lines\+\_\+} (size\+\_\+t width, size\+\_\+t height, \hyperlink{namespacertm_a69dc82b16a0148c10962caa83d930f89}{Angle\+Type} angle)
+\end{DoxyCompactItemize}
+\subsection*{Закрытые данные}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classrtm_1_1_driveway_object_ae1a5ce1c3e82307f34c1d31ad004b075}\label{classrtm_1_1_driveway_object_ae1a5ce1c3e82307f34c1d31ad004b075}} 
+\hyperlink{namespacertm_a69dc82b16a0148c10962caa83d930f89}{Angle\+Type} \hyperlink{classrtm_1_1_driveway_object_ae1a5ce1c3e82307f34c1d31ad004b075}{angle\+\_\+}
+\begin{DoxyCompactList}\small\item\em Направление движения \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classrtm_1_1_driveway_object_a7338ac80dc7ac9e9a9f109c57fa1ff20}\label{classrtm_1_1_driveway_object_a7338ac80dc7ac9e9a9f109c57fa1ff20}} 
+float \hyperlink{classrtm_1_1_driveway_object_a7338ac80dc7ac9e9a9f109c57fa1ff20}{length\+\_\+}
+\begin{DoxyCompactList}\small\item\em Длина объекта (для вычисления кратчайшего пути) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classrtm_1_1_driveway_object_acb732900dd6a079b71038f3bb8732818}\label{classrtm_1_1_driveway_object_acb732900dd6a079b71038f3bb8732818}} 
+size\+\_\+t \hyperlink{classrtm_1_1_driveway_object_acb732900dd6a079b71038f3bb8732818}{lines\+Count\+\_\+}
+\begin{DoxyCompactList}\small\item\em Количество полос \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Дополнительные унаследованные члены}
+
+
+\subsection{Подробное описание}
+Класс прямой дороги 
+
+\subsection{Конструктор(ы)}
+\mbox{\Hypertarget{classrtm_1_1_driveway_object_aa9f5531382b6be2c6fb0cde4160a9f90}\label{classrtm_1_1_driveway_object_aa9f5531382b6be2c6fb0cde4160a9f90}} 
+\index{rtm\+::\+Driveway\+Object@{rtm\+::\+Driveway\+Object}!Driveway\+Object@{Driveway\+Object}}
+\index{Driveway\+Object@{Driveway\+Object}!rtm\+::\+Driveway\+Object@{rtm\+::\+Driveway\+Object}}
+\subsubsection{\texorpdfstring{Driveway\+Object()}{DrivewayObject()}}
+{\footnotesize\ttfamily rtm\+::\+Driveway\+Object\+::\+Driveway\+Object (\begin{DoxyParamCaption}\item[{\hyperlink{namespacertm_aecd3929e64cd461eb3555b611f6fad95}{Coating\+Type}}]{type,  }\item[{int}]{column,  }\item[{int}]{row,  }\item[{size\+\_\+t}]{width,  }\item[{size\+\_\+t}]{height,  }\item[{\hyperlink{namespacertm_a69dc82b16a0148c10962caa83d930f89}{Angle\+Type}}]{angle }\end{DoxyParamCaption})}
+
+Конструктор по размерам 
+\begin{DoxyParams}{Аргументы}
+{\em type} & тип покрытия \\
+\hline
+{\em column} & левая колонка объекта \\
+\hline
+{\em row} & нижняя строка объекта \\
+\hline
+{\em width} & ширина объекта \\
+\hline
+{\em height} & высота объекта \\
+\hline
+{\em angle} & направление движения \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Методы}
+\mbox{\Hypertarget{classrtm_1_1_driveway_object_ab89dd0516cf883cb0c3332ae0bbc1726}\label{classrtm_1_1_driveway_object_ab89dd0516cf883cb0c3332ae0bbc1726}} 
+\index{rtm\+::\+Driveway\+Object@{rtm\+::\+Driveway\+Object}!Driveway\+Matrix@{Driveway\+Matrix}}
+\index{Driveway\+Matrix@{Driveway\+Matrix}!rtm\+::\+Driveway\+Object@{rtm\+::\+Driveway\+Object}}
+\subsubsection{\texorpdfstring{Driveway\+Matrix()}{DrivewayMatrix()}}
+{\footnotesize\ttfamily \hyperlink{namespacertm_ae3bb29510cfde424975be31866d2486e}{rtm\+::\+Coating\+Matrix} rtm\+::\+Driveway\+Object\+::\+Driveway\+Matrix (\begin{DoxyParamCaption}\item[{\hyperlink{namespacertm_aecd3929e64cd461eb3555b611f6fad95}{Coating\+Type}}]{type,  }\item[{int}]{column,  }\item[{int}]{row,  }\item[{size\+\_\+t}]{width,  }\item[{size\+\_\+t}]{height,  }\item[{\hyperlink{namespacertm_a69dc82b16a0148c10962caa83d930f89}{Angle\+Type}}]{angle }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Функция для получения матрицы покрытий дороги 
+\begin{DoxyParams}{Аргументы}
+{\em type} & тип покрытия \\
+\hline
+{\em column} & левая колонка объекта \\
+\hline
+{\em row} & нижняя строка объекта \\
+\hline
+{\em width} & ширина объекта \\
+\hline
+{\em height} & высота объекта \\
+\hline
+{\em angle} & направление движения \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+матрица покрытий 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classrtm_1_1_driveway_object_a5de41ef395ad8ccefb435e568f84ed40}\label{classrtm_1_1_driveway_object_a5de41ef395ad8ccefb435e568f84ed40}} 
+\index{rtm\+::\+Driveway\+Object@{rtm\+::\+Driveway\+Object}!Get\+Length@{Get\+Length}}
+\index{Get\+Length@{Get\+Length}!rtm\+::\+Driveway\+Object@{rtm\+::\+Driveway\+Object}}
+\subsubsection{\texorpdfstring{Get\+Length()}{GetLength()}}
+{\footnotesize\ttfamily float rtm\+::\+Driveway\+Object\+::\+Get\+Length (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Функция для получения длины объекта (для вычисления кратчайшего пути) \begin{DoxyReturn}{Возвращает}
+длина 
+\end{DoxyReturn}
+
+
+Переопределяет метод предка \hyperlink{classrtm_1_1_coating_union_adf3ec4f4e8399c455aaa73bfe726b4ce}{rtm\+::\+Coating\+Union}.
+
+\mbox{\Hypertarget{classrtm_1_1_driveway_object_a239d7f4d9d5203d1f00cf60294e94151}\label{classrtm_1_1_driveway_object_a239d7f4d9d5203d1f00cf60294e94151}} 
+\index{rtm\+::\+Driveway\+Object@{rtm\+::\+Driveway\+Object}!Get\+Lines\+Count@{Get\+Lines\+Count}}
+\index{Get\+Lines\+Count@{Get\+Lines\+Count}!rtm\+::\+Driveway\+Object@{rtm\+::\+Driveway\+Object}}
+\subsubsection{\texorpdfstring{Get\+Lines\+Count()}{GetLinesCount()}}
+{\footnotesize\ttfamily size\+\_\+t rtm\+::\+Driveway\+Object\+::\+Get\+Lines\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Функция для получения количества полос \begin{DoxyReturn}{Возвращает}
+количество полос 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classrtm_1_1_driveway_object_ae427989fc802b24d06f6b7f83959be2a}\label{classrtm_1_1_driveway_object_ae427989fc802b24d06f6b7f83959be2a}} 
+\index{rtm\+::\+Driveway\+Object@{rtm\+::\+Driveway\+Object}!is\+Right\+Line@{is\+Right\+Line}}
+\index{is\+Right\+Line@{is\+Right\+Line}!rtm\+::\+Driveway\+Object@{rtm\+::\+Driveway\+Object}}
+\subsubsection{\texorpdfstring{is\+Right\+Line()}{isRightLine()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool rtm\+::\+Driveway\+Object\+::is\+Right\+Line (\begin{DoxyParamCaption}\item[{int}]{column,  }\item[{int}]{row }\end{DoxyParamCaption}) const}
+
+Функция для проверки\+: находится ли объект в правой полосе 
+\begin{DoxyParams}{Аргументы}
+{\em column} & колонка, в которой находится объект \\
+\hline
+{\em row} & строка, в которой находится объект \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+true, если объект находится в правой полосе, иначе false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classrtm_1_1_driveway_object_addaa5faebb5469e8074a46f6c3584e56}\label{classrtm_1_1_driveway_object_addaa5faebb5469e8074a46f6c3584e56}} 
+\index{rtm\+::\+Driveway\+Object@{rtm\+::\+Driveway\+Object}!is\+Right\+Line@{is\+Right\+Line}}
+\index{is\+Right\+Line@{is\+Right\+Line}!rtm\+::\+Driveway\+Object@{rtm\+::\+Driveway\+Object}}
+\subsubsection{\texorpdfstring{is\+Right\+Line()}{isRightLine()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool rtm\+::\+Driveway\+Object\+::is\+Right\+Line (\begin{DoxyParamCaption}\item[{float}]{x,  }\item[{float}]{y }\end{DoxyParamCaption}) const}
+
+Функция для проверки\+: находится ли объект в правой полосе 
+\begin{DoxyParams}{Аргументы}
+{\em x} & абсцисса объекта \\
+\hline
+{\em y} & ордината объекта \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+true, если объект находится в правой полосе, иначе false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classrtm_1_1_driveway_object_aea7d711c9cf1ba995bc08d805373cc52}\label{classrtm_1_1_driveway_object_aea7d711c9cf1ba995bc08d805373cc52}} 
+\index{rtm\+::\+Driveway\+Object@{rtm\+::\+Driveway\+Object}!is\+Left\+Line@{is\+Left\+Line}}
+\index{is\+Left\+Line@{is\+Left\+Line}!rtm\+::\+Driveway\+Object@{rtm\+::\+Driveway\+Object}}
+\subsubsection{\texorpdfstring{is\+Left\+Line()}{isLeftLine()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool rtm\+::\+Driveway\+Object\+::is\+Left\+Line (\begin{DoxyParamCaption}\item[{int}]{column,  }\item[{int}]{row }\end{DoxyParamCaption}) const}
+
+Функция для проверки\+: находится ли объект в левой полосе 
+\begin{DoxyParams}{Аргументы}
+{\em column} & колонка, в которой находится объект \\
+\hline
+{\em row} & строка, в которой находится объект \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+true, если объект находится в левой полосе, иначе false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classrtm_1_1_driveway_object_afa48600b7d87a38e6c690e3b1058d177}\label{classrtm_1_1_driveway_object_afa48600b7d87a38e6c690e3b1058d177}} 
+\index{rtm\+::\+Driveway\+Object@{rtm\+::\+Driveway\+Object}!is\+Left\+Line@{is\+Left\+Line}}
+\index{is\+Left\+Line@{is\+Left\+Line}!rtm\+::\+Driveway\+Object@{rtm\+::\+Driveway\+Object}}
+\subsubsection{\texorpdfstring{is\+Left\+Line()}{isLeftLine()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool rtm\+::\+Driveway\+Object\+::is\+Left\+Line (\begin{DoxyParamCaption}\item[{float}]{x,  }\item[{float}]{y }\end{DoxyParamCaption}) const}
+
+Функция для проверки\+: находится ли объект в левой полосе 
+\begin{DoxyParams}{Аргументы}
+{\em x} & абсцисса объекта \\
+\hline
+{\em y} & ордината объекта \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+true, если объект находится в левой полосе, иначе false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classrtm_1_1_driveway_object_a6ebdc5c00005dbc2e96243767ba33273}\label{classrtm_1_1_driveway_object_a6ebdc5c00005dbc2e96243767ba33273}} 
+\index{rtm\+::\+Driveway\+Object@{rtm\+::\+Driveway\+Object}!Count\+Length\+\_\+@{Count\+Length\+\_\+}}
+\index{Count\+Length\+\_\+@{Count\+Length\+\_\+}!rtm\+::\+Driveway\+Object@{rtm\+::\+Driveway\+Object}}
+\subsubsection{\texorpdfstring{Count\+Length\+\_\+()}{CountLength\_()}}
+{\footnotesize\ttfamily float rtm\+::\+Driveway\+Object\+::\+Count\+Length\+\_\+ (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{width,  }\item[{size\+\_\+t}]{height,  }\item[{\hyperlink{namespacertm_a69dc82b16a0148c10962caa83d930f89}{Angle\+Type}}]{angle }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+Функция для вычисления длины объекта 
+\begin{DoxyParams}{Аргументы}
+{\em width} & ширина объекта \\
+\hline
+{\em height} & высота объекта \\
+\hline
+{\em angle} & направление движения \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+длина объекта 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classrtm_1_1_driveway_object_af8a26a955200fde09d68d606a68c5f8c}\label{classrtm_1_1_driveway_object_af8a26a955200fde09d68d606a68c5f8c}} 
+\index{rtm\+::\+Driveway\+Object@{rtm\+::\+Driveway\+Object}!Count\+Lines\+\_\+@{Count\+Lines\+\_\+}}
+\index{Count\+Lines\+\_\+@{Count\+Lines\+\_\+}!rtm\+::\+Driveway\+Object@{rtm\+::\+Driveway\+Object}}
+\subsubsection{\texorpdfstring{Count\+Lines\+\_\+()}{CountLines\_()}}
+{\footnotesize\ttfamily size\+\_\+t rtm\+::\+Driveway\+Object\+::\+Count\+Lines\+\_\+ (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{width,  }\item[{size\+\_\+t}]{height,  }\item[{\hyperlink{namespacertm_a69dc82b16a0148c10962caa83d930f89}{Angle\+Type}}]{angle }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+Функция для получения количества полос 
+\begin{DoxyParams}{Аргументы}
+{\em width} & ширина объекта \\
+\hline
+{\em height} & высота объекта \\
+\hline
+{\em angle} & направление движения \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+количество полос 
+\end{DoxyReturn}
+
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Vladimir/\+Documents/\+Visual Studio 2017/\+Projects/\+R\+T\+M/\+Classes/Driveway\+Object.\+h\item 
+C\+:/\+Users/\+Vladimir/\+Documents/\+Visual Studio 2017/\+Projects/\+R\+T\+M/\+Classes/Driveway\+Object.\+cpp\end{DoxyCompactItemize}

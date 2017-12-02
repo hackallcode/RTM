@@ -1,0 +1,537 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>RTM: Класс rtm::ControlUnit</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">RTM
+   &#160;<span id="projectnumber">0.1.0</span>
+   </div>
+   <div id="projectbrief">Road Traffic Model</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Поиск');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespacertm.html">rtm</a></li><li class="navelem"><a class="el" href="classrtm_1_1_control_unit.html">ControlUnit</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Открытые члены</a> &#124;
+<a href="#pri-methods">Закрытые члены</a> &#124;
+<a href="#pri-static-methods">Закрытые статические члены</a> &#124;
+<a href="#pri-attribs">Закрытые данные</a> &#124;
+<a href="classrtm_1_1_control_unit-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle">
+<div class="title">Класс rtm::ControlUnit</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Класс управляющего блока (светофор)  
+ <a href="classrtm_1_1_control_unit.html#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_control_unit_8h_source.html">ControlUnit.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:a6faae9a6512a9f75fbe4c1c4b2f88090"><td class="memItemLeft" align="right" valign="top"><a id="a6faae9a6512a9f75fbe4c1c4b2f88090"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrtm_1_1_control_unit.html#a6faae9a6512a9f75fbe4c1c4b2f88090">ControlUnit</a> ()</td></tr>
+<tr class="memdesc:a6faae9a6512a9f75fbe4c1c4b2f88090"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конструктор по умолчанию <br /></td></tr>
+<tr class="separator:a6faae9a6512a9f75fbe4c1c4b2f88090"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8a261d763f6d6632ce2c872710fe6b4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrtm_1_1_control_unit.html#ac8a261d763f6d6632ce2c872710fe6b4">ControlUnit</a> (size_t type, int column, int row, <a class="el" href="namespacertm.html#a14457f3088a92b86a96686b72d3e4eea">LinesCounts</a> linesCounts)</td></tr>
+<tr class="separator:ac8a261d763f6d6632ce2c872710fe6b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c2c1f0f0196f0af82009f94bb875736"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrtm_1_1_control_unit.html#a2c2c1f0f0196f0af82009f94bb875736">ControlUnit</a> (size_t type, int column, int row, <a class="el" href="namespacertm.html#a14457f3088a92b86a96686b72d3e4eea">LinesCounts</a> linesCounts, <a class="el" href="namespacertm.html#a69dc82b16a0148c10962caa83d930f89">AngleType</a> nullDirection)</td></tr>
+<tr class="separator:a2c2c1f0f0196f0af82009f94bb875736"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29e6e147ae6212c9bc7cc13c5d8fdc2c"><td class="memItemLeft" align="right" valign="top"><a id="a29e6e147ae6212c9bc7cc13c5d8fdc2c"></a>
+virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrtm_1_1_control_unit.html#a29e6e147ae6212c9bc7cc13c5d8fdc2c">~ControlUnit</a> ()=default</td></tr>
+<tr class="memdesc:a29e6e147ae6212c9bc7cc13c5d8fdc2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Деструктор по умолчанию <br /></td></tr>
+<tr class="separator:a29e6e147ae6212c9bc7cc13c5d8fdc2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb3eba6577d912109784ac1d32338859"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrtm_1_1_control_unit.html#afb3eba6577d912109784ac1d32338859">Update</a> (<a class="el" href="classrtm_1_1_world_controller.html">WorldController</a> *const world)</td></tr>
+<tr class="separator:afb3eba6577d912109784ac1d32338859"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab48f3a045d62fa1f251af2ece4b52d44"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrtm_1_1_control_unit.html#ab48f3a045d62fa1f251af2ece4b52d44">operator bool</a> () const</td></tr>
+<tr class="separator:ab48f3a045d62fa1f251af2ece4b52d44"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa3dcc399f2f5b7d0c1451aa65977da6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacertm.html#aadb7300c15d57429546fb0b7f8ee0ee6">SignalType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrtm_1_1_control_unit.html#afa3dcc399f2f5b7d0c1451aa65977da6">GetSignal</a> (<a class="el" href="namespacertm.html#a57b216f3aeb45041f3461bab08bc3aeb">DirectionType</a> from, <a class="el" href="namespacertm.html#a57b216f3aeb45041f3461bab08bc3aeb">DirectionType</a> to) const</td></tr>
+<tr class="separator:afa3dcc399f2f5b7d0c1451aa65977da6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af126b136af6883970ded2a592c90d2b1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrtm_1_1_control_unit.html#af126b136af6883970ded2a592c90d2b1">ShowSprites</a> (cocos2d::Layer *const layer)</td></tr>
+<tr class="separator:af126b136af6883970ded2a592c90d2b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac21d7c91d9c62fb58f29b2412ce4d4be"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrtm_1_1_control_unit.html#ac21d7c91d9c62fb58f29b2412ce4d4be">ReleaseSprites</a> (cocos2d::Layer *const layer)</td></tr>
+<tr class="separator:ac21d7c91d9c62fb58f29b2412ce4d4be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Закрытые члены</h2></td></tr>
+<tr class="memitem:aeec72cf989ee126e9fb7a7b27c486f6b"><td class="memItemLeft" align="right" valign="top"><a id="aeec72cf989ee126e9fb7a7b27c486f6b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrtm_1_1_control_unit.html#aeec72cf989ee126e9fb7a7b27c486f6b">InitSignals_</a> ()</td></tr>
+<tr class="memdesc:aeec72cf989ee126e9fb7a7b27c486f6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Функция для инициализации сигналов <br /></td></tr>
+<tr class="separator:aeec72cf989ee126e9fb7a7b27c486f6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca3d0de2c18e1b9fa1ca449e86328599"><td class="memItemLeft" align="right" valign="top"><a id="aca3d0de2c18e1b9fa1ca449e86328599"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrtm_1_1_control_unit.html#aca3d0de2c18e1b9fa1ca449e86328599">ResetSprites_</a> ()</td></tr>
+<tr class="memdesc:aca3d0de2c18e1b9fa1ca449e86328599"><td class="mdescLeft">&#160;</td><td class="mdescRight">Функция для отображения спрайтов в зависимости от массива сигналов <br /></td></tr>
+<tr class="separator:aca3d0de2c18e1b9fa1ca449e86328599"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afacb521a6f7297b932a48edbbf0a10b2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrtm_1_1_control_unit.html#afacb521a6f7297b932a48edbbf0a10b2">UpdateSignal_</a> (size_t i, size_t j, <a class="el" href="namespacertm.html#aadb7300c15d57429546fb0b7f8ee0ee6">SignalType</a> signal)</td></tr>
+<tr class="separator:afacb521a6f7297b932a48edbbf0a10b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63302a181e4f6cf8ecfc9acd24acfdb9"><td class="memItemLeft" align="right" valign="top"><a id="a63302a181e4f6cf8ecfc9acd24acfdb9"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrtm_1_1_control_unit.html#a63302a181e4f6cf8ecfc9acd24acfdb9">IncState_</a> ()</td></tr>
+<tr class="memdesc:a63302a181e4f6cf8ecfc9acd24acfdb9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Функция для инкремента номера состояния <br /></td></tr>
+<tr class="separator:a63302a181e4f6cf8ecfc9acd24acfdb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc15ad500c2e7edbe9bdac16a16a0eff"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrtm_1_1_control_unit.html#adc15ad500c2e7edbe9bdac16a16a0eff">SetState_</a> (size_t state)</td></tr>
+<tr class="separator:adc15ad500c2e7edbe9bdac16a16a0eff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8beeca4f58525c029a5879534304367e"><td class="memItemLeft" align="right" valign="top"><a id="a8beeca4f58525c029a5879534304367e"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrtm_1_1_control_unit.html#a8beeca4f58525c029a5879534304367e">ResetState_</a> ()</td></tr>
+<tr class="memdesc:a8beeca4f58525c029a5879534304367e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Функция для сброса номера состояния <br /></td></tr>
+<tr class="separator:a8beeca4f58525c029a5879534304367e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-methods"></a>
+Закрытые статические члены</h2></td></tr>
+<tr class="memitem:ae30b470ee59e84fa14f1eb811a24d5ab"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrtm_1_1_control_unit.html#ae30b470ee59e84fa14f1eb811a24d5ab">GetSignalFile_</a> (size_t id)</td></tr>
+<tr class="separator:ae30b470ee59e84fa14f1eb811a24d5ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Закрытые данные</h2></td></tr>
+<tr class="memitem:a831ba648d8df6aca6c2530bab19eae65"><td class="memItemLeft" align="right" valign="top"><a id="a831ba648d8df6aca6c2530bab19eae65"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrtm_1_1_control_unit.html#a831ba648d8df6aca6c2530bab19eae65">type_</a></td></tr>
+<tr class="memdesc:a831ba648d8df6aca6c2530bab19eae65"><td class="mdescLeft">&#160;</td><td class="mdescRight">Номер типа управляющего блока (задает логику) <br /></td></tr>
+<tr class="separator:a831ba648d8df6aca6c2530bab19eae65"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b3fa03f97a3f29e758e265c8ded4957"><td class="memItemLeft" align="right" valign="top"><a id="a9b3fa03f97a3f29e758e265c8ded4957"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrtm_1_1_control_unit.html#a9b3fa03f97a3f29e758e265c8ded4957">column_</a></td></tr>
+<tr class="memdesc:a9b3fa03f97a3f29e758e265c8ded4957"><td class="mdescLeft">&#160;</td><td class="mdescRight">Левая колонка перекрестка <br /></td></tr>
+<tr class="separator:a9b3fa03f97a3f29e758e265c8ded4957"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3b238e5b91281a493bfb3fb24d01d66"><td class="memItemLeft" align="right" valign="top"><a id="aa3b238e5b91281a493bfb3fb24d01d66"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrtm_1_1_control_unit.html#aa3b238e5b91281a493bfb3fb24d01d66">row_</a></td></tr>
+<tr class="memdesc:aa3b238e5b91281a493bfb3fb24d01d66"><td class="mdescLeft">&#160;</td><td class="mdescRight">Нижняя строка перекрестка <br /></td></tr>
+<tr class="separator:aa3b238e5b91281a493bfb3fb24d01d66"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98e098f07ff00685089fa55f0b569802"><td class="memItemLeft" align="right" valign="top"><a id="a98e098f07ff00685089fa55f0b569802"></a>
+<a class="el" href="namespacertm.html#a14457f3088a92b86a96686b72d3e4eea">LinesCounts</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrtm_1_1_control_unit.html#a98e098f07ff00685089fa55f0b569802">linesCounts_</a></td></tr>
+<tr class="memdesc:a98e098f07ff00685089fa55f0b569802"><td class="mdescLeft">&#160;</td><td class="mdescRight">Количество полос в каждом направлении <br /></td></tr>
+<tr class="separator:a98e098f07ff00685089fa55f0b569802"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2fe9307cb649d9c6a7f122e0363bca24"><td class="memItemLeft" align="right" valign="top"><a id="a2fe9307cb649d9c6a7f122e0363bca24"></a>
+<a class="el" href="namespacertm.html#a69dc82b16a0148c10962caa83d930f89">AngleType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrtm_1_1_control_unit.html#a2fe9307cb649d9c6a7f122e0363bca24">nullDirection_</a></td></tr>
+<tr class="memdesc:a2fe9307cb649d9c6a7f122e0363bca24"><td class="mdescLeft">&#160;</td><td class="mdescRight">Сторона, в направлении которой нельзя двигаться <br /></td></tr>
+<tr class="separator:a2fe9307cb649d9c6a7f122e0363bca24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aace48a89b42ac67686c879c5ae61023d"><td class="memItemLeft" align="right" valign="top"><a id="aace48a89b42ac67686c879c5ae61023d"></a>
+<a class="el" href="namespacertm.html#afa6df86cef8e2ebcc053ad994e440354">CrossroadSignals</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrtm_1_1_control_unit.html#aace48a89b42ac67686c879c5ae61023d">signals_</a></td></tr>
+<tr class="memdesc:aace48a89b42ac67686c879c5ae61023d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Все сигналы управляющего блока <br /></td></tr>
+<tr class="separator:aace48a89b42ac67686c879c5ae61023d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a907c89505cfec93598b95c7b3e7c4664"><td class="memItemLeft" align="right" valign="top"><a id="a907c89505cfec93598b95c7b3e7c4664"></a>
+<a class="el" href="namespacertm.html#ac9f276c8ed33ee992eb1a1f04a8254a0">DirectionsSignalSprites</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrtm_1_1_control_unit.html#a907c89505cfec93598b95c7b3e7c4664">sprites_</a></td></tr>
+<tr class="memdesc:a907c89505cfec93598b95c7b3e7c4664"><td class="mdescLeft">&#160;</td><td class="mdescRight">Все спрайты управляющего блока <br /></td></tr>
+<tr class="separator:a907c89505cfec93598b95c7b3e7c4664"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1496bfa46e8d33577118271087235e4d"><td class="memItemLeft" align="right" valign="top"><a id="a1496bfa46e8d33577118271087235e4d"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrtm_1_1_control_unit.html#a1496bfa46e8d33577118271087235e4d">time_</a></td></tr>
+<tr class="memdesc:a1496bfa46e8d33577118271087235e4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Время, прошедшее с последней смены сигнала <br /></td></tr>
+<tr class="separator:a1496bfa46e8d33577118271087235e4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5da371e562f8be0aa5529a80cb866b7"><td class="memItemLeft" align="right" valign="top"><a id="ac5da371e562f8be0aa5529a80cb866b7"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrtm_1_1_control_unit.html#ac5da371e562f8be0aa5529a80cb866b7">state_</a></td></tr>
+<tr class="memdesc:ac5da371e562f8be0aa5529a80cb866b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Номер состояния (для последовательного включения сигналов разных направлений) <br /></td></tr>
+<tr class="separator:ac5da371e562f8be0aa5529a80cb866b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Класс управляющего блока (светофор) </p>
+</div><h2 class="groupheader">Конструктор(ы)</h2>
+<a id="ac8a261d763f6d6632ce2c872710fe6b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac8a261d763f6d6632ce2c872710fe6b4">&#9670;&nbsp;</a></span>ControlUnit() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">rtm::ControlUnit::ControlUnit </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>column</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>row</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacertm.html#a14457f3088a92b86a96686b72d3e4eea">LinesCounts</a>&#160;</td>
+          <td class="paramname"><em>linesCounts</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Конструктор управляющего блока перекрестком </p><dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">type</td><td>номер типа управляющего блока </td></tr>
+    <tr><td class="paramname">column</td><td>левая колонка перекрестка </td></tr>
+    <tr><td class="paramname">row</td><td>нижняя строка перекрестка </td></tr>
+    <tr><td class="paramname">linesCounts</td><td>количество полос в каждом направлении </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a2c2c1f0f0196f0af82009f94bb875736"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c2c1f0f0196f0af82009f94bb875736">&#9670;&nbsp;</a></span>ControlUnit() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">rtm::ControlUnit::ControlUnit </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>column</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>row</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacertm.html#a14457f3088a92b86a96686b72d3e4eea">LinesCounts</a>&#160;</td>
+          <td class="paramname"><em>linesCounts</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacertm.html#a69dc82b16a0148c10962caa83d930f89">AngleType</a>&#160;</td>
+          <td class="paramname"><em>nullDirection</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Конструктор управляющего блока перекрестком </p><dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">type</td><td>номер типа управляющего блока </td></tr>
+    <tr><td class="paramname">column</td><td>левая колонка перекрестка </td></tr>
+    <tr><td class="paramname">row</td><td>нижняя строка перекрестка </td></tr>
+    <tr><td class="paramname">linesCounts</td><td>количество полос в каждом направлении </td></tr>
+    <tr><td class="paramname">nullDirection</td><td>сторона, в направлении которой нельзя двигаться </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Методы</h2>
+<a id="afb3eba6577d912109784ac1d32338859"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb3eba6577d912109784ac1d32338859">&#9670;&nbsp;</a></span>Update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void rtm::ControlUnit::Update </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classrtm_1_1_world_controller.html">WorldController</a> *const&#160;</td>
+          <td class="paramname"><em>world</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Функция обновления </p><dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">world</td><td>контроллер мира, в котором находится объект </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab48f3a045d62fa1f251af2ece4b52d44"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab48f3a045d62fa1f251af2ece4b52d44">&#9670;&nbsp;</a></span>operator bool()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">rtm::ControlUnit::operator bool </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Оператор преобразования в логический тип </p><dl class="section return"><dt>Возвращает</dt><dd>true, если управляющий блок работает (меняются сигналы), иначе false </dd></dl>
+
+</div>
+</div>
+<a id="afa3dcc399f2f5b7d0c1451aa65977da6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa3dcc399f2f5b7d0c1451aa65977da6">&#9670;&nbsp;</a></span>GetSignal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacertm.html#aadb7300c15d57429546fb0b7f8ee0ee6">rtm::SignalType</a> rtm::ControlUnit::GetSignal </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacertm.html#a57b216f3aeb45041f3461bab08bc3aeb">DirectionType</a>&#160;</td>
+          <td class="paramname"><em>from</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacertm.html#a57b216f3aeb45041f3461bab08bc3aeb">DirectionType</a>&#160;</td>
+          <td class="paramname"><em>to</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Функция для получения сигнала (статуса направления) </p><dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">from</td><td>направление, в котором транспорт движется </td></tr>
+    <tr><td class="paramname">to</td><td>направление, в котором транспорт поедет дальше </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>сигнал в нужном направлении </dd></dl>
+
+</div>
+</div>
+<a id="af126b136af6883970ded2a592c90d2b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af126b136af6883970ded2a592c90d2b1">&#9670;&nbsp;</a></span>ShowSprites()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void rtm::ControlUnit::ShowSprites </td>
+          <td>(</td>
+          <td class="paramtype">cocos2d::Layer *const&#160;</td>
+          <td class="paramname"><em>layer</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Функция для добавления спрайтов на сцену </p><dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">layer</td><td>слой, на который надо добавить спрайты управляющего блока </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac21d7c91d9c62fb58f29b2412ce4d4be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac21d7c91d9c62fb58f29b2412ce4d4be">&#9670;&nbsp;</a></span>ReleaseSprites()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void rtm::ControlUnit::ReleaseSprites </td>
+          <td>(</td>
+          <td class="paramtype">cocos2d::Layer *const&#160;</td>
+          <td class="paramname"><em>layer</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Функция для удаления спрайтов со сцены </p><dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">layer</td><td>слой, с которого надо удалить спрайты управляющего блока </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="afacb521a6f7297b932a48edbbf0a10b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afacb521a6f7297b932a48edbbf0a10b2">&#9670;&nbsp;</a></span>UpdateSignal_()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void rtm::ControlUnit::UpdateSignal_ </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>j</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacertm.html#aadb7300c15d57429546fb0b7f8ee0ee6">SignalType</a>&#160;</td>
+          <td class="paramname"><em>signal</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Функция для безопасной установки сигнала (если направление не закрыто) </p><dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i</td><td>индекс массива для исходного направления </td></tr>
+    <tr><td class="paramname">j</td><td>индекс массива для конечного направления </td></tr>
+    <tr><td class="paramname">signal</td><td>новый сигнал </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="adc15ad500c2e7edbe9bdac16a16a0eff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc15ad500c2e7edbe9bdac16a16a0eff">&#9670;&nbsp;</a></span>SetState_()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void rtm::ControlUnit::SetState_ </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>state</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Функция для установки номера состояния </p><dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">state</td><td>новый номера состояния </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae30b470ee59e84fa14f1eb811a24d5ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae30b470ee59e84fa14f1eb811a24d5ab">&#9670;&nbsp;</a></span>GetSignalFile_()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string rtm::ControlUnit::GetSignalFile_ </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Функция для получения пути к файлу сигнала по номеру </p><dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>номер стандартного сигнала </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>путь к файлу сигнала </dd></dl>
+
+</div>
+</div>
+<hr/>Объявления и описания членов классов находятся в файлах:<ul>
+<li>C:/Users/Vladimir/Documents/Visual Studio 2017/Projects/RTM/Classes/<a class="el" href="_control_unit_8h_source.html">ControlUnit.h</a></li>
+<li>C:/Users/Vladimir/Documents/Visual Studio 2017/Projects/RTM/Classes/ControlUnit.cpp</li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

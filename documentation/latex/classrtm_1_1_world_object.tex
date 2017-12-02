@@ -1,0 +1,355 @@
+\hypertarget{classrtm_1_1_world_object}{}\section{Класс rtm\+:\+:World\+Object}
+\label{classrtm_1_1_world_object}\index{rtm\+::\+World\+Object@{rtm\+::\+World\+Object}}
+
+
+Класс объекта мира (родитель всех условно объемных объектов)  
+
+
+
+
+{\ttfamily \#include $<$World\+Object.\+h$>$}
+
+
+
+Граф наследования\+:rtm\+:\+:World\+Object\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=298pt]{classrtm_1_1_world_object__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classrtm_1_1_world_object_af44479be3cee7dd4de4d197adbb5afab}\label{classrtm_1_1_world_object_af44479be3cee7dd4de4d197adbb5afab}} 
+\hyperlink{classrtm_1_1_world_object_af44479be3cee7dd4de4d197adbb5afab}{World\+Object} ()
+\begin{DoxyCompactList}\small\item\em Конструктор по умолчанию \end{DoxyCompactList}\item 
+\hyperlink{classrtm_1_1_world_object_a1a1196480079afe397f64055f333f83c}{World\+Object} (cocos2d\+::\+Sprite $\ast$const sprite, float x, float y, float angle)
+\item 
+\hyperlink{classrtm_1_1_world_object_a4462c860b41708d4570352dc3372064e}{World\+Object} (std\+::string const \&filename, float x, float y, float angle)
+\item 
+\mbox{\Hypertarget{classrtm_1_1_world_object_a06dbc49bfcfa403a842ebe1f316763e0}\label{classrtm_1_1_world_object_a06dbc49bfcfa403a842ebe1f316763e0}} 
+virtual \hyperlink{classrtm_1_1_world_object_a06dbc49bfcfa403a842ebe1f316763e0}{$\sim$\+World\+Object} ()=default
+\begin{DoxyCompactList}\small\item\em Деструктор по умолчанию \end{DoxyCompactList}\item 
+cocos2d\+::\+Sprite $\ast$ \hyperlink{classrtm_1_1_world_object_af0284b8fdc5a7ff8893d020d630a7fe5}{Get\+Sprite} () const
+\item 
+float \hyperlink{classrtm_1_1_world_object_a31f148a74be54e4f1ccbf41fc8424552}{Get\+X\+\_\+} () const
+\item 
+float \hyperlink{classrtm_1_1_world_object_af558d23ff82794c8ace17b8aeefaf5bb}{Get\+Y\+\_\+} () const
+\item 
+float \hyperlink{classrtm_1_1_world_object_ae9af0e03a3f49720b38ec69191c8d237}{Get\+Angle} () const
+\item 
+float \hyperlink{classrtm_1_1_world_object_a36a9cf3cce5c76f88164e0c790675a1e}{Get\+Width} () const
+\item 
+float \hyperlink{classrtm_1_1_world_object_ac1ab514e4556b3d8b9d4ffda5eba9db2}{Get\+Height} () const
+\end{DoxyCompactItemize}
+\subsection*{Защищенные члены}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classrtm_1_1_world_object_ae8f0605c11c95bf6eae8f42c24fc4130}{Set\+Sprite\+\_\+} (cocos2d\+::\+Sprite $\ast$const sprite)
+\item 
+void \hyperlink{classrtm_1_1_world_object_a66fcf7be3345584be9f06e00a79da559}{Set\+X\+\_\+} (float x)
+\item 
+void \hyperlink{classrtm_1_1_world_object_a2d9de0f03e711f7b2486889d7336c9d3}{Set\+Y\+\_\+} (float y)
+\item 
+void \hyperlink{classrtm_1_1_world_object_a3185c36d5138dde6f6942b101586cee4}{Set\+Angle\+\_\+} (float angle)
+\item 
+void \hyperlink{classrtm_1_1_world_object_ad11ace9402b562b5c2aa6817c4b1cc9f}{Set\+Width\+\_\+} (float width)
+\item 
+void \hyperlink{classrtm_1_1_world_object_a60904037c13f9cf151cd28f040ac5f02}{Set\+Height\+\_\+} (float height)
+\item 
+\mbox{\Hypertarget{classrtm_1_1_world_object_a4adc266618f3aeb94ae55df76f0716dc}\label{classrtm_1_1_world_object_a4adc266618f3aeb94ae55df76f0716dc}} 
+virtual void \hyperlink{classrtm_1_1_world_object_a4adc266618f3aeb94ae55df76f0716dc}{Position\+Init\+\_\+} ()
+\begin{DoxyCompactList}\small\item\em Функция, выполняемая во время инициализации \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classrtm_1_1_world_object_a1619ffa3020e1cf19c901635fd3c4b88}\label{classrtm_1_1_world_object_a1619ffa3020e1cf19c901635fd3c4b88}} 
+virtual void \hyperlink{classrtm_1_1_world_object_a1619ffa3020e1cf19c901635fd3c4b88}{Position\+Update\+\_\+} ()
+\begin{DoxyCompactList}\small\item\em Функция, выполняемая во время обновления положения \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classrtm_1_1_world_object_ac1094406fc176bd4ae14dfb3f081b7f5}\label{classrtm_1_1_world_object_ac1094406fc176bd4ae14dfb3f081b7f5}} 
+virtual void \hyperlink{classrtm_1_1_world_object_ac1094406fc176bd4ae14dfb3f081b7f5}{On\+X\+Update\+\_\+} ()
+\begin{DoxyCompactList}\small\item\em Функция, выполняемая во время обновления абсциссы \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classrtm_1_1_world_object_ad6e57a1a4696307449bdd9376bfcdd75}\label{classrtm_1_1_world_object_ad6e57a1a4696307449bdd9376bfcdd75}} 
+virtual void \hyperlink{classrtm_1_1_world_object_ad6e57a1a4696307449bdd9376bfcdd75}{On\+Y\+Update\+\_\+} ()
+\begin{DoxyCompactList}\small\item\em Функция, выполняемая во время обновления ординаты \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classrtm_1_1_world_object_aeaf9640864189b88f41a4ea24ef8b5f9}\label{classrtm_1_1_world_object_aeaf9640864189b88f41a4ea24ef8b5f9}} 
+virtual void \hyperlink{classrtm_1_1_world_object_aeaf9640864189b88f41a4ea24ef8b5f9}{On\+Angle\+Update\+\_\+} ()
+\begin{DoxyCompactList}\small\item\em Функция, выполняемая во время обновления угла поворота \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classrtm_1_1_world_object_acb07848ff4e36ac3b77a6c2aea2f6547}\label{classrtm_1_1_world_object_acb07848ff4e36ac3b77a6c2aea2f6547}} 
+virtual void \hyperlink{classrtm_1_1_world_object_acb07848ff4e36ac3b77a6c2aea2f6547}{On\+Width\+Update\+\_\+} ()
+\begin{DoxyCompactList}\small\item\em Функция, выполняемая во время обновления ширины \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classrtm_1_1_world_object_a3261c4ad76d199370db74a4fd09ddf29}\label{classrtm_1_1_world_object_a3261c4ad76d199370db74a4fd09ddf29}} 
+virtual void \hyperlink{classrtm_1_1_world_object_a3261c4ad76d199370db74a4fd09ddf29}{On\+Height\+Update\+\_\+} ()
+\begin{DoxyCompactList}\small\item\em Функция, выполняемая во время обновления высоты \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Закрытые члены}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classrtm_1_1_world_object_a57de67f0e2788f0b3226beb2b84a5551}{Set\+Sprite\+X\+\_\+} (float x)
+\item 
+void \hyperlink{classrtm_1_1_world_object_a885eff01e5b07ef96194a868ff1fe338}{Set\+Sprite\+Y\+\_\+} (float y)
+\item 
+void \hyperlink{classrtm_1_1_world_object_a5daee1cc41f0657f33d6790c22614f5e}{Set\+Sprite\+Angle\+\_\+} (float angle)
+\item 
+void \hyperlink{classrtm_1_1_world_object_a2a88c51a636b8b8c94320c0f6d66feb7}{Set\+Sprite\+Width\+\_\+} (float width)
+\item 
+void \hyperlink{classrtm_1_1_world_object_a553abd97f4f63659282f1e903dfc074b}{Set\+Sprite\+Height\+\_\+} (float height)
+\end{DoxyCompactItemize}
+\subsection*{Закрытые данные}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classrtm_1_1_world_object_ab371756fde7d223a4ff6fc72d42c9cf0}\label{classrtm_1_1_world_object_ab371756fde7d223a4ff6fc72d42c9cf0}} 
+cocos2d\+::\+Sprite $\ast$ \hyperlink{classrtm_1_1_world_object_ab371756fde7d223a4ff6fc72d42c9cf0}{sprite\+\_\+}
+\begin{DoxyCompactList}\small\item\em Указатель на спрайт \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classrtm_1_1_world_object_a719b4bdf8eeca018f95ff42d0599944e}\label{classrtm_1_1_world_object_a719b4bdf8eeca018f95ff42d0599944e}} 
+float \hyperlink{classrtm_1_1_world_object_a719b4bdf8eeca018f95ff42d0599944e}{x\+\_\+}
+\begin{DoxyCompactList}\small\item\em Абсцисса \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classrtm_1_1_world_object_ab66518f51a9b063e94f4e082789fa032}\label{classrtm_1_1_world_object_ab66518f51a9b063e94f4e082789fa032}} 
+float \hyperlink{classrtm_1_1_world_object_ab66518f51a9b063e94f4e082789fa032}{prev\+X\+\_\+}
+\begin{DoxyCompactList}\small\item\em Абсцисса для отслеживания изменений \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classrtm_1_1_world_object_a5d4541d2f052555a0ce07001da6fd04f}\label{classrtm_1_1_world_object_a5d4541d2f052555a0ce07001da6fd04f}} 
+float \hyperlink{classrtm_1_1_world_object_a5d4541d2f052555a0ce07001da6fd04f}{y\+\_\+}
+\begin{DoxyCompactList}\small\item\em Ордината \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classrtm_1_1_world_object_aa9b38c50c7900db0fa7dec8c9a8d9086}\label{classrtm_1_1_world_object_aa9b38c50c7900db0fa7dec8c9a8d9086}} 
+float \hyperlink{classrtm_1_1_world_object_aa9b38c50c7900db0fa7dec8c9a8d9086}{prev\+Y\+\_\+}
+\begin{DoxyCompactList}\small\item\em Ордината для отслеживания изменений \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classrtm_1_1_world_object_aaf64d1d04e4ef1bc481c5f79c99b68ba}\label{classrtm_1_1_world_object_aaf64d1d04e4ef1bc481c5f79c99b68ba}} 
+float \hyperlink{classrtm_1_1_world_object_aaf64d1d04e4ef1bc481c5f79c99b68ba}{angle\+\_\+}
+\begin{DoxyCompactList}\small\item\em Угол поворота \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classrtm_1_1_world_object_acee095a4e2c8244346f0a7a5208fbd04}\label{classrtm_1_1_world_object_acee095a4e2c8244346f0a7a5208fbd04}} 
+float \hyperlink{classrtm_1_1_world_object_acee095a4e2c8244346f0a7a5208fbd04}{prev\+Angle\+\_\+}
+\begin{DoxyCompactList}\small\item\em Угол поворота для отслеживания изменений \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classrtm_1_1_world_object_a80da665dd4334ad3dd8a33c7461b8436}\label{classrtm_1_1_world_object_a80da665dd4334ad3dd8a33c7461b8436}} 
+float \hyperlink{classrtm_1_1_world_object_a80da665dd4334ad3dd8a33c7461b8436}{width\+\_\+}
+\begin{DoxyCompactList}\small\item\em Ширина \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classrtm_1_1_world_object_a9dd43ca401792997b814c174da40cec7}\label{classrtm_1_1_world_object_a9dd43ca401792997b814c174da40cec7}} 
+float \hyperlink{classrtm_1_1_world_object_a9dd43ca401792997b814c174da40cec7}{prev\+Width\+\_\+}
+\begin{DoxyCompactList}\small\item\em Ширина для отслеживания изменений \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classrtm_1_1_world_object_a0efb406ca0273790ad607e1e87d1ce07}\label{classrtm_1_1_world_object_a0efb406ca0273790ad607e1e87d1ce07}} 
+float \hyperlink{classrtm_1_1_world_object_a0efb406ca0273790ad607e1e87d1ce07}{height\+\_\+}
+\begin{DoxyCompactList}\small\item\em Высота \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classrtm_1_1_world_object_a1b08d1adfefde6d956f382418c06c49e}\label{classrtm_1_1_world_object_a1b08d1adfefde6d956f382418c06c49e}} 
+float \hyperlink{classrtm_1_1_world_object_a1b08d1adfefde6d956f382418c06c49e}{prev\+Height\+\_\+}
+\begin{DoxyCompactList}\small\item\em Высота для отслеживания изменений \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Подробное описание}
+Класс объекта мира (родитель всех условно объемных объектов) 
+
+\subsection{Конструктор(ы)}
+\mbox{\Hypertarget{classrtm_1_1_world_object_a1a1196480079afe397f64055f333f83c}\label{classrtm_1_1_world_object_a1a1196480079afe397f64055f333f83c}} 
+\index{rtm\+::\+World\+Object@{rtm\+::\+World\+Object}!World\+Object@{World\+Object}}
+\index{World\+Object@{World\+Object}!rtm\+::\+World\+Object@{rtm\+::\+World\+Object}}
+\subsubsection{\texorpdfstring{World\+Object()}{WorldObject()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily rtm\+::\+World\+Object\+::\+World\+Object (\begin{DoxyParamCaption}\item[{cocos2d\+::\+Sprite $\ast$const}]{sprite,  }\item[{float}]{x,  }\item[{float}]{y,  }\item[{float}]{angle }\end{DoxyParamCaption})}
+
+Конструктор с использованием уже готового спрайта 
+\begin{DoxyParams}{Аргументы}
+{\em sprite} & указатель на готовый спрайт \\
+\hline
+{\em x} & абсцисса \\
+\hline
+{\em y} & ордината \\
+\hline
+{\em angle} & угол поворота объекта \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classrtm_1_1_world_object_a4462c860b41708d4570352dc3372064e}\label{classrtm_1_1_world_object_a4462c860b41708d4570352dc3372064e}} 
+\index{rtm\+::\+World\+Object@{rtm\+::\+World\+Object}!World\+Object@{World\+Object}}
+\index{World\+Object@{World\+Object}!rtm\+::\+World\+Object@{rtm\+::\+World\+Object}}
+\subsubsection{\texorpdfstring{World\+Object()}{WorldObject()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily rtm\+::\+World\+Object\+::\+World\+Object (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{filename,  }\item[{float}]{x,  }\item[{float}]{y,  }\item[{float}]{angle }\end{DoxyParamCaption})}
+
+Конструктор из файла 
+\begin{DoxyParams}{Аргументы}
+{\em filename} & путь к файлу инициализации \\
+\hline
+{\em x} & абсцисса \\
+\hline
+{\em y} & ордината \\
+\hline
+{\em angle} & угол поворота объекта \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Методы}
+\mbox{\Hypertarget{classrtm_1_1_world_object_af0284b8fdc5a7ff8893d020d630a7fe5}\label{classrtm_1_1_world_object_af0284b8fdc5a7ff8893d020d630a7fe5}} 
+\index{rtm\+::\+World\+Object@{rtm\+::\+World\+Object}!Get\+Sprite@{Get\+Sprite}}
+\index{Get\+Sprite@{Get\+Sprite}!rtm\+::\+World\+Object@{rtm\+::\+World\+Object}}
+\subsubsection{\texorpdfstring{Get\+Sprite()}{GetSprite()}}
+{\footnotesize\ttfamily cocos2d\+::\+Sprite $\ast$ rtm\+::\+World\+Object\+::\+Get\+Sprite (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Функция для получения спрайта \begin{DoxyReturn}{Возвращает}
+указатель на спрайт 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classrtm_1_1_world_object_a31f148a74be54e4f1ccbf41fc8424552}\label{classrtm_1_1_world_object_a31f148a74be54e4f1ccbf41fc8424552}} 
+\index{rtm\+::\+World\+Object@{rtm\+::\+World\+Object}!Get\+X\+\_\+@{Get\+X\+\_\+}}
+\index{Get\+X\+\_\+@{Get\+X\+\_\+}!rtm\+::\+World\+Object@{rtm\+::\+World\+Object}}
+\subsubsection{\texorpdfstring{Get\+X\+\_\+()}{GetX\_()}}
+{\footnotesize\ttfamily float rtm\+::\+World\+Object\+::\+Get\+X\+\_\+ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Функция для получения абсциссы \begin{DoxyReturn}{Возвращает}
+абсцисса 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classrtm_1_1_world_object_af558d23ff82794c8ace17b8aeefaf5bb}\label{classrtm_1_1_world_object_af558d23ff82794c8ace17b8aeefaf5bb}} 
+\index{rtm\+::\+World\+Object@{rtm\+::\+World\+Object}!Get\+Y\+\_\+@{Get\+Y\+\_\+}}
+\index{Get\+Y\+\_\+@{Get\+Y\+\_\+}!rtm\+::\+World\+Object@{rtm\+::\+World\+Object}}
+\subsubsection{\texorpdfstring{Get\+Y\+\_\+()}{GetY\_()}}
+{\footnotesize\ttfamily float rtm\+::\+World\+Object\+::\+Get\+Y\+\_\+ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Функция для получения ординаты \begin{DoxyReturn}{Возвращает}
+ордината 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classrtm_1_1_world_object_ae9af0e03a3f49720b38ec69191c8d237}\label{classrtm_1_1_world_object_ae9af0e03a3f49720b38ec69191c8d237}} 
+\index{rtm\+::\+World\+Object@{rtm\+::\+World\+Object}!Get\+Angle@{Get\+Angle}}
+\index{Get\+Angle@{Get\+Angle}!rtm\+::\+World\+Object@{rtm\+::\+World\+Object}}
+\subsubsection{\texorpdfstring{Get\+Angle()}{GetAngle()}}
+{\footnotesize\ttfamily float rtm\+::\+World\+Object\+::\+Get\+Angle (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Функция для получения угла поворота \begin{DoxyReturn}{Возвращает}
+угол поворота 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classrtm_1_1_world_object_a36a9cf3cce5c76f88164e0c790675a1e}\label{classrtm_1_1_world_object_a36a9cf3cce5c76f88164e0c790675a1e}} 
+\index{rtm\+::\+World\+Object@{rtm\+::\+World\+Object}!Get\+Width@{Get\+Width}}
+\index{Get\+Width@{Get\+Width}!rtm\+::\+World\+Object@{rtm\+::\+World\+Object}}
+\subsubsection{\texorpdfstring{Get\+Width()}{GetWidth()}}
+{\footnotesize\ttfamily float rtm\+::\+World\+Object\+::\+Get\+Width (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Функция для получения ширины \begin{DoxyReturn}{Возвращает}
+ширина 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classrtm_1_1_world_object_ac1ab514e4556b3d8b9d4ffda5eba9db2}\label{classrtm_1_1_world_object_ac1ab514e4556b3d8b9d4ffda5eba9db2}} 
+\index{rtm\+::\+World\+Object@{rtm\+::\+World\+Object}!Get\+Height@{Get\+Height}}
+\index{Get\+Height@{Get\+Height}!rtm\+::\+World\+Object@{rtm\+::\+World\+Object}}
+\subsubsection{\texorpdfstring{Get\+Height()}{GetHeight()}}
+{\footnotesize\ttfamily float rtm\+::\+World\+Object\+::\+Get\+Height (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Функция для получения высоты \begin{DoxyReturn}{Возвращает}
+высота 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classrtm_1_1_world_object_ae8f0605c11c95bf6eae8f42c24fc4130}\label{classrtm_1_1_world_object_ae8f0605c11c95bf6eae8f42c24fc4130}} 
+\index{rtm\+::\+World\+Object@{rtm\+::\+World\+Object}!Set\+Sprite\+\_\+@{Set\+Sprite\+\_\+}}
+\index{Set\+Sprite\+\_\+@{Set\+Sprite\+\_\+}!rtm\+::\+World\+Object@{rtm\+::\+World\+Object}}
+\subsubsection{\texorpdfstring{Set\+Sprite\+\_\+()}{SetSprite\_()}}
+{\footnotesize\ttfamily void rtm\+::\+World\+Object\+::\+Set\+Sprite\+\_\+ (\begin{DoxyParamCaption}\item[{cocos2d\+::\+Sprite $\ast$const}]{sprite }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Функция для установки спрайта 
+\begin{DoxyParams}{Аргументы}
+{\em sprite} & указатель на спрайт \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classrtm_1_1_world_object_a66fcf7be3345584be9f06e00a79da559}\label{classrtm_1_1_world_object_a66fcf7be3345584be9f06e00a79da559}} 
+\index{rtm\+::\+World\+Object@{rtm\+::\+World\+Object}!Set\+X\+\_\+@{Set\+X\+\_\+}}
+\index{Set\+X\+\_\+@{Set\+X\+\_\+}!rtm\+::\+World\+Object@{rtm\+::\+World\+Object}}
+\subsubsection{\texorpdfstring{Set\+X\+\_\+()}{SetX\_()}}
+{\footnotesize\ttfamily void rtm\+::\+World\+Object\+::\+Set\+X\+\_\+ (\begin{DoxyParamCaption}\item[{float}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Функция для установки абсциссы 
+\begin{DoxyParams}{Аргументы}
+{\em x} & абсцисса \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classrtm_1_1_world_object_a2d9de0f03e711f7b2486889d7336c9d3}\label{classrtm_1_1_world_object_a2d9de0f03e711f7b2486889d7336c9d3}} 
+\index{rtm\+::\+World\+Object@{rtm\+::\+World\+Object}!Set\+Y\+\_\+@{Set\+Y\+\_\+}}
+\index{Set\+Y\+\_\+@{Set\+Y\+\_\+}!rtm\+::\+World\+Object@{rtm\+::\+World\+Object}}
+\subsubsection{\texorpdfstring{Set\+Y\+\_\+()}{SetY\_()}}
+{\footnotesize\ttfamily void rtm\+::\+World\+Object\+::\+Set\+Y\+\_\+ (\begin{DoxyParamCaption}\item[{float}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Функция для установки ординаты 
+\begin{DoxyParams}{Аргументы}
+{\em y} & ордината \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classrtm_1_1_world_object_a3185c36d5138dde6f6942b101586cee4}\label{classrtm_1_1_world_object_a3185c36d5138dde6f6942b101586cee4}} 
+\index{rtm\+::\+World\+Object@{rtm\+::\+World\+Object}!Set\+Angle\+\_\+@{Set\+Angle\+\_\+}}
+\index{Set\+Angle\+\_\+@{Set\+Angle\+\_\+}!rtm\+::\+World\+Object@{rtm\+::\+World\+Object}}
+\subsubsection{\texorpdfstring{Set\+Angle\+\_\+()}{SetAngle\_()}}
+{\footnotesize\ttfamily void rtm\+::\+World\+Object\+::\+Set\+Angle\+\_\+ (\begin{DoxyParamCaption}\item[{float}]{angle }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Функция для установки угла поворота 
+\begin{DoxyParams}{Аргументы}
+{\em angle} & угол поворота \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classrtm_1_1_world_object_ad11ace9402b562b5c2aa6817c4b1cc9f}\label{classrtm_1_1_world_object_ad11ace9402b562b5c2aa6817c4b1cc9f}} 
+\index{rtm\+::\+World\+Object@{rtm\+::\+World\+Object}!Set\+Width\+\_\+@{Set\+Width\+\_\+}}
+\index{Set\+Width\+\_\+@{Set\+Width\+\_\+}!rtm\+::\+World\+Object@{rtm\+::\+World\+Object}}
+\subsubsection{\texorpdfstring{Set\+Width\+\_\+()}{SetWidth\_()}}
+{\footnotesize\ttfamily void rtm\+::\+World\+Object\+::\+Set\+Width\+\_\+ (\begin{DoxyParamCaption}\item[{float}]{width }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Функция для установки ширины 
+\begin{DoxyParams}{Аргументы}
+{\em width} & ширина \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classrtm_1_1_world_object_a60904037c13f9cf151cd28f040ac5f02}\label{classrtm_1_1_world_object_a60904037c13f9cf151cd28f040ac5f02}} 
+\index{rtm\+::\+World\+Object@{rtm\+::\+World\+Object}!Set\+Height\+\_\+@{Set\+Height\+\_\+}}
+\index{Set\+Height\+\_\+@{Set\+Height\+\_\+}!rtm\+::\+World\+Object@{rtm\+::\+World\+Object}}
+\subsubsection{\texorpdfstring{Set\+Height\+\_\+()}{SetHeight\_()}}
+{\footnotesize\ttfamily void rtm\+::\+World\+Object\+::\+Set\+Height\+\_\+ (\begin{DoxyParamCaption}\item[{float}]{height }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Функция для установки высоты 
+\begin{DoxyParams}{Аргументы}
+{\em height} & высота \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classrtm_1_1_world_object_a57de67f0e2788f0b3226beb2b84a5551}\label{classrtm_1_1_world_object_a57de67f0e2788f0b3226beb2b84a5551}} 
+\index{rtm\+::\+World\+Object@{rtm\+::\+World\+Object}!Set\+Sprite\+X\+\_\+@{Set\+Sprite\+X\+\_\+}}
+\index{Set\+Sprite\+X\+\_\+@{Set\+Sprite\+X\+\_\+}!rtm\+::\+World\+Object@{rtm\+::\+World\+Object}}
+\subsubsection{\texorpdfstring{Set\+Sprite\+X\+\_\+()}{SetSpriteX\_()}}
+{\footnotesize\ttfamily void rtm\+::\+World\+Object\+::\+Set\+Sprite\+X\+\_\+ (\begin{DoxyParamCaption}\item[{float}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Функция для установки абсциссы спрайта 
+\begin{DoxyParams}{Аргументы}
+{\em x} & абсцисса спрайта \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classrtm_1_1_world_object_a885eff01e5b07ef96194a868ff1fe338}\label{classrtm_1_1_world_object_a885eff01e5b07ef96194a868ff1fe338}} 
+\index{rtm\+::\+World\+Object@{rtm\+::\+World\+Object}!Set\+Sprite\+Y\+\_\+@{Set\+Sprite\+Y\+\_\+}}
+\index{Set\+Sprite\+Y\+\_\+@{Set\+Sprite\+Y\+\_\+}!rtm\+::\+World\+Object@{rtm\+::\+World\+Object}}
+\subsubsection{\texorpdfstring{Set\+Sprite\+Y\+\_\+()}{SetSpriteY\_()}}
+{\footnotesize\ttfamily void rtm\+::\+World\+Object\+::\+Set\+Sprite\+Y\+\_\+ (\begin{DoxyParamCaption}\item[{float}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Функция для установки ординаты спрайта 
+\begin{DoxyParams}{Аргументы}
+{\em y} & ордината спрайта \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classrtm_1_1_world_object_a5daee1cc41f0657f33d6790c22614f5e}\label{classrtm_1_1_world_object_a5daee1cc41f0657f33d6790c22614f5e}} 
+\index{rtm\+::\+World\+Object@{rtm\+::\+World\+Object}!Set\+Sprite\+Angle\+\_\+@{Set\+Sprite\+Angle\+\_\+}}
+\index{Set\+Sprite\+Angle\+\_\+@{Set\+Sprite\+Angle\+\_\+}!rtm\+::\+World\+Object@{rtm\+::\+World\+Object}}
+\subsubsection{\texorpdfstring{Set\+Sprite\+Angle\+\_\+()}{SetSpriteAngle\_()}}
+{\footnotesize\ttfamily void rtm\+::\+World\+Object\+::\+Set\+Sprite\+Angle\+\_\+ (\begin{DoxyParamCaption}\item[{float}]{angle }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Функция для установки угла поворота спрайта 
+\begin{DoxyParams}{Аргументы}
+{\em angle} & угол поворота спрайта \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classrtm_1_1_world_object_a2a88c51a636b8b8c94320c0f6d66feb7}\label{classrtm_1_1_world_object_a2a88c51a636b8b8c94320c0f6d66feb7}} 
+\index{rtm\+::\+World\+Object@{rtm\+::\+World\+Object}!Set\+Sprite\+Width\+\_\+@{Set\+Sprite\+Width\+\_\+}}
+\index{Set\+Sprite\+Width\+\_\+@{Set\+Sprite\+Width\+\_\+}!rtm\+::\+World\+Object@{rtm\+::\+World\+Object}}
+\subsubsection{\texorpdfstring{Set\+Sprite\+Width\+\_\+()}{SetSpriteWidth\_()}}
+{\footnotesize\ttfamily void rtm\+::\+World\+Object\+::\+Set\+Sprite\+Width\+\_\+ (\begin{DoxyParamCaption}\item[{float}]{width }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Функция для установки ширины спрайта 
+\begin{DoxyParams}{Аргументы}
+{\em width} & ширина спрайта \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classrtm_1_1_world_object_a553abd97f4f63659282f1e903dfc074b}\label{classrtm_1_1_world_object_a553abd97f4f63659282f1e903dfc074b}} 
+\index{rtm\+::\+World\+Object@{rtm\+::\+World\+Object}!Set\+Sprite\+Height\+\_\+@{Set\+Sprite\+Height\+\_\+}}
+\index{Set\+Sprite\+Height\+\_\+@{Set\+Sprite\+Height\+\_\+}!rtm\+::\+World\+Object@{rtm\+::\+World\+Object}}
+\subsubsection{\texorpdfstring{Set\+Sprite\+Height\+\_\+()}{SetSpriteHeight\_()}}
+{\footnotesize\ttfamily void rtm\+::\+World\+Object\+::\+Set\+Sprite\+Height\+\_\+ (\begin{DoxyParamCaption}\item[{float}]{height }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Функция для установки высоты спрайта 
+\begin{DoxyParams}{Аргументы}
+{\em height} & высота спрайта \\
+\hline
+\end{DoxyParams}
+
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Vladimir/\+Documents/\+Visual Studio 2017/\+Projects/\+R\+T\+M/\+Classes/World\+Object.\+h\item 
+C\+:/\+Users/\+Vladimir/\+Documents/\+Visual Studio 2017/\+Projects/\+R\+T\+M/\+Classes/World\+Object.\+cpp\end{DoxyCompactItemize}
