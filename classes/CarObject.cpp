@@ -83,7 +83,15 @@ bool rtm::CarObject::MovementTick_(WorldController* const world)
         float newSpeed{ object->GetSpeed() * FT::cos(speedAngle) - COORD_DELTA };
         // If forward
         if (newSpeed >= 0.f) {
-            SetBrakingFactor_(1.f);
+            float deltaX{ object->GetX_() - GetX_() };
+            float deltaY{ object->GetY_() - GetY_() };
+            // If object is near
+            if (FT::length(deltaX, deltaY) < 0.75f * VIEW_RADIUS) {
+                SetBrakingFactor_(2.f);
+            }
+            else {
+                SetBrakingFactor_(1.f);
+            }
             SetFinalSpeed_(std::min(GetFinalSpeed_(), newSpeed)); // If towards each other
         }
         // If towards
