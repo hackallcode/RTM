@@ -51,10 +51,6 @@ bool rtm::CarObject::MovementStart_(WorldController* const world)
 
 bool rtm::CarObject::MovementTick_(WorldController* const world)
 {
-    if (GetY_() > 1030) {
-        int error{ 0 };
-    }
-
     // Check roads
     CheckRoadAhead_(world);
 
@@ -149,10 +145,12 @@ void rtm::CarObject::CheckCoatingAhead_(WorldController * const world)
             if (nextCoating->IsDirectionAvailable(AngleToAngleType(GetAngle() + ANGLE_RIGHT))) {
                 desiredDirection_ = AngleToAngleType(AngleTypeToAngle(desiredDirection_) + ANGLE_RIGHT);
                 Rotate_(ANGLE_RIGHT);
+                isTurnNear_ = false;
             }
             else if (nextCoating->IsDirectionAvailable(AngleToAngleType(GetAngle() + ANGLE_LEFT))) {
                 desiredDirection_ = AngleToAngleType(AngleTypeToAngle(desiredDirection_) + ANGLE_LEFT);
                 Rotate_(ANGLE_LEFT);
+                isTurnNear_ = false;
             }
             else {
                 SetDesiredSpeed_(0.f);
@@ -170,10 +168,7 @@ void rtm::CarObject::CheckCoatingUnionAhead_(WorldController * const world)
     CoatingUnionType currentCoatingType{ currentCoatingUnion == nullptr ? NoCoatingUnion : currentCoatingUnion->GetType() };
     CoatingUnionType nextCoatingType{ nextCoatingUnion == nullptr ? NoCoatingUnion : nextCoatingUnion->GetType() };
 
-    if (currentCoatingUnion != nextCoatingUnion && currentCoatingType == TurnType) {
-        isTurnNear_ = false;
-    }
-    else if (currentCoatingUnion != nextCoatingUnion && nextCoatingType == TurnType) {
+    if (currentCoatingUnion != nextCoatingUnion && nextCoatingType == TurnType) {
         TurnObject* turn{ static_cast<TurnObject*>(nextCoatingUnion) };
         isTurnNear_ = true;
         isRightTurn_ = turn->IsRight();

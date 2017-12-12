@@ -154,7 +154,7 @@ namespace rtm {
     /// Ширина угла в каждую сторону
     float const ROTATION_VIEW_ANGLE{ 30.5f * DEG_RAD };
     /// Сдвиг области обзора
-    float const ROTATION_VIEW_ANGLE_SHIFT{ 30.f * DEG_RAD };
+    float const ROTATION_VIEW_ANGLE_SHIFT{ 29.5f * DEG_RAD };
 
     /// @}
 
@@ -162,7 +162,7 @@ namespace rtm {
     /// @{
 
     /// Радиус
-    float const TURN_VIEW_RADIUS{ 75.f };
+    float const TURN_VIEW_RADIUS{ 60.f };
     /// Ширина угла в каждую сторону
     float const TURN_VIEW_ANGLE{ 30.f * DEG_RAD };
     /// Сдвиг области обзора
