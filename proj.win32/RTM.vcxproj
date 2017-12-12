@@ -151,6 +151,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
   <ItemGroup>
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
     <ClCompile Include="..\Classes\BuildingObject.cpp" />
+    <ClCompile Include="..\classes\BushObject.cpp" />
     <ClCompile Include="..\Classes\CarObject.cpp" />
     <ClCompile Include="..\Classes\CoatingObject.cpp" />
     <ClCompile Include="..\Classes\ControlUnit.cpp" />
@@ -159,6 +160,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\DynamicObject.cpp" />
     <ClCompile Include="..\Classes\General.cpp" />
     <ClCompile Include="..\Classes\lib\fasttrigo.cpp" />
+    <ClCompile Include="..\classes\PuddleCoating.cpp" />
     <ClCompile Include="..\Classes\RoadCoating.cpp" />
     <ClCompile Include="..\Classes\CoatingUnion.cpp" />
     <ClCompile Include="..\Classes\TurnObject.cpp" />
@@ -171,8 +173,10 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\classes\AllRtmClasses.h" />
     <ClInclude Include="..\Classes\AppDelegate.h" />
     <ClInclude Include="..\Classes\BuildingObject.h" />
+    <ClInclude Include="..\classes\BushObject.h" />
     <ClInclude Include="..\Classes\CarObject.h" />
     <ClInclude Include="..\Classes\CoatingObject.h" />
     <ClInclude Include="..\Classes\ControlUnit.h" />
@@ -181,6 +185,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\DynamicObject.h" />
     <ClInclude Include="..\Classes\General.h" />
     <ClInclude Include="..\Classes\lib\fasttrigo.h" />
+    <ClInclude Include="..\classes\PuddleCoating.h" />
     <ClInclude Include="..\Classes\RoadCoating.h" />
     <ClInclude Include="..\Classes\CoatingUnion.h" />
     <ClInclude Include="..\Classes\TurnObject.h" />

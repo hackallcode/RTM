@@ -85,11 +85,6 @@ namespace rtm {
         void SetState_(size_t state);
         /// Функция для сброса номера состояния
         void ResetState_();
-
-        /// Функция для получения пути к файлу сигнала по номеру
-        /// @param id номер стандартного сигнала
-        /// @return путь к файлу сигнала
-        static std::string GetSignalFile_(size_t id);
     };
 }
 

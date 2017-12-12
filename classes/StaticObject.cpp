@@ -1,4 +1,4 @@
-﻿#include "StaticObject.h"
+﻿#include "AllRtmClasses.h"
 
 rtm::StaticObject::StaticObject()
     : WorldObject{}

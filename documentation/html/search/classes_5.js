@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['roadcoating',['RoadCoating',['../classrtm_1_1_road_coating.html',1,'rtm']]]
+  ['puddlecoating',['PuddleCoating',['../classrtm_1_1_puddle_coating.html',1,'rtm']]]
 ];

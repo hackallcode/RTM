@@ -32,12 +32,6 @@ namespace rtm {
 
         /// Деструктор по умолчанию
         virtual ~BuildingObject() = default;
-
-    private:
-        /// Функция для получения пути к файлу стандартного строения по номеру
-        /// @param id номер стандартного строения
-        /// @return путь к файлу строения
-        static std::string GetClassFile_(size_t id);
     };
 }
 

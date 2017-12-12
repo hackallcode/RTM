@@ -120,21 +120,17 @@ namespace rtm {
     /// @{
 
     /// Номер слоя для слоя фона
-    int const BACKGROUND_Z_ORDER{ -1 };
+    int const BACKGROUND_LAYER_Z_ORDER{ -1 };
     /// Номер слоя для главного слоя (на нем все объекты)
-    int const MAIN_Z_ORDER{ 0 };
+    int const MAIN_LAYER_Z_ORDER{ 0 };
     /// Номер слоя для покрытий (дорог)
-    int const COATING_OBJECT_Z_ORDER{ 1 };
-    /// Номер слоя для левых стрелок светофора
-    int const LEFTWARD_SIGNAL_Z_ORDER{ 2 };
-    /// Номер слоя для правых стрелок светофора
-    int const RIGHTWARD_SIGNAL_Z_ORDER{ 3 };
-    /// Номер слоя для сфетофора в прямом направлении
-    int const FORWARD_SIGNAL_Z_ORDER{ 4 };
+    int const COATING_OBJECT_Z_ORDER{ -2 };
+    /// Номер слоя для стрелок светофора
+    int const SIGNAL_Z_ORDER{ -1 };
     /// Номер слоя для транспорта
-    int const VEHICLE_OBJECT_Z_ORDER{ 5 };
+    int const VEHICLE_OBJECT_Z_ORDER{ 0 };
     /// Номер слоя для статичных объектов карты
-    int const MAP_OBJECT_Z_ORDER{ 6 };
+    int const MAP_OBJECT_Z_ORDER{ 1 };
 
     /// @}
 
@@ -144,7 +140,7 @@ namespace rtm {
     /// Радиус
     float const VIEW_RADIUS{ 60.f };
     /// Ширина угла в каждую сторону
-    float const VIEW_ANGLE{ 24.f * DEG_RAD };
+    float const VIEW_ANGLE{ 25.f * DEG_RAD };
     /// Сдвиг области обзора
     float const VIEW_ANGLE_SHIFT{ 0.f };
 
@@ -156,9 +152,9 @@ namespace rtm {
     /// Радиус
     float const ROTATION_VIEW_RADIUS{ 50.f };
     /// Ширина угла в каждую сторону
-    float const ROTATION_VIEW_ANGLE{ 30.5f * DEG_RAD };
+    float const ROTATION_VIEW_ANGLE{ 30.f * DEG_RAD };
     /// Сдвиг области обзора
-    float const ROTATION_VIEW_ANGLE_SHIFT{ 29.5f * DEG_RAD };
+    float const ROTATION_VIEW_ANGLE_SHIFT{ 30.f * DEG_RAD };
 
     /// @}
 
@@ -178,16 +174,16 @@ namespace rtm {
     /// @{
 
     /// Радиус
-    float const CROSSROAD_VIEW_RADIUS{ 65.f };
+    float const CROSSROAD_VIEW_RADIUS{ 58.f };
     /// Ширина угла в каждую сторону
-    float const CROSSROAD_VIEW_ANGLE{ 22.5f * DEG_RAD };
+    float const CROSSROAD_VIEW_ANGLE{ 57.5f * DEG_RAD };
     /// Сдвиг области обзора
-    float const CROSSROAD_VIEW_ANGLE_SHIFT{ -52.5f * DEG_RAD };
+    float const CROSSROAD_VIEW_ANGLE_SHIFT{ -17.5f * DEG_RAD };
 
     /// @}
 
     /// @name Область видимости до перестроения
-    /// @{
+    /// @{  
 
     /// Радиус
     float const LINE_CHANGING_VIEW_RADIUS{ 60.f };
@@ -260,9 +256,32 @@ namespace rtm {
         , MustStop ///< Необходимо закончить
     };
 
-    /// Индексы, начиная с которых начинаются текстуры покрытий определенного типа
+    /// Типы покрытий
     enum CoatingType {
-        AsphaltCoating = 0 ///< Асфальтовое объект
+        AsphaltCoating = 0      ///< Асфальтовое покрытие
+        , IceAsphaltCoating = 1 ///< Асфальтовое покрытие со льдом
+    };
+
+    /// Типы дорог
+    enum RoadType {
+        RoadTypeNo0 = 0 ///< Однополосная прямая
+        , RoadTypeNo1   ///< Однополосная левая прямая
+        , RoadTypeNo2   ///< Однополосная средняя прямая
+        , RoadTypeNo3   ///< Перекресток 1 на 1
+        , RoadTypeNo4   ///< Угол перекрестка 1 на N
+        , RoadTypeNo5   ///< Угол перекрестка N на N
+        , RoadTypeNo6   ///< Центральная часть перекрестка
+        , RoadTypeNo7   ///< Т-образный перекресток 1 на 1
+        , RoadTypeNo8   ///< Левый угол Т-образного перекрестка 1 на N
+        , RoadTypeNo9   ///< Заблокированный край Т-образного перекрестка N на N
+        , RoadTypeNo10  ///< Правый угол Т-образного перекрестка 1 на N
+        , RoadTypeNo11  ///< Расширение дороги
+        , RoadTypeNo12  ///< Сужение дороги
+        , RoadTypeNo13  ///< Однополосный поворот
+        , RoadTypeNo14  ///< Внешний ряд поворота
+        , RoadTypeNo15  ///< Средний ряд поворота
+        , RoadTypeNo16  ///< Внутренний ряд поворота
+        , RoadTypeNo17  ///< Обочина поворота (угла перекрестка)
     };
 
     /// Индексы, начиная с которых начинаются текстуры сигналоа определенного типа
@@ -367,15 +386,25 @@ namespace rtm {
     /// Маска файлов карт
     std::string const MAP_FILENAME_MASK{ "res/map/MapNo%No%.rtmm" };
     /// Маска файлов текстур дорог
-    std::string const ROAD_FILENAME_MASK{ "res/coating/RoadNo%No%.png" };
+    std::string const ROAD_FILENAME_MASK{ "res/coating/road/RoadNo%No%.png" };
+    /// Маска файлов текстур грязи
+    std::string const PUDDLE_FILENAME_MASK{ "res/coating/puddle/PuddleNo%No%.png" };
     /// Маска файлов текстур сигналов
     std::string const SIGNAL_FILENAME_MASK{ "res/signal/SignalNo%No%.png" };
     /// Маска файлов текстур зданий
-    std::string const BUILDING_FILENAME_MASK{ "res/static/BuildingNo%No%.png" };
+    std::string const BUILDING_FILENAME_MASK{ "res/static/building/BuildingNo%No%.png" };
+    /// Маска файлов текстур кустов
+    std::string const BUSH_FILENAME_MASK{ "res/static/bush/BushNo%No%.png" };
     /// Маска файлов текстур машин
-    std::string const CAR_FILENAME_MASK{ "res/vehicle/CarNo%No%.png" };
+    std::string const CAR_FILENAME_MASK{ "res/dynamic/vehicle/CarNo%No%.png" };
 
     /// @}
+
+    /// Индексы, начиная с которых начинаются текстуры покрытий определенного типа
+    std::array<size_t, 2> const COATING_INDEXES = {
+        1       ///< Для асфальта
+        , 21    ///< Для асфальта со льдом
+    };
 
     /// @name Параметры дорог
     /// @{
@@ -383,15 +412,14 @@ namespace rtm {
     /// Массив коэффициентов трения для каждого типа объекта
     /// @see CoatingType
     std::array<float, 2> const ROADS_RESISTANCES = {
-        0.f     ///< Неинициализированный тип
-        , 1.f   ///< Асфальт
+        1.f   ///< Асфальт
+        , 0.8f   ///< Асфальт со льдом
     };
 
     /// Массив возможных направлений для каждой типа кучоска дороги
     /// @see RoadCoating
-    std::array<Directions, 19> const ROADS_DIRECTIONS = {
-          Directions{ false, false, false, false, false, false, false, false }  ///< Not init directions
-        , Directions{ true, false, true, false, false, false, false, false }    ///< For road #1
+    std::array<Directions, 18> const ROADS_DIRECTIONS = {
+          Directions{ true, false, true, false, false, false, false, false }    ///< For road #1
         , Directions{ true, false, true, false, true, true, false, false }      ///< For road #2
         , Directions{ true, false, true, false, true, true, true, true }        ///< For road #3
         , Directions{ true, true, true, true, false, false, false, false }      ///< For road #4
@@ -532,6 +560,11 @@ namespace rtm {
 
     /// @}
 
+    /// Функция для получения пути к файлу по маске
+    /// @param mask маска названия файла
+    /// @param number номер объекта
+    /// @return путь к файлу
+    std::string GetFilename(std::string const& mask, size_t number);
     /// Функция для суммирования двух угловых типов
     /// @param a,b угловые типы, которые будут складываться
     /// @return сумма угловых типов (a + b)

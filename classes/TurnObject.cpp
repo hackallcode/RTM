@@ -1,7 +1,4 @@
-﻿#include "TurnObject.h"
-#include "CoatingObject.h"
-#include "RoadCoating.h"
-#include "DrivewayObject.h"
+﻿#include "AllRtmClasses.h"
 
 rtm::TurnObject::TurnObject()
     : CoatingUnion{}
@@ -61,11 +58,11 @@ rtm::CoatingMatrix rtm::TurnObject::RightTurnMatrix(CoatingType type, int column
     if (linesCount == 1) {
         size_t i{ leftBorder };
         size_t j{ bottomBorder };
-        result[i][j] = std::make_unique<RoadCoating>(type, 14, column + i, row + j, angle);
+        result[i][j] = std::make_unique<RoadCoating>(type, RoadTypeNo13, column + i, row + j, angle);
 
         i = rightBorder;
         j = topBorder;
-        result[i][j] = std::make_unique<RoadCoating>(type, 18, column + i, row + j, angle);
+        result[i][j] = std::make_unique<RoadCoating>(type, RoadTypeNo17, column + i, row + j, angle);
     }
     else if (angle == Up || angle == Down) {
         for (size_t i{ 0 }; i < size; ++i) {
@@ -73,30 +70,30 @@ rtm::CoatingMatrix rtm::TurnObject::RightTurnMatrix(CoatingType type, int column
 
             if (angle == Up) {
                 if (i == 0) {
-                    id = 15;
+                    id = RoadTypeNo14;
                 }
                 else if (i == size - 2) {
-                    id = 17;
+                    id = RoadTypeNo16;
                 }
                 else if (i == size - 1) {
-                    id = 18;
+                    id = RoadTypeNo17;
                 }
                 else {
-                    id = 16;
+                    id = RoadTypeNo15;
                 }
             }
             else if (angle == Down) {
                 if (i == 0) {
-                    id = 18;
+                    id = RoadTypeNo17;
                 }
                 else if (i == 1) {
-                    id = 17;
+                    id = RoadTypeNo16;
                 }
                 else if (i == size - 1) {
-                    id = 15;
+                    id = RoadTypeNo14;
                 }
                 else {
-                    id = 16;
+                    id = RoadTypeNo15;
                 }
             }
 
@@ -109,30 +106,30 @@ rtm::CoatingMatrix rtm::TurnObject::RightTurnMatrix(CoatingType type, int column
             size_t id{ 0 };
             if (angle == Right) {
                 if (i == 0) {
-                    id = 18;
+                    id = RoadTypeNo17;
                 }
                 else if (i == 1) {
-                    id = 17;
+                    id = RoadTypeNo16;
                 }
                 else if (i == size - 1) {
-                    id = 15;
+                    id = RoadTypeNo14;
                 }
                 else {
-                    id = 16;
+                    id = RoadTypeNo15;
                 }
             }
             else if (angle == Left) {
                 if (i == 0) {
-                    id = 15;
+                    id = RoadTypeNo14;
                 }
                 else if (i == size - 2) {
-                    id = 17;
+                    id = RoadTypeNo16;
                 }
                 else if (i == size - 1) {
-                    id = 18;
+                    id = RoadTypeNo17;
                 }
                 else {
-                    id = 16;
+                    id = RoadTypeNo15;
                 }
             }
 
@@ -256,11 +253,11 @@ rtm::CoatingMatrix rtm::TurnObject::LeftTurnMatrix(CoatingType type, int column,
     if (linesCount == 1) {
         size_t i{ leftBorder };
         size_t j{ bottomBorder };
-        result[i][j] = std::make_unique<RoadCoating>(type, 14, column + i, row + j, coatingAngle);
+        result[i][j] = std::make_unique<RoadCoating>(type, RoadTypeNo13, column + i, row + j, coatingAngle);
 
         i = rightBorder;
         j = topBorder;
-        result[i][j] = std::make_unique<RoadCoating>(type, 18, column + i, row + j, coatingAngle);
+        result[i][j] = std::make_unique<RoadCoating>(type, RoadTypeNo17, column + i, row + j, coatingAngle);
     }
     else if (angle == Up || angle == Down) {
         for (size_t i{ 0 }; i < size; ++i) {
@@ -268,30 +265,30 @@ rtm::CoatingMatrix rtm::TurnObject::LeftTurnMatrix(CoatingType type, int column,
 
             if (angle == Up) {
                 if (i == 0) {
-                    id = 18;
+                    id = RoadTypeNo17;
                 }
                 else if (i == 1) {
-                    id = 17;
+                    id = RoadTypeNo16;
                 }
                 else if (i == size - 1) {
-                    id = 15;
+                    id = RoadTypeNo14;
                 }
                 else {
-                    id = 16;
+                    id = RoadTypeNo15;
                 }
             }
             else if (angle == Down) {
                 if (i == 0) {
-                    id = 15;
+                    id = RoadTypeNo14;
                 }
                 else if (i == size - 2) {
-                    id = 17;
+                    id = RoadTypeNo16;
                 }
                 else if (i == size - 1) {
-                    id = 18;
+                    id = RoadTypeNo17;
                 }
                 else {
-                    id = 16;
+                    id = RoadTypeNo15;
                 }
             }
 
@@ -303,30 +300,30 @@ rtm::CoatingMatrix rtm::TurnObject::LeftTurnMatrix(CoatingType type, int column,
             size_t id{ 0 };
             if (angle == Right) {
                 if (i == 0) {
-                    id = 18;
+                    id = RoadTypeNo17;
                 }
                 else if (i == 1) {
-                    id = 17;
+                    id = RoadTypeNo16;
                 }
                 else if (i == size - 1) {
-                    id = 15;
+                    id = RoadTypeNo14;
                 }
                 else {
-                    id = 16;
+                    id = RoadTypeNo15;
                 }
             }
             else if (angle == Left) {
                 if (i == 0) {
-                    id = 15;
+                    id = RoadTypeNo14;
                 }
                 else if (i == size - 2) {
-                    id = 17;
+                    id = RoadTypeNo16;
                 }
                 else if (i == size - 1) {
-                    id = 18;
+                    id = RoadTypeNo17;
                 }
                 else {
-                    id = 16;
+                    id = RoadTypeNo15;
                 }
             }
 

@@ -1,5 +1,6 @@
 <map id="rtm::MapObject" name="rtm::MapObject">
 <area shape="rect" id="node4" href="$classrtm_1_1_building_object.html" title="Класс, описывающий строения (здания) " alt="" coords="5,229,139,256"/>
-<area shape="rect" id="node2" href="$classrtm_1_1_static_object.html" title="Класс статического объекта (который не обновляется) " alt="" coords="11,80,133,107"/>
-<area shape="rect" id="node3" href="$classrtm_1_1_world_object.html" title="Класс объекта мира (родитель всех условно объемных объектов) " alt="" coords="11,5,133,32"/>
+<area shape="rect" id="node5" href="$classrtm_1_1_bush_object.html" title="Класс, описывающий кусты " alt="" coords="163,229,280,256"/>
+<area shape="rect" id="node2" href="$classrtm_1_1_static_object.html" title="Класс статического объекта (который не обновляется) " alt="" coords="86,80,207,107"/>
+<area shape="rect" id="node3" href="$classrtm_1_1_world_object.html" title="Класс объекта мира (родитель всех условно объемных объектов) " alt="" coords="86,5,207,32"/>
 </map>

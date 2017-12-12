@@ -1,4 +1,4 @@
-﻿#include "CoatingObject.h"
+﻿#include "AllRtmClasses.h"
 
 rtm::CoatingObject::CoatingObject()
     : CoatingObject{ nullptr, 0.f, 0.f, Up, 0.f, { false, false, false, false } }

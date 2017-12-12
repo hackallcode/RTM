@@ -1,6 +1,4 @@
-﻿#include "DrivewayObject.h"
-#include "CoatingObject.h"
-#include "RoadCoating.h"
+﻿#include "AllRtmClasses.h"
 
 rtm::DrivewayObject::DrivewayObject()
     : CoatingUnion{}
@@ -30,42 +28,42 @@ rtm::CoatingMatrix rtm::DrivewayObject::DrivewayMatrix(CoatingType type, int col
             // Choose properties of road
             if (angle == Up || angle == Down) {
                 if (width == 1) {
-                    id = 1;
+                    id = RoadTypeNo0;
                 }
                 else if (i == 0) {
-                    id = 2;
+                    id = RoadTypeNo1;
                     if (angle == Down) {
                         extraDirection = Down;
                     }
                 }
                 else if (i == width - 1) {
-                    id = 2;
+                    id = RoadTypeNo1;
                     if (angle == Up) {
                         extraDirection = Down;
                     }
                 }
                 else {
-                    id = 3;
+                    id = RoadTypeNo2;
                 }
             }
             else if (angle == Right || angle == Left) {
                 if (height == 1) {
-                    id = 1;
+                    id = RoadTypeNo0;
                 }
                 else if (j == 0) {
-                    id = 2;
+                    id = RoadTypeNo1;
                     if (angle == Right) {
                         extraDirection = Down;
                     }
                 }
                 else if (j == height - 1) {
-                    id = 2;
+                    id = RoadTypeNo1;
                     if (angle == Left) {
                         extraDirection = Down;
                     }
                 }
                 else {
-                    id = 3;
+                    id = RoadTypeNo2;
                 }
             }
 

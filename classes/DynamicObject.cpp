@@ -1,6 +1,4 @@
-﻿#include "DynamicObject.h"
-#include "WorldController.h"
-#include "StaticObject.h"
+﻿#include "AllRtmClasses.h"
 
 ///////////////////////
 //  LOCAL FUNCTIONS  //

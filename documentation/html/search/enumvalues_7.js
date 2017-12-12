@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['right',['Right',['../namespacertm.html#a69dc82b16a0148c10962caa83d930f89ac8d48eaf247eaed3ab5acb14be273d8b',1,'rtm']]],
-  ['rightward',['Rightward',['../namespacertm.html#a57b216f3aeb45041f3461bab08bc3aebab05476a78be2c098fee8bd6defea9a58',1,'rtm']]],
-  ['rightwardsignalid',['RightwardSignalId',['../namespacertm.html#a4d86818f874975d3dc9f0f10feefc9c1a9cbadfb5a62cec9d481f6525a51e5712',1,'rtm']]],
-  ['rightwardsignalindex',['RightwardSignalIndex',['../namespacertm.html#a27eb93235356cdffe25fe6628e7eff14ae8899ee31b187a850f80275563429876',1,'rtm']]]
+  ['nocoatingunion',['NoCoatingUnion',['../namespacertm.html#a6a0d424be5696f64038e5e84a79cabfaaeeceb6bb067031e5bab66a4986f0da85',1,'rtm']]],
+  ['notstarted',['NotStarted',['../namespacertm.html#a11aeba1786456e9bc054ffe33b454181afd51c4cf7056147b72f22239887e6253',1,'rtm']]],
+  ['notworking',['NotWorking',['../namespacertm.html#aadb7300c15d57429546fb0b7f8ee0ee6ad63ea1c40cb745fd50a2efad23ccbd1f',1,'rtm']]],
+  ['nullangle',['NullAngle',['../namespacertm.html#a69dc82b16a0148c10962caa83d930f89a4c9d89d07c6a731bb94e24961d96dc8a',1,'rtm']]],
+  ['nulldirection',['NullDirection',['../namespacertm.html#a57b216f3aeb45041f3461bab08bc3aeba11d25fe9dbdfb448f588c5e547ca0e60',1,'rtm']]]
 ];

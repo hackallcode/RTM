@@ -1,4 +1,4 @@
-﻿#include "BuildingObject.h"
+﻿#include "AllRtmClasses.h"
 
 rtm::BuildingObject::BuildingObject()
     : MapObject{}
@@ -13,14 +13,5 @@ rtm::BuildingObject::BuildingObject(std::string const& filename, int column, int
 {}
 
 rtm::BuildingObject::BuildingObject(size_t type, int column, int row, float angle)
-    : BuildingObject{ BuildingObject::GetClassFile_(type), column, row, angle }
+    : BuildingObject{ GetFilename(BUILDING_FILENAME_MASK, type), column, row, angle }
 {}
-
-std::string rtm::BuildingObject::GetClassFile_(size_t id)
-{
-    std::string filename{ BUILDING_FILENAME_MASK };
-    auto it{ filename.find("%No%") };
-    filename.replace(it, 4, std::to_string(static_cast<int>(id)));
-
-    return filename;
-}

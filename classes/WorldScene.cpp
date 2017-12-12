@@ -1,7 +1,4 @@
-﻿#include "WorldScene.h"
-#include "WorldController.h"
-#include "StaticObject.h"
-#include "DynamicObject.h"
+﻿#include "AllRtmClasses.h"
 
 rtm::WorldScene* rtm::WorldScene::globalScene_{ nullptr };
 
@@ -49,8 +46,8 @@ bool rtm::WorldScene::init()
     OpenMap_();
 
     WorldScene::globalScene_ = this;
-    addChild(backgroundLayer_, BACKGROUND_Z_ORDER);
-    addChild(mainLayer_, MAIN_Z_ORDER);
+    addChild(backgroundLayer_, BACKGROUND_LAYER_Z_ORDER);
+    addChild(mainLayer_, MAIN_LAYER_Z_ORDER);
 
     //////////////////////////////
     // 3. Listeners 
@@ -80,7 +77,7 @@ void rtm::WorldScene::update(float time)
 
 void rtm::WorldScene::OpenMap_()
 {
-    map_->LoadMap(1U);
+    map_->LoadMap(2U);
     SetDefaultPosition_();
     SetDefaultScale_();
     SetDefaultSpeed_();
@@ -223,16 +220,7 @@ void rtm::WorldScene::SetBackground(std::string const& filename)
 
 void rtm::WorldScene::SetBackground(size_t number)
 {
-    SetBackground(GetBackgroundFile_(number));
-}
-
-std::string rtm::WorldScene::GetBackgroundFile_(size_t number)
-{
-    std::string filename{ BACKGROUND_FILENAME_MASK };
-    auto it{ filename.find("%No%") };
-    filename.replace(it, 4, std::to_string(number));
-
-    return filename;
+    SetBackground(GetFilename(BACKGROUND_FILENAME_MASK, number));
 }
 
 void rtm::WorldScene::KeyPressed_(cocos2d::EventKeyboard::KeyCode code, cocos2d::Event* event)
@@ -318,6 +306,21 @@ void rtm::WorldScene::KeyPressed_(cocos2d::EventKeyboard::KeyCode code, cocos2d:
         break;
     case cocos2d::EventKeyboard::KeyCode::KEY_F1:
         map->RemoveVehicles();
+        break;
+    case cocos2d::EventKeyboard::KeyCode::KEY_1:
+        map->LoadMap(1);
+        break;
+    case cocos2d::EventKeyboard::KeyCode::KEY_2:
+        map->LoadMap(2);
+        break;
+    case cocos2d::EventKeyboard::KeyCode::KEY_3:
+        map->LoadMap(3);
+        break;
+    case cocos2d::EventKeyboard::KeyCode::KEY_4:
+        map->LoadMap(4);
+        break;
+    case cocos2d::EventKeyboard::KeyCode::KEY_5:
+        map->LoadMap(5);
         break;
     }
 }

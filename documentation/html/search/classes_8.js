@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['vehicleobject',['VehicleObject',['../classrtm_1_1_vehicle_object.html',1,'rtm']]]
+  ['turnobject',['TurnObject',['../classrtm_1_1_turn_object.html',1,'rtm']]]
 ];

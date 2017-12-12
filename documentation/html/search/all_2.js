@@ -29,6 +29,7 @@ var searchData=
   ['clicktime_5f',['clickTime_',['../classrtm_1_1_world_scene.html#aa4a3b966ceb38ca3cfca6216a379a776',1,'rtm::WorldScene']]],
   ['closed',['Closed',['../namespacertm.html#aadb7300c15d57429546fb0b7f8ee0ee6a861510405768a65d00e9956410b8947b',1,'rtm']]],
   ['closemap_5f',['CloseMap_',['../classrtm_1_1_world_controller.html#a3cd1dce633aa3d4a6991ccf6c367b9a8',1,'rtm::WorldController']]],
+  ['coating_5findexes',['COATING_INDEXES',['../namespacertm.html#aa92f0dfd3e94d47bed3e7dd2c2e82571',1,'rtm']]],
   ['coating_5fobject_5fz_5forder',['COATING_OBJECT_Z_ORDER',['../namespacertm.html#a85a3b25dc036bde14f8874ebf9ef9cd2',1,'rtm']]],
   ['coatingmatrix',['CoatingMatrix',['../namespacertm.html#ae3bb29510cfde424975be31866d2486e',1,'rtm']]],
   ['coatingobject',['CoatingObject',['../classrtm_1_1_coating_object.html',1,'rtm::CoatingObject'],['../classrtm_1_1_coating_object.html#a4b6f326b459b1bbf6b66c08cd74d2f1a',1,'rtm::CoatingObject::CoatingObject()'],['../classrtm_1_1_coating_object.html#a4d5d7ecc1ba34ec9f2d29dd39c1c054f',1,'rtm::CoatingObject::CoatingObject(cocos2d::Sprite *const sprite, int column, int row, AngleType angle, float resistance, Directions directions)'],['../classrtm_1_1_coating_object.html#ae3cfac6ecad1d4e35a34f80aaf782392',1,'rtm::CoatingObject::CoatingObject(std::string const &amp;filename, int column, int row, AngleType angle, float resistance, Directions directions)']]],

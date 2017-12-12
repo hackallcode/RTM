@@ -231,6 +231,15 @@ rtm::AngleType rtm::DirectionToAngleType(DirectionType direction)
     }
 }
 
+std::string rtm::GetFilename(std::string const & mask, size_t number)
+{
+    std::string filename{ mask };
+    auto it{ filename.find("%No%") };
+    filename.replace(it, 4, std::to_string(static_cast<int>(number)));
+
+    return filename;
+}
+
 rtm::AngleType rtm::SumAngleTypes(AngleType a, AngleType b)
 {
     return AngleToAngleType(AngleTypeToAngle(a) + AngleTypeToAngle(b));

@@ -1,11 +1,4 @@
-﻿#include "CarObject.h"
-#include "CoatingObject.h"
-#include "CoatingUnion.h"
-#include "DrivewayObject.h"
-#include "TurnObject.h"
-#include "CrossroadObject.h"
-#include "ControlUnit.h"
-#include "WorldController.h"
+﻿#include "AllRtmClasses.h"
 
 rtm::CarObject::CarObject()
     : VehicleObject{}
@@ -42,7 +35,7 @@ rtm::CarObject::CarObject(std::string const& filename, int column, int row, floa
 
 rtm::CarObject::CarObject(size_t type, int column, int row, float angle)
     : CarObject{
-        CarObject::GetClassFile_(type)
+        GetFilename(CAR_FILENAME_MASK, type)
         , column
         , row
         , angle
@@ -272,14 +265,16 @@ void rtm::CarObject::CheckRoadAhead_(WorldController* const world)
 
     // If waiting for turn
     if (waitForTurn_) {
-        // Stop, if not braking
-        if (!hasDesiredSpeed_ && !IsBraking_()) {
-            SetDesiredSpeed_(0.f);
-        }
-
-        if (CheckCrossroadArea_(world) == nullptr) {
-            ResetDesiredSpeed_();
-            waitForTurn_ = false;
+        if (!IsBraking_()) {
+            // Wait
+            if (!hasDesiredSpeed_) {
+                SetDesiredSpeed_(0.f);
+            }
+            // If empty, continue
+            if (CheckCrossroadArea_(world) == nullptr) {
+                ResetDesiredSpeed_();
+                waitForTurn_ = false;
+            }
         }
     }
 
@@ -291,15 +286,6 @@ void rtm::CarObject::CheckRoadAhead_(WorldController* const world)
             CheckCoatingUnionAhead_(world);
         }
     }
-}
-
-std::string rtm::CarObject::GetClassFile_(size_t id)
-{
-    std::string filename{ CAR_FILENAME_MASK };
-    auto it{ filename.find("%No%") };
-    filename.replace(it, 4, std::to_string(static_cast<int>(id)));
-
-    return filename;
 }
 
 float rtm::CarObject::GetClassMaxSpeed_(size_t id)

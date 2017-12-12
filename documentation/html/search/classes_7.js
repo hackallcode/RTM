@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['turnobject',['TurnObject',['../classrtm_1_1_turn_object.html',1,'rtm']]]
+  ['spawntype',['SpawnType',['../structrtm_1_1_spawn_type.html',1,'rtm']]],
+  ['staticobject',['StaticObject',['../classrtm_1_1_static_object.html',1,'rtm']]]
 ];

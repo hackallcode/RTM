@@ -1,4 +1,4 @@
-﻿#include "MapObject.h"
+﻿#include "AllRtmClasses.h"
 
 rtm::MapObject::MapObject()
     : StaticObject{}

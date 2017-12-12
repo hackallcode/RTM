@@ -104,6 +104,8 @@ bool \hyperlink{classrtm_1_1_world_controller_a07bb2d2043361ea1768cc157a19c472d}
 \item 
 bool \hyperlink{classrtm_1_1_world_controller_ae17e4ffc602819f5b382251b501b1d7c}{Add\+Building\+\_\+} (size\+\_\+t type, int column, int row, float angle)
 \item 
+bool \hyperlink{classrtm_1_1_world_controller_a9e2fa6b63879171a26eaa0c26eacbc97}{Add\+Bush\+\_\+} (size\+\_\+t type, int column, int row, float angle)
+\item 
 bool \hyperlink{classrtm_1_1_world_controller_aa886cfea79318d25b2ab69b01c01a5a3}{Add\+Dynamic\+Object\+\_\+} (int column, int row, \hyperlink{namespacertm_af668a936c29b476890a79ad1eb19e3cc}{Dynamic\+Shared} dynamic\+Object)
 \item 
 bool \hyperlink{classrtm_1_1_world_controller_add7f36a79e7f096c8cf1d7413affec6a}{Add\+Car\+\_\+} (size\+\_\+t type, int column, int row, float angle)
@@ -134,11 +136,6 @@ void \hyperlink{classrtm_1_1_world_controller_a0f6b29410a02d1fa480fdec29e9b5827}
 \mbox{\Hypertarget{classrtm_1_1_world_controller_ad32b6c19479b509c06c8b03364e707af}\label{classrtm_1_1_world_controller_ad32b6c19479b509c06c8b03364e707af}} 
 void \hyperlink{classrtm_1_1_world_controller_ad32b6c19479b509c06c8b03364e707af}{Clear\+Dynamic\+Objects\+\_\+} ()
 \begin{DoxyCompactList}\small\item\em Функция для очистки движущихся объектов \end{DoxyCompactList}\end{DoxyCompactItemize}
-\subsection*{Закрытые статические члены}
-\begin{DoxyCompactItemize}
-\item 
-static std\+::string \hyperlink{classrtm_1_1_world_controller_a0f1868e663f83dcd5e31a056cfafb0f5}{Get\+Class\+File\+\_\+} (size\+\_\+t number)
-\end{DoxyCompactItemize}
 \subsection*{Закрытые данные}
 \begin{DoxyCompactItemize}
 \item 
@@ -674,6 +671,26 @@ true, если объект получилось сгенерировать, и�
 \begin{DoxyReturn}{Возвращает}
 true, если объект получилось сгенерировать, иначе false 
 \end{DoxyReturn}
+\mbox{\Hypertarget{classrtm_1_1_world_controller_a9e2fa6b63879171a26eaa0c26eacbc97}\label{classrtm_1_1_world_controller_a9e2fa6b63879171a26eaa0c26eacbc97}} 
+\index{rtm\+::\+World\+Controller@{rtm\+::\+World\+Controller}!Add\+Bush\+\_\+@{Add\+Bush\+\_\+}}
+\index{Add\+Bush\+\_\+@{Add\+Bush\+\_\+}!rtm\+::\+World\+Controller@{rtm\+::\+World\+Controller}}
+\subsubsection{\texorpdfstring{Add\+Bush\+\_\+()}{AddBush\_()}}
+{\footnotesize\ttfamily bool rtm\+::\+World\+Controller\+::\+Add\+Bush\+\_\+ (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{type,  }\item[{int}]{column,  }\item[{int}]{row,  }\item[{float}]{angle }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Функция для генерации куста 
+\begin{DoxyParams}{Аргументы}
+{\em type} & тип куста \\
+\hline
+{\em column} & колонка куста \\
+\hline
+{\em row} & строка куста \\
+\hline
+{\em angle} & угол поворота куста \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+true, если объект получилось сгенерировать, иначе false 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classrtm_1_1_world_controller_aa886cfea79318d25b2ab69b01c01a5a3}\label{classrtm_1_1_world_controller_aa886cfea79318d25b2ab69b01c01a5a3}} 
 \index{rtm\+::\+World\+Controller@{rtm\+::\+World\+Controller}!Add\+Dynamic\+Object\+\_\+@{Add\+Dynamic\+Object\+\_\+}}
 \index{Add\+Dynamic\+Object\+\_\+@{Add\+Dynamic\+Object\+\_\+}!rtm\+::\+World\+Controller@{rtm\+::\+World\+Controller}}
@@ -767,20 +784,6 @@ true, если объект получилось сгенерировать, и�
 \end{DoxyParams}
 \begin{DoxyReturn}{Возвращает}
 строка объекта 
-\end{DoxyReturn}
-\mbox{\Hypertarget{classrtm_1_1_world_controller_a0f1868e663f83dcd5e31a056cfafb0f5}\label{classrtm_1_1_world_controller_a0f1868e663f83dcd5e31a056cfafb0f5}} 
-\index{rtm\+::\+World\+Controller@{rtm\+::\+World\+Controller}!Get\+Class\+File\+\_\+@{Get\+Class\+File\+\_\+}}
-\index{Get\+Class\+File\+\_\+@{Get\+Class\+File\+\_\+}!rtm\+::\+World\+Controller@{rtm\+::\+World\+Controller}}
-\subsubsection{\texorpdfstring{Get\+Class\+File\+\_\+()}{GetClassFile\_()}}
-{\footnotesize\ttfamily std\+::string rtm\+::\+World\+Controller\+::\+Get\+Class\+File\+\_\+ (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{number }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
-
-Функция для получения файла карты по номеру 
-\begin{DoxyParams}{Аргументы}
-{\em number} & номер стандартной карты \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Возвращает}
-путь к файлу карты 
 \end{DoxyReturn}
 
 

@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['tcrossroadtype',['TCrossroadType',['../namespacertm.html#a6a0d424be5696f64038e5e84a79cabfaaf6ed2ba75cfa7bd2651f31a64fd0e116',1,'rtm']]],
-  ['turntype',['TurnType',['../namespacertm.html#a6a0d424be5696f64038e5e84a79cabfaabe29616db907d70cdb28bf760a6558e4',1,'rtm']]]
+  ['started',['Started',['../namespacertm.html#a11aeba1786456e9bc054ffe33b454181a4ee7fb1538d76d158c3b83cc86ac1823',1,'rtm']]]
 ];

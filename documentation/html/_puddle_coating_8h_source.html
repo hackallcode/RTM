@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>RTM: Исходный файл C:/Users/Vladimir/Documents/Visual Studio 2017/Projects/RTM/Classes/PuddleCoating.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">RTM
+   &#160;<span id="projectnumber">0.1.0</span>
+   </div>
+   <div id="projectbrief">Road Traffic Model</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Поиск');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_0c68614ac8d8401edbf4146ded722294.html">Classes</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">PuddleCoating.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef __PUDDLE_COATING_INCLUDED__</span></div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define __PUDDLE_COATING_INCLUDED__</span></div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;CoatingObject.h&quot;</span></div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacertm.html">rtm</a> {</div><div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="classrtm_1_1_puddle_coating.html">    8</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classrtm_1_1_puddle_coating.html">PuddleCoating</a></div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;        : <span class="keyword">public</span> <a class="code" href="classrtm_1_1_coating_object.html">CoatingObject</a></div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    {</div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="keyword">public</span>:</div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        <a class="code" href="classrtm_1_1_puddle_coating.html#adc8ec09ad8833bf8ae77a77ce37a7945">PuddleCoating</a>();</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <a class="code" href="classrtm_1_1_puddle_coating.html#adc8ec09ad8833bf8ae77a77ce37a7945">PuddleCoating</a>(cocos2d::Sprite* <span class="keyword">const</span> sprite, <span class="keywordtype">int</span> column, <span class="keywordtype">int</span> row, <a class="code" href="namespacertm.html#a69dc82b16a0148c10962caa83d930f89">AngleType</a> angle);</div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <a class="code" href="classrtm_1_1_puddle_coating.html#adc8ec09ad8833bf8ae77a77ce37a7945">PuddleCoating</a>(std::string <span class="keyword">const</span>&amp; filename, <span class="keywordtype">int</span> column, <span class="keywordtype">int</span> row, <a class="code" href="namespacertm.html#a69dc82b16a0148c10962caa83d930f89">AngleType</a> angle);</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <a class="code" href="classrtm_1_1_puddle_coating.html#adc8ec09ad8833bf8ae77a77ce37a7945">PuddleCoating</a>(<span class="keywordtype">size_t</span> <span class="keywordtype">id</span>, <span class="keywordtype">int</span> column, <span class="keywordtype">int</span> row, <a class="code" href="namespacertm.html#a69dc82b16a0148c10962caa83d930f89">AngleType</a> angle);</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keyword">virtual</span> <a class="code" href="classrtm_1_1_puddle_coating.html#a14d812f0ffd6f7eea21abdb1b3fcb9ef">~PuddleCoating</a>() = <span class="keywordflow">default</span>;</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    };  </div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;}</div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">#endif // __PUDDLE_COATING_INCLUDED__</span></div><div class="ttc" id="classrtm_1_1_puddle_coating_html"><div class="ttname"><a href="classrtm_1_1_puddle_coating.html">rtm::PuddleCoating</a></div><div class="ttdoc">Класс, описывающий лужи </div><div class="ttdef"><b>Definition:</b> PuddleCoating.h:8</div></div>
+<div class="ttc" id="classrtm_1_1_puddle_coating_html_a14d812f0ffd6f7eea21abdb1b3fcb9ef"><div class="ttname"><a href="classrtm_1_1_puddle_coating.html#a14d812f0ffd6f7eea21abdb1b3fcb9ef">rtm::PuddleCoating::~PuddleCoating</a></div><div class="ttdeci">virtual ~PuddleCoating()=default</div><div class="ttdoc">Деструктор по умолчанию </div></div>
+<div class="ttc" id="classrtm_1_1_puddle_coating_html_adc8ec09ad8833bf8ae77a77ce37a7945"><div class="ttname"><a href="classrtm_1_1_puddle_coating.html#adc8ec09ad8833bf8ae77a77ce37a7945">rtm::PuddleCoating::PuddleCoating</a></div><div class="ttdeci">PuddleCoating()</div><div class="ttdoc">Конструктор по умочанию </div><div class="ttdef"><b>Definition:</b> PuddleCoating.cpp:3</div></div>
+<div class="ttc" id="classrtm_1_1_coating_object_html"><div class="ttname"><a href="classrtm_1_1_coating_object.html">rtm::CoatingObject</a></div><div class="ttdoc">Класс покрытия секции карты </div><div class="ttdef"><b>Definition:</b> CoatingObject.h:8</div></div>
+<div class="ttc" id="namespacertm_html_a69dc82b16a0148c10962caa83d930f89"><div class="ttname"><a href="namespacertm.html#a69dc82b16a0148c10962caa83d930f89">rtm::AngleType</a></div><div class="ttdeci">AngleType</div><div class="ttdoc">Тип для определения положения некоторых объектов и индикации разрешенных направлений на кусочке объек...</div><div class="ttdef"><b>Definition:</b> General.h:205</div></div>
+<div class="ttc" id="namespacertm_html"><div class="ttname"><a href="namespacertm.html">rtm</a></div><div class="ttdoc">Пространство имен для проекта RTM. </div><div class="ttdef"><b>Definition:</b> BuildingObject.h:6</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

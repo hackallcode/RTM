@@ -105,10 +105,6 @@ namespace rtm {
         /// @return контроллер сцены
         WorldControllerUnique& GetMap_();
 
-        /// Фунция для получения файла фона по номеру
-        /// @param number номер стандартного фона
-        /// @return путь к файлу фона
-        static std::string GetBackgroundFile_(size_t number);
         /// Функция-обработчик нажатий клавиш клавиатуры
         static void KeyPressed_(cocos2d::EventKeyboard::KeyCode code, cocos2d::Event* event);
         /// Функция-обработчик отпусканий клавиш клавиатуры

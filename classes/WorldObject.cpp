@@ -1,4 +1,4 @@
-﻿#include "WorldObject.h"
+﻿#include "AllRtmClasses.h"
 
 rtm::WorldObject::WorldObject()
     : WorldObject{ nullptr, 0.f, 0.f, 0.f }

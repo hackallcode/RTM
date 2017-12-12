@@ -1,4 +1,4 @@
-﻿#include "RoadCoating.h"
+﻿#include "AllRtmClasses.h"
 
 rtm::RoadCoating::RoadCoating()
     : CoatingObject{}
@@ -16,7 +16,7 @@ rtm::RoadCoating::RoadCoating(std::string const& filename, int column, int row,
 
 rtm::RoadCoating::RoadCoating(CoatingType type, size_t id, int column, int row, AngleType angle)
     : RoadCoating{
-        GetClassFile_(type + id)
+        GetFilename(ROAD_FILENAME_MASK, COATING_INDEXES[type] + id)
         , column
         , row
         , angle
@@ -24,15 +24,6 @@ rtm::RoadCoating::RoadCoating(CoatingType type, size_t id, int column, int row, 
         , GetClassDirections_(id)
     }
 {}
-
-std::string rtm::RoadCoating::GetClassFile_(size_t id)
-{
-    std::string filename{ ROAD_FILENAME_MASK };
-    auto it{ filename.find("%No%") };
-    filename.replace(it, 4, std::to_string(static_cast<int>(id)));
-
-    return filename;
-}
 
 float rtm::RoadCoating::GetClassResistance_(CoatingType type)
 {

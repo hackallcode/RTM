@@ -1,133 +1,139 @@
 \begin{theindex}
 
   \item {Add\+Building\+\_\+}
-    \subitem {rtm\+::\+World\+Controller}, \hyperpage{114}
+    \subitem {rtm\+::\+World\+Controller}, \hyperpage{120}
+  \item {Add\+Bush\+\_\+}
+    \subitem {rtm\+::\+World\+Controller}, \hyperpage{120}
   \item {Add\+Car\+\_\+}
-    \subitem {rtm\+::\+World\+Controller}, \hyperpage{115}
+    \subitem {rtm\+::\+World\+Controller}, \hyperpage{121}
   \item {Add\+Coating\+Union\+\_\+}
-    \subitem {rtm\+::\+World\+Controller}, \hyperpage{111}
+    \subitem {rtm\+::\+World\+Controller}, \hyperpage{116}
   \item {Add\+Control\+Unit\+\_\+}
-    \subitem {rtm\+::\+World\+Controller}, \hyperpage{114}
+    \subitem {rtm\+::\+World\+Controller}, \hyperpage{119}
   \item {Add\+Crossroad\+\_\+}
-    \subitem {rtm\+::\+World\+Controller}, \hyperpage{112}
+    \subitem {rtm\+::\+World\+Controller}, \hyperpage{117}
   \item {Add\+Driveway\+\_\+}
-    \subitem {rtm\+::\+World\+Controller}, \hyperpage{111}
+    \subitem {rtm\+::\+World\+Controller}, \hyperpage{116}
   \item {Add\+Dynamic\+Object\+\_\+}
-    \subitem {rtm\+::\+World\+Controller}, \hyperpage{115}
+    \subitem {rtm\+::\+World\+Controller}, \hyperpage{121}
   \item {Add\+Left\+Turt\+\_\+}
-    \subitem {rtm\+::\+World\+Controller}, \hyperpage{113}
+    \subitem {rtm\+::\+World\+Controller}, \hyperpage{118}
   \item {Add\+Right\+Turt\+\_\+}
-    \subitem {rtm\+::\+World\+Controller}, \hyperpage{113}
+    \subitem {rtm\+::\+World\+Controller}, \hyperpage{118}
   \item {Add\+Static\+Object\+\_\+}
-    \subitem {rtm\+::\+World\+Controller}, \hyperpage{114}
+    \subitem {rtm\+::\+World\+Controller}, \hyperpage{119}
   \item {Add\+T\+Crossroad\+\_\+}
-    \subitem {rtm\+::\+World\+Controller}, \hyperpage{112}
+    \subitem {rtm\+::\+World\+Controller}, \hyperpage{117}
   \item {After\+Moving\+\_\+}
-    \subitem {rtm\+::\+Vehicle\+Object}, \hyperpage{95}
+    \subitem {rtm\+::\+Vehicle\+Object}, \hyperpage{101}
   \item {Allowed}
     \subitem {rtm}, \hyperpage{20}
   \item {Angle\+To\+Angle\+Type}
-    \subitem {rtm}, \hyperpage{26}
+    \subitem {rtm}, \hyperpage{27}
   \item {Angle\+To\+Direction}
-    \subitem {rtm}, \hyperpage{26}
+    \subitem {rtm}, \hyperpage{27}
   \item {Angle\+Type}
-    \subitem {rtm}, \hyperpage{18}
+    \subitem {rtm}, \hyperpage{19}
   \item {Angle\+Type\+To\+Angle}
-    \subitem {rtm}, \hyperpage{27}
+    \subitem {rtm}, \hyperpage{28}
   \item {Angle\+Type\+To\+Direction}
-    \subitem {rtm}, \hyperpage{27}
-  \item {App\+Delegate}, \hyperpage{33}
-    \subitem {application\+Did\+Finish\+Launching}, \hyperpage{34}
+    \subitem {rtm}, \hyperpage{28}
+  \item {App\+Delegate}, \hyperpage{35}
+    \subitem {application\+Did\+Finish\+Launching}, \hyperpage{36}
   \item {application\+Did\+Finish\+Launching}
-    \subitem {App\+Delegate}, \hyperpage{34}
+    \subitem {App\+Delegate}, \hyperpage{36}
 
   \indexspace
 
   \item {Before\+Moving\+\_\+}
-    \subitem {rtm\+::\+Vehicle\+Object}, \hyperpage{95}
+    \subitem {rtm\+::\+Vehicle\+Object}, \hyperpage{100}
   \item {Building\+Object}
-    \subitem {rtm\+::\+Building\+Object}, \hyperpage{35, 36}
+    \subitem {rtm\+::\+Building\+Object}, \hyperpage{37, 38}
+  \item {Bush\+Object}
+    \subitem {rtm\+::\+Bush\+Object}, \hyperpage{39, 40}
 
   \indexspace
 
   \item {C\+A\+R\+S\+\_\+\+A\+C\+C\+E\+L\+E\+R\+A\+T\+I\+O\+NS}
-    \subitem {rtm}, \hyperpage{31}
+    \subitem {rtm}, \hyperpage{33}
   \item {C\+A\+R\+S\+\_\+\+M\+A\+X\+\_\+\+S\+P\+E\+E\+DS}
-    \subitem {rtm}, \hyperpage{30}
+    \subitem {rtm}, \hyperpage{32}
+  \item {C\+O\+A\+T\+I\+N\+G\+\_\+\+I\+N\+D\+E\+X\+ES}
+    \subitem {rtm}, \hyperpage{31}
   \item {Car\+Object}
-    \subitem {rtm\+::\+Car\+Object}, \hyperpage{38, 39}
+    \subitem {rtm\+::\+Car\+Object}, \hyperpage{42, 43}
   \item {Cell\+To\+Pixel}
-    \subitem {rtm}, \hyperpage{25}
+    \subitem {rtm}, \hyperpage{26}
   \item {Center\+Is\+Crossed}
-    \subitem {rtm}, \hyperpage{23}
+    \subitem {rtm}, \hyperpage{24}
   \item {Change\+Line\+\_\+}
-    \subitem {rtm\+::\+Vehicle\+Object}, \hyperpage{89}
-  \item {Check\+Coating\+Ahead\+\_\+}
-    \subitem {rtm\+::\+Car\+Object}, \hyperpage{41}
-  \item {Check\+Coating\+Union\+Ahead\+\_\+}
-    \subitem {rtm\+::\+Car\+Object}, \hyperpage{41}
-  \item {Check\+Collisions}
-    \subitem {rtm}, \hyperpage{21}
-    \subitem {rtm\+::\+Dynamic\+Object}, \hyperpage{73}
-  \item {Check\+Crossroad\+Area\+\_\+}
-    \subitem {rtm\+::\+Vehicle\+Object}, \hyperpage{94}
-  \item {Check\+Forward\+Area\+\_\+}
-    \subitem {rtm\+::\+Vehicle\+Object}, \hyperpage{93}
-  \item {Check\+Forward\+Coating\+\_\+}
-    \subitem {rtm\+::\+Vehicle\+Object}, \hyperpage{92}
-  \item {Check\+Forward\+Coating\+Union\+\_\+}
-    \subitem {rtm\+::\+Vehicle\+Object}, \hyperpage{92}
-  \item {Check\+Line\+Changing\+Area\+\_\+}
     \subitem {rtm\+::\+Vehicle\+Object}, \hyperpage{95}
+  \item {Check\+Coating\+Ahead\+\_\+}
+    \subitem {rtm\+::\+Car\+Object}, \hyperpage{45}
+  \item {Check\+Coating\+Union\+Ahead\+\_\+}
+    \subitem {rtm\+::\+Car\+Object}, \hyperpage{45}
+  \item {Check\+Collisions}
+    \subitem {rtm}, \hyperpage{22}
+    \subitem {rtm\+::\+Dynamic\+Object}, \hyperpage{77}
+  \item {Check\+Crossroad\+Area\+\_\+}
+    \subitem {rtm\+::\+Vehicle\+Object}, \hyperpage{100}
+  \item {Check\+Forward\+Area\+\_\+}
+    \subitem {rtm\+::\+Vehicle\+Object}, \hyperpage{98}
+  \item {Check\+Forward\+Coating\+\_\+}
+    \subitem {rtm\+::\+Vehicle\+Object}, \hyperpage{97}
+  \item {Check\+Forward\+Coating\+Union\+\_\+}
+    \subitem {rtm\+::\+Vehicle\+Object}, \hyperpage{98}
+  \item {Check\+Line\+Changing\+Area\+\_\+}
+    \subitem {rtm\+::\+Vehicle\+Object}, \hyperpage{100}
   \item {Check\+Moving\+Area\+\_\+}
-    \subitem {rtm\+::\+Vehicle\+Object}, \hyperpage{93}
+    \subitem {rtm\+::\+Vehicle\+Object}, \hyperpage{98}
   \item {Check\+Road\+Ahead\+\_\+}
-    \subitem {rtm\+::\+Car\+Object}, \hyperpage{42}
+    \subitem {rtm\+::\+Car\+Object}, \hyperpage{45}
   \item {Check\+Rotation\+Area\+\_\+}
-    \subitem {rtm\+::\+Vehicle\+Object}, \hyperpage{94}
+    \subitem {rtm\+::\+Vehicle\+Object}, \hyperpage{99}
   \item {Check\+Turn\+Area\+\_\+}
-    \subitem {rtm\+::\+Vehicle\+Object}, \hyperpage{93}
+    \subitem {rtm\+::\+Vehicle\+Object}, \hyperpage{99}
   \item {Closed}
     \subitem {rtm}, \hyperpage{20}
   \item {Coating\+Object}
-    \subitem {rtm\+::\+Coating\+Object}, \hyperpage{44, 45}
+    \subitem {rtm\+::\+Coating\+Object}, \hyperpage{48}
   \item {Coating\+Type}
-    \subitem {rtm}, \hyperpage{20}
+    \subitem {rtm}, \hyperpage{21}
   \item {Coating\+Union}
-    \subitem {rtm\+::\+Coating\+Union}, \hyperpage{49}
+    \subitem {rtm\+::\+Coating\+Union}, \hyperpage{52}
   \item {Coating\+Union\+Type}
-    \subitem {rtm}, \hyperpage{19}
+    \subitem {rtm}, \hyperpage{20}
   \item {Control\+Unit}
-    \subitem {rtm\+::\+Control\+Unit}, \hyperpage{54}
+    \subitem {rtm\+::\+Control\+Unit}, \hyperpage{58}
   \item {Count\+Deceleration}
-    \subitem {rtm}, \hyperpage{28}
+    \subitem {rtm}, \hyperpage{30}
   \item {Count\+Length\+\_\+}
-    \subitem {rtm\+::\+Driveway\+Object}, \hyperpage{66}
+    \subitem {rtm\+::\+Driveway\+Object}, \hyperpage{70}
   \item {Count\+Lines\+\_\+}
-    \subitem {rtm\+::\+Driveway\+Object}, \hyperpage{67}
+    \subitem {rtm\+::\+Driveway\+Object}, \hyperpage{71}
   \item {Create}
-    \subitem {rtm\+::\+World\+Scene}, \hyperpage{127}
+    \subitem {rtm\+::\+World\+Scene}, \hyperpage{133}
   \item {Crossroad\+Matrix}
-    \subitem {rtm\+::\+Crossroad\+Object}, \hyperpage{59}
+    \subitem {rtm\+::\+Crossroad\+Object}, \hyperpage{63}
   \item {Crossroad\+Object}
-    \subitem {rtm\+::\+Crossroad\+Object}, \hyperpage{59}
+    \subitem {rtm\+::\+Crossroad\+Object}, \hyperpage{62}
   \item {Crossroad\+Signals}
-    \subitem {rtm}, \hyperpage{17}
+    \subitem {rtm}, \hyperpage{18}
 
   \indexspace
 
   \item {D\+E\+F\+A\+U\+L\+T\+\_\+\+C\+R\+O\+S\+S\+R\+O\+A\+D\+\_\+\+S\+I\+G\+N\+A\+LS}
-    \subitem {rtm}, \hyperpage{29}
+    \subitem {rtm}, \hyperpage{30}
   \item {D\+E\+F\+A\+U\+L\+T\+\_\+\+D\+I\+R\+E\+C\+T\+I\+O\+N\+S\+\_\+\+S\+I\+G\+N\+A\+L\+\_\+\+S\+P\+R\+I\+T\+ES}
-    \subitem {rtm}, \hyperpage{29}
+    \subitem {rtm}, \hyperpage{31}
   \item {Direction\+Signal\+Index}
-    \subitem {rtm}, \hyperpage{19}
+    \subitem {rtm}, \hyperpage{20}
   \item {Direction\+Signals}
     \subitem {rtm}, \hyperpage{17}
   \item {Direction\+To\+Angle}
-    \subitem {rtm}, \hyperpage{27}
-  \item {Direction\+To\+Angle\+Type}
     \subitem {rtm}, \hyperpage{28}
+  \item {Direction\+To\+Angle\+Type}
+    \subitem {rtm}, \hyperpage{29}
   \item {Direction\+Type}
     \subitem {rtm}, \hyperpage{19}
   \item {Directions}
@@ -135,17 +141,17 @@
   \item {Directions\+Signal\+Sprites}
     \subitem {rtm}, \hyperpage{18}
   \item {Distance\+To\+Next\+Center}
-    \subitem {rtm}, \hyperpage{23}
+    \subitem {rtm}, \hyperpage{24}
   \item {Down}
     \subitem {rtm}, \hyperpage{19}
   \item {Downward}
     \subitem {rtm}, \hyperpage{19}
   \item {Driveway\+Matrix}
-    \subitem {rtm\+::\+Driveway\+Object}, \hyperpage{64}
+    \subitem {rtm\+::\+Driveway\+Object}, \hyperpage{68}
   \item {Driveway\+Object}
-    \subitem {rtm\+::\+Driveway\+Object}, \hyperpage{63}
+    \subitem {rtm\+::\+Driveway\+Object}, \hyperpage{67}
   \item {Dynamic\+Object}
-    \subitem {rtm\+::\+Dynamic\+Object}, \hyperpage{69}
+    \subitem {rtm\+::\+Dynamic\+Object}, \hyperpage{73}
 
   \indexspace
 
@@ -155,562 +161,562 @@
   \indexspace
 
   \item {Generate\+Object\+\_\+}
-    \subitem {rtm\+::\+World\+Controller}, \hyperpage{110}
+    \subitem {rtm\+::\+World\+Controller}, \hyperpage{116}
   \item {Get\+Angle}
-    \subitem {rtm\+::\+Turn\+Object}, \hyperpage{84}
-    \subitem {rtm\+::\+World\+Object}, \hyperpage{121}
-  \item {Get\+Background\+File\+\_\+}
-    \subitem {rtm\+::\+World\+Scene}, \hyperpage{129}
+    \subitem {rtm\+::\+Turn\+Object}, \hyperpage{90}
+    \subitem {rtm\+::\+World\+Object}, \hyperpage{127}
   \item {Get\+Class\+Acceleration\+\_\+}
-    \subitem {rtm\+::\+Car\+Object}, \hyperpage{43}
+    \subitem {rtm\+::\+Car\+Object}, \hyperpage{46}
   \item {Get\+Class\+Directions\+\_\+}
-    \subitem {rtm\+::\+Road\+Coating}, \hyperpage{78}
-  \item {Get\+Class\+File\+\_\+}
-    \subitem {rtm\+::\+Building\+Object}, \hyperpage{36}
-    \subitem {rtm\+::\+Car\+Object}, \hyperpage{42}
-    \subitem {rtm\+::\+Road\+Coating}, \hyperpage{78}
-    \subitem {rtm\+::\+World\+Controller}, \hyperpage{117}
+    \subitem {rtm\+::\+Road\+Coating}, \hyperpage{84}
   \item {Get\+Class\+Max\+Speed\+\_\+}
-    \subitem {rtm\+::\+Car\+Object}, \hyperpage{42}
+    \subitem {rtm\+::\+Car\+Object}, \hyperpage{46}
   \item {Get\+Class\+Resistance\+\_\+}
-    \subitem {rtm\+::\+Road\+Coating}, \hyperpage{78}
+    \subitem {rtm\+::\+Road\+Coating}, \hyperpage{84}
   \item {Get\+Coating\+Object}
-    \subitem {rtm\+::\+Coating\+Union}, \hyperpage{50}
-    \subitem {rtm\+::\+World\+Controller}, \hyperpage{105}
+    \subitem {rtm\+::\+Coating\+Union}, \hyperpage{54}
+    \subitem {rtm\+::\+World\+Controller}, \hyperpage{111}
   \item {Get\+Coating\+Union}
-    \subitem {rtm\+::\+World\+Controller}, \hyperpage{106}
+    \subitem {rtm\+::\+World\+Controller}, \hyperpage{111}
   \item {Get\+Column\+\_\+}
-    \subitem {rtm\+::\+Coating\+Union}, \hyperpage{52}
+    \subitem {rtm\+::\+Coating\+Union}, \hyperpage{56}
   \item {Get\+Columns\+Count}
-    \subitem {rtm\+::\+World\+Controller}, \hyperpage{104}
+    \subitem {rtm\+::\+World\+Controller}, \hyperpage{110}
   \item {Get\+Control\+Unit}
-    \subitem {rtm\+::\+Crossroad\+Object}, \hyperpage{61}
+    \subitem {rtm\+::\+Crossroad\+Object}, \hyperpage{65}
   \item {Get\+Delta\+Time}
-    \subitem {rtm\+::\+World\+Controller}, \hyperpage{105}
+    \subitem {rtm\+::\+World\+Controller}, \hyperpage{110}
   \item {Get\+Dynamic\+Objects}
-    \subitem {rtm\+::\+World\+Controller}, \hyperpage{106}
+    \subitem {rtm\+::\+World\+Controller}, \hyperpage{112}
+  \item {Get\+Filename}
+    \subitem {rtm}, \hyperpage{29}
   \item {Get\+Final\+Speed\+\_\+}
-    \subitem {rtm\+::\+Vehicle\+Object}, \hyperpage{91}
+    \subitem {rtm\+::\+Vehicle\+Object}, \hyperpage{96}
   \item {Get\+Height}
-    \subitem {rtm\+::\+Coating\+Union}, \hyperpage{50}
-    \subitem {rtm\+::\+World\+Object}, \hyperpage{122}
+    \subitem {rtm\+::\+Coating\+Union}, \hyperpage{54}
+    \subitem {rtm\+::\+World\+Object}, \hyperpage{127}
   \item {Get\+Last\+Delta}
-    \subitem {rtm\+::\+Dynamic\+Object}, \hyperpage{70}
+    \subitem {rtm\+::\+Dynamic\+Object}, \hyperpage{74}
   \item {Get\+Layer}
-    \subitem {rtm\+::\+World\+Controller}, \hyperpage{104}
+    \subitem {rtm\+::\+World\+Controller}, \hyperpage{110}
   \item {Get\+Length}
-    \subitem {rtm\+::\+Coating\+Union}, \hyperpage{51}
-    \subitem {rtm\+::\+Driveway\+Object}, \hyperpage{64}
+    \subitem {rtm\+::\+Coating\+Union}, \hyperpage{55}
+    \subitem {rtm\+::\+Driveway\+Object}, \hyperpage{68}
   \item {Get\+Lines\+Count}
-    \subitem {rtm\+::\+Driveway\+Object}, \hyperpage{64}
+    \subitem {rtm\+::\+Driveway\+Object}, \hyperpage{69}
   \item {Get\+Main\+Layer}
-    \subitem {rtm\+::\+World\+Scene}, \hyperpage{128}
+    \subitem {rtm\+::\+World\+Scene}, \hyperpage{134}
   \item {Get\+Map\+\_\+}
-    \subitem {rtm\+::\+World\+Scene}, \hyperpage{129}
+    \subitem {rtm\+::\+World\+Scene}, \hyperpage{134}
   \item {Get\+Max\+Speed\+\_\+}
-    \subitem {rtm\+::\+Vehicle\+Object}, \hyperpage{90}
+    \subitem {rtm\+::\+Vehicle\+Object}, \hyperpage{96}
   \item {Get\+Null\+Direction}
-    \subitem {rtm\+::\+Crossroad\+Object}, \hyperpage{60}
+    \subitem {rtm\+::\+Crossroad\+Object}, \hyperpage{65}
   \item {Get\+Real\+Column\+\_\+}
-    \subitem {rtm\+::\+World\+Controller}, \hyperpage{116}
+    \subitem {rtm\+::\+World\+Controller}, \hyperpage{122}
   \item {Get\+Real\+Row\+\_\+}
-    \subitem {rtm\+::\+World\+Controller}, \hyperpage{117}
+    \subitem {rtm\+::\+World\+Controller}, \hyperpage{123}
   \item {Get\+Resistance}
-    \subitem {rtm\+::\+Coating\+Object}, \hyperpage{46}
+    \subitem {rtm\+::\+Coating\+Object}, \hyperpage{49}
   \item {Get\+Row\+\_\+}
-    \subitem {rtm\+::\+Coating\+Union}, \hyperpage{52}
+    \subitem {rtm\+::\+Coating\+Union}, \hyperpage{56}
   \item {Get\+Rows\+Count}
-    \subitem {rtm\+::\+World\+Controller}, \hyperpage{105}
+    \subitem {rtm\+::\+World\+Controller}, \hyperpage{110}
   \item {Get\+Signal}
-    \subitem {rtm\+::\+Control\+Unit}, \hyperpage{55}
-  \item {Get\+Signal\+File\+\_\+}
-    \subitem {rtm\+::\+Control\+Unit}, \hyperpage{57}
+    \subitem {rtm\+::\+Control\+Unit}, \hyperpage{59}
   \item {Get\+Speed}
-    \subitem {rtm\+::\+Dynamic\+Object}, \hyperpage{70}
+    \subitem {rtm\+::\+Dynamic\+Object}, \hyperpage{74}
   \item {Get\+Sprite}
-    \subitem {rtm\+::\+Coating\+Object}, \hyperpage{45}
-    \subitem {rtm\+::\+World\+Object}, \hyperpage{120}
+    \subitem {rtm\+::\+Coating\+Object}, \hyperpage{49}
+    \subitem {rtm\+::\+World\+Object}, \hyperpage{126}
   \item {Get\+Static\+Object}
-    \subitem {rtm\+::\+World\+Controller}, \hyperpage{106}
+    \subitem {rtm\+::\+World\+Controller}, \hyperpage{111}
   \item {Get\+Time\+Factor}
-    \subitem {rtm\+::\+World\+Controller}, \hyperpage{105}
+    \subitem {rtm\+::\+World\+Controller}, \hyperpage{111}
   \item {Get\+Type}
-    \subitem {rtm\+::\+Coating\+Union}, \hyperpage{50}
+    \subitem {rtm\+::\+Coating\+Union}, \hyperpage{54}
   \item {Get\+Vector\+Column\+\_\+}
-    \subitem {rtm\+::\+World\+Controller}, \hyperpage{116}
+    \subitem {rtm\+::\+World\+Controller}, \hyperpage{121}
   \item {Get\+Vector\+Row\+\_\+}
-    \subitem {rtm\+::\+World\+Controller}, \hyperpage{116}
+    \subitem {rtm\+::\+World\+Controller}, \hyperpage{122}
   \item {Get\+Width}
-    \subitem {rtm\+::\+Coating\+Union}, \hyperpage{50}
-    \subitem {rtm\+::\+World\+Object}, \hyperpage{121}
+    \subitem {rtm\+::\+Coating\+Union}, \hyperpage{54}
+    \subitem {rtm\+::\+World\+Object}, \hyperpage{127}
   \item {Get\+X\+\_\+}
-    \subitem {rtm\+::\+World\+Object}, \hyperpage{121}
+    \subitem {rtm\+::\+World\+Object}, \hyperpage{126}
   \item {Get\+Y\+\_\+}
-    \subitem {rtm\+::\+World\+Object}, \hyperpage{121}
+    \subitem {rtm\+::\+World\+Object}, \hyperpage{126}
 
   \indexspace
 
   \item {Has\+Collision}
-    \subitem {rtm\+::\+Dynamic\+Object}, \hyperpage{70}
+    \subitem {rtm\+::\+Dynamic\+Object}, \hyperpage{74}
   \item {Has\+Direction}
-    \subitem {rtm\+::\+Coating\+Object}, \hyperpage{46}
+    \subitem {rtm\+::\+Coating\+Object}, \hyperpage{49}
 
   \indexspace
 
   \item {In\+Center}
-    \subitem {rtm}, \hyperpage{23}
+    \subitem {rtm}, \hyperpage{24}
   \item {init}
-    \subitem {rtm\+::\+World\+Scene}, \hyperpage{128}
+    \subitem {rtm\+::\+World\+Scene}, \hyperpage{133}
   \item {Is\+Allowable\+Column}
-    \subitem {rtm\+::\+World\+Controller}, \hyperpage{107}
+    \subitem {rtm\+::\+World\+Controller}, \hyperpage{113}
   \item {Is\+Allowable\+Row}
-    \subitem {rtm\+::\+World\+Controller}, \hyperpage{108}
+    \subitem {rtm\+::\+World\+Controller}, \hyperpage{113}
   \item {Is\+Beholding\+\_\+}
-    \subitem {rtm\+::\+Dynamic\+Object}, \hyperpage{72}
+    \subitem {rtm\+::\+Dynamic\+Object}, \hyperpage{76}
   \item {Is\+Braking\+\_\+}
-    \subitem {rtm\+::\+Vehicle\+Object}, \hyperpage{90}
+    \subitem {rtm\+::\+Vehicle\+Object}, \hyperpage{96}
   \item {Is\+Correct\+Column}
-    \subitem {rtm\+::\+Coating\+Union}, \hyperpage{51}
-    \subitem {rtm\+::\+World\+Controller}, \hyperpage{107}
+    \subitem {rtm\+::\+Coating\+Union}, \hyperpage{55}
+    \subitem {rtm\+::\+World\+Controller}, \hyperpage{112}
   \item {Is\+Correct\+Row}
-    \subitem {rtm\+::\+Coating\+Union}, \hyperpage{51}
-    \subitem {rtm\+::\+World\+Controller}, \hyperpage{107}
+    \subitem {rtm\+::\+Coating\+Union}, \hyperpage{55}
+    \subitem {rtm\+::\+World\+Controller}, \hyperpage{113}
   \item {Is\+Direction\+Available}
-    \subitem {rtm\+::\+Coating\+Object}, \hyperpage{46}
+    \subitem {rtm\+::\+Coating\+Object}, \hyperpage{49}
   \item {Is\+Empty\+\_\+}
-    \subitem {rtm\+::\+World\+Controller}, \hyperpage{110}
+    \subitem {rtm\+::\+World\+Controller}, \hyperpage{115}
   \item {Is\+Intersecting\+\_\+}
-    \subitem {rtm\+::\+Dynamic\+Object}, \hyperpage{72}
+    \subitem {rtm\+::\+Dynamic\+Object}, \hyperpage{76}
   \item {is\+Left\+Line}
-    \subitem {rtm\+::\+Driveway\+Object}, \hyperpage{65, 66}
+    \subitem {rtm\+::\+Driveway\+Object}, \hyperpage{70}
   \item {Is\+Line\+Changing\+\_\+}
-    \subitem {rtm\+::\+Vehicle\+Object}, \hyperpage{90}
+    \subitem {rtm\+::\+Vehicle\+Object}, \hyperpage{95}
   \item {Is\+Movement\+\_\+}
-    \subitem {rtm\+::\+Vehicle\+Object}, \hyperpage{89}
+    \subitem {rtm\+::\+Vehicle\+Object}, \hyperpage{95}
   \item {Is\+Near\+\_\+}
-    \subitem {rtm\+::\+Dynamic\+Object}, \hyperpage{73}
+    \subitem {rtm\+::\+Dynamic\+Object}, \hyperpage{77}
   \item {Is\+Near\+Others}
-    \subitem {rtm\+::\+Dynamic\+Object}, \hyperpage{71}
+    \subitem {rtm\+::\+Dynamic\+Object}, \hyperpage{75}
   \item {Is\+Pause}
-    \subitem {rtm\+::\+World\+Controller}, \hyperpage{106}
+    \subitem {rtm\+::\+World\+Controller}, \hyperpage{112}
   \item {Is\+Right}
-    \subitem {rtm\+::\+Turn\+Object}, \hyperpage{84}
+    \subitem {rtm\+::\+Turn\+Object}, \hyperpage{89}
   \item {is\+Right\+Line}
-    \subitem {rtm\+::\+Driveway\+Object}, \hyperpage{65}
+    \subitem {rtm\+::\+Driveway\+Object}, \hyperpage{69}
   \item {Is\+Rotation\+\_\+}
-    \subitem {rtm\+::\+Vehicle\+Object}, \hyperpage{90}
+    \subitem {rtm\+::\+Vehicle\+Object}, \hyperpage{95}
   \item {Is\+Visible\+Column}
-    \subitem {rtm\+::\+World\+Controller}, \hyperpage{108}
+    \subitem {rtm\+::\+World\+Controller}, \hyperpage{114}
   \item {Is\+Visible\+Row}
-    \subitem {rtm\+::\+World\+Controller}, \hyperpage{109}
+    \subitem {rtm\+::\+World\+Controller}, \hyperpage{114}
 
   \indexspace
 
   \item {Left}
     \subitem {rtm}, \hyperpage{19}
   \item {Left\+Turn\+Matrix}
-    \subitem {rtm\+::\+Turn\+Object}, \hyperpage{84}
+    \subitem {rtm\+::\+Turn\+Object}, \hyperpage{89}
   \item {Leftward}
     \subitem {rtm}, \hyperpage{19}
   \item {Line\+Changing\+\_\+}
-    \subitem {rtm\+::\+Vehicle\+Object}, \hyperpage{99}
+    \subitem {rtm\+::\+Vehicle\+Object}, \hyperpage{104}
   \item {Line\+Changing\+End\+\_\+}
-    \subitem {rtm\+::\+Vehicle\+Object}, \hyperpage{99}
+    \subitem {rtm\+::\+Vehicle\+Object}, \hyperpage{104}
   \item {Line\+Changing\+Start}
-    \subitem {rtm\+::\+Car\+Object}, \hyperpage{41}
-    \subitem {rtm\+::\+Vehicle\+Object}, \hyperpage{98}
+    \subitem {rtm\+::\+Car\+Object}, \hyperpage{44}
+    \subitem {rtm\+::\+Vehicle\+Object}, \hyperpage{103}
   \item {Line\+Changing\+Tick\+\_\+}
-    \subitem {rtm\+::\+Vehicle\+Object}, \hyperpage{98}
+    \subitem {rtm\+::\+Vehicle\+Object}, \hyperpage{104}
   \item {Lines\+Counts}
     \subitem {rtm}, \hyperpage{17}
   \item {Load\+Map}
-    \subitem {rtm\+::\+World\+Controller}, \hyperpage{109, 110}
+    \subitem {rtm\+::\+World\+Controller}, \hyperpage{115}
 
   \indexspace
 
   \item {Map\+Object}
-    \subitem {rtm\+::\+Map\+Object}, \hyperpage{74, 75}
+    \subitem {rtm\+::\+Map\+Object}, \hyperpage{78, 79}
   \item {Move\+Forward\+\_\+}
-    \subitem {rtm\+::\+Vehicle\+Object}, \hyperpage{88}
+    \subitem {rtm\+::\+Vehicle\+Object}, \hyperpage{94}
   \item {Movement\+\_\+}
-    \subitem {rtm\+::\+Vehicle\+Object}, \hyperpage{100}
+    \subitem {rtm\+::\+Vehicle\+Object}, \hyperpage{105}
   \item {Movement\+End\+\_\+}
-    \subitem {rtm\+::\+Car\+Object}, \hyperpage{40}
-    \subitem {rtm\+::\+Vehicle\+Object}, \hyperpage{96}
+    \subitem {rtm\+::\+Car\+Object}, \hyperpage{44}
+    \subitem {rtm\+::\+Vehicle\+Object}, \hyperpage{102}
   \item {Movement\+Start\+\_\+}
-    \subitem {rtm\+::\+Car\+Object}, \hyperpage{40}
-    \subitem {rtm\+::\+Vehicle\+Object}, \hyperpage{96}
+    \subitem {rtm\+::\+Car\+Object}, \hyperpage{44}
+    \subitem {rtm\+::\+Vehicle\+Object}, \hyperpage{101}
   \item {Movement\+Tick\+\_\+}
-    \subitem {rtm\+::\+Car\+Object}, \hyperpage{40}
-    \subitem {rtm\+::\+Vehicle\+Object}, \hyperpage{96}
+    \subitem {rtm\+::\+Car\+Object}, \hyperpage{44}
+    \subitem {rtm\+::\+Vehicle\+Object}, \hyperpage{101}
 
   \indexspace
 
   \item {N\+E\+A\+R\+\_\+\+D\+E\+L\+TA}
-    \subitem {rtm}, \hyperpage{29}
+    \subitem {rtm}, \hyperpage{30}
   \item {Normalize\+Angle}
-    \subitem {rtm}, \hyperpage{25}
+    \subitem {rtm}, \hyperpage{26}
 
   \indexspace
 
   \item {operator bool}
-    \subitem {rtm\+::\+Control\+Unit}, \hyperpage{55}
+    \subitem {rtm\+::\+Control\+Unit}, \hyperpage{59}
 
   \indexspace
 
   \item {Pixel\+To\+Cell}
-    \subitem {rtm}, \hyperpage{25}
+    \subitem {rtm}, \hyperpage{26}
+  \item {Puddle\+Coating}
+    \subitem {rtm\+::\+Puddle\+Coating}, \hyperpage{80, 81}
 
   \indexspace
 
   \item {R\+O\+A\+D\+S\+\_\+\+D\+I\+R\+E\+C\+T\+I\+O\+NS}
-    \subitem {rtm}, \hyperpage{30}
+    \subitem {rtm}, \hyperpage{32}
   \item {R\+O\+A\+D\+S\+\_\+\+R\+E\+S\+I\+S\+T\+A\+N\+C\+ES}
-    \subitem {rtm}, \hyperpage{30}
+    \subitem {rtm}, \hyperpage{31}
   \item {Release\+Sprites}
-    \subitem {rtm\+::\+Coating\+Union}, \hyperpage{52}
-    \subitem {rtm\+::\+Control\+Unit}, \hyperpage{56}
-    \subitem {rtm\+::\+Crossroad\+Object}, \hyperpage{61}
+    \subitem {rtm\+::\+Coating\+Union}, \hyperpage{56}
+    \subitem {rtm\+::\+Control\+Unit}, \hyperpage{60}
+    \subitem {rtm\+::\+Crossroad\+Object}, \hyperpage{66}
   \item {Right}
     \subitem {rtm}, \hyperpage{19}
   \item {Right\+Turn\+Matrix}
-    \subitem {rtm\+::\+Turn\+Object}, \hyperpage{83}
+    \subitem {rtm\+::\+Turn\+Object}, \hyperpage{88}
   \item {Rightward}
     \subitem {rtm}, \hyperpage{19}
   \item {Road\+Coating}
-    \subitem {rtm\+::\+Road\+Coating}, \hyperpage{76, 77}
+    \subitem {rtm\+::\+Road\+Coating}, \hyperpage{82, 83}
+  \item {Road\+Type}
+    \subitem {rtm}, \hyperpage{21}
   \item {Rotate\+\_\+}
-    \subitem {rtm\+::\+Vehicle\+Object}, \hyperpage{89}
+    \subitem {rtm\+::\+Vehicle\+Object}, \hyperpage{94}
   \item {Rotation\+\_\+}
-    \subitem {rtm\+::\+Vehicle\+Object}, \hyperpage{99}
+    \subitem {rtm\+::\+Vehicle\+Object}, \hyperpage{105}
   \item {Rotation\+End\+\_\+}
-    \subitem {rtm\+::\+Vehicle\+Object}, \hyperpage{97}
+    \subitem {rtm\+::\+Vehicle\+Object}, \hyperpage{103}
   \item {Rotation\+Start\+\_\+}
-    \subitem {rtm\+::\+Vehicle\+Object}, \hyperpage{97}
+    \subitem {rtm\+::\+Vehicle\+Object}, \hyperpage{102}
   \item {Rotation\+Tick\+\_\+}
-    \subitem {rtm\+::\+Vehicle\+Object}, \hyperpage{97}
+    \subitem {rtm\+::\+Vehicle\+Object}, \hyperpage{103}
   \item {Round\+Angle}
-    \subitem {rtm}, \hyperpage{24}
+    \subitem {rtm}, \hyperpage{25}
   \item {Round\+Coordinate}
-    \subitem {rtm}, \hyperpage{22}
+    \subitem {rtm}, \hyperpage{23}
   \item {Round\+To\+Center}
-    \subitem {rtm}, \hyperpage{22}
+    \subitem {rtm}, \hyperpage{23}
   \item {rtm}, \hyperpage{11}
     \subitem {Allowed}, \hyperpage{20}
-    \subitem {Angle\+To\+Angle\+Type}, \hyperpage{26}
-    \subitem {Angle\+To\+Direction}, \hyperpage{26}
-    \subitem {Angle\+Type}, \hyperpage{18}
-    \subitem {Angle\+Type\+To\+Angle}, \hyperpage{27}
-    \subitem {Angle\+Type\+To\+Direction}, \hyperpage{27}
+    \subitem {Angle\+To\+Angle\+Type}, \hyperpage{27}
+    \subitem {Angle\+To\+Direction}, \hyperpage{27}
+    \subitem {Angle\+Type}, \hyperpage{19}
+    \subitem {Angle\+Type\+To\+Angle}, \hyperpage{28}
+    \subitem {Angle\+Type\+To\+Direction}, \hyperpage{28}
     \subitem {C\+A\+R\+S\+\_\+\+A\+C\+C\+E\+L\+E\+R\+A\+T\+I\+O\+NS}, 
-		\hyperpage{31}
+		\hyperpage{33}
     \subitem {C\+A\+R\+S\+\_\+\+M\+A\+X\+\_\+\+S\+P\+E\+E\+DS}, 
-		\hyperpage{30}
-    \subitem {Cell\+To\+Pixel}, \hyperpage{25}
-    \subitem {Center\+Is\+Crossed}, \hyperpage{23}
-    \subitem {Check\+Collisions}, \hyperpage{21}
+		\hyperpage{32}
+    \subitem {C\+O\+A\+T\+I\+N\+G\+\_\+\+I\+N\+D\+E\+X\+ES}, 
+		\hyperpage{31}
+    \subitem {Cell\+To\+Pixel}, \hyperpage{26}
+    \subitem {Center\+Is\+Crossed}, \hyperpage{24}
+    \subitem {Check\+Collisions}, \hyperpage{22}
     \subitem {Closed}, \hyperpage{20}
-    \subitem {Coating\+Type}, \hyperpage{20}
-    \subitem {Coating\+Union\+Type}, \hyperpage{19}
-    \subitem {Count\+Deceleration}, \hyperpage{28}
-    \subitem {Crossroad\+Signals}, \hyperpage{17}
+    \subitem {Coating\+Type}, \hyperpage{21}
+    \subitem {Coating\+Union\+Type}, \hyperpage{20}
+    \subitem {Count\+Deceleration}, \hyperpage{30}
+    \subitem {Crossroad\+Signals}, \hyperpage{18}
     \subitem {D\+E\+F\+A\+U\+L\+T\+\_\+\+C\+R\+O\+S\+S\+R\+O\+A\+D\+\_\+\+S\+I\+G\+N\+A\+LS}, 
-		\hyperpage{29}
+		\hyperpage{30}
     \subitem {D\+E\+F\+A\+U\+L\+T\+\_\+\+D\+I\+R\+E\+C\+T\+I\+O\+N\+S\+\_\+\+S\+I\+G\+N\+A\+L\+\_\+\+S\+P\+R\+I\+T\+ES}, 
-		\hyperpage{29}
-    \subitem {Direction\+Signal\+Index}, \hyperpage{19}
+		\hyperpage{31}
+    \subitem {Direction\+Signal\+Index}, \hyperpage{20}
     \subitem {Direction\+Signals}, \hyperpage{17}
-    \subitem {Direction\+To\+Angle}, \hyperpage{27}
-    \subitem {Direction\+To\+Angle\+Type}, \hyperpage{28}
+    \subitem {Direction\+To\+Angle}, \hyperpage{28}
+    \subitem {Direction\+To\+Angle\+Type}, \hyperpage{29}
     \subitem {Direction\+Type}, \hyperpage{19}
     \subitem {Directions}, \hyperpage{17}
     \subitem {Directions\+Signal\+Sprites}, \hyperpage{18}
-    \subitem {Distance\+To\+Next\+Center}, \hyperpage{23}
+    \subitem {Distance\+To\+Next\+Center}, \hyperpage{24}
     \subitem {Down}, \hyperpage{19}
     \subitem {Downward}, \hyperpage{19}
     \subitem {Forbidden}, \hyperpage{20}
-    \subitem {In\+Center}, \hyperpage{23}
+    \subitem {Get\+Filename}, \hyperpage{29}
+    \subitem {In\+Center}, \hyperpage{24}
     \subitem {Left}, \hyperpage{19}
     \subitem {Leftward}, \hyperpage{19}
     \subitem {Lines\+Counts}, \hyperpage{17}
-    \subitem {N\+E\+A\+R\+\_\+\+D\+E\+L\+TA}, \hyperpage{29}
-    \subitem {Normalize\+Angle}, \hyperpage{25}
-    \subitem {Pixel\+To\+Cell}, \hyperpage{25}
+    \subitem {N\+E\+A\+R\+\_\+\+D\+E\+L\+TA}, \hyperpage{30}
+    \subitem {Normalize\+Angle}, \hyperpage{26}
+    \subitem {Pixel\+To\+Cell}, \hyperpage{26}
     \subitem {R\+O\+A\+D\+S\+\_\+\+D\+I\+R\+E\+C\+T\+I\+O\+NS}, 
-		\hyperpage{30}
+		\hyperpage{32}
     \subitem {R\+O\+A\+D\+S\+\_\+\+R\+E\+S\+I\+S\+T\+A\+N\+C\+ES}, 
-		\hyperpage{30}
+		\hyperpage{31}
     \subitem {Right}, \hyperpage{19}
     \subitem {Rightward}, \hyperpage{19}
-    \subitem {Round\+Angle}, \hyperpage{24}
-    \subitem {Round\+Coordinate}, \hyperpage{22}
-    \subitem {Round\+To\+Center}, \hyperpage{22}
-    \subitem {Same\+Angles}, \hyperpage{24}
-    \subitem {Same\+Coordinates}, \hyperpage{21}
-    \subitem {Signal\+File\+Id}, \hyperpage{21}
+    \subitem {Road\+Type}, \hyperpage{21}
+    \subitem {Round\+Angle}, \hyperpage{25}
+    \subitem {Round\+Coordinate}, \hyperpage{23}
+    \subitem {Round\+To\+Center}, \hyperpage{23}
+    \subitem {Same\+Angles}, \hyperpage{25}
+    \subitem {Same\+Coordinates}, \hyperpage{22}
+    \subitem {Signal\+File\+Id}, \hyperpage{22}
     \subitem {Signal\+Sprites}, \hyperpage{18}
     \subitem {Signal\+Type}, \hyperpage{20}
     \subitem {Signals\+Sprites}, \hyperpage{18}
-    \subitem {Started}, \hyperpage{20}
-    \subitem {State\+Type}, \hyperpage{20}
-    \subitem {Sum\+Angle\+Types}, \hyperpage{28}
+    \subitem {Started}, \hyperpage{21}
+    \subitem {State\+Type}, \hyperpage{21}
+    \subitem {Sum\+Angle\+Types}, \hyperpage{29}
     \subitem {Up}, \hyperpage{19}
     \subitem {Upward}, \hyperpage{19}
     \subitem {Warning}, \hyperpage{20}
-  \item {rtm\+::\+Building\+Object}, \hyperpage{34}
-    \subitem {Building\+Object}, \hyperpage{35, 36}
-    \subitem {Get\+Class\+File\+\_\+}, \hyperpage{36}
-  \item {rtm\+::\+Car\+Object}, \hyperpage{37}
-    \subitem {Car\+Object}, \hyperpage{38, 39}
-    \subitem {Check\+Coating\+Ahead\+\_\+}, \hyperpage{41}
-    \subitem {Check\+Coating\+Union\+Ahead\+\_\+}, \hyperpage{41}
-    \subitem {Check\+Road\+Ahead\+\_\+}, \hyperpage{42}
-    \subitem {Get\+Class\+Acceleration\+\_\+}, \hyperpage{43}
-    \subitem {Get\+Class\+File\+\_\+}, \hyperpage{42}
-    \subitem {Get\+Class\+Max\+Speed\+\_\+}, \hyperpage{42}
-    \subitem {Line\+Changing\+Start}, \hyperpage{41}
-    \subitem {Movement\+End\+\_\+}, \hyperpage{40}
-    \subitem {Movement\+Start\+\_\+}, \hyperpage{40}
-    \subitem {Movement\+Tick\+\_\+}, \hyperpage{40}
-  \item {rtm\+::\+Coating\+Object}, \hyperpage{43}
-    \subitem {Coating\+Object}, \hyperpage{44, 45}
-    \subitem {Get\+Resistance}, \hyperpage{46}
-    \subitem {Get\+Sprite}, \hyperpage{45}
-    \subitem {Has\+Direction}, \hyperpage{46}
-    \subitem {Is\+Direction\+Available}, \hyperpage{46}
-    \subitem {Set\+Direction\+Availability}, \hyperpage{47}
-    \subitem {Set\+Sprite\+\_\+}, \hyperpage{47}
-    \subitem {Set\+X\+\_\+}, \hyperpage{47}
-    \subitem {Set\+Y\+\_\+}, \hyperpage{48}
-  \item {rtm\+::\+Coating\+Union}, \hyperpage{48}
-    \subitem {Coating\+Union}, \hyperpage{49}
-    \subitem {Get\+Coating\+Object}, \hyperpage{50}
-    \subitem {Get\+Column\+\_\+}, \hyperpage{52}
-    \subitem {Get\+Height}, \hyperpage{50}
-    \subitem {Get\+Length}, \hyperpage{51}
-    \subitem {Get\+Row\+\_\+}, \hyperpage{52}
-    \subitem {Get\+Type}, \hyperpage{50}
-    \subitem {Get\+Width}, \hyperpage{50}
-    \subitem {Is\+Correct\+Column}, \hyperpage{51}
-    \subitem {Is\+Correct\+Row}, \hyperpage{51}
-    \subitem {Release\+Sprites}, \hyperpage{52}
-    \subitem {Show\+Sprites}, \hyperpage{51}
-  \item {rtm\+::\+Control\+Unit}, \hyperpage{53}
-    \subitem {Control\+Unit}, \hyperpage{54}
-    \subitem {Get\+Signal}, \hyperpage{55}
-    \subitem {Get\+Signal\+File\+\_\+}, \hyperpage{57}
-    \subitem {operator bool}, \hyperpage{55}
+  \item {rtm\+::\+Building\+Object}, \hyperpage{36}
+    \subitem {Building\+Object}, \hyperpage{37, 38}
+  \item {rtm\+::\+Bush\+Object}, \hyperpage{38}
+    \subitem {Bush\+Object}, \hyperpage{39, 40}
+  \item {rtm\+::\+Car\+Object}, \hyperpage{41}
+    \subitem {Car\+Object}, \hyperpage{42, 43}
+    \subitem {Check\+Coating\+Ahead\+\_\+}, \hyperpage{45}
+    \subitem {Check\+Coating\+Union\+Ahead\+\_\+}, \hyperpage{45}
+    \subitem {Check\+Road\+Ahead\+\_\+}, \hyperpage{45}
+    \subitem {Get\+Class\+Acceleration\+\_\+}, \hyperpage{46}
+    \subitem {Get\+Class\+Max\+Speed\+\_\+}, \hyperpage{46}
+    \subitem {Line\+Changing\+Start}, \hyperpage{44}
+    \subitem {Movement\+End\+\_\+}, \hyperpage{44}
+    \subitem {Movement\+Start\+\_\+}, \hyperpage{44}
+    \subitem {Movement\+Tick\+\_\+}, \hyperpage{44}
+  \item {rtm\+::\+Coating\+Object}, \hyperpage{46}
+    \subitem {Coating\+Object}, \hyperpage{48}
+    \subitem {Get\+Resistance}, \hyperpage{49}
+    \subitem {Get\+Sprite}, \hyperpage{49}
+    \subitem {Has\+Direction}, \hyperpage{49}
+    \subitem {Is\+Direction\+Available}, \hyperpage{49}
+    \subitem {Set\+Direction\+Availability}, \hyperpage{50}
+    \subitem {Set\+Sprite\+\_\+}, \hyperpage{50}
+    \subitem {Set\+X\+\_\+}, \hyperpage{50}
+    \subitem {Set\+Y\+\_\+}, \hyperpage{51}
+  \item {rtm\+::\+Coating\+Union}, \hyperpage{51}
+    \subitem {Coating\+Union}, \hyperpage{52}
+    \subitem {Get\+Coating\+Object}, \hyperpage{54}
+    \subitem {Get\+Column\+\_\+}, \hyperpage{56}
+    \subitem {Get\+Height}, \hyperpage{54}
+    \subitem {Get\+Length}, \hyperpage{55}
+    \subitem {Get\+Row\+\_\+}, \hyperpage{56}
+    \subitem {Get\+Type}, \hyperpage{54}
+    \subitem {Get\+Width}, \hyperpage{54}
+    \subitem {Is\+Correct\+Column}, \hyperpage{55}
+    \subitem {Is\+Correct\+Row}, \hyperpage{55}
     \subitem {Release\+Sprites}, \hyperpage{56}
-    \subitem {Set\+State\+\_\+}, \hyperpage{57}
-    \subitem {Show\+Sprites}, \hyperpage{56}
-    \subitem {Update}, \hyperpage{55}
-    \subitem {Update\+Signal\+\_\+}, \hyperpage{56}
-  \item {rtm\+::\+Crossroad\+Object}, \hyperpage{57}
-    \subitem {Crossroad\+Matrix}, \hyperpage{59}
-    \subitem {Crossroad\+Object}, \hyperpage{59}
-    \subitem {Get\+Control\+Unit}, \hyperpage{61}
-    \subitem {Get\+Null\+Direction}, \hyperpage{60}
-    \subitem {Release\+Sprites}, \hyperpage{61}
-    \subitem {Show\+Sprites}, \hyperpage{61}
-    \subitem {T\+Crossroad\+Matrix}, \hyperpage{60}
-  \item {rtm\+::\+Driveway\+Object}, \hyperpage{62}
-    \subitem {Count\+Length\+\_\+}, \hyperpage{66}
-    \subitem {Count\+Lines\+\_\+}, \hyperpage{67}
-    \subitem {Driveway\+Matrix}, \hyperpage{64}
-    \subitem {Driveway\+Object}, \hyperpage{63}
-    \subitem {Get\+Length}, \hyperpage{64}
-    \subitem {Get\+Lines\+Count}, \hyperpage{64}
-    \subitem {is\+Left\+Line}, \hyperpage{65, 66}
-    \subitem {is\+Right\+Line}, \hyperpage{65}
-  \item {rtm\+::\+Dynamic\+Object}, \hyperpage{67}
-    \subitem {Check\+Collisions}, \hyperpage{73}
-    \subitem {Dynamic\+Object}, \hyperpage{69}
-    \subitem {Get\+Last\+Delta}, \hyperpage{70}
-    \subitem {Get\+Speed}, \hyperpage{70}
-    \subitem {Has\+Collision}, \hyperpage{70}
-    \subitem {Is\+Beholding\+\_\+}, \hyperpage{72}
-    \subitem {Is\+Intersecting\+\_\+}, \hyperpage{72}
-    \subitem {Is\+Near\+\_\+}, \hyperpage{73}
-    \subitem {Is\+Near\+Others}, \hyperpage{71}
-    \subitem {Set\+Collision\+Flag\+\_\+}, \hyperpage{72}
-    \subitem {Set\+Speed\+\_\+}, \hyperpage{71}
-    \subitem {Update}, \hyperpage{71}
-  \item {rtm\+::\+Map\+Object}, \hyperpage{74}
-    \subitem {Map\+Object}, \hyperpage{74, 75}
-  \item {rtm\+::\+Road\+Coating}, \hyperpage{75}
-    \subitem {Get\+Class\+Directions\+\_\+}, \hyperpage{78}
-    \subitem {Get\+Class\+File\+\_\+}, \hyperpage{78}
-    \subitem {Get\+Class\+Resistance\+\_\+}, \hyperpage{78}
-    \subitem {Road\+Coating}, \hyperpage{76, 77}
-  \item {rtm\+::\+Spawn\+Type}, \hyperpage{79}
-  \item {rtm\+::\+Static\+Object}, \hyperpage{80}
-    \subitem {Static\+Object}, \hyperpage{80, 81}
-  \item {rtm\+::\+Turn\+Object}, \hyperpage{81}
-    \subitem {Get\+Angle}, \hyperpage{84}
-    \subitem {Is\+Right}, \hyperpage{84}
-    \subitem {Left\+Turn\+Matrix}, \hyperpage{84}
-    \subitem {Right\+Turn\+Matrix}, \hyperpage{83}
-    \subitem {Turn\+Object}, \hyperpage{83}
-  \item {rtm\+::\+Vehicle\+Object}, \hyperpage{85}
-    \subitem {After\+Moving\+\_\+}, \hyperpage{95}
-    \subitem {Before\+Moving\+\_\+}, \hyperpage{95}
-    \subitem {Change\+Line\+\_\+}, \hyperpage{89}
-    \subitem {Check\+Crossroad\+Area\+\_\+}, \hyperpage{94}
-    \subitem {Check\+Forward\+Area\+\_\+}, \hyperpage{93}
-    \subitem {Check\+Forward\+Coating\+\_\+}, \hyperpage{92}
-    \subitem {Check\+Forward\+Coating\+Union\+\_\+}, \hyperpage{92}
-    \subitem {Check\+Line\+Changing\+Area\+\_\+}, \hyperpage{95}
-    \subitem {Check\+Moving\+Area\+\_\+}, \hyperpage{93}
-    \subitem {Check\+Rotation\+Area\+\_\+}, \hyperpage{94}
-    \subitem {Check\+Turn\+Area\+\_\+}, \hyperpage{93}
-    \subitem {Get\+Final\+Speed\+\_\+}, \hyperpage{91}
-    \subitem {Get\+Max\+Speed\+\_\+}, \hyperpage{90}
-    \subitem {Is\+Braking\+\_\+}, \hyperpage{90}
-    \subitem {Is\+Line\+Changing\+\_\+}, \hyperpage{90}
-    \subitem {Is\+Movement\+\_\+}, \hyperpage{89}
-    \subitem {Is\+Rotation\+\_\+}, \hyperpage{90}
-    \subitem {Line\+Changing\+\_\+}, \hyperpage{99}
-    \subitem {Line\+Changing\+End\+\_\+}, \hyperpage{99}
-    \subitem {Line\+Changing\+Start}, \hyperpage{98}
-    \subitem {Line\+Changing\+Tick\+\_\+}, \hyperpage{98}
-    \subitem {Move\+Forward\+\_\+}, \hyperpage{88}
-    \subitem {Movement\+\_\+}, \hyperpage{100}
-    \subitem {Movement\+End\+\_\+}, \hyperpage{96}
-    \subitem {Movement\+Start\+\_\+}, \hyperpage{96}
-    \subitem {Movement\+Tick\+\_\+}, \hyperpage{96}
-    \subitem {Rotate\+\_\+}, \hyperpage{89}
-    \subitem {Rotation\+\_\+}, \hyperpage{99}
-    \subitem {Rotation\+End\+\_\+}, \hyperpage{97}
-    \subitem {Rotation\+Start\+\_\+}, \hyperpage{97}
-    \subitem {Rotation\+Tick\+\_\+}, \hyperpage{97}
-    \subitem {Set\+Braking\+Factor\+\_\+}, \hyperpage{91}
-    \subitem {Set\+Final\+Speed\+\_\+}, \hyperpage{91}
-    \subitem {Smooth\+Braking\+Counter}, \hyperpage{100}
-    \subitem {Speed\+Changing\+\_\+}, \hyperpage{100}
-    \subitem {Stop\+\_\+}, \hyperpage{89}
-    \subitem {Stop\+At\+Distance\+\_\+}, \hyperpage{92}
-    \subitem {Update}, \hyperpage{88}
-    \subitem {Vehicle\+Object}, \hyperpage{87, 88}
-  \item {rtm\+::\+World\+Controller}, \hyperpage{100}
-    \subitem {Add\+Building\+\_\+}, \hyperpage{114}
-    \subitem {Add\+Car\+\_\+}, \hyperpage{115}
-    \subitem {Add\+Coating\+Union\+\_\+}, \hyperpage{111}
-    \subitem {Add\+Control\+Unit\+\_\+}, \hyperpage{114}
-    \subitem {Add\+Crossroad\+\_\+}, \hyperpage{112}
-    \subitem {Add\+Driveway\+\_\+}, \hyperpage{111}
-    \subitem {Add\+Dynamic\+Object\+\_\+}, \hyperpage{115}
-    \subitem {Add\+Left\+Turt\+\_\+}, \hyperpage{113}
-    \subitem {Add\+Right\+Turt\+\_\+}, \hyperpage{113}
-    \subitem {Add\+Static\+Object\+\_\+}, \hyperpage{114}
-    \subitem {Add\+T\+Crossroad\+\_\+}, \hyperpage{112}
-    \subitem {Generate\+Object\+\_\+}, \hyperpage{110}
-    \subitem {Get\+Class\+File\+\_\+}, \hyperpage{117}
-    \subitem {Get\+Coating\+Object}, \hyperpage{105}
-    \subitem {Get\+Coating\+Union}, \hyperpage{106}
-    \subitem {Get\+Columns\+Count}, \hyperpage{104}
-    \subitem {Get\+Delta\+Time}, \hyperpage{105}
-    \subitem {Get\+Dynamic\+Objects}, \hyperpage{106}
-    \subitem {Get\+Layer}, \hyperpage{104}
-    \subitem {Get\+Real\+Column\+\_\+}, \hyperpage{116}
-    \subitem {Get\+Real\+Row\+\_\+}, \hyperpage{117}
-    \subitem {Get\+Rows\+Count}, \hyperpage{105}
-    \subitem {Get\+Static\+Object}, \hyperpage{106}
-    \subitem {Get\+Time\+Factor}, \hyperpage{105}
-    \subitem {Get\+Vector\+Column\+\_\+}, \hyperpage{116}
-    \subitem {Get\+Vector\+Row\+\_\+}, \hyperpage{116}
-    \subitem {Is\+Allowable\+Column}, \hyperpage{107}
-    \subitem {Is\+Allowable\+Row}, \hyperpage{108}
-    \subitem {Is\+Correct\+Column}, \hyperpage{107}
-    \subitem {Is\+Correct\+Row}, \hyperpage{107}
-    \subitem {Is\+Empty\+\_\+}, \hyperpage{110}
-    \subitem {Is\+Pause}, \hyperpage{106}
-    \subitem {Is\+Visible\+Column}, \hyperpage{108}
-    \subitem {Is\+Visible\+Row}, \hyperpage{109}
-    \subitem {Load\+Map}, \hyperpage{109, 110}
-    \subitem {Set\+Time\+Factor}, \hyperpage{109}
-    \subitem {Update}, \hyperpage{104}
-    \subitem {World\+Controller}, \hyperpage{103, 104}
-  \item {rtm\+::\+World\+Object}, \hyperpage{118}
-    \subitem {Get\+Angle}, \hyperpage{121}
-    \subitem {Get\+Height}, \hyperpage{122}
-    \subitem {Get\+Sprite}, \hyperpage{120}
-    \subitem {Get\+Width}, \hyperpage{121}
-    \subitem {Get\+X\+\_\+}, \hyperpage{121}
-    \subitem {Get\+Y\+\_\+}, \hyperpage{121}
-    \subitem {Set\+Angle\+\_\+}, \hyperpage{123}
-    \subitem {Set\+Height\+\_\+}, \hyperpage{123}
-    \subitem {Set\+Sprite\+\_\+}, \hyperpage{122}
-    \subitem {Set\+Sprite\+Angle\+\_\+}, \hyperpage{124}
-    \subitem {Set\+Sprite\+Height\+\_\+}, \hyperpage{125}
-    \subitem {Set\+Sprite\+Width\+\_\+}, \hyperpage{124}
-    \subitem {Set\+Sprite\+X\+\_\+}, \hyperpage{124}
-    \subitem {Set\+Sprite\+Y\+\_\+}, \hyperpage{124}
-    \subitem {Set\+Width\+\_\+}, \hyperpage{123}
-    \subitem {Set\+X\+\_\+}, \hyperpage{122}
-    \subitem {Set\+Y\+\_\+}, \hyperpage{123}
-    \subitem {World\+Object}, \hyperpage{120}
-  \item {rtm\+::\+World\+Scene}, \hyperpage{125}
-    \subitem {Create}, \hyperpage{127}
-    \subitem {Get\+Background\+File\+\_\+}, \hyperpage{129}
-    \subitem {Get\+Main\+Layer}, \hyperpage{128}
-    \subitem {Get\+Map\+\_\+}, \hyperpage{129}
-    \subitem {init}, \hyperpage{128}
-    \subitem {Set\+Background}, \hyperpage{128, 129}
-    \subitem {update}, \hyperpage{128}
+    \subitem {Show\+Sprites}, \hyperpage{55}
+  \item {rtm\+::\+Control\+Unit}, \hyperpage{57}
+    \subitem {Control\+Unit}, \hyperpage{58}
+    \subitem {Get\+Signal}, \hyperpage{59}
+    \subitem {operator bool}, \hyperpage{59}
+    \subitem {Release\+Sprites}, \hyperpage{60}
+    \subitem {Set\+State\+\_\+}, \hyperpage{60}
+    \subitem {Show\+Sprites}, \hyperpage{59}
+    \subitem {Update}, \hyperpage{59}
+    \subitem {Update\+Signal\+\_\+}, \hyperpage{60}
+  \item {rtm\+::\+Crossroad\+Object}, \hyperpage{61}
+    \subitem {Crossroad\+Matrix}, \hyperpage{63}
+    \subitem {Crossroad\+Object}, \hyperpage{62}
+    \subitem {Get\+Control\+Unit}, \hyperpage{65}
+    \subitem {Get\+Null\+Direction}, \hyperpage{65}
+    \subitem {Release\+Sprites}, \hyperpage{66}
+    \subitem {Show\+Sprites}, \hyperpage{65}
+    \subitem {T\+Crossroad\+Matrix}, \hyperpage{63}
+  \item {rtm\+::\+Driveway\+Object}, \hyperpage{66}
+    \subitem {Count\+Length\+\_\+}, \hyperpage{70}
+    \subitem {Count\+Lines\+\_\+}, \hyperpage{71}
+    \subitem {Driveway\+Matrix}, \hyperpage{68}
+    \subitem {Driveway\+Object}, \hyperpage{67}
+    \subitem {Get\+Length}, \hyperpage{68}
+    \subitem {Get\+Lines\+Count}, \hyperpage{69}
+    \subitem {is\+Left\+Line}, \hyperpage{70}
+    \subitem {is\+Right\+Line}, \hyperpage{69}
+  \item {rtm\+::\+Dynamic\+Object}, \hyperpage{71}
+    \subitem {Check\+Collisions}, \hyperpage{77}
+    \subitem {Dynamic\+Object}, \hyperpage{73}
+    \subitem {Get\+Last\+Delta}, \hyperpage{74}
+    \subitem {Get\+Speed}, \hyperpage{74}
+    \subitem {Has\+Collision}, \hyperpage{74}
+    \subitem {Is\+Beholding\+\_\+}, \hyperpage{76}
+    \subitem {Is\+Intersecting\+\_\+}, \hyperpage{76}
+    \subitem {Is\+Near\+\_\+}, \hyperpage{77}
+    \subitem {Is\+Near\+Others}, \hyperpage{75}
+    \subitem {Set\+Collision\+Flag\+\_\+}, \hyperpage{76}
+    \subitem {Set\+Speed\+\_\+}, \hyperpage{75}
+    \subitem {Update}, \hyperpage{75}
+  \item {rtm\+::\+Map\+Object}, \hyperpage{78}
+    \subitem {Map\+Object}, \hyperpage{78, 79}
+  \item {rtm\+::\+Puddle\+Coating}, \hyperpage{79}
+    \subitem {Puddle\+Coating}, \hyperpage{80, 81}
+  \item {rtm\+::\+Road\+Coating}, \hyperpage{81}
+    \subitem {Get\+Class\+Directions\+\_\+}, \hyperpage{84}
+    \subitem {Get\+Class\+Resistance\+\_\+}, \hyperpage{84}
+    \subitem {Road\+Coating}, \hyperpage{82, 83}
+  \item {rtm\+::\+Spawn\+Type}, \hyperpage{85}
+  \item {rtm\+::\+Static\+Object}, \hyperpage{85}
+    \subitem {Static\+Object}, \hyperpage{86}
+  \item {rtm\+::\+Turn\+Object}, \hyperpage{87}
+    \subitem {Get\+Angle}, \hyperpage{90}
+    \subitem {Is\+Right}, \hyperpage{89}
+    \subitem {Left\+Turn\+Matrix}, \hyperpage{89}
+    \subitem {Right\+Turn\+Matrix}, \hyperpage{88}
+    \subitem {Turn\+Object}, \hyperpage{88}
+  \item {rtm\+::\+Vehicle\+Object}, \hyperpage{90}
+    \subitem {After\+Moving\+\_\+}, \hyperpage{101}
+    \subitem {Before\+Moving\+\_\+}, \hyperpage{100}
+    \subitem {Change\+Line\+\_\+}, \hyperpage{95}
+    \subitem {Check\+Crossroad\+Area\+\_\+}, \hyperpage{100}
+    \subitem {Check\+Forward\+Area\+\_\+}, \hyperpage{98}
+    \subitem {Check\+Forward\+Coating\+\_\+}, \hyperpage{97}
+    \subitem {Check\+Forward\+Coating\+Union\+\_\+}, \hyperpage{98}
+    \subitem {Check\+Line\+Changing\+Area\+\_\+}, \hyperpage{100}
+    \subitem {Check\+Moving\+Area\+\_\+}, \hyperpage{98}
+    \subitem {Check\+Rotation\+Area\+\_\+}, \hyperpage{99}
+    \subitem {Check\+Turn\+Area\+\_\+}, \hyperpage{99}
+    \subitem {Get\+Final\+Speed\+\_\+}, \hyperpage{96}
+    \subitem {Get\+Max\+Speed\+\_\+}, \hyperpage{96}
+    \subitem {Is\+Braking\+\_\+}, \hyperpage{96}
+    \subitem {Is\+Line\+Changing\+\_\+}, \hyperpage{95}
+    \subitem {Is\+Movement\+\_\+}, \hyperpage{95}
+    \subitem {Is\+Rotation\+\_\+}, \hyperpage{95}
+    \subitem {Line\+Changing\+\_\+}, \hyperpage{104}
+    \subitem {Line\+Changing\+End\+\_\+}, \hyperpage{104}
+    \subitem {Line\+Changing\+Start}, \hyperpage{103}
+    \subitem {Line\+Changing\+Tick\+\_\+}, \hyperpage{104}
+    \subitem {Move\+Forward\+\_\+}, \hyperpage{94}
+    \subitem {Movement\+\_\+}, \hyperpage{105}
+    \subitem {Movement\+End\+\_\+}, \hyperpage{102}
+    \subitem {Movement\+Start\+\_\+}, \hyperpage{101}
+    \subitem {Movement\+Tick\+\_\+}, \hyperpage{101}
+    \subitem {Rotate\+\_\+}, \hyperpage{94}
+    \subitem {Rotation\+\_\+}, \hyperpage{105}
+    \subitem {Rotation\+End\+\_\+}, \hyperpage{103}
+    \subitem {Rotation\+Start\+\_\+}, \hyperpage{102}
+    \subitem {Rotation\+Tick\+\_\+}, \hyperpage{103}
+    \subitem {Set\+Braking\+Factor\+\_\+}, \hyperpage{97}
+    \subitem {Set\+Final\+Speed\+\_\+}, \hyperpage{96}
+    \subitem {Smooth\+Braking\+Counter}, \hyperpage{105}
+    \subitem {Speed\+Changing\+\_\+}, \hyperpage{105}
+    \subitem {Stop\+\_\+}, \hyperpage{94}
+    \subitem {Stop\+At\+Distance\+\_\+}, \hyperpage{97}
+    \subitem {Update}, \hyperpage{94}
+    \subitem {Vehicle\+Object}, \hyperpage{92, 93}
+  \item {rtm\+::\+World\+Controller}, \hyperpage{106}
+    \subitem {Add\+Building\+\_\+}, \hyperpage{120}
+    \subitem {Add\+Bush\+\_\+}, \hyperpage{120}
+    \subitem {Add\+Car\+\_\+}, \hyperpage{121}
+    \subitem {Add\+Coating\+Union\+\_\+}, \hyperpage{116}
+    \subitem {Add\+Control\+Unit\+\_\+}, \hyperpage{119}
+    \subitem {Add\+Crossroad\+\_\+}, \hyperpage{117}
+    \subitem {Add\+Driveway\+\_\+}, \hyperpage{116}
+    \subitem {Add\+Dynamic\+Object\+\_\+}, \hyperpage{121}
+    \subitem {Add\+Left\+Turt\+\_\+}, \hyperpage{118}
+    \subitem {Add\+Right\+Turt\+\_\+}, \hyperpage{118}
+    \subitem {Add\+Static\+Object\+\_\+}, \hyperpage{119}
+    \subitem {Add\+T\+Crossroad\+\_\+}, \hyperpage{117}
+    \subitem {Generate\+Object\+\_\+}, \hyperpage{116}
+    \subitem {Get\+Coating\+Object}, \hyperpage{111}
+    \subitem {Get\+Coating\+Union}, \hyperpage{111}
+    \subitem {Get\+Columns\+Count}, \hyperpage{110}
+    \subitem {Get\+Delta\+Time}, \hyperpage{110}
+    \subitem {Get\+Dynamic\+Objects}, \hyperpage{112}
+    \subitem {Get\+Layer}, \hyperpage{110}
+    \subitem {Get\+Real\+Column\+\_\+}, \hyperpage{122}
+    \subitem {Get\+Real\+Row\+\_\+}, \hyperpage{123}
+    \subitem {Get\+Rows\+Count}, \hyperpage{110}
+    \subitem {Get\+Static\+Object}, \hyperpage{111}
+    \subitem {Get\+Time\+Factor}, \hyperpage{111}
+    \subitem {Get\+Vector\+Column\+\_\+}, \hyperpage{121}
+    \subitem {Get\+Vector\+Row\+\_\+}, \hyperpage{122}
+    \subitem {Is\+Allowable\+Column}, \hyperpage{113}
+    \subitem {Is\+Allowable\+Row}, \hyperpage{113}
+    \subitem {Is\+Correct\+Column}, \hyperpage{112}
+    \subitem {Is\+Correct\+Row}, \hyperpage{113}
+    \subitem {Is\+Empty\+\_\+}, \hyperpage{115}
+    \subitem {Is\+Pause}, \hyperpage{112}
+    \subitem {Is\+Visible\+Column}, \hyperpage{114}
+    \subitem {Is\+Visible\+Row}, \hyperpage{114}
+    \subitem {Load\+Map}, \hyperpage{115}
+    \subitem {Set\+Time\+Factor}, \hyperpage{114}
+    \subitem {Update}, \hyperpage{109}
+    \subitem {World\+Controller}, \hyperpage{108, 109}
+  \item {rtm\+::\+World\+Object}, \hyperpage{123}
+    \subitem {Get\+Angle}, \hyperpage{127}
+    \subitem {Get\+Height}, \hyperpage{127}
+    \subitem {Get\+Sprite}, \hyperpage{126}
+    \subitem {Get\+Width}, \hyperpage{127}
+    \subitem {Get\+X\+\_\+}, \hyperpage{126}
+    \subitem {Get\+Y\+\_\+}, \hyperpage{126}
+    \subitem {Set\+Angle\+\_\+}, \hyperpage{128}
+    \subitem {Set\+Height\+\_\+}, \hyperpage{129}
+    \subitem {Set\+Sprite\+\_\+}, \hyperpage{127}
+    \subitem {Set\+Sprite\+Angle\+\_\+}, \hyperpage{130}
+    \subitem {Set\+Sprite\+Height\+\_\+}, \hyperpage{130}
+    \subitem {Set\+Sprite\+Width\+\_\+}, \hyperpage{130}
+    \subitem {Set\+Sprite\+X\+\_\+}, \hyperpage{129}
+    \subitem {Set\+Sprite\+Y\+\_\+}, \hyperpage{129}
+    \subitem {Set\+Width\+\_\+}, \hyperpage{128}
+    \subitem {Set\+X\+\_\+}, \hyperpage{128}
+    \subitem {Set\+Y\+\_\+}, \hyperpage{128}
+    \subitem {World\+Object}, \hyperpage{125, 126}
+  \item {rtm\+::\+World\+Scene}, \hyperpage{131}
+    \subitem {Create}, \hyperpage{133}
+    \subitem {Get\+Main\+Layer}, \hyperpage{134}
+    \subitem {Get\+Map\+\_\+}, \hyperpage{134}
+    \subitem {init}, \hyperpage{133}
+    \subitem {Set\+Background}, \hyperpage{134}
+    \subitem {update}, \hyperpage{133}
 
   \indexspace
 
   \item {Same\+Angles}
-    \subitem {rtm}, \hyperpage{24}
+    \subitem {rtm}, \hyperpage{25}
   \item {Same\+Coordinates}
-    \subitem {rtm}, \hyperpage{21}
+    \subitem {rtm}, \hyperpage{22}
   \item {Set\+Angle\+\_\+}
-    \subitem {rtm\+::\+World\+Object}, \hyperpage{123}
+    \subitem {rtm\+::\+World\+Object}, \hyperpage{128}
   \item {Set\+Background}
-    \subitem {rtm\+::\+World\+Scene}, \hyperpage{128, 129}
+    \subitem {rtm\+::\+World\+Scene}, \hyperpage{134}
   \item {Set\+Braking\+Factor\+\_\+}
-    \subitem {rtm\+::\+Vehicle\+Object}, \hyperpage{91}
+    \subitem {rtm\+::\+Vehicle\+Object}, \hyperpage{97}
   \item {Set\+Collision\+Flag\+\_\+}
-    \subitem {rtm\+::\+Dynamic\+Object}, \hyperpage{72}
+    \subitem {rtm\+::\+Dynamic\+Object}, \hyperpage{76}
   \item {Set\+Direction\+Availability}
-    \subitem {rtm\+::\+Coating\+Object}, \hyperpage{47}
+    \subitem {rtm\+::\+Coating\+Object}, \hyperpage{50}
   \item {Set\+Final\+Speed\+\_\+}
-    \subitem {rtm\+::\+Vehicle\+Object}, \hyperpage{91}
+    \subitem {rtm\+::\+Vehicle\+Object}, \hyperpage{96}
   \item {Set\+Height\+\_\+}
-    \subitem {rtm\+::\+World\+Object}, \hyperpage{123}
+    \subitem {rtm\+::\+World\+Object}, \hyperpage{129}
   \item {Set\+Speed\+\_\+}
-    \subitem {rtm\+::\+Dynamic\+Object}, \hyperpage{71}
+    \subitem {rtm\+::\+Dynamic\+Object}, \hyperpage{75}
   \item {Set\+Sprite\+\_\+}
-    \subitem {rtm\+::\+Coating\+Object}, \hyperpage{47}
-    \subitem {rtm\+::\+World\+Object}, \hyperpage{122}
+    \subitem {rtm\+::\+Coating\+Object}, \hyperpage{50}
+    \subitem {rtm\+::\+World\+Object}, \hyperpage{127}
   \item {Set\+Sprite\+Angle\+\_\+}
-    \subitem {rtm\+::\+World\+Object}, \hyperpage{124}
+    \subitem {rtm\+::\+World\+Object}, \hyperpage{130}
   \item {Set\+Sprite\+Height\+\_\+}
-    \subitem {rtm\+::\+World\+Object}, \hyperpage{125}
+    \subitem {rtm\+::\+World\+Object}, \hyperpage{130}
   \item {Set\+Sprite\+Width\+\_\+}
-    \subitem {rtm\+::\+World\+Object}, \hyperpage{124}
+    \subitem {rtm\+::\+World\+Object}, \hyperpage{130}
   \item {Set\+Sprite\+X\+\_\+}
-    \subitem {rtm\+::\+World\+Object}, \hyperpage{124}
+    \subitem {rtm\+::\+World\+Object}, \hyperpage{129}
   \item {Set\+Sprite\+Y\+\_\+}
-    \subitem {rtm\+::\+World\+Object}, \hyperpage{124}
+    \subitem {rtm\+::\+World\+Object}, \hyperpage{129}
   \item {Set\+State\+\_\+}
-    \subitem {rtm\+::\+Control\+Unit}, \hyperpage{57}
+    \subitem {rtm\+::\+Control\+Unit}, \hyperpage{60}
   \item {Set\+Time\+Factor}
-    \subitem {rtm\+::\+World\+Controller}, \hyperpage{109}
+    \subitem {rtm\+::\+World\+Controller}, \hyperpage{114}
   \item {Set\+Width\+\_\+}
-    \subitem {rtm\+::\+World\+Object}, \hyperpage{123}
+    \subitem {rtm\+::\+World\+Object}, \hyperpage{128}
   \item {Set\+X\+\_\+}
-    \subitem {rtm\+::\+Coating\+Object}, \hyperpage{47}
-    \subitem {rtm\+::\+World\+Object}, \hyperpage{122}
+    \subitem {rtm\+::\+Coating\+Object}, \hyperpage{50}
+    \subitem {rtm\+::\+World\+Object}, \hyperpage{128}
   \item {Set\+Y\+\_\+}
-    \subitem {rtm\+::\+Coating\+Object}, \hyperpage{48}
-    \subitem {rtm\+::\+World\+Object}, \hyperpage{123}
+    \subitem {rtm\+::\+Coating\+Object}, \hyperpage{51}
+    \subitem {rtm\+::\+World\+Object}, \hyperpage{128}
   \item {Show\+Sprites}
-    \subitem {rtm\+::\+Coating\+Union}, \hyperpage{51}
-    \subitem {rtm\+::\+Control\+Unit}, \hyperpage{56}
-    \subitem {rtm\+::\+Crossroad\+Object}, \hyperpage{61}
+    \subitem {rtm\+::\+Coating\+Union}, \hyperpage{55}
+    \subitem {rtm\+::\+Control\+Unit}, \hyperpage{59}
+    \subitem {rtm\+::\+Crossroad\+Object}, \hyperpage{65}
   \item {Signal\+File\+Id}
-    \subitem {rtm}, \hyperpage{21}
+    \subitem {rtm}, \hyperpage{22}
   \item {Signal\+Sprites}
     \subitem {rtm}, \hyperpage{18}
   \item {Signal\+Type}
@@ -718,57 +724,57 @@
   \item {Signals\+Sprites}
     \subitem {rtm}, \hyperpage{18}
   \item {Smooth\+Braking\+Counter}
-    \subitem {rtm\+::\+Vehicle\+Object}, \hyperpage{100}
+    \subitem {rtm\+::\+Vehicle\+Object}, \hyperpage{105}
   \item {Speed\+Changing\+\_\+}
-    \subitem {rtm\+::\+Vehicle\+Object}, \hyperpage{100}
+    \subitem {rtm\+::\+Vehicle\+Object}, \hyperpage{105}
   \item {Started}
-    \subitem {rtm}, \hyperpage{20}
+    \subitem {rtm}, \hyperpage{21}
   \item {State\+Type}
-    \subitem {rtm}, \hyperpage{20}
+    \subitem {rtm}, \hyperpage{21}
   \item {Static\+Object}
-    \subitem {rtm\+::\+Static\+Object}, \hyperpage{80, 81}
+    \subitem {rtm\+::\+Static\+Object}, \hyperpage{86}
   \item {Stop\+\_\+}
-    \subitem {rtm\+::\+Vehicle\+Object}, \hyperpage{89}
+    \subitem {rtm\+::\+Vehicle\+Object}, \hyperpage{94}
   \item {Stop\+At\+Distance\+\_\+}
-    \subitem {rtm\+::\+Vehicle\+Object}, \hyperpage{92}
+    \subitem {rtm\+::\+Vehicle\+Object}, \hyperpage{97}
   \item {Sum\+Angle\+Types}
-    \subitem {rtm}, \hyperpage{28}
+    \subitem {rtm}, \hyperpage{29}
 
   \indexspace
 
   \item {T\+Crossroad\+Matrix}
-    \subitem {rtm\+::\+Crossroad\+Object}, \hyperpage{60}
+    \subitem {rtm\+::\+Crossroad\+Object}, \hyperpage{63}
   \item {Turn\+Object}
-    \subitem {rtm\+::\+Turn\+Object}, \hyperpage{83}
+    \subitem {rtm\+::\+Turn\+Object}, \hyperpage{88}
 
   \indexspace
 
   \item {Up}
     \subitem {rtm}, \hyperpage{19}
   \item {Update}
-    \subitem {rtm\+::\+Control\+Unit}, \hyperpage{55}
-    \subitem {rtm\+::\+Dynamic\+Object}, \hyperpage{71}
-    \subitem {rtm\+::\+Vehicle\+Object}, \hyperpage{88}
-    \subitem {rtm\+::\+World\+Controller}, \hyperpage{104}
+    \subitem {rtm\+::\+Control\+Unit}, \hyperpage{59}
+    \subitem {rtm\+::\+Dynamic\+Object}, \hyperpage{75}
+    \subitem {rtm\+::\+Vehicle\+Object}, \hyperpage{94}
+    \subitem {rtm\+::\+World\+Controller}, \hyperpage{109}
   \item {update}
-    \subitem {rtm\+::\+World\+Scene}, \hyperpage{128}
+    \subitem {rtm\+::\+World\+Scene}, \hyperpage{133}
   \item {Update\+Signal\+\_\+}
-    \subitem {rtm\+::\+Control\+Unit}, \hyperpage{56}
+    \subitem {rtm\+::\+Control\+Unit}, \hyperpage{60}
   \item {Upward}
     \subitem {rtm}, \hyperpage{19}
 
   \indexspace
 
   \item {Vehicle\+Object}
-    \subitem {rtm\+::\+Vehicle\+Object}, \hyperpage{87, 88}
+    \subitem {rtm\+::\+Vehicle\+Object}, \hyperpage{92, 93}
 
   \indexspace
 
   \item {Warning}
     \subitem {rtm}, \hyperpage{20}
   \item {World\+Controller}
-    \subitem {rtm\+::\+World\+Controller}, \hyperpage{103, 104}
+    \subitem {rtm\+::\+World\+Controller}, \hyperpage{108, 109}
   \item {World\+Object}
-    \subitem {rtm\+::\+World\+Object}, \hyperpage{120}
+    \subitem {rtm\+::\+World\+Object}, \hyperpage{125, 126}
 
 \end{theindex}

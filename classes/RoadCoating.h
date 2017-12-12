@@ -41,10 +41,6 @@ namespace rtm {
         virtual ~RoadCoating() = default;
 
     private:
-        /// Функция для получения пути к файлу стандартной дороги по номеру
-        /// @param id номер стандартной дороги
-        /// @return путь к файлу дороги
-        static std::string GetClassFile_(size_t id);
         /// Функция для получения коэффициента сопротивления на стандартной дороге по номеру
         /// @param type тип покрытия
         /// @return сопротивление

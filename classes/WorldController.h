@@ -224,6 +224,13 @@ namespace rtm {
         /// @param angle угол поворота строения
         /// @return true, если объект получилось сгенерировать, иначе false
         bool AddBuilding_(size_t type, int column, int row, float angle);
+        /// Функция для генерации куста
+        /// @param type тип куста
+        /// @param column колонка куста
+        /// @param row строка куста
+        /// @param angle угол поворота куста
+        /// @return true, если объект получилось сгенерировать, иначе false
+        bool AddBush_(size_t type, int column, int row, float angle);
 
         /// Функция для генерации динамического объекта
         /// @param column колонка динамического объекта
@@ -268,11 +275,6 @@ namespace rtm {
         void ClearStaticObjects_();
         /// Функция для очистки движущихся объектов
         void ClearDynamicObjects_();
-        
-        /// Функция для получения файла карты по номеру
-        /// @param number номер стандартной карты
-        /// @return путь к файлу карты
-        static std::string GetClassFile_(size_t number);
     };
 }
 

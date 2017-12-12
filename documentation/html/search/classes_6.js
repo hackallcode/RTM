@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['spawntype',['SpawnType',['../structrtm_1_1_spawn_type.html',1,'rtm']]],
-  ['staticobject',['StaticObject',['../classrtm_1_1_static_object.html',1,'rtm']]]
+  ['roadcoating',['RoadCoating',['../classrtm_1_1_road_coating.html',1,'rtm']]]
 ];

@@ -6,6 +6,7 @@ var searchData=
   ['cell_5fsize',['CELL_SIZE',['../namespacertm.html#a65de3c23461f4c4c935a5bb6e8a09732',1,'rtm']]],
   ['cleantime_5f',['cleanTime_',['../classrtm_1_1_world_controller.html#adf27005742c62e45a779ef60db6c3ab9',1,'rtm::WorldController']]],
   ['clicktime_5f',['clickTime_',['../classrtm_1_1_world_scene.html#aa4a3b966ceb38ca3cfca6216a379a776',1,'rtm::WorldScene']]],
+  ['coating_5findexes',['COATING_INDEXES',['../namespacertm.html#aa92f0dfd3e94d47bed3e7dd2c2e82571',1,'rtm']]],
   ['coating_5fobject_5fz_5forder',['COATING_OBJECT_Z_ORDER',['../namespacertm.html#a85a3b25dc036bde14f8874ebf9ef9cd2',1,'rtm']]],
   ['coatingunions_5f',['coatingUnions_',['../classrtm_1_1_world_controller.html#abfdb2934c555cde911311bc7cb0e54af',1,'rtm::WorldController']]],
   ['column',['column',['../structrtm_1_1_spawn_type.html#a0759515d2a862efac57fa838d706cc6f',1,'rtm::SpawnType']]],

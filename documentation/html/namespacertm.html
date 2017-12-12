@@ -64,7 +64,8 @@ $(function() {
 <a href="#nested-classes">Классы</a> &#124;
 <a href="#typedef-members">Определения типов</a> &#124;
 <a href="#enum-members">Перечисления</a> &#124;
-<a href="#func-members">Функции</a>  </div>
+<a href="#func-members">Функции</a> &#124;
+<a href="#var-members">Переменные</a>  </div>
   <div class="headertitle">
 <div class="title">Пространство имен rtm</div>  </div>
 </div><!--header-->
@@ -77,6 +78,9 @@ $(function() {
 Классы</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrtm_1_1_building_object.html">BuildingObject</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Класс, описывающий строения (здания)  <a href="classrtm_1_1_building_object.html#details">Подробнее...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrtm_1_1_bush_object.html">BushObject</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Класс, описывающий кусты  <a href="classrtm_1_1_bush_object.html#details">Подробнее...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrtm_1_1_car_object.html">CarObject</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Класс, описывающий машины  <a href="classrtm_1_1_car_object.html#details">Подробнее...</a><br /></td></tr>
@@ -100,6 +104,9 @@ $(function() {
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrtm_1_1_map_object.html">MapObject</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Класс статического объекта карты  <a href="classrtm_1_1_map_object.html#details">Подробнее...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrtm_1_1_puddle_coating.html">PuddleCoating</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Класс, описывающий лужи  <a href="classrtm_1_1_puddle_coating.html#details">Подробнее...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrtm_1_1_road_coating.html">RoadCoating</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Класс, описывающий дороги  <a href="classrtm_1_1_road_coating.html#details">Подробнее...</a><br /></td></tr>
@@ -267,10 +274,38 @@ using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="nam
  }<tr class="memdesc:a11aeba1786456e9bc054ffe33b454181"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возможные состояния для манёвров (движение, поворот, перестроение)  <a href="namespacertm.html#a11aeba1786456e9bc054ffe33b454181">Подробнее...</a><br /></td></tr>
 </td></tr>
 <tr class="separator:a11aeba1786456e9bc054ffe33b454181"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aecd3929e64cd461eb3555b611f6fad95"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacertm.html#aecd3929e64cd461eb3555b611f6fad95">CoatingType</a> { <a class="el" href="namespacertm.html#aecd3929e64cd461eb3555b611f6fad95a1f8f9e610f75384989d155de714ce952">AsphaltCoating</a> = 0
- }<tr class="memdesc:aecd3929e64cd461eb3555b611f6fad95"><td class="mdescLeft">&#160;</td><td class="mdescRight">Индексы, начиная с которых начинаются текстуры покрытий определенного типа  <a href="namespacertm.html#aecd3929e64cd461eb3555b611f6fad95">Подробнее...</a><br /></td></tr>
+<tr class="memitem:aecd3929e64cd461eb3555b611f6fad95"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacertm.html#aecd3929e64cd461eb3555b611f6fad95">CoatingType</a> { <a class="el" href="namespacertm.html#aecd3929e64cd461eb3555b611f6fad95a1f8f9e610f75384989d155de714ce952">AsphaltCoating</a> = 0, 
+<a class="el" href="namespacertm.html#aecd3929e64cd461eb3555b611f6fad95a8db92a56dc64708248e1cca508c21fec">IceAsphaltCoating</a> = 1
+ }<tr class="memdesc:aecd3929e64cd461eb3555b611f6fad95"><td class="mdescLeft">&#160;</td><td class="mdescRight">Типы покрытий  <a href="namespacertm.html#aecd3929e64cd461eb3555b611f6fad95">Подробнее...</a><br /></td></tr>
 </td></tr>
 <tr class="separator:aecd3929e64cd461eb3555b611f6fad95"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abde1dc022a0c505026f6f4da1340cb85"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacertm.html#abde1dc022a0c505026f6f4da1340cb85">RoadType</a> { <br />
+&#160;&#160;<a class="el" href="namespacertm.html#abde1dc022a0c505026f6f4da1340cb85a3cd3e5fc0080ae03351ab7ef85cc61ce">RoadTypeNo0</a> = 0, 
+<a class="el" href="namespacertm.html#abde1dc022a0c505026f6f4da1340cb85a0c147060ea45a00f2ced9e7ce0b12100">RoadTypeNo1</a>, 
+<a class="el" href="namespacertm.html#abde1dc022a0c505026f6f4da1340cb85a28146e86c1971359b1d3ae56f5a549a3">RoadTypeNo2</a>, 
+<a class="el" href="namespacertm.html#abde1dc022a0c505026f6f4da1340cb85a7413eb6ad5826363427cdb0a91482dde">RoadTypeNo3</a>, 
+<br />
+&#160;&#160;<a class="el" href="namespacertm.html#abde1dc022a0c505026f6f4da1340cb85a4070521d05696f758d5365486f826b22">RoadTypeNo4</a>, 
+<a class="el" href="namespacertm.html#abde1dc022a0c505026f6f4da1340cb85a325a266c63079c9386c288a2a20eebda">RoadTypeNo5</a>, 
+<a class="el" href="namespacertm.html#abde1dc022a0c505026f6f4da1340cb85ab75141f1a48751ca5c0376fbd88ff26a">RoadTypeNo6</a>, 
+<a class="el" href="namespacertm.html#abde1dc022a0c505026f6f4da1340cb85a138ff8fac9a7648c39b1b4b3ec41ac39">RoadTypeNo7</a>, 
+<br />
+&#160;&#160;<a class="el" href="namespacertm.html#abde1dc022a0c505026f6f4da1340cb85a03055bf1311d59468d8daadb0eb74dcb">RoadTypeNo8</a>, 
+<a class="el" href="namespacertm.html#abde1dc022a0c505026f6f4da1340cb85a91b030c2213d31a89adb46729e6dabf8">RoadTypeNo9</a>, 
+<a class="el" href="namespacertm.html#abde1dc022a0c505026f6f4da1340cb85a8fadd2f71be403751ade0dff6c448b1c">RoadTypeNo10</a>, 
+<a class="el" href="namespacertm.html#abde1dc022a0c505026f6f4da1340cb85a493a3813765e2c3f23bcabd5818884a5">RoadTypeNo11</a>, 
+<br />
+&#160;&#160;<a class="el" href="namespacertm.html#abde1dc022a0c505026f6f4da1340cb85a02ce542dacb335ee459a3dc5513add1e">RoadTypeNo12</a>, 
+<a class="el" href="namespacertm.html#abde1dc022a0c505026f6f4da1340cb85a970b3ae6b43d901587f19b13edacaf9b">RoadTypeNo13</a>, 
+<a class="el" href="namespacertm.html#abde1dc022a0c505026f6f4da1340cb85ad2eb851c867b95d0552ef28290640394">RoadTypeNo14</a>, 
+<a class="el" href="namespacertm.html#abde1dc022a0c505026f6f4da1340cb85a5bb2b701dd24f665d666d1fd7ce883dd">RoadTypeNo15</a>, 
+<br />
+&#160;&#160;<a class="el" href="namespacertm.html#abde1dc022a0c505026f6f4da1340cb85a6c9da231409783c1ac5a3a4f99163394">RoadTypeNo16</a>, 
+<a class="el" href="namespacertm.html#abde1dc022a0c505026f6f4da1340cb85a252f4e86aab36a8539eb48a17a96be7c">RoadTypeNo17</a>
+<br />
+ }<tr class="memdesc:abde1dc022a0c505026f6f4da1340cb85"><td class="mdescLeft">&#160;</td><td class="mdescRight">Типы дорог  <a href="namespacertm.html#abde1dc022a0c505026f6f4da1340cb85">Подробнее...</a><br /></td></tr>
+</td></tr>
+<tr class="separator:abde1dc022a0c505026f6f4da1340cb85"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4d86818f874975d3dc9f0f10feefc9c1"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacertm.html#a4d86818f874975d3dc9f0f10feefc9c1">SignalFileId</a> { <a class="el" href="namespacertm.html#a4d86818f874975d3dc9f0f10feefc9c1a76558b4ee249fc454bbdb1d64d2fe0e9">ForwardSignalId</a> = 1, 
 <a class="el" href="namespacertm.html#a4d86818f874975d3dc9f0f10feefc9c1aeff2fccef911bffb13ae08bc9f2dd926">LeftwardSignalId</a> = 6, 
 <a class="el" href="namespacertm.html#a4d86818f874975d3dc9f0f10feefc9c1a9cbadfb5a62cec9d481f6525a51e5712">RightwardSignalId</a> = 11
@@ -282,6 +317,8 @@ using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="nam
 Функции</h2></td></tr>
 <tr class="memitem:a1fe2c356e3297343804842a57ce23a4b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacertm.html#a1fe2c356e3297343804842a57ce23a4b">CheckCollisions</a> (<a class="el" href="classrtm_1_1_world_controller.html">WorldController</a> *const world)</td></tr>
 <tr class="separator:a1fe2c356e3297343804842a57ce23a4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67bf20fe33d85bc05547ff1849aeb29e"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacertm.html#a67bf20fe33d85bc05547ff1849aeb29e">GetFilename</a> (std::string const &amp;mask, size_t number)</td></tr>
+<tr class="separator:a67bf20fe33d85bc05547ff1849aeb29e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac1ea2821fc44943e5c35d92e0c9cd5de"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacertm.html#a69dc82b16a0148c10962caa83d930f89">AngleType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacertm.html#ac1ea2821fc44943e5c35d92e0c9cd5de">SumAngleTypes</a> (<a class="el" href="namespacertm.html#a69dc82b16a0148c10962caa83d930f89">AngleType</a> a, <a class="el" href="namespacertm.html#a69dc82b16a0148c10962caa83d930f89">AngleType</a> b)</td></tr>
 <tr class="separator:ac1ea2821fc44943e5c35d92e0c9cd5de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a37715773d85c66ba5c1bf11260836fd0"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacertm.html#a37715773d85c66ba5c1bf11260836fd0">CountDeceleration</a> (float maxSpeed)</td></tr>
@@ -325,6 +362,9 @@ using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="nam
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Переменные</h2></td></tr>
+<tr class="memitem:aa92f0dfd3e94d47bed3e7dd2c2e82571"><td class="memItemLeft" align="right" valign="top">std::array&lt; size_t, 2 &gt; const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacertm.html#aa92f0dfd3e94d47bed3e7dd2c2e82571">COATING_INDEXES</a></td></tr>
+<tr class="memdesc:aa92f0dfd3e94d47bed3e7dd2c2e82571"><td class="mdescLeft">&#160;</td><td class="mdescRight">Индексы, начиная с которых начинаются текстуры покрытий определенного типа  <a href="#aa92f0dfd3e94d47bed3e7dd2c2e82571">Подробнее...</a><br /></td></tr>
+<tr class="separator:aa92f0dfd3e94d47bed3e7dd2c2e82571"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">Константы для флага isRight</div></td></tr>
 <tr class="memitem:a92d29773a54951290dd89f754fb39a8c"><td class="memItemLeft" align="right" valign="top"><a id="a92d29773a54951290dd89f754fb39a8c"></a>
 bool const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacertm.html#a92d29773a54951290dd89f754fb39a8c">LEFT</a> { false }</td></tr>
@@ -426,36 +466,28 @@ float const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
 <tr class="memdesc:aca8c6c8fc95ff25eefdd5a0c902426b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Максимальный коэффициент ускорения времени <br /></td></tr>
 <tr class="separator:aca8c6c8fc95ff25eefdd5a0c902426b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">Номера слоев для разных объектов. Чем больше, тем выше (ближе к нам)</div></td></tr>
-<tr class="memitem:a7f35c0f618542e0c894a24be01f91878"><td class="memItemLeft" align="right" valign="top"><a id="a7f35c0f618542e0c894a24be01f91878"></a>
-int const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacertm.html#a7f35c0f618542e0c894a24be01f91878">BACKGROUND_Z_ORDER</a> { -1 }</td></tr>
-<tr class="memdesc:a7f35c0f618542e0c894a24be01f91878"><td class="mdescLeft">&#160;</td><td class="mdescRight">Номер слоя для слоя фона <br /></td></tr>
-<tr class="separator:a7f35c0f618542e0c894a24be01f91878"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5d09d134857a2876fb1b43d255bf1d0d"><td class="memItemLeft" align="right" valign="top"><a id="a5d09d134857a2876fb1b43d255bf1d0d"></a>
-int const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacertm.html#a5d09d134857a2876fb1b43d255bf1d0d">MAIN_Z_ORDER</a> { 0 }</td></tr>
-<tr class="memdesc:a5d09d134857a2876fb1b43d255bf1d0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Номер слоя для главного слоя (на нем все объекты) <br /></td></tr>
-<tr class="separator:a5d09d134857a2876fb1b43d255bf1d0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2cc1ec80df148f75e40e2c8d2933964"><td class="memItemLeft" align="right" valign="top"><a id="ad2cc1ec80df148f75e40e2c8d2933964"></a>
+int const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacertm.html#ad2cc1ec80df148f75e40e2c8d2933964">BACKGROUND_LAYER_Z_ORDER</a> { -1 }</td></tr>
+<tr class="memdesc:ad2cc1ec80df148f75e40e2c8d2933964"><td class="mdescLeft">&#160;</td><td class="mdescRight">Номер слоя для слоя фона <br /></td></tr>
+<tr class="separator:ad2cc1ec80df148f75e40e2c8d2933964"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa302158d9203b0852c0e2905c446495a"><td class="memItemLeft" align="right" valign="top"><a id="aa302158d9203b0852c0e2905c446495a"></a>
+int const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacertm.html#aa302158d9203b0852c0e2905c446495a">MAIN_LAYER_Z_ORDER</a> { 0 }</td></tr>
+<tr class="memdesc:aa302158d9203b0852c0e2905c446495a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Номер слоя для главного слоя (на нем все объекты) <br /></td></tr>
+<tr class="separator:aa302158d9203b0852c0e2905c446495a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a85a3b25dc036bde14f8874ebf9ef9cd2"><td class="memItemLeft" align="right" valign="top"><a id="a85a3b25dc036bde14f8874ebf9ef9cd2"></a>
-int const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacertm.html#a85a3b25dc036bde14f8874ebf9ef9cd2">COATING_OBJECT_Z_ORDER</a> { 1 }</td></tr>
+int const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacertm.html#a85a3b25dc036bde14f8874ebf9ef9cd2">COATING_OBJECT_Z_ORDER</a> { -2 }</td></tr>
 <tr class="memdesc:a85a3b25dc036bde14f8874ebf9ef9cd2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Номер слоя для покрытий (дорог) <br /></td></tr>
 <tr class="separator:a85a3b25dc036bde14f8874ebf9ef9cd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab06d47a1908b0e155bed9d703b2530dd"><td class="memItemLeft" align="right" valign="top"><a id="ab06d47a1908b0e155bed9d703b2530dd"></a>
-int const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacertm.html#ab06d47a1908b0e155bed9d703b2530dd">LEFTWARD_SIGNAL_Z_ORDER</a> { 2 }</td></tr>
-<tr class="memdesc:ab06d47a1908b0e155bed9d703b2530dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Номер слоя для левых стрелок светофора <br /></td></tr>
-<tr class="separator:ab06d47a1908b0e155bed9d703b2530dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa0a20b2a0c93ed1bcefafabde4a16f29"><td class="memItemLeft" align="right" valign="top"><a id="aa0a20b2a0c93ed1bcefafabde4a16f29"></a>
-int const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacertm.html#aa0a20b2a0c93ed1bcefafabde4a16f29">RIGHTWARD_SIGNAL_Z_ORDER</a> { 3 }</td></tr>
-<tr class="memdesc:aa0a20b2a0c93ed1bcefafabde4a16f29"><td class="mdescLeft">&#160;</td><td class="mdescRight">Номер слоя для правых стрелок светофора <br /></td></tr>
-<tr class="separator:aa0a20b2a0c93ed1bcefafabde4a16f29"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab7d75842630fd06af81c5b7af7b121a9"><td class="memItemLeft" align="right" valign="top"><a id="ab7d75842630fd06af81c5b7af7b121a9"></a>
-int const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacertm.html#ab7d75842630fd06af81c5b7af7b121a9">FORWARD_SIGNAL_Z_ORDER</a> { 4 }</td></tr>
-<tr class="memdesc:ab7d75842630fd06af81c5b7af7b121a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Номер слоя для сфетофора в прямом направлении <br /></td></tr>
-<tr class="separator:ab7d75842630fd06af81c5b7af7b121a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f1c251955a1ad013b213eeb79eebc6c"><td class="memItemLeft" align="right" valign="top"><a id="a9f1c251955a1ad013b213eeb79eebc6c"></a>
+int const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacertm.html#a9f1c251955a1ad013b213eeb79eebc6c">SIGNAL_Z_ORDER</a> { -1 }</td></tr>
+<tr class="memdesc:a9f1c251955a1ad013b213eeb79eebc6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Номер слоя для стрелок светофора <br /></td></tr>
+<tr class="separator:a9f1c251955a1ad013b213eeb79eebc6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1f9ff2936d20057085f7b0084e7a20ca"><td class="memItemLeft" align="right" valign="top"><a id="a1f9ff2936d20057085f7b0084e7a20ca"></a>
-int const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacertm.html#a1f9ff2936d20057085f7b0084e7a20ca">VEHICLE_OBJECT_Z_ORDER</a> { 5 }</td></tr>
+int const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacertm.html#a1f9ff2936d20057085f7b0084e7a20ca">VEHICLE_OBJECT_Z_ORDER</a> { 0 }</td></tr>
 <tr class="memdesc:a1f9ff2936d20057085f7b0084e7a20ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Номер слоя для транспорта <br /></td></tr>
 <tr class="separator:a1f9ff2936d20057085f7b0084e7a20ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a93638d5f93c88f66fa540452aba5d658"><td class="memItemLeft" align="right" valign="top"><a id="a93638d5f93c88f66fa540452aba5d658"></a>
-int const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacertm.html#a93638d5f93c88f66fa540452aba5d658">MAP_OBJECT_Z_ORDER</a> { 6 }</td></tr>
+int const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacertm.html#a93638d5f93c88f66fa540452aba5d658">MAP_OBJECT_Z_ORDER</a> { 1 }</td></tr>
 <tr class="memdesc:a93638d5f93c88f66fa540452aba5d658"><td class="mdescLeft">&#160;</td><td class="mdescRight">Номер слоя для статичных объектов карты <br /></td></tr>
 <tr class="separator:a93638d5f93c88f66fa540452aba5d658"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">Область видимости при движении вперед</div></td></tr>
@@ -464,7 +496,7 @@ float const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
 <tr class="memdesc:a6ae2631935a995c34abce1c62fa3dcd7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Радиус <br /></td></tr>
 <tr class="separator:a6ae2631935a995c34abce1c62fa3dcd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af0ecac808d3938e77a20990f1947c8fd"><td class="memItemLeft" align="right" valign="top"><a id="af0ecac808d3938e77a20990f1947c8fd"></a>
-float const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacertm.html#af0ecac808d3938e77a20990f1947c8fd">VIEW_ANGLE</a> { 24.f * <a class="el" href="namespacertm.html#a797faf3037681ed7bc153db9eca6155e">DEG_RAD</a> }</td></tr>
+float const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacertm.html#af0ecac808d3938e77a20990f1947c8fd">VIEW_ANGLE</a> { 25.f * <a class="el" href="namespacertm.html#a797faf3037681ed7bc153db9eca6155e">DEG_RAD</a> }</td></tr>
 <tr class="memdesc:af0ecac808d3938e77a20990f1947c8fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ширина угла в каждую сторону <br /></td></tr>
 <tr class="separator:af0ecac808d3938e77a20990f1947c8fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a10eed490bb183c7853ac317d82e0b1cd"><td class="memItemLeft" align="right" valign="top"><a id="a10eed490bb183c7853ac317d82e0b1cd"></a>
@@ -477,11 +509,11 @@ float const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
 <tr class="memdesc:ae9ea4dbfd2f4bb3b5c6bf1c5ea7227d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Радиус <br /></td></tr>
 <tr class="separator:ae9ea4dbfd2f4bb3b5c6bf1c5ea7227d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab5d83fa039813239add636c5dfe1c64d"><td class="memItemLeft" align="right" valign="top"><a id="ab5d83fa039813239add636c5dfe1c64d"></a>
-float const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacertm.html#ab5d83fa039813239add636c5dfe1c64d">ROTATION_VIEW_ANGLE</a> { 30.5f * DEG_RAD }</td></tr>
+float const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacertm.html#ab5d83fa039813239add636c5dfe1c64d">ROTATION_VIEW_ANGLE</a> { 30.f * <a class="el" href="namespacertm.html#a797faf3037681ed7bc153db9eca6155e">DEG_RAD</a> }</td></tr>
 <tr class="memdesc:ab5d83fa039813239add636c5dfe1c64d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ширина угла в каждую сторону <br /></td></tr>
 <tr class="separator:ab5d83fa039813239add636c5dfe1c64d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab2e47618aa31260d6890c18525f611fa"><td class="memItemLeft" align="right" valign="top"><a id="ab2e47618aa31260d6890c18525f611fa"></a>
-float const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacertm.html#ab2e47618aa31260d6890c18525f611fa">ROTATION_VIEW_ANGLE_SHIFT</a> { 29.5f * DEG_RAD }</td></tr>
+float const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacertm.html#ab2e47618aa31260d6890c18525f611fa">ROTATION_VIEW_ANGLE_SHIFT</a> { 30.f * <a class="el" href="namespacertm.html#a797faf3037681ed7bc153db9eca6155e">DEG_RAD</a> }</td></tr>
 <tr class="memdesc:ab2e47618aa31260d6890c18525f611fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Сдвиг области обзора <br /></td></tr>
 <tr class="separator:ab2e47618aa31260d6890c18525f611fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">Область видимости незадолго до поворота</div></td></tr>
@@ -499,15 +531,15 @@ float const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
 <tr class="separator:ae725fc045c1a7417fa006a279e675deb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">Область видимости на нерегулируемом перекрестке</div></td></tr>
 <tr class="memitem:ae5df71baa1c995b0418d8e22252ba6fa"><td class="memItemLeft" align="right" valign="top"><a id="ae5df71baa1c995b0418d8e22252ba6fa"></a>
-float const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacertm.html#ae5df71baa1c995b0418d8e22252ba6fa">CROSSROAD_VIEW_RADIUS</a> { 65.f }</td></tr>
+float const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacertm.html#ae5df71baa1c995b0418d8e22252ba6fa">CROSSROAD_VIEW_RADIUS</a> { 58.f }</td></tr>
 <tr class="memdesc:ae5df71baa1c995b0418d8e22252ba6fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Радиус <br /></td></tr>
 <tr class="separator:ae5df71baa1c995b0418d8e22252ba6fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5b9c1ba0abe7dd1259bc4c34a0022cda"><td class="memItemLeft" align="right" valign="top"><a id="a5b9c1ba0abe7dd1259bc4c34a0022cda"></a>
-float const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacertm.html#a5b9c1ba0abe7dd1259bc4c34a0022cda">CROSSROAD_VIEW_ANGLE</a> { 22.5f * DEG_RAD }</td></tr>
+float const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacertm.html#a5b9c1ba0abe7dd1259bc4c34a0022cda">CROSSROAD_VIEW_ANGLE</a> { 57.5f * DEG_RAD }</td></tr>
 <tr class="memdesc:a5b9c1ba0abe7dd1259bc4c34a0022cda"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ширина угла в каждую сторону <br /></td></tr>
 <tr class="separator:a5b9c1ba0abe7dd1259bc4c34a0022cda"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae04c779dfc5b406c04ff9a549423c910"><td class="memItemLeft" align="right" valign="top"><a id="ae04c779dfc5b406c04ff9a549423c910"></a>
-float const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacertm.html#ae04c779dfc5b406c04ff9a549423c910">CROSSROAD_VIEW_ANGLE_SHIFT</a> { -52.5f * DEG_RAD }</td></tr>
+float const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacertm.html#ae04c779dfc5b406c04ff9a549423c910">CROSSROAD_VIEW_ANGLE_SHIFT</a> { -17.5f * DEG_RAD }</td></tr>
 <tr class="memdesc:ae04c779dfc5b406c04ff9a549423c910"><td class="mdescLeft">&#160;</td><td class="mdescRight">Сдвиг области обзора <br /></td></tr>
 <tr class="separator:ae04c779dfc5b406c04ff9a549423c910"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">Область видимости до перестроения</div></td></tr>
@@ -552,26 +584,34 @@ std::string const&#160;</td><td class="memItemRight" valign="bottom"><a class="e
 <tr class="memdesc:ae29fce52eae57c27a760b021b774ca4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Маска файлов карт <br /></td></tr>
 <tr class="separator:ae29fce52eae57c27a760b021b774ca4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acd3fb4c773d00c98945d16d14a03f380"><td class="memItemLeft" align="right" valign="top"><a id="acd3fb4c773d00c98945d16d14a03f380"></a>
-std::string const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacertm.html#acd3fb4c773d00c98945d16d14a03f380">ROAD_FILENAME_MASK</a> { &quot;res/coating/RoadNo%No%.png&quot; }</td></tr>
+std::string const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacertm.html#acd3fb4c773d00c98945d16d14a03f380">ROAD_FILENAME_MASK</a> { &quot;res/coating/road/RoadNo%No%.png&quot; }</td></tr>
 <tr class="memdesc:acd3fb4c773d00c98945d16d14a03f380"><td class="mdescLeft">&#160;</td><td class="mdescRight">Маска файлов текстур дорог <br /></td></tr>
 <tr class="separator:acd3fb4c773d00c98945d16d14a03f380"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a36bc7360b448af7ae9aee9731bc7193c"><td class="memItemLeft" align="right" valign="top"><a id="a36bc7360b448af7ae9aee9731bc7193c"></a>
+std::string const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacertm.html#a36bc7360b448af7ae9aee9731bc7193c">PUDDLE_FILENAME_MASK</a> { &quot;res/coating/puddle/PuddleNo%No%.png&quot; }</td></tr>
+<tr class="memdesc:a36bc7360b448af7ae9aee9731bc7193c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Маска файлов текстур грязи <br /></td></tr>
+<tr class="separator:a36bc7360b448af7ae9aee9731bc7193c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa9d61ca4243a3f2479f27c61535fcc9d"><td class="memItemLeft" align="right" valign="top"><a id="aa9d61ca4243a3f2479f27c61535fcc9d"></a>
 std::string const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacertm.html#aa9d61ca4243a3f2479f27c61535fcc9d">SIGNAL_FILENAME_MASK</a> { &quot;res/signal/SignalNo%No%.png&quot; }</td></tr>
 <tr class="memdesc:aa9d61ca4243a3f2479f27c61535fcc9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Маска файлов текстур сигналов <br /></td></tr>
 <tr class="separator:aa9d61ca4243a3f2479f27c61535fcc9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7a49fe0b8d4f52458bfc22145e46faf5"><td class="memItemLeft" align="right" valign="top"><a id="a7a49fe0b8d4f52458bfc22145e46faf5"></a>
-std::string const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacertm.html#a7a49fe0b8d4f52458bfc22145e46faf5">BUILDING_FILENAME_MASK</a> { &quot;res/static/BuildingNo%No%.png&quot; }</td></tr>
+std::string const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacertm.html#a7a49fe0b8d4f52458bfc22145e46faf5">BUILDING_FILENAME_MASK</a> { &quot;res/static/building/BuildingNo%No%.png&quot; }</td></tr>
 <tr class="memdesc:a7a49fe0b8d4f52458bfc22145e46faf5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Маска файлов текстур зданий <br /></td></tr>
 <tr class="separator:a7a49fe0b8d4f52458bfc22145e46faf5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3739e886f219418af5924ad2e09d79dd"><td class="memItemLeft" align="right" valign="top"><a id="a3739e886f219418af5924ad2e09d79dd"></a>
+std::string const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacertm.html#a3739e886f219418af5924ad2e09d79dd">BUSH_FILENAME_MASK</a> { &quot;res/static/bush/BushNo%No%.png&quot; }</td></tr>
+<tr class="memdesc:a3739e886f219418af5924ad2e09d79dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Маска файлов текстур кустов <br /></td></tr>
+<tr class="separator:a3739e886f219418af5924ad2e09d79dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a72fea838addb841a6ea0173857a8eff1"><td class="memItemLeft" align="right" valign="top"><a id="a72fea838addb841a6ea0173857a8eff1"></a>
-std::string const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacertm.html#a72fea838addb841a6ea0173857a8eff1">CAR_FILENAME_MASK</a> { &quot;res/vehicle/CarNo%No%.png&quot; }</td></tr>
+std::string const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacertm.html#a72fea838addb841a6ea0173857a8eff1">CAR_FILENAME_MASK</a> { &quot;res/dynamic/vehicle/CarNo%No%.png&quot; }</td></tr>
 <tr class="memdesc:a72fea838addb841a6ea0173857a8eff1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Маска файлов текстур машин <br /></td></tr>
 <tr class="separator:a72fea838addb841a6ea0173857a8eff1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">Параметры дорог</div></td></tr>
 <tr class="memitem:a9f4d245ca5d201a5853914c175d0d17f"><td class="memItemLeft" align="right" valign="top">std::array&lt; float, 2 &gt; const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacertm.html#a9f4d245ca5d201a5853914c175d0d17f">ROADS_RESISTANCES</a></td></tr>
 <tr class="separator:a9f4d245ca5d201a5853914c175d0d17f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7416fccc43126173ec6456c78f5474f9"><td class="memItemLeft" align="right" valign="top">std::array&lt; <a class="el" href="namespacertm.html#a4776fbfe59834ff1a16838ad6735b69a">Directions</a>, 19 &gt; const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacertm.html#a7416fccc43126173ec6456c78f5474f9">ROADS_DIRECTIONS</a></td></tr>
-<tr class="separator:a7416fccc43126173ec6456c78f5474f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5820286728bf347e0320bdd9dc91ed1b"><td class="memItemLeft" align="right" valign="top">std::array&lt; <a class="el" href="namespacertm.html#a4776fbfe59834ff1a16838ad6735b69a">Directions</a>, 18 &gt; const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacertm.html#a5820286728bf347e0320bdd9dc91ed1b">ROADS_DIRECTIONS</a></td></tr>
+<tr class="separator:a5820286728bf347e0320bdd9dc91ed1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">Параметры машин</div></td></tr>
 <tr class="memitem:ab4d4feaa707f2d1eba41feae3b46451f"><td class="memItemLeft" align="right" valign="top">std::array&lt; float, 6 &gt; const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacertm.html#ab4d4feaa707f2d1eba41feae3b46451f">CARS_MAX_SPEEDS</a></td></tr>
 <tr class="separator:ab4d4feaa707f2d1eba41feae3b46451f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -869,9 +909,65 @@ std::string const&#160;</td><td class="memItemRight" valign="bottom"><a class="e
       </table>
 </div><div class="memdoc">
 
-<p>Индексы, начиная с которых начинаются текстуры покрытий определенного типа </p>
+<p>Типы покрытий </p>
 <table class="fieldtable">
-<tr><th colspan="2">Элементы перечислений</th></tr><tr><td class="fieldname"><a id="aecd3929e64cd461eb3555b611f6fad95a1f8f9e610f75384989d155de714ce952"></a>AsphaltCoating&#160;</td><td class="fielddoc"><p>Асфальтовое объект </p>
+<tr><th colspan="2">Элементы перечислений</th></tr><tr><td class="fieldname"><a id="aecd3929e64cd461eb3555b611f6fad95a1f8f9e610f75384989d155de714ce952"></a>AsphaltCoating&#160;</td><td class="fielddoc"><p>Асфальтовое покрытие </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aecd3929e64cd461eb3555b611f6fad95a8db92a56dc64708248e1cca508c21fec"></a>IceAsphaltCoating&#160;</td><td class="fielddoc"><p>Асфальтовое покрытие со льдом </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="abde1dc022a0c505026f6f4da1340cb85"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abde1dc022a0c505026f6f4da1340cb85">&#9670;&nbsp;</a></span>RoadType</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="namespacertm.html#abde1dc022a0c505026f6f4da1340cb85">rtm::RoadType</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Типы дорог </p>
+<table class="fieldtable">
+<tr><th colspan="2">Элементы перечислений</th></tr><tr><td class="fieldname"><a id="abde1dc022a0c505026f6f4da1340cb85a3cd3e5fc0080ae03351ab7ef85cc61ce"></a>RoadTypeNo0&#160;</td><td class="fielddoc"><p>Однополосная прямая </p>
+</td></tr>
+<tr><td class="fieldname"><a id="abde1dc022a0c505026f6f4da1340cb85a0c147060ea45a00f2ced9e7ce0b12100"></a>RoadTypeNo1&#160;</td><td class="fielddoc"><p>Однополосная левая прямая </p>
+</td></tr>
+<tr><td class="fieldname"><a id="abde1dc022a0c505026f6f4da1340cb85a28146e86c1971359b1d3ae56f5a549a3"></a>RoadTypeNo2&#160;</td><td class="fielddoc"><p>Однополосная средняя прямая </p>
+</td></tr>
+<tr><td class="fieldname"><a id="abde1dc022a0c505026f6f4da1340cb85a7413eb6ad5826363427cdb0a91482dde"></a>RoadTypeNo3&#160;</td><td class="fielddoc"><p>Перекресток 1 на 1. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="abde1dc022a0c505026f6f4da1340cb85a4070521d05696f758d5365486f826b22"></a>RoadTypeNo4&#160;</td><td class="fielddoc"><p>Угол перекрестка 1 на N. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="abde1dc022a0c505026f6f4da1340cb85a325a266c63079c9386c288a2a20eebda"></a>RoadTypeNo5&#160;</td><td class="fielddoc"><p>Угол перекрестка N на N. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="abde1dc022a0c505026f6f4da1340cb85ab75141f1a48751ca5c0376fbd88ff26a"></a>RoadTypeNo6&#160;</td><td class="fielddoc"><p>Центральная часть перекрестка </p>
+</td></tr>
+<tr><td class="fieldname"><a id="abde1dc022a0c505026f6f4da1340cb85a138ff8fac9a7648c39b1b4b3ec41ac39"></a>RoadTypeNo7&#160;</td><td class="fielddoc"><p>Т-образный перекресток 1 на 1. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="abde1dc022a0c505026f6f4da1340cb85a03055bf1311d59468d8daadb0eb74dcb"></a>RoadTypeNo8&#160;</td><td class="fielddoc"><p>Левый угол Т-образного перекрестка 1 на N. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="abde1dc022a0c505026f6f4da1340cb85a91b030c2213d31a89adb46729e6dabf8"></a>RoadTypeNo9&#160;</td><td class="fielddoc"><p>Заблокированный край Т-образного перекрестка N на N. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="abde1dc022a0c505026f6f4da1340cb85a8fadd2f71be403751ade0dff6c448b1c"></a>RoadTypeNo10&#160;</td><td class="fielddoc"><p>Правый угол Т-образного перекрестка 1 на N. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="abde1dc022a0c505026f6f4da1340cb85a493a3813765e2c3f23bcabd5818884a5"></a>RoadTypeNo11&#160;</td><td class="fielddoc"><p>Расширение дороги </p>
+</td></tr>
+<tr><td class="fieldname"><a id="abde1dc022a0c505026f6f4da1340cb85a02ce542dacb335ee459a3dc5513add1e"></a>RoadTypeNo12&#160;</td><td class="fielddoc"><p>Сужение дороги </p>
+</td></tr>
+<tr><td class="fieldname"><a id="abde1dc022a0c505026f6f4da1340cb85a970b3ae6b43d901587f19b13edacaf9b"></a>RoadTypeNo13&#160;</td><td class="fielddoc"><p>Однополосный поворот </p>
+</td></tr>
+<tr><td class="fieldname"><a id="abde1dc022a0c505026f6f4da1340cb85ad2eb851c867b95d0552ef28290640394"></a>RoadTypeNo14&#160;</td><td class="fielddoc"><p>Внешний ряд поворота </p>
+</td></tr>
+<tr><td class="fieldname"><a id="abde1dc022a0c505026f6f4da1340cb85a5bb2b701dd24f665d666d1fd7ce883dd"></a>RoadTypeNo15&#160;</td><td class="fielddoc"><p>Средний ряд поворота </p>
+</td></tr>
+<tr><td class="fieldname"><a id="abde1dc022a0c505026f6f4da1340cb85a6c9da231409783c1ac5a3a4f99163394"></a>RoadTypeNo16&#160;</td><td class="fielddoc"><p>Внутренний ряд поворота </p>
+</td></tr>
+<tr><td class="fieldname"><a id="abde1dc022a0c505026f6f4da1340cb85a252f4e86aab36a8539eb48a17a96be7c"></a>RoadTypeNo17&#160;</td><td class="fielddoc"><p>Обочина поворота (угла перекрестка) </p>
 </td></tr>
 </table>
 
@@ -1459,6 +1555,42 @@ std::string const&#160;</td><td class="memItemRight" valign="bottom"><a class="e
 
 </div>
 </div>
+<a id="a67bf20fe33d85bc05547ff1849aeb29e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a67bf20fe33d85bc05547ff1849aeb29e">&#9670;&nbsp;</a></span>GetFilename()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string rtm::GetFilename </td>
+          <td>(</td>
+          <td class="paramtype">std::string const &amp;&#160;</td>
+          <td class="paramname"><em>mask</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>number</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Функция для получения пути к файлу по маске </p><dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mask</td><td>маска названия файла </td></tr>
+    <tr><td class="paramname">number</td><td>номер объекта </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>путь к файлу </dd></dl>
+
+</div>
+</div>
 <a id="ac1ea2821fc44943e5c35d92e0c9cd5de"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac1ea2821fc44943e5c35d92e0c9cd5de">&#9670;&nbsp;</a></span>SumAngleTypes()</h2>
 
@@ -1546,7 +1678,7 @@ std::string const&#160;</td><td class="memItemRight" valign="bottom"><a class="e
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Инициализатор</b><div class="fragment"><div class="line">= {</div><div class="line">        <a class="code" href="namespacertm.html#ab5bb2d119539a5a60349a21fec8821f6">DEFAULT_DIRECTIONS_SIGNALS</a></div><div class="line">        , <a class="code" href="namespacertm.html#ab5bb2d119539a5a60349a21fec8821f6">DEFAULT_DIRECTIONS_SIGNALS</a></div><div class="line">        , DEFAULT_DIRECTIONS_SIGNALS</div><div class="line">        , DEFAULT_DIRECTIONS_SIGNALS</div><div class="line">    }</div><div class="ttc" id="namespacertm_html_ab5bb2d119539a5a60349a21fec8821f6"><div class="ttname"><a href="namespacertm.html#ab5bb2d119539a5a60349a21fec8821f6">rtm::DEFAULT_DIRECTIONS_SIGNALS</a></div><div class="ttdeci">DirectionSignals const DEFAULT_DIRECTIONS_SIGNALS</div><div class="ttdoc">Значения по умолчанию для массива сигналов в одном направлении (светофора в этом направлении нет) ...</div><div class="ttdef"><b>Definition:</b> General.h:339</div></div>
+<b>Инициализатор</b><div class="fragment"><div class="line">= {</div><div class="line">        <a class="code" href="namespacertm.html#ab5bb2d119539a5a60349a21fec8821f6">DEFAULT_DIRECTIONS_SIGNALS</a></div><div class="line">        , <a class="code" href="namespacertm.html#ab5bb2d119539a5a60349a21fec8821f6">DEFAULT_DIRECTIONS_SIGNALS</a></div><div class="line">        , DEFAULT_DIRECTIONS_SIGNALS</div><div class="line">        , DEFAULT_DIRECTIONS_SIGNALS</div><div class="line">    }</div><div class="ttc" id="namespacertm_html_ab5bb2d119539a5a60349a21fec8821f6"><div class="ttname"><a href="namespacertm.html#ab5bb2d119539a5a60349a21fec8821f6">rtm::DEFAULT_DIRECTIONS_SIGNALS</a></div><div class="ttdeci">DirectionSignals const DEFAULT_DIRECTIONS_SIGNALS</div><div class="ttdoc">Значения по умолчанию для массива сигналов в одном направлении (светофора в этом направлении нет) ...</div><div class="ttdef"><b>Definition:</b> General.h:358</div></div>
 </div><!-- fragment -->
 <p>Значения по умолчанию для массива сигналов всего перекрестка (светофора на перекрестке нет) </p>
 
@@ -1563,9 +1695,25 @@ std::string const&#160;</td><td class="memItemRight" valign="bottom"><a class="e
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Инициализатор</b><div class="fragment"><div class="line">= {</div><div class="line">        <a class="code" href="namespacertm.html#a83e72513cb0cd2f63cff211387bdbb31">DEFAULT_SIGNALS_SPRITES</a></div><div class="line">        , <a class="code" href="namespacertm.html#a83e72513cb0cd2f63cff211387bdbb31">DEFAULT_SIGNALS_SPRITES</a></div><div class="line">        , DEFAULT_SIGNALS_SPRITES</div><div class="line">        , DEFAULT_SIGNALS_SPRITES</div><div class="line">    }</div><div class="ttc" id="namespacertm_html_a83e72513cb0cd2f63cff211387bdbb31"><div class="ttname"><a href="namespacertm.html#a83e72513cb0cd2f63cff211387bdbb31">rtm::DEFAULT_SIGNALS_SPRITES</a></div><div class="ttdeci">SignalsSprites const DEFAULT_SIGNALS_SPRITES</div><div class="ttdoc">Пустой массив текстур сигналов для одного направления </div><div class="ttdef"><b>Definition:</b> General.h:351</div></div>
+<b>Инициализатор</b><div class="fragment"><div class="line">= {</div><div class="line">        <a class="code" href="namespacertm.html#a83e72513cb0cd2f63cff211387bdbb31">DEFAULT_SIGNALS_SPRITES</a></div><div class="line">        , <a class="code" href="namespacertm.html#a83e72513cb0cd2f63cff211387bdbb31">DEFAULT_SIGNALS_SPRITES</a></div><div class="line">        , DEFAULT_SIGNALS_SPRITES</div><div class="line">        , DEFAULT_SIGNALS_SPRITES</div><div class="line">    }</div><div class="ttc" id="namespacertm_html_a83e72513cb0cd2f63cff211387bdbb31"><div class="ttname"><a href="namespacertm.html#a83e72513cb0cd2f63cff211387bdbb31">rtm::DEFAULT_SIGNALS_SPRITES</a></div><div class="ttdeci">SignalsSprites const DEFAULT_SIGNALS_SPRITES</div><div class="ttdoc">Пустой массив текстур сигналов для одного направления </div><div class="ttdef"><b>Definition:</b> General.h:370</div></div>
 </div><!-- fragment -->
 <p>Пустой массив текстур сигналов для всего перекрестка </p>
+
+</div>
+</div>
+<a id="aa92f0dfd3e94d47bed3e7dd2c2e82571"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa92f0dfd3e94d47bed3e7dd2c2e82571">&#9670;&nbsp;</a></span>COATING_INDEXES</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::array&lt;size_t, 2&gt; const rtm::COATING_INDEXES</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Инициализатор</b><div class="fragment"><div class="line">= {</div><div class="line">        1       </div><div class="line">        , 21    </div><div class="line">    }</div></div><!-- fragment -->
+<p>Индексы, начиная с которых начинаются текстуры покрытий определенного типа </p>
 
 </div>
 </div>
@@ -1580,22 +1728,22 @@ std::string const&#160;</td><td class="memItemRight" valign="bottom"><a class="e
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Инициализатор</b><div class="fragment"><div class="line">= {</div><div class="line">        0.f     </div><div class="line">        , 1.f   </div><div class="line">    }</div></div><!-- fragment --><p>Массив коэффициентов трения для каждого типа объекта </p><dl class="section see"><dt>См. также</dt><dd><a class="el" href="namespacertm.html#aecd3929e64cd461eb3555b611f6fad95" title="Индексы, начиная с которых начинаются текстуры покрытий определенного типа ">CoatingType</a> </dd></dl>
+<b>Инициализатор</b><div class="fragment"><div class="line">= {</div><div class="line">        1.f   </div><div class="line">        , 0.8f   </div><div class="line">    }</div></div><!-- fragment --><p>Массив коэффициентов трения для каждого типа объекта </p><dl class="section see"><dt>См. также</dt><dd><a class="el" href="namespacertm.html#aecd3929e64cd461eb3555b611f6fad95" title="Типы покрытий ">CoatingType</a> </dd></dl>
 
 </div>
 </div>
-<a id="a7416fccc43126173ec6456c78f5474f9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7416fccc43126173ec6456c78f5474f9">&#9670;&nbsp;</a></span>ROADS_DIRECTIONS</h2>
+<a id="a5820286728bf347e0320bdd9dc91ed1b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5820286728bf347e0320bdd9dc91ed1b">&#9670;&nbsp;</a></span>ROADS_DIRECTIONS</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::array&lt;<a class="el" href="namespacertm.html#a4776fbfe59834ff1a16838ad6735b69a">Directions</a>, 19&gt; const rtm::ROADS_DIRECTIONS</td>
+          <td class="memname">std::array&lt;<a class="el" href="namespacertm.html#a4776fbfe59834ff1a16838ad6735b69a">Directions</a>, 18&gt; const rtm::ROADS_DIRECTIONS</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Инициализатор</b><div class="fragment"><div class="line">= {</div><div class="line">          <a class="code" href="namespacertm.html#a4776fbfe59834ff1a16838ad6735b69a">Directions</a>{ <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span> }  </div><div class="line">        , <a class="code" href="namespacertm.html#a4776fbfe59834ff1a16838ad6735b69a">Directions</a>{ <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span> }    </div><div class="line">        , <a class="code" href="namespacertm.html#a4776fbfe59834ff1a16838ad6735b69a">Directions</a>{ <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">false</span> }      </div><div class="line">        , <a class="code" href="namespacertm.html#a4776fbfe59834ff1a16838ad6735b69a">Directions</a>{ <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">true</span> }        </div><div class="line">        , <a class="code" href="namespacertm.html#a4776fbfe59834ff1a16838ad6735b69a">Directions</a>{ <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span> }      </div><div class="line">        , <a class="code" href="namespacertm.html#a4776fbfe59834ff1a16838ad6735b69a">Directions</a>{ <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span> }      </div><div class="line">        , <a class="code" href="namespacertm.html#a4776fbfe59834ff1a16838ad6735b69a">Directions</a>{ <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span> }      </div><div class="line">        , <a class="code" href="namespacertm.html#a4776fbfe59834ff1a16838ad6735b69a">Directions</a>{ <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span> }      </div><div class="line">        , <a class="code" href="namespacertm.html#a4776fbfe59834ff1a16838ad6735b69a">Directions</a>{ <span class="keyword">false</span>, <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span> }     </div><div class="line">        , <a class="code" href="namespacertm.html#a4776fbfe59834ff1a16838ad6735b69a">Directions</a>{ <span class="keyword">false</span>, <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span> }     </div><div class="line">        , <a class="code" href="namespacertm.html#a4776fbfe59834ff1a16838ad6735b69a">Directions</a>{ <span class="keyword">false</span>, <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span> }     </div><div class="line">        , <a class="code" href="namespacertm.html#a4776fbfe59834ff1a16838ad6735b69a">Directions</a>{ <span class="keyword">false</span>, <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span> }     </div><div class="line">        , <a class="code" href="namespacertm.html#a4776fbfe59834ff1a16838ad6735b69a">Directions</a>{ <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">true</span>, <span class="keyword">true</span> }     </div><div class="line">        , <a class="code" href="namespacertm.html#a4776fbfe59834ff1a16838ad6735b69a">Directions</a>{ <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">true</span>, <span class="keyword">true</span> }     </div><div class="line">        , <a class="code" href="namespacertm.html#a4776fbfe59834ff1a16838ad6735b69a">Directions</a>{ <span class="keyword">false</span>, <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span> }    </div><div class="line">        , <a class="code" href="namespacertm.html#a4776fbfe59834ff1a16838ad6735b69a">Directions</a>{ <span class="keyword">false</span>, <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span> }    </div><div class="line">        , <a class="code" href="namespacertm.html#a4776fbfe59834ff1a16838ad6735b69a">Directions</a>{ <span class="keyword">false</span>, <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span> }    </div><div class="line">        , <a class="code" href="namespacertm.html#a4776fbfe59834ff1a16838ad6735b69a">Directions</a>{ <span class="keyword">false</span>, <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span> }    </div><div class="line">        , <a class="code" href="namespacertm.html#a4776fbfe59834ff1a16838ad6735b69a">Directions</a>{ <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span> }  </div><div class="line">    }</div><div class="ttc" id="namespacertm_html_a4776fbfe59834ff1a16838ad6735b69a"><div class="ttname"><a href="namespacertm.html#a4776fbfe59834ff1a16838ad6735b69a">rtm::Directions</a></div><div class="ttdeci">std::array&lt; bool, 8 &gt; Directions</div><div class="ttdef"><b>Definition:</b> General.h:313</div></div>
+<b>Инициализатор</b><div class="fragment"><div class="line">= {</div><div class="line">          <a class="code" href="namespacertm.html#a4776fbfe59834ff1a16838ad6735b69a">Directions</a>{ <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span> }    </div><div class="line">        , <a class="code" href="namespacertm.html#a4776fbfe59834ff1a16838ad6735b69a">Directions</a>{ <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">false</span> }      </div><div class="line">        , <a class="code" href="namespacertm.html#a4776fbfe59834ff1a16838ad6735b69a">Directions</a>{ <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">true</span> }        </div><div class="line">        , <a class="code" href="namespacertm.html#a4776fbfe59834ff1a16838ad6735b69a">Directions</a>{ <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span> }      </div><div class="line">        , <a class="code" href="namespacertm.html#a4776fbfe59834ff1a16838ad6735b69a">Directions</a>{ <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span> }      </div><div class="line">        , <a class="code" href="namespacertm.html#a4776fbfe59834ff1a16838ad6735b69a">Directions</a>{ <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span> }      </div><div class="line">        , <a class="code" href="namespacertm.html#a4776fbfe59834ff1a16838ad6735b69a">Directions</a>{ <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span> }      </div><div class="line">        , <a class="code" href="namespacertm.html#a4776fbfe59834ff1a16838ad6735b69a">Directions</a>{ <span class="keyword">false</span>, <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span> }     </div><div class="line">        , <a class="code" href="namespacertm.html#a4776fbfe59834ff1a16838ad6735b69a">Directions</a>{ <span class="keyword">false</span>, <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span> }     </div><div class="line">        , <a class="code" href="namespacertm.html#a4776fbfe59834ff1a16838ad6735b69a">Directions</a>{ <span class="keyword">false</span>, <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span> }     </div><div class="line">        , <a class="code" href="namespacertm.html#a4776fbfe59834ff1a16838ad6735b69a">Directions</a>{ <span class="keyword">false</span>, <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span> }     </div><div class="line">        , <a class="code" href="namespacertm.html#a4776fbfe59834ff1a16838ad6735b69a">Directions</a>{ <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">true</span>, <span class="keyword">true</span> }     </div><div class="line">        , <a class="code" href="namespacertm.html#a4776fbfe59834ff1a16838ad6735b69a">Directions</a>{ <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">true</span>, <span class="keyword">true</span> }     </div><div class="line">        , <a class="code" href="namespacertm.html#a4776fbfe59834ff1a16838ad6735b69a">Directions</a>{ <span class="keyword">false</span>, <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span> }    </div><div class="line">        , <a class="code" href="namespacertm.html#a4776fbfe59834ff1a16838ad6735b69a">Directions</a>{ <span class="keyword">false</span>, <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span> }    </div><div class="line">        , <a class="code" href="namespacertm.html#a4776fbfe59834ff1a16838ad6735b69a">Directions</a>{ <span class="keyword">false</span>, <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span> }    </div><div class="line">        , <a class="code" href="namespacertm.html#a4776fbfe59834ff1a16838ad6735b69a">Directions</a>{ <span class="keyword">false</span>, <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span> }    </div><div class="line">        , <a class="code" href="namespacertm.html#a4776fbfe59834ff1a16838ad6735b69a">Directions</a>{ <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span> }  </div><div class="line">    }</div><div class="ttc" id="namespacertm_html_a4776fbfe59834ff1a16838ad6735b69a"><div class="ttname"><a href="namespacertm.html#a4776fbfe59834ff1a16838ad6735b69a">rtm::Directions</a></div><div class="ttdeci">std::array&lt; bool, 8 &gt; Directions</div><div class="ttdef"><b>Definition:</b> General.h:332</div></div>
 </div><!-- fragment --><p>Массив возможных направлений для каждой типа кучоска дороги </p><dl class="section see"><dt>См. также</dt><dd><a class="el" href="classrtm_1_1_road_coating.html" title="Класс, описывающий дороги ">RoadCoating</a> </dd></dl>
 
 </div>

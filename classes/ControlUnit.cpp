@@ -1,6 +1,4 @@
-﻿#include "ControlUnit.h"
-#include "WorldController.h"
-#include "WorldScene.h"
+﻿#include "AllRtmClasses.h"
 
 ///////////////////////
 //  LOCAL FUNCTIONS  //
@@ -295,7 +293,7 @@ void rtm::ControlUnit::ShowSprites(cocos2d::Layer* const layer)
             sprites_[i][ForwardSignalIndex] = { nullptr, nullptr, nullptr, nullptr, nullptr };
         }
         else for (size_t k = 0; k < 5; ++k) {
-            sprites_[i][ForwardSignalIndex][k] = cocos2d::Sprite::create(GetSignalFile_(ForwardSignalId + k));
+            sprites_[i][ForwardSignalIndex][k] = cocos2d::Sprite::create(GetFilename(SIGNAL_FILENAME_MASK, ForwardSignalId + k));
             hasSprites = true;
         }
 
@@ -304,7 +302,7 @@ void rtm::ControlUnit::ShowSprites(cocos2d::Layer* const layer)
             sprites_[i][LeftwardSignalIndex] = { nullptr, nullptr, nullptr, nullptr, nullptr };
         }
         else for (size_t k = 0; k < 5; ++k) {
-            sprites_[i][LeftwardSignalIndex][k] = cocos2d::Sprite::create(GetSignalFile_(LeftwardSignalId + k));
+            sprites_[i][LeftwardSignalIndex][k] = cocos2d::Sprite::create(GetFilename(SIGNAL_FILENAME_MASK, LeftwardSignalId + k));
             hasSprites = true;
         }
 
@@ -313,7 +311,7 @@ void rtm::ControlUnit::ShowSprites(cocos2d::Layer* const layer)
             sprites_[i][RightwardSignalIndex] = { nullptr, nullptr, nullptr, nullptr, nullptr };
         }
         else for (size_t k = 0; k < 5; ++k) {
-            sprites_[i][RightwardSignalIndex][k] = cocos2d::Sprite::create(GetSignalFile_(RightwardSignalId + k));
+            sprites_[i][RightwardSignalIndex][k] = cocos2d::Sprite::create(GetFilename(SIGNAL_FILENAME_MASK, RightwardSignalId + k));
             hasSprites = true;
         }
 
@@ -397,12 +395,12 @@ void rtm::ControlUnit::ShowSprites(cocos2d::Layer* const layer)
 
         // Set position
         for (size_t l = 0; l < 3; ++l) {
-            int zOrder{ FORWARD_SIGNAL_Z_ORDER };
+            int zOrder{ SIGNAL_Z_ORDER };
             if (zOrder == LeftwardSignalIndex) {
-                zOrder = LEFTWARD_SIGNAL_Z_ORDER;
+                zOrder = SIGNAL_Z_ORDER;
             }
             else if (zOrder == RightwardSignalIndex) {
-                zOrder = RIGHTWARD_SIGNAL_Z_ORDER;
+                zOrder = SIGNAL_Z_ORDER;
             }
 
             for (size_t k = 0; k < 5; ++k) {
@@ -475,13 +473,4 @@ void rtm::ControlUnit::SetState_(size_t state)
 void rtm::ControlUnit::ResetState_()
 {
     SetState_(0);
-}
-
-std::string rtm::ControlUnit::GetSignalFile_(size_t id)
-{
-    std::string filename{ SIGNAL_FILENAME_MASK };
-    auto it{ filename.find("%No%") };
-    filename.replace(it, 4, std::to_string(static_cast<int>(id)));
-
-    return filename;
 }

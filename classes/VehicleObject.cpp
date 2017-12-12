@@ -1,6 +1,4 @@
-﻿#include "VehicleObject.h"
-#include "WorldController.h"
-#include "CoatingObject.h"
+﻿#include "AllRtmClasses.h"
 
 rtm::VehicleObject::VehicleObject()
     : DynamicObject{}

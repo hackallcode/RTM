@@ -1,12 +1,4 @@
-﻿#include "WorldController.h"
-#include "WorldScene.h"
-#include "CoatingObject.h"
-#include "DrivewayObject.h"
-#include "CrossroadObject.h"
-#include "ControlUnit.h"
-#include "TurnObject.h"
-#include "BuildingObject.h"
-#include "CarObject.h"
+﻿#include "AllRtmClasses.h"
 
 ///////////////////////
 //  LOCAL FUNCTIONS  //
@@ -121,7 +113,7 @@ void rtm::WorldController::Update(float time)
         SpawnCar();
         spawnTime_ = 0.f;
     }
-    if (cleanTime_ > 30.f) {
+    if (cleanTime_ > 10.f) {
         RemoveAccidents();
         cleanTime_ = 0.f;
     }
@@ -338,7 +330,7 @@ bool rtm::WorldController::LoadMap(std::string const& filename)
 
 bool rtm::WorldController::LoadMap(size_t number)
 {
-    return LoadMap(WorldController::GetClassFile_(number));
+    return LoadMap(GetFilename(MAP_FILENAME_MASK, number));
 }
 
 void rtm::WorldController::SpawnCar()
@@ -473,6 +465,12 @@ bool rtm::WorldController::GenerateObject_(uint8_t* params, uint8_t count)
                     , BytesUnion(params[5], params[6]), AngleTypeToAngle(static_cast<AngleType>(params[7])));
             }
             break;
+        case 2:
+            if (count == 8) {
+                return AddBush_(params[2], BytesUnion(params[3], params[4])
+                    , BytesUnion(params[5], params[6]), AngleTypeToAngle(static_cast<AngleType>(params[7])));
+            }
+            break;
         }
         break;
     case 3:
@@ -599,6 +597,15 @@ bool rtm::WorldController::AddBuilding_(size_t type, int column, int row, float 
     return AddStaticObject_(column, row, std::make_shared<BuildingObject>(type, column, row, angle));
 }
 
+bool rtm::WorldController::AddBush_(size_t type, int column, int row, float angle)
+{
+    if (!IsCorrectColumn(column) || !IsCorrectRow(row)) {
+        return false;
+    }
+
+    return AddStaticObject_(column, row, std::make_shared<BushObject>(type, column, row, angle));
+}
+
 bool rtm::WorldController::AddDynamicObject_(int column, int row, DynamicShared dynamicObject)
 {
     if (!IsAllowableColumn(column) || !IsAllowableRow(row)) {
@@ -696,13 +703,4 @@ void rtm::WorldController::ClearDynamicObjects_()
         mainLayer_->removeChild(obj->GetSprite());
     }
     dynamicObjects_.clear();
-}
-
-std::string rtm::WorldController::GetClassFile_(size_t number)
-{
-    std::string filename{ MAP_FILENAME_MASK };
-    auto it{ filename.find("%No%") };
-    filename.replace(it, 4, std::to_string(static_cast<int>(number)));
-
-    return filename;
 }

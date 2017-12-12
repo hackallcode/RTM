@@ -31,16 +31,19 @@
     <Filter Include="src\abstract objects\coating unions">
       <UniqueIdentifier>{d7923d84-b67d-4fb9-a925-2f93c23d8677}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\visible objects\static">
+      <UniqueIdentifier>{c2c1d5f1-9bcd-41e5-8e27-d823f6b72875}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\visible objects\dynamic">
+      <UniqueIdentifier>{fb60c3f0-4977-46aa-a207-bbbb3fcaec2e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\visible objects\coating">
+      <UniqueIdentifier>{441e7de4-dc67-4867-abfa-5f1758dda027}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>win32</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\CarObject.cpp">
-      <Filter>src\visible objects</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\BuildingObject.cpp">
-      <Filter>src\visible objects</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\WorldController.cpp">
       <Filter>src\controllers</Filter>
@@ -78,9 +81,6 @@
     <ClCompile Include="..\Classes\CoatingUnion.cpp">
       <Filter>src\abstract objects</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\RoadCoating.cpp">
-      <Filter>src\visible objects</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\CrossroadObject.cpp">
       <Filter>src\abstract objects\coating unions</Filter>
     </ClCompile>
@@ -93,16 +93,25 @@
     <ClCompile Include="..\Classes\lib\fasttrigo.cpp">
       <Filter>src\libraries</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\BuildingObject.cpp">
+      <Filter>src\visible objects\static</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\CarObject.cpp">
+      <Filter>src\visible objects\dynamic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\RoadCoating.cpp">
+      <Filter>src\visible objects\coating</Filter>
+    </ClCompile>
+    <ClCompile Include="..\classes\PuddleCoating.cpp">
+      <Filter>src\visible objects\coating</Filter>
+    </ClCompile>
+    <ClCompile Include="..\classes\BushObject.cpp">
+      <Filter>src\visible objects\static</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
       <Filter>win32</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\CarObject.h">
-      <Filter>src\visible objects</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\BuildingObject.h">
-      <Filter>src\visible objects</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\WorldController.h">
       <Filter>src\controllers</Filter>
@@ -140,9 +149,6 @@
     <ClInclude Include="..\Classes\CoatingUnion.h">
       <Filter>src\abstract objects</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\RoadCoating.h">
-      <Filter>src\visible objects</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\CrossroadObject.h">
       <Filter>src\abstract objects\coating unions</Filter>
     </ClInclude>
@@ -154,6 +160,24 @@
     </ClInclude>
     <ClInclude Include="..\Classes\lib\fasttrigo.h">
       <Filter>src\libraries</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\BuildingObject.h">
+      <Filter>src\visible objects\static</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\CarObject.h">
+      <Filter>src\visible objects\dynamic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\RoadCoating.h">
+      <Filter>src\visible objects\coating</Filter>
+    </ClInclude>
+    <ClInclude Include="..\classes\PuddleCoating.h">
+      <Filter>src\visible objects\coating</Filter>
+    </ClInclude>
+    <ClInclude Include="..\classes\BushObject.h">
+      <Filter>src\visible objects\static</Filter>
+    </ClInclude>
+    <ClInclude Include="..\classes\AllRtmClasses.h">
+      <Filter>src\general</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -1,6 +1,4 @@
-﻿#include "CoatingUnion.h"
-#include "CoatingObject.h"
-#include "WorldScene.h"
+﻿#include "AllRtmClasses.h"
 
 rtm::CoatingUnion::CoatingUnion()
     : type_{ NoCoatingUnion }

@@ -67,7 +67,6 @@ $(function() {
   <div class="summary">
 <a href="#pub-methods">Открытые члены</a> &#124;
 <a href="#pri-methods">Закрытые члены</a> &#124;
-<a href="#pri-static-methods">Закрытые статические члены</a> &#124;
 <a href="#pri-attribs">Закрытые данные</a> &#124;
 <a href="classrtm_1_1_world_controller-members.html">Полный список членов класса</a>  </div>
   <div class="headertitle">
@@ -181,6 +180,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="separator:a07bb2d2043361ea1768cc157a19c472d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae17e4ffc602819f5b382251b501b1d7c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrtm_1_1_world_controller.html#ae17e4ffc602819f5b382251b501b1d7c">AddBuilding_</a> (size_t type, int column, int row, float angle)</td></tr>
 <tr class="separator:ae17e4ffc602819f5b382251b501b1d7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e2fa6b63879171a26eaa0c26eacbc97"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrtm_1_1_world_controller.html#a9e2fa6b63879171a26eaa0c26eacbc97">AddBush_</a> (size_t type, int column, int row, float angle)</td></tr>
+<tr class="separator:a9e2fa6b63879171a26eaa0c26eacbc97"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa886cfea79318d25b2ab69b01c01a5a3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrtm_1_1_world_controller.html#aa886cfea79318d25b2ab69b01c01a5a3">AddDynamicObject_</a> (int column, int row, <a class="el" href="namespacertm.html#af668a936c29b476890a79ad1eb19e3cc">DynamicShared</a> dynamicObject)</td></tr>
 <tr class="separator:aa886cfea79318d25b2ab69b01c01a5a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:add7f36a79e7f096c8cf1d7413affec6a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrtm_1_1_world_controller.html#add7f36a79e7f096c8cf1d7413affec6a">AddCar_</a> (size_t type, int column, int row, float angle)</td></tr>
@@ -217,11 +218,6 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrtm_1_1_world_controller.html#ad32b6c19479b509c06c8b03364e707af">ClearDynamicObjects_</a> ()</td></tr>
 <tr class="memdesc:ad32b6c19479b509c06c8b03364e707af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Функция для очистки движущихся объектов <br /></td></tr>
 <tr class="separator:ad32b6c19479b509c06c8b03364e707af"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-methods"></a>
-Закрытые статические члены</h2></td></tr>
-<tr class="memitem:a0f1868e663f83dcd5e31a056cfafb0f5"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrtm_1_1_world_controller.html#a0f1868e663f83dcd5e31a056cfafb0f5">GetClassFile_</a> (size_t number)</td></tr>
-<tr class="separator:a0f1868e663f83dcd5e31a056cfafb0f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Закрытые данные</h2></td></tr>
@@ -1481,6 +1477,64 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
 
 </div>
 </div>
+<a id="a9e2fa6b63879171a26eaa0c26eacbc97"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e2fa6b63879171a26eaa0c26eacbc97">&#9670;&nbsp;</a></span>AddBush_()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool rtm::WorldController::AddBush_ </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>column</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>row</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>angle</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Функция для генерации куста </p><dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">type</td><td>тип куста </td></tr>
+    <tr><td class="paramname">column</td><td>колонка куста </td></tr>
+    <tr><td class="paramname">row</td><td>строка куста </td></tr>
+    <tr><td class="paramname">angle</td><td>угол поворота куста </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>true, если объект получилось сгенерировать, иначе false </dd></dl>
+
+</div>
+</div>
 <a id="aa886cfea79318d25b2ab69b01c01a5a3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa886cfea79318d25b2ab69b01c01a5a3">&#9670;&nbsp;</a></span>AddDynamicObject_()</h2>
 
@@ -1719,39 +1773,6 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
   </dd>
 </dl>
 <dl class="section return"><dt>Возвращает</dt><dd>строка объекта </dd></dl>
-
-</div>
-</div>
-<a id="a0f1868e663f83dcd5e31a056cfafb0f5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0f1868e663f83dcd5e31a056cfafb0f5">&#9670;&nbsp;</a></span>GetClassFile_()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::string rtm::WorldController::GetClassFile_ </td>
-          <td>(</td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>number</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Функция для получения файла карты по номеру </p><dl class="params"><dt>Аргументы</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">number</td><td>номер стандартной карты </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Возвращает</dt><dd>путь к файлу карты </dd></dl>
 
 </div>
 </div>

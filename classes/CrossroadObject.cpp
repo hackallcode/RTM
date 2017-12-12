@@ -1,8 +1,4 @@
-﻿#include "CrossroadObject.h"
-#include "CoatingObject.h"
-#include "RoadCoating.h"
-#include "ControlUnit.h"
-#include "DrivewayObject.h"
+﻿#include "AllRtmClasses.h"
 
 ///////////////////////
 //  LOCAL FUNCTIONS  //
@@ -66,27 +62,27 @@ rtm::CoatingMatrix rtm::CrossroadObject::CrossroadMatrix(CoatingType type, int c
     //////////////////////////////
     // Center of crossroad
 
-    result[0][0] = std::make_unique<RoadCoating>(type, 18, column, row, Right);
-    result[0][lastRow] = std::make_unique<RoadCoating>(type, 18, column, row + lastRow, Down);
-    result[lastCol][0] = std::make_unique<RoadCoating>(type, 18, column + lastCol, row, Up);
-    result[lastCol][lastRow] = std::make_unique<RoadCoating>(type, 18, column + lastCol, row + lastRow, Left);
+    result[0][0] = std::make_unique<RoadCoating>(type, RoadTypeNo17, column, row, Right);
+    result[0][lastRow] = std::make_unique<RoadCoating>(type, RoadTypeNo17, column, row + lastRow, Down);
+    result[lastCol][0] = std::make_unique<RoadCoating>(type, RoadTypeNo17, column + lastCol, row, Up);
+    result[lastCol][lastRow] = std::make_unique<RoadCoating>(type, RoadTypeNo17, column + lastCol, row + lastRow, Left);
 
     if (width == 3 && height == 3) {
-        result[1][1] = std::make_unique<RoadCoating>(type, 4, column + 1, row + 1, Up);
+        result[1][1] = std::make_unique<RoadCoating>(type, RoadTypeNo3, column + 1, row + 1, Up);
     }
     else if (width == 3) {
-        result[1][1] = std::make_unique<RoadCoating>(type, 5, column + 1, row + 1, Up);
-        result[1][lastRow - 1] = std::make_unique<RoadCoating>(type, 5, column + 1, row + lastRow - 1, Down);
+        result[1][1] = std::make_unique<RoadCoating>(type, RoadTypeNo4, column + 1, row + 1, Up);
+        result[1][lastRow - 1] = std::make_unique<RoadCoating>(type, RoadTypeNo4, column + 1, row + lastRow - 1, Down);
     }
     else if (height == 3) {
-        result[1][1] = std::make_unique<RoadCoating>(type, 5, column + 1, row + 1, Right);
-        result[lastCol - 1][1] = std::make_unique<RoadCoating>(type, 5, column + lastCol - 1, row + 1, Left);
+        result[1][1] = std::make_unique<RoadCoating>(type, RoadTypeNo4, column + 1, row + 1, Right);
+        result[lastCol - 1][1] = std::make_unique<RoadCoating>(type, RoadTypeNo4, column + lastCol - 1, row + 1, Left);
     }
     else {
-        result[1][1] = std::make_unique<RoadCoating>(type, 6, column + 1, row + 1, Up);
-        result[lastCol - 1][1] = std::make_unique<RoadCoating>(type, 6, column + lastCol - 1, row + 1, Left);
-        result[1][lastRow - 1] = std::make_unique<RoadCoating>(type, 6, column + 1, row + lastRow - 1, Right);
-        result[lastCol - 1][lastRow - 1] = std::make_unique<RoadCoating>(type, 6, column + lastCol - 1, row + lastRow - 1, Down);
+        result[1][1] = std::make_unique<RoadCoating>(type, RoadTypeNo5, column + 1, row + 1, Up);
+        result[lastCol - 1][1] = std::make_unique<RoadCoating>(type, RoadTypeNo5, column + lastCol - 1, row + 1, Left);
+        result[1][lastRow - 1] = std::make_unique<RoadCoating>(type, RoadTypeNo5, column + 1, row + lastRow - 1, Right);
+        result[lastCol - 1][lastRow - 1] = std::make_unique<RoadCoating>(type, RoadTypeNo5, column + lastCol - 1, row + lastRow - 1, Down);
     }
 
     // Block backward directions    
@@ -94,7 +90,7 @@ rtm::CoatingMatrix rtm::CrossroadObject::CrossroadMatrix(CoatingType type, int c
         for (size_t j = 1; j <= lastRow - 1; ++j) {
             // Add object if not init
             if (!result[i][j]) {
-                result[i][j] = std::make_unique<RoadCoating>(type, 7, column + i, row + j, Up);
+                result[i][j] = std::make_unique<RoadCoating>(type, RoadTypeNo6, column + i, row + j, Up);
             }
             // Left side
             if (1 <= i && i < 1 + linesCounts[Downward]) {
@@ -180,123 +176,123 @@ rtm::CoatingMatrix rtm::CrossroadObject::TCrossroadMatrix(CoatingType type, int 
     }
 
     if (nullDirection == Up) {
-        result[0][0] = std::make_unique<RoadCoating>(type, 18, column, row, Right);
-        result[lastCol][0] = std::make_unique<RoadCoating>(type, 18, column + lastCol, row, Up);
+        result[0][0] = std::make_unique<RoadCoating>(type, RoadTypeNo17, column, row, Right);
+        result[lastCol][0] = std::make_unique<RoadCoating>(type, RoadTypeNo17, column + lastCol, row, Up);
     }
     else if (nullDirection == Right) {
-        result[0][0] = std::make_unique<RoadCoating>(type, 18, column, row, Right);
-        result[0][lastRow] = std::make_unique<RoadCoating>(type, 18, column, row + lastRow, Down);
+        result[0][0] = std::make_unique<RoadCoating>(type, RoadTypeNo17, column, row, Right);
+        result[0][lastRow] = std::make_unique<RoadCoating>(type, RoadTypeNo17, column, row + lastRow, Down);
     }
     else if (nullDirection == Down) {
-        result[0][lastRow] = std::make_unique<RoadCoating>(type, 18, column, row + lastRow, Down);
-        result[lastCol][lastRow] = std::make_unique<RoadCoating>(type, 18, column + lastCol, row + lastRow, Left);
+        result[0][lastRow] = std::make_unique<RoadCoating>(type, RoadTypeNo17, column, row + lastRow, Down);
+        result[lastCol][lastRow] = std::make_unique<RoadCoating>(type, RoadTypeNo17, column + lastCol, row + lastRow, Left);
     }
     else if (nullDirection == Left) {
-        result[lastCol][0] = std::make_unique<RoadCoating>(type, 18, column + lastCol, row, Up);
-        result[lastCol][lastRow] = std::make_unique<RoadCoating>(type, 18, column + lastCol, row + lastRow, Left);
+        result[lastCol][0] = std::make_unique<RoadCoating>(type, RoadTypeNo17, column + lastCol, row, Up);
+        result[lastCol][lastRow] = std::make_unique<RoadCoating>(type, RoadTypeNo17, column + lastCol, row + lastRow, Left);
     }
 
     if (crossroadWidth == 1 && crossroadHeight == 1) {
         size_t i{ leftBorder };
         size_t j{ bottomBorder };
-        result[i][j] = std::make_unique<RoadCoating>(type, 8, column + i, row + j, nullDirection);
+        result[i][j] = std::make_unique<RoadCoating>(type, RoadTypeNo7, column + i, row + j, nullDirection);
     }
     else if (crossroadWidth == 1) {
         if (nullDirection == Up) {
             size_t i{ leftBorder };
             size_t j{ bottomBorder };
-            result[i][j] = std::make_unique<RoadCoating>(type, 5, column + i, row + j, nullDirection);
+            result[i][j] = std::make_unique<RoadCoating>(type, RoadTypeNo4, column + i, row + j, nullDirection);
         }
         else if (nullDirection == Down) {
             size_t i{ leftBorder };
             size_t j{ lastRow - topBorder };
-            result[i][j] = std::make_unique<RoadCoating>(type, 5, column + i, row + j, nullDirection);
+            result[i][j] = std::make_unique<RoadCoating>(type, RoadTypeNo4, column + i, row + j, nullDirection);
         }
         else if (nullDirection == Right) {
             size_t i{ leftBorder };
             size_t j{ bottomBorder };
-            result[i][j] = std::make_unique<RoadCoating>(type, 11, column + i, row + j, nullDirection);
+            result[i][j] = std::make_unique<RoadCoating>(type, RoadTypeNo10, column + i, row + j, nullDirection);
 
             i = leftBorder;
             j = lastRow - topBorder;
-            result[i][j] = std::make_unique<RoadCoating>(type, 9, column + i, row + j, nullDirection);
+            result[i][j] = std::make_unique<RoadCoating>(type, RoadTypeNo8, column + i, row + j, nullDirection);
         }
         else if (nullDirection == Left) {
             size_t i{ leftBorder };
             size_t j{ bottomBorder };
-            result[i][j] = std::make_unique<RoadCoating>(type, 9, column + i, row + j, nullDirection);
+            result[i][j] = std::make_unique<RoadCoating>(type, RoadTypeNo8, column + i, row + j, nullDirection);
 
             i = leftBorder;
             j = lastRow - topBorder;
-            result[i][j] = std::make_unique<RoadCoating>(type, 11, column + i, row + j, nullDirection);
+            result[i][j] = std::make_unique<RoadCoating>(type, RoadTypeNo10, column + i, row + j, nullDirection);
         }
     }
     else if (crossroadHeight == 1) {
         if (nullDirection == Up) {
             size_t i{ leftBorder };
             size_t j{ bottomBorder };
-            result[i][j] = std::make_unique<RoadCoating>(type, 9, column + i, row + j, nullDirection);
+            result[i][j] = std::make_unique<RoadCoating>(type, RoadTypeNo8, column + i, row + j, nullDirection);
 
             i = lastCol - rightBorder;
             j = bottomBorder;
-            result[i][j] = std::make_unique<RoadCoating>(type, 11, column + i, row + j, nullDirection);
+            result[i][j] = std::make_unique<RoadCoating>(type, RoadTypeNo10, column + i, row + j, nullDirection);
         }
         else if (nullDirection == Down) {
             size_t i{ leftBorder };
             size_t j{ bottomBorder };
-            result[i][j] = std::make_unique<RoadCoating>(type, 11, column + i, row + j, nullDirection);
+            result[i][j] = std::make_unique<RoadCoating>(type, RoadTypeNo10, column + i, row + j, nullDirection);
 
             i = lastCol - rightBorder;
             j = bottomBorder;
-            result[i][j] = std::make_unique<RoadCoating>(type, 9, column + i, row + j, nullDirection);
+            result[i][j] = std::make_unique<RoadCoating>(type, RoadTypeNo8, column + i, row + j, nullDirection);
         }
         else if (nullDirection == Right) {
             size_t i{ leftBorder };
             size_t j{ bottomBorder };
-            result[i][j] = std::make_unique<RoadCoating>(type, 5, column + i, row + j, nullDirection);
+            result[i][j] = std::make_unique<RoadCoating>(type, RoadTypeNo4, column + i, row + j, nullDirection);
         }
         else if (nullDirection == Left) {
             size_t i{ lastCol - rightBorder };
             size_t j{ bottomBorder };
-            result[i][j] = std::make_unique<RoadCoating>(type, 5, column + i, row + j, nullDirection);
+            result[i][j] = std::make_unique<RoadCoating>(type, RoadTypeNo4, column + i, row + j, nullDirection);
         }
     }
     else {
         if (nullDirection == Up) {
             size_t i{ leftBorder };
             size_t j{ bottomBorder };
-            result[i][j] = std::make_unique<RoadCoating>(type, 6, column + i, row + j, Up);
+            result[i][j] = std::make_unique<RoadCoating>(type, RoadTypeNo5, column + i, row + j, Up);
 
             i = lastCol - rightBorder;
             j = bottomBorder;
-            result[i][j] = std::make_unique<RoadCoating>(type, 6, column + i, row + j, Left);
+            result[i][j] = std::make_unique<RoadCoating>(type, RoadTypeNo5, column + i, row + j, Left);
         }
         else if (nullDirection == Down) {
             size_t i{ leftBorder };
             size_t j{ lastRow - topBorder };
-            result[i][j] = std::make_unique<RoadCoating>(type, 6, column + i, row + j, Right);
+            result[i][j] = std::make_unique<RoadCoating>(type, RoadTypeNo5, column + i, row + j, Right);
 
             i = lastCol - rightBorder;
             j = lastRow - topBorder;
-            result[i][j] = std::make_unique<RoadCoating>(type, 6, column + i, row + j, Down);
+            result[i][j] = std::make_unique<RoadCoating>(type, RoadTypeNo5, column + i, row + j, Down);
         }
         else if (nullDirection == Right) {
             size_t i{ leftBorder };
             size_t j{ bottomBorder };
-            result[i][j] = std::make_unique<RoadCoating>(type, 6, column + i, row + j, Up);
+            result[i][j] = std::make_unique<RoadCoating>(type, RoadTypeNo5, column + i, row + j, Up);
 
             i = leftBorder;
             j = lastRow - topBorder;
-            result[i][j] = std::make_unique<RoadCoating>(type, 6, column + i, row + j, Right);
+            result[i][j] = std::make_unique<RoadCoating>(type, RoadTypeNo5, column + i, row + j, Right);
         }
         else if (nullDirection == Left) {
             size_t i{ lastCol - rightBorder };
             size_t j{ bottomBorder };
-            result[i][j] = std::make_unique<RoadCoating>(type, 6, column + i, row + j, Left);
+            result[i][j] = std::make_unique<RoadCoating>(type, RoadTypeNo5, column + i, row + j, Left);
 
             i = lastCol - rightBorder;
             j = lastRow - topBorder;
-            result[i][j] = std::make_unique<RoadCoating>(type, 6, column + i, row + j, Down);
+            result[i][j] = std::make_unique<RoadCoating>(type, RoadTypeNo5, column + i, row + j, Down);
         }
     }
 
@@ -305,10 +301,10 @@ rtm::CoatingMatrix rtm::CrossroadObject::TCrossroadMatrix(CoatingType type, int 
         for (size_t j = bottomBorder; j <= lastRow - topBorder; ++j) {
             if (!result[i][j]) {
                 if (i == 0 || j == 0 || i == lastCol || j == lastRow) {
-                    result[i][j] = std::make_unique<RoadCoating>(type, 10, column + i, row + j, nullDirection);
+                    result[i][j] = std::make_unique<RoadCoating>(type, RoadTypeNo9, column + i, row + j, nullDirection);
                 }
                 else {
-                    result[i][j] = std::make_unique<RoadCoating>(type, 7, column + i, row + j, Up);
+                    result[i][j] = std::make_unique<RoadCoating>(type, RoadTypeNo6, column + i, row + j, Up);
                 }
             }
             // Left side
