@@ -32,7 +32,7 @@ virtual \hyperlink{class_app_delegate_a9f89424b5e296e3668deaa0265fc5ac1}{$\sim$\
 virtual void \hyperlink{class_app_delegate_a2de4e8ab7d04bde311684e1d4ceb2c0f}{init\+G\+L\+Context\+Attrs} ()
 \begin{DoxyCompactList}\small\item\em Функция для установки атрибутов Open\+GL (красный, зеленый, синий, альфа-\/канал...) \end{DoxyCompactList}\item 
 virtual bool \hyperlink{class_app_delegate_a68cbaed49edf7581dc59a09d5062fff3}{application\+Did\+Finish\+Launching} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Функция для инициализации Director\textquotesingle{}а и Scene\textquotesingle{}ы \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_app_delegate_a17cb09777419781698324e0415bffd3a}\label{class_app_delegate_a17cb09777419781698324e0415bffd3a}} 
 virtual void \hyperlink{class_app_delegate_a17cb09777419781698324e0415bffd3a}{application\+Did\+Enter\+Background} ()
 \begin{DoxyCompactList}\small\item\em Функция вызывается, когда приложение скрывается \end{DoxyCompactList}\item 
@@ -51,7 +51,11 @@ virtual void \hyperlink{class_app_delegate_ac4d653e3f74a91efef5f2def58fe3108}{ap
 \subsubsection{\texorpdfstring{application\+Did\+Finish\+Launching()}{applicationDidFinishLaunching()}}
 {\footnotesize\ttfamily bool App\+Delegate\+::application\+Did\+Finish\+Launching (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
-Функция для инициализации Director\textquotesingle{}а и Scene\textquotesingle{}ы \begin{DoxyReturn}{Возвращает}
+
+
+Функция для инициализации Director\textquotesingle{}а и Scene\textquotesingle{}ы 
+
+\begin{DoxyReturn}{Возвращает}
 true Инициализация успешна, приложение продолжает выполняться 
 
 false Инициализация провалилась, приложение закроется 

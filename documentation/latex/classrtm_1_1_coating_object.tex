@@ -26,34 +26,34 @@
 \hyperlink{classrtm_1_1_coating_object_a4b6f326b459b1bbf6b66c08cd74d2f1a}{Coating\+Object} ()
 \begin{DoxyCompactList}\small\item\em Конструктор по умолчанию \end{DoxyCompactList}\item 
 \hyperlink{classrtm_1_1_coating_object_a4d5d7ecc1ba34ec9f2d29dd39c1c054f}{Coating\+Object} (cocos2d\+::\+Sprite $\ast$const sprite, int column, int row, \hyperlink{namespacertm_a69dc82b16a0148c10962caa83d930f89}{Angle\+Type} angle, float resistance, \hyperlink{namespacertm_a4776fbfe59834ff1a16838ad6735b69a}{Directions} directions)
-\item 
+\begin{DoxyCompactList}\small\item\em Конструктор с использованием уже готового спрайта \end{DoxyCompactList}\item 
 \hyperlink{classrtm_1_1_coating_object_ae3cfac6ecad1d4e35a34f80aaf782392}{Coating\+Object} (std\+::string const \&filename, int column, int row, \hyperlink{namespacertm_a69dc82b16a0148c10962caa83d930f89}{Angle\+Type} angle, float resistance, \hyperlink{namespacertm_a4776fbfe59834ff1a16838ad6735b69a}{Directions} directions)
-\item 
+\begin{DoxyCompactList}\small\item\em Конструктор из файла \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classrtm_1_1_coating_object_aa181401eddb2b9c099c0d56dcbae4d0d}\label{classrtm_1_1_coating_object_aa181401eddb2b9c099c0d56dcbae4d0d}} 
 virtual \hyperlink{classrtm_1_1_coating_object_aa181401eddb2b9c099c0d56dcbae4d0d}{$\sim$\+Coating\+Object} ()=default
 \begin{DoxyCompactList}\small\item\em Деструктор по умолчанию \end{DoxyCompactList}\item 
 cocos2d\+::\+Sprite $\ast$ \hyperlink{classrtm_1_1_coating_object_a5153c2be68353078dac8771cc9c361bb}{Get\+Sprite} () const
-\item 
+\begin{DoxyCompactList}\small\item\em Функция для получения спрайта \end{DoxyCompactList}\item 
 float \hyperlink{classrtm_1_1_coating_object_a1680b004da834a1b885b4e22f09e84cc}{Get\+Resistance} () const
-\item 
+\begin{DoxyCompactList}\small\item\em Функция для получения коэффициента сопротивления на покрытии \end{DoxyCompactList}\item 
 bool \hyperlink{classrtm_1_1_coating_object_a88eb5287d899ca8e10e31de4192bbddc}{Has\+Direction} (\hyperlink{namespacertm_a69dc82b16a0148c10962caa83d930f89}{Angle\+Type} angle) const
-\item 
+\begin{DoxyCompactList}\small\item\em Функция для проверки существования направления \end{DoxyCompactList}\item 
 bool \hyperlink{classrtm_1_1_coating_object_a4d7656260eaa296f1bfa2e957698c437}{Is\+Direction\+Available} (\hyperlink{namespacertm_a69dc82b16a0148c10962caa83d930f89}{Angle\+Type} angle) const
-\item 
+\begin{DoxyCompactList}\small\item\em Функция для проверки разрешенности направления \end{DoxyCompactList}\item 
 void \hyperlink{classrtm_1_1_coating_object_a93eb37a24af3939337f6330209fae809}{Set\+Direction\+Availability} (\hyperlink{namespacertm_a69dc82b16a0148c10962caa83d930f89}{Angle\+Type} angle, bool status)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Функция установки разрешенности направления \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Защищенные члены}
 \begin{DoxyCompactItemize}
 \item 
 void \hyperlink{classrtm_1_1_coating_object_a1d0227cd023ce6e6bd475194b5cbfe2d}{Set\+Sprite\+\_\+} (cocos2d\+::\+Sprite $\ast$const sprite)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Функция для установки спрайта \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Закрытые члены}
 \begin{DoxyCompactItemize}
 \item 
 void \hyperlink{classrtm_1_1_coating_object_a5bb5e11400d05dc2d50bfbd2021d3aac}{Set\+X\+\_\+} (float x)
-\item 
+\begin{DoxyCompactList}\small\item\em Функция для установки абсциссы \end{DoxyCompactList}\item 
 void \hyperlink{classrtm_1_1_coating_object_a3f67f750f8bf4b87a55655018c0c8d71}{Set\+Y\+\_\+} (float y)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Функция для установки ординаты \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Закрытые данные}
 \begin{DoxyCompactItemize}
 \item 
@@ -87,7 +87,11 @@ float \hyperlink{classrtm_1_1_coating_object_a254720b1a903d8a0359f5d3ebe774bfb}{
 \subsubsection{\texorpdfstring{Coating\+Object()}{CoatingObject()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily rtm\+::\+Coating\+Object\+::\+Coating\+Object (\begin{DoxyParamCaption}\item[{cocos2d\+::\+Sprite $\ast$const}]{sprite,  }\item[{int}]{column,  }\item[{int}]{row,  }\item[{\hyperlink{namespacertm_a69dc82b16a0148c10962caa83d930f89}{Angle\+Type}}]{angle,  }\item[{float}]{resistance,  }\item[{\hyperlink{namespacertm_a4776fbfe59834ff1a16838ad6735b69a}{Directions}}]{directions }\end{DoxyParamCaption})}
 
+
+
 Конструктор с использованием уже готового спрайта 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em sprite} & указатель на готовый спрайт \\
 \hline
@@ -108,7 +112,11 @@ float \hyperlink{classrtm_1_1_coating_object_a254720b1a903d8a0359f5d3ebe774bfb}{
 \subsubsection{\texorpdfstring{Coating\+Object()}{CoatingObject()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily rtm\+::\+Coating\+Object\+::\+Coating\+Object (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{filename,  }\item[{int}]{column,  }\item[{int}]{row,  }\item[{\hyperlink{namespacertm_a69dc82b16a0148c10962caa83d930f89}{Angle\+Type}}]{angle,  }\item[{float}]{resistance,  }\item[{\hyperlink{namespacertm_a4776fbfe59834ff1a16838ad6735b69a}{Directions}}]{directions }\end{DoxyParamCaption})}
 
+
+
 Конструктор из файла 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em filename} & путь к файлу инициализации \\
 \hline
@@ -132,7 +140,11 @@ float \hyperlink{classrtm_1_1_coating_object_a254720b1a903d8a0359f5d3ebe774bfb}{
 \subsubsection{\texorpdfstring{Get\+Sprite()}{GetSprite()}}
 {\footnotesize\ttfamily cocos2d\+::\+Sprite $\ast$ rtm\+::\+Coating\+Object\+::\+Get\+Sprite (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
-Функция для получения спрайта \begin{DoxyReturn}{Возвращает}
+
+
+Функция для получения спрайта 
+
+\begin{DoxyReturn}{Возвращает}
 указатель на спрайт 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classrtm_1_1_coating_object_a1680b004da834a1b885b4e22f09e84cc}\label{classrtm_1_1_coating_object_a1680b004da834a1b885b4e22f09e84cc}} 
@@ -141,7 +153,11 @@ float \hyperlink{classrtm_1_1_coating_object_a254720b1a903d8a0359f5d3ebe774bfb}{
 \subsubsection{\texorpdfstring{Get\+Resistance()}{GetResistance()}}
 {\footnotesize\ttfamily float rtm\+::\+Coating\+Object\+::\+Get\+Resistance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
-Функция для получения коэффициента сопротивления на покрытии \begin{DoxyReturn}{Возвращает}
+
+
+Функция для получения коэффициента сопротивления на покрытии 
+
+\begin{DoxyReturn}{Возвращает}
 сопротивление 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classrtm_1_1_coating_object_a88eb5287d899ca8e10e31de4192bbddc}\label{classrtm_1_1_coating_object_a88eb5287d899ca8e10e31de4192bbddc}} 
@@ -150,7 +166,11 @@ float \hyperlink{classrtm_1_1_coating_object_a254720b1a903d8a0359f5d3ebe774bfb}{
 \subsubsection{\texorpdfstring{Has\+Direction()}{HasDirection()}}
 {\footnotesize\ttfamily bool rtm\+::\+Coating\+Object\+::\+Has\+Direction (\begin{DoxyParamCaption}\item[{\hyperlink{namespacertm_a69dc82b16a0148c10962caa83d930f89}{Angle\+Type}}]{angle }\end{DoxyParamCaption}) const}
 
+
+
 Функция для проверки существования направления 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em angle} & направление \\
 \hline
@@ -164,7 +184,11 @@ true, если доступно (существует), иначе false
 \subsubsection{\texorpdfstring{Is\+Direction\+Available()}{IsDirectionAvailable()}}
 {\footnotesize\ttfamily bool rtm\+::\+Coating\+Object\+::\+Is\+Direction\+Available (\begin{DoxyParamCaption}\item[{\hyperlink{namespacertm_a69dc82b16a0148c10962caa83d930f89}{Angle\+Type}}]{angle }\end{DoxyParamCaption}) const}
 
+
+
 Функция для проверки разрешенности направления 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em angle} & направление \\
 \hline
@@ -178,7 +202,11 @@ true, если разрешено ехать в данном направлен�
 \subsubsection{\texorpdfstring{Set\+Direction\+Availability()}{SetDirectionAvailability()}}
 {\footnotesize\ttfamily void rtm\+::\+Coating\+Object\+::\+Set\+Direction\+Availability (\begin{DoxyParamCaption}\item[{\hyperlink{namespacertm_a69dc82b16a0148c10962caa83d930f89}{Angle\+Type}}]{angle,  }\item[{bool}]{status }\end{DoxyParamCaption})}
 
+
+
 Функция установки разрешенности направления 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em angle} & направление \\
 \hline
@@ -191,7 +219,11 @@ true, если разрешено ехать в данном направлен�
 \subsubsection{\texorpdfstring{Set\+Sprite\+\_\+()}{SetSprite\_()}}
 {\footnotesize\ttfamily void rtm\+::\+Coating\+Object\+::\+Set\+Sprite\+\_\+ (\begin{DoxyParamCaption}\item[{cocos2d\+::\+Sprite $\ast$const}]{sprite }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
 
+
+
 Функция для установки спрайта 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em sprite} & указатель на спрайт \\
 \hline
@@ -202,7 +234,11 @@ true, если разрешено ехать в данном направлен�
 \subsubsection{\texorpdfstring{Set\+X\+\_\+()}{SetX\_()}}
 {\footnotesize\ttfamily void rtm\+::\+Coating\+Object\+::\+Set\+X\+\_\+ (\begin{DoxyParamCaption}\item[{float}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+
+
 Функция для установки абсциссы 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em x} & абсцисса \\
 \hline
@@ -213,7 +249,11 @@ true, если разрешено ехать в данном направлен�
 \subsubsection{\texorpdfstring{Set\+Y\+\_\+()}{SetY\_()}}
 {\footnotesize\ttfamily void rtm\+::\+Coating\+Object\+::\+Set\+Y\+\_\+ (\begin{DoxyParamCaption}\item[{float}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+
+
 Функция для установки ординаты 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em y} & ордината \\
 \hline

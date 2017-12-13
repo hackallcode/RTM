@@ -17,7 +17,7 @@ class \hyperlink{classrtm_1_1_car_object}{Car\+Object}
 class \hyperlink{classrtm_1_1_coating_object}{Coating\+Object}
 \begin{DoxyCompactList}\small\item\em Класс покрытия секции карты \end{DoxyCompactList}\item 
 class \hyperlink{classrtm_1_1_coating_union}{Coating\+Union}
-\item 
+\begin{DoxyCompactList}\small\item\em Класс объединения покрытий \end{DoxyCompactList}\item 
 class \hyperlink{classrtm_1_1_control_unit}{Control\+Unit}
 \begin{DoxyCompactList}\small\item\em Класс управляющего блока (светофор) \end{DoxyCompactList}\item 
 class \hyperlink{classrtm_1_1_crossroad_object}{Crossroad\+Object}
@@ -95,19 +95,19 @@ using \hyperlink{namespacertm_af668a936c29b476890a79ad1eb19e3cc}{Dynamic\+Shared
 using \hyperlink{namespacertm_a7fb21a6bf2f6f5947e2875093824c144}{Dynamic\+Vector} = std\+::vector$<$ \hyperlink{namespacertm_af668a936c29b476890a79ad1eb19e3cc}{Dynamic\+Shared} $>$
 \begin{DoxyCompactList}\small\item\em Массив объектов класса \hyperlink{classrtm_1_1_dynamic_object}{Dynamic\+Object}. \end{DoxyCompactList}\item 
 using \hyperlink{namespacertm_a4776fbfe59834ff1a16838ad6735b69a}{Directions} = std\+::array$<$ bool, 8 $>$
-\item 
+\begin{DoxyCompactList}\small\item\em Массив возможных направлений движений по кусочку объекта \end{DoxyCompactList}\item 
 using \hyperlink{namespacertm_a14457f3088a92b86a96686b72d3e4eea}{Lines\+Counts} = std\+::array$<$ size\+\_\+t, 4 $>$
-\item 
+\begin{DoxyCompactList}\small\item\em Массив количества полос в каждом напрвлении для перекрестков \end{DoxyCompactList}\item 
 using \hyperlink{namespacertm_a681634e130c2137fe63a658b0e0a5e46}{Direction\+Signals} = std\+::array$<$ \hyperlink{namespacertm_aadb7300c15d57429546fb0b7f8ee0ee6}{Signal\+Type}, 4 $>$
-\item 
+\begin{DoxyCompactList}\small\item\em Массив сигналов из одного напрвлениия в каждое \end{DoxyCompactList}\item 
 using \hyperlink{namespacertm_afa6df86cef8e2ebcc053ad994e440354}{Crossroad\+Signals} = std\+::array$<$ \hyperlink{namespacertm_a681634e130c2137fe63a658b0e0a5e46}{Direction\+Signals}, 4 $>$
-\item 
+\begin{DoxyCompactList}\small\item\em Массив сигналов для всех напрвлений перекрестка \end{DoxyCompactList}\item 
 using \hyperlink{namespacertm_ab6c6acbd1378bfe5755d77179a7131ff}{Signal\+Sprites} = std\+::array$<$ cocos2d\+::\+Sprite $\ast$, 5 $>$
-\item 
+\begin{DoxyCompactList}\small\item\em Массив всех текстур сигналов из одного направления в одно \end{DoxyCompactList}\item 
 using \hyperlink{namespacertm_a260109b3376dc38095724ee80ed72d8e}{Signals\+Sprites} = std\+::array$<$ \hyperlink{namespacertm_ab6c6acbd1378bfe5755d77179a7131ff}{Signal\+Sprites}, 3 $>$
-\item 
+\begin{DoxyCompactList}\small\item\em Массив всех текстур сигналов из одного направления в каждое (вперед, влево, вправо) \end{DoxyCompactList}\item 
 using \hyperlink{namespacertm_ac9f276c8ed33ee992eb1a1f04a8254a0}{Directions\+Signal\+Sprites} = std\+::array$<$ \hyperlink{namespacertm_a260109b3376dc38095724ee80ed72d8e}{Signals\+Sprites}, 4 $>$
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Массив всех текстур сигналов для перекрестка \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Перечисления}
 \begin{DoxyCompactItemize}
 \item 
@@ -201,54 +201,54 @@ enum \hyperlink{namespacertm_a4d86818f874975d3dc9f0f10feefc9c1}{Signal\+File\+Id
 \begin{DoxyCompactItemize}
 \item 
 void \hyperlink{namespacertm_a1fe2c356e3297343804842a57ce23a4b}{Check\+Collisions} (\hyperlink{classrtm_1_1_world_controller}{World\+Controller} $\ast$const world)
-\item 
+\begin{DoxyCompactList}\small\item\em Функция для вычисления столкновений в мире \end{DoxyCompactList}\item 
 std\+::string \hyperlink{namespacertm_a67bf20fe33d85bc05547ff1849aeb29e}{Get\+Filename} (std\+::string const \&mask, size\+\_\+t number)
-\item 
+\begin{DoxyCompactList}\small\item\em Функция для получения пути к файлу по маске \end{DoxyCompactList}\item 
 \hyperlink{namespacertm_a69dc82b16a0148c10962caa83d930f89}{Angle\+Type} \hyperlink{namespacertm_ac1ea2821fc44943e5c35d92e0c9cd5de}{Sum\+Angle\+Types} (\hyperlink{namespacertm_a69dc82b16a0148c10962caa83d930f89}{Angle\+Type} a, \hyperlink{namespacertm_a69dc82b16a0148c10962caa83d930f89}{Angle\+Type} b)
-\item 
+\begin{DoxyCompactList}\small\item\em Функция для суммирования двух угловых типов \end{DoxyCompactList}\item 
 float \hyperlink{namespacertm_a37715773d85c66ba5c1bf11260836fd0}{Count\+Deceleration} (float max\+Speed)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Функция для подсчёта рекомендуемого коэффициента замедления транспорта \end{DoxyCompactList}\end{DoxyCompactItemize}
 \begin{Indent}\textbf{ Функции для работы с параметрами положения объектов}\par
 \begin{DoxyCompactItemize}
 \item 
 bool \hyperlink{namespacertm_aa633b82b63b7cff4e9b08bf6a05ec383}{Same\+Coordinates} (float a, float b, float delta=\hyperlink{namespacertm_a9ae158a8873bdf59aa9872cdada6c657}{C\+O\+O\+R\+D\+\_\+\+D\+E\+L\+TA})
-\item 
+\begin{DoxyCompactList}\small\item\em Функция для сравнения двух координат с определенной точностью \end{DoxyCompactList}\item 
 float \hyperlink{namespacertm_a511bf31b8bfc36474baaf915bc11a619}{Round\+Coordinate} (float coordinate, float delta=\hyperlink{namespacertm_a9ae158a8873bdf59aa9872cdada6c657}{C\+O\+O\+R\+D\+\_\+\+D\+E\+L\+TA})
-\item 
+\begin{DoxyCompactList}\small\item\em Функция пытается округлить координаты до центра клетки \end{DoxyCompactList}\item 
 float \hyperlink{namespacertm_aa2d382c50aa6366b09deaa529d1b3199}{Round\+To\+Center} (float coordinate)
-\item 
+\begin{DoxyCompactList}\small\item\em Функция для округления координаты до центра клетки \end{DoxyCompactList}\item 
 bool \hyperlink{namespacertm_a030416c27fb4a5896aad3d102083897f}{In\+Center} (float coordinate, float delta=\hyperlink{namespacertm_a9ae158a8873bdf59aa9872cdada6c657}{C\+O\+O\+R\+D\+\_\+\+D\+E\+L\+TA})
-\item 
+\begin{DoxyCompactList}\small\item\em Функция для проверки координаты на центральность \end{DoxyCompactList}\item 
 float \hyperlink{namespacertm_aa546266dce0a8d2a50a7fe311e514668}{Distance\+To\+Next\+Center} (float x, float y, float angle)
-\item 
+\begin{DoxyCompactList}\small\item\em Функция для нахождения расстояния до следующего центра клетка по ходу движения \end{DoxyCompactList}\item 
 bool \hyperlink{namespacertm_a69199b6d204d2ebf33b76e5a7ad52876}{Center\+Is\+Crossed} (float x, float y, float angle, float last\+Delta)
-\item 
+\begin{DoxyCompactList}\small\item\em Функция проверяет, пересек ли объект центр клетки (центральную линию, перпендикулярную направлению движения) \end{DoxyCompactList}\item 
 bool \hyperlink{namespacertm_abf5da499525e88711c6edfb76314f90b}{Same\+Angles} (float a, float b, float delta=\hyperlink{namespacertm_ac78c5105838adb58682cb69a4c66efd7}{A\+N\+G\+L\+E\+\_\+\+D\+E\+L\+TA})
-\item 
+\begin{DoxyCompactList}\small\item\em Фукнция для сравнения двух углов \end{DoxyCompactList}\item 
 float \hyperlink{namespacertm_a2c9be06724a54815f6f2f638cf9ae613}{Round\+Angle} (float angle, float delta=\hyperlink{namespacertm_ac78c5105838adb58682cb69a4c66efd7}{A\+N\+G\+L\+E\+\_\+\+D\+E\+L\+TA})
-\item 
+\begin{DoxyCompactList}\small\item\em Фукнция пытается округлить угол до одно из главных направлений (период {$\pi$}/4, т.\+е. 0, {$\pi$}/4, {$\pi$}/2, ...) \end{DoxyCompactList}\item 
 float \hyperlink{namespacertm_a72a57dbe581a6743525e1920296d42fe}{Normalize\+Angle} (float angle)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Функция для нормализации угла до диапазона \mbox{[}-\/{$\pi$}/2;{$\pi$}/2) \end{DoxyCompactList}\end{DoxyCompactItemize}
 \end{Indent}
 \begin{Indent}\textbf{ Конверторы схожих типов}\par
 \begin{DoxyCompactItemize}
 \item 
 int \hyperlink{namespacertm_a390df6b8bc4a01befd946155150db744}{Pixel\+To\+Cell} (float coordinate)
-\item 
+\begin{DoxyCompactList}\small\item\em Функция для конвертации координаты в номер ячейки \end{DoxyCompactList}\item 
 float \hyperlink{namespacertm_af8d63f917ae1055a5766a0ba19542913}{Cell\+To\+Pixel} (int cell\+Number)
-\item 
+\begin{DoxyCompactList}\small\item\em Функция для конвертации номера ячейки в координату центра \end{DoxyCompactList}\item 
 \hyperlink{namespacertm_a69dc82b16a0148c10962caa83d930f89}{Angle\+Type} \hyperlink{namespacertm_aea5ae6d368199e41611725e0db13c5c3}{Angle\+To\+Angle\+Type} (float angle)
-\item 
+\begin{DoxyCompactList}\small\item\em Функция для конвертации угла в угловой тип \end{DoxyCompactList}\item 
 \hyperlink{namespacertm_a57b216f3aeb45041f3461bab08bc3aeb}{Direction\+Type} \hyperlink{namespacertm_ac81b2243a62081233f7b549248b5a145}{Angle\+To\+Direction} (float angle)
-\item 
+\begin{DoxyCompactList}\small\item\em Функция для конвертации угла в напраление \end{DoxyCompactList}\item 
 float \hyperlink{namespacertm_ad13b014bcdda27e0ff2fb23f265e29e4}{Angle\+Type\+To\+Angle} (\hyperlink{namespacertm_a69dc82b16a0148c10962caa83d930f89}{Angle\+Type} angle)
-\item 
+\begin{DoxyCompactList}\small\item\em Функция для конвертации углового типа в угол \end{DoxyCompactList}\item 
 \hyperlink{namespacertm_a57b216f3aeb45041f3461bab08bc3aeb}{Direction\+Type} \hyperlink{namespacertm_abeb9a79e27bc0c8c4c3e6cd9ec802627}{Angle\+Type\+To\+Direction} (\hyperlink{namespacertm_a69dc82b16a0148c10962caa83d930f89}{Angle\+Type} angle)
-\item 
+\begin{DoxyCompactList}\small\item\em Функция для конвертации углового типа в направление \end{DoxyCompactList}\item 
 float \hyperlink{namespacertm_a173759dd130d0f30d1f90fba11506bd6}{Direction\+To\+Angle} (\hyperlink{namespacertm_a57b216f3aeb45041f3461bab08bc3aeb}{Direction\+Type} direction)
-\item 
+\begin{DoxyCompactList}\small\item\em Функция для конвертации направления в угол \end{DoxyCompactList}\item 
 \hyperlink{namespacertm_a69dc82b16a0148c10962caa83d930f89}{Angle\+Type} \hyperlink{namespacertm_aa37fca29e3577b3389a9e8eb40d20d14}{Direction\+To\+Angle\+Type} (\hyperlink{namespacertm_a57b216f3aeb45041f3461bab08bc3aeb}{Direction\+Type} direction)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Функция для конвертации направления в угловой тип \end{DoxyCompactList}\end{DoxyCompactItemize}
 \end{Indent}
 \subsection*{Переменные}
 \begin{DoxyCompactItemize}
@@ -332,7 +332,7 @@ float const \hyperlink{namespacertm_ac78c5105838adb58682cb69a4c66efd7}{A\+N\+G\+
 float const \hyperlink{namespacertm_a9ae158a8873bdf59aa9872cdada6c657}{C\+O\+O\+R\+D\+\_\+\+D\+E\+L\+TA} \{ 1.f \}
 \begin{DoxyCompactList}\small\item\em Погрешность для координат \end{DoxyCompactList}\item 
 float const \hyperlink{namespacertm_ac6b72ea86e31b2b9ba35f29964ce0f5d}{N\+E\+A\+R\+\_\+\+D\+E\+L\+TA} \{ 1.f \}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Максимальное расстояние до объектов, которые недалеко \end{DoxyCompactList}\end{DoxyCompactItemize}
 \end{Indent}
 \begin{Indent}\textbf{ Парамметры карт}\par
 \begin{DoxyCompactItemize}
@@ -392,17 +392,17 @@ float const \hyperlink{namespacertm_a10eed490bb183c7853ac317d82e0b1cd}{V\+I\+E\+
 float const \hyperlink{namespacertm_ae9ea4dbfd2f4bb3b5c6bf1c5ea7227d7}{R\+O\+T\+A\+T\+I\+O\+N\+\_\+\+V\+I\+E\+W\+\_\+\+R\+A\+D\+I\+US} \{ 50.f \}
 \begin{DoxyCompactList}\small\item\em Радиус \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{namespacertm_ab5d83fa039813239add636c5dfe1c64d}\label{namespacertm_ab5d83fa039813239add636c5dfe1c64d}} 
-float const \hyperlink{namespacertm_ab5d83fa039813239add636c5dfe1c64d}{R\+O\+T\+A\+T\+I\+O\+N\+\_\+\+V\+I\+E\+W\+\_\+\+A\+N\+G\+LE} \{ 30.f $\ast$ \hyperlink{namespacertm_a797faf3037681ed7bc153db9eca6155e}{D\+E\+G\+\_\+\+R\+AD} \}
+float const \hyperlink{namespacertm_ab5d83fa039813239add636c5dfe1c64d}{R\+O\+T\+A\+T\+I\+O\+N\+\_\+\+V\+I\+E\+W\+\_\+\+A\+N\+G\+LE} \{ 30.\+5f $\ast$ D\+E\+G\+\_\+\+R\+A\+D \}
 \begin{DoxyCompactList}\small\item\em Ширина угла в каждую сторону \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{namespacertm_ab2e47618aa31260d6890c18525f611fa}\label{namespacertm_ab2e47618aa31260d6890c18525f611fa}} 
-float const \hyperlink{namespacertm_ab2e47618aa31260d6890c18525f611fa}{R\+O\+T\+A\+T\+I\+O\+N\+\_\+\+V\+I\+E\+W\+\_\+\+A\+N\+G\+L\+E\+\_\+\+S\+H\+I\+FT} \{ 30.f $\ast$ \hyperlink{namespacertm_a797faf3037681ed7bc153db9eca6155e}{D\+E\+G\+\_\+\+R\+AD} \}
+float const \hyperlink{namespacertm_ab2e47618aa31260d6890c18525f611fa}{R\+O\+T\+A\+T\+I\+O\+N\+\_\+\+V\+I\+E\+W\+\_\+\+A\+N\+G\+L\+E\+\_\+\+S\+H\+I\+FT} \{ 29.\+5f $\ast$ D\+E\+G\+\_\+\+R\+A\+D \}
 \begin{DoxyCompactList}\small\item\em Сдвиг области обзора \end{DoxyCompactList}\end{DoxyCompactItemize}
 \end{Indent}
 \begin{Indent}\textbf{ Область видимости незадолго до поворота}\par
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{namespacertm_ae00afb2f4895bee23fd6b18359aa0923}\label{namespacertm_ae00afb2f4895bee23fd6b18359aa0923}} 
-float const \hyperlink{namespacertm_ae00afb2f4895bee23fd6b18359aa0923}{T\+U\+R\+N\+\_\+\+V\+I\+E\+W\+\_\+\+R\+A\+D\+I\+US} \{ 75.f \}
+float const \hyperlink{namespacertm_ae00afb2f4895bee23fd6b18359aa0923}{T\+U\+R\+N\+\_\+\+V\+I\+E\+W\+\_\+\+R\+A\+D\+I\+US} \{ 60.f \}
 \begin{DoxyCompactList}\small\item\em Радиус \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{namespacertm_a2bed018eeea8988507e7a65059a3ff98}\label{namespacertm_a2bed018eeea8988507e7a65059a3ff98}} 
 float const \hyperlink{namespacertm_a2bed018eeea8988507e7a65059a3ff98}{T\+U\+R\+N\+\_\+\+V\+I\+E\+W\+\_\+\+A\+N\+G\+LE} \{ 30.f $\ast$ \hyperlink{namespacertm_a797faf3037681ed7bc153db9eca6155e}{D\+E\+G\+\_\+\+R\+AD} \}
@@ -486,17 +486,17 @@ std\+::string const \hyperlink{namespacertm_a72fea838addb841a6ea0173857a8eff1}{C
 \begin{DoxyCompactItemize}
 \item 
 std\+::array$<$ float, 2 $>$ const \hyperlink{namespacertm_a9f4d245ca5d201a5853914c175d0d17f}{R\+O\+A\+D\+S\+\_\+\+R\+E\+S\+I\+S\+T\+A\+N\+C\+ES}
-\item 
+\begin{DoxyCompactList}\small\item\em Массив коэффициентов трения для каждого типа объекта \end{DoxyCompactList}\item 
 std\+::array$<$ \hyperlink{namespacertm_a4776fbfe59834ff1a16838ad6735b69a}{Directions}, 18 $>$ const \hyperlink{namespacertm_a5820286728bf347e0320bdd9dc91ed1b}{R\+O\+A\+D\+S\+\_\+\+D\+I\+R\+E\+C\+T\+I\+O\+NS}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Массив возможных направлений для каждой типа кучоска дороги \end{DoxyCompactList}\end{DoxyCompactItemize}
 \end{Indent}
 \begin{Indent}\textbf{ Параметры машин}\par
 \begin{DoxyCompactItemize}
 \item 
 std\+::array$<$ float, 6 $>$ const \hyperlink{namespacertm_ab4d4feaa707f2d1eba41feae3b46451f}{C\+A\+R\+S\+\_\+\+M\+A\+X\+\_\+\+S\+P\+E\+E\+DS}
-\item 
+\begin{DoxyCompactList}\small\item\em Массив максимальных скоростей для машин \end{DoxyCompactList}\item 
 std\+::array$<$ float, 6 $>$ const \hyperlink{namespacertm_acac83b872b644793530e7f6f4660c85e}{C\+A\+R\+S\+\_\+\+A\+C\+C\+E\+L\+E\+R\+A\+T\+I\+O\+NS}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Массив ускорений для машин \end{DoxyCompactList}\end{DoxyCompactItemize}
 \end{Indent}
 
 
@@ -510,7 +510,11 @@ std\+::array$<$ float, 6 $>$ const \hyperlink{namespacertm_acac83b872b644793530e
 \subsubsection{\texorpdfstring{Directions}{Directions}}
 {\footnotesize\ttfamily using \hyperlink{namespacertm_a4776fbfe59834ff1a16838ad6735b69a}{rtm\+::\+Directions} = typedef std\+::array$<$bool, 8$>$}
 
-Массив возможных направлений движений по кусочку объекта \begin{DoxySeeAlso}{См. также}
+
+
+Массив возможных направлений движений по кусочку объекта 
+
+\begin{DoxySeeAlso}{См. также}
 \hyperlink{namespacertm_a69dc82b16a0148c10962caa83d930f89}{Angle\+Type} 
 \end{DoxySeeAlso}
 \mbox{\Hypertarget{namespacertm_a14457f3088a92b86a96686b72d3e4eea}\label{namespacertm_a14457f3088a92b86a96686b72d3e4eea}} 
@@ -519,7 +523,11 @@ std\+::array$<$ float, 6 $>$ const \hyperlink{namespacertm_acac83b872b644793530e
 \subsubsection{\texorpdfstring{Lines\+Counts}{LinesCounts}}
 {\footnotesize\ttfamily using \hyperlink{namespacertm_a14457f3088a92b86a96686b72d3e4eea}{rtm\+::\+Lines\+Counts} = typedef std\+::array$<$size\+\_\+t, 4$>$}
 
-Массив количества полос в каждом напрвлении для перекрестков \begin{DoxySeeAlso}{См. также}
+
+
+Массив количества полос в каждом напрвлении для перекрестков 
+
+\begin{DoxySeeAlso}{См. также}
 \hyperlink{namespacertm_a57b216f3aeb45041f3461bab08bc3aeb}{Direction\+Type} 
 \end{DoxySeeAlso}
 \mbox{\Hypertarget{namespacertm_a681634e130c2137fe63a658b0e0a5e46}\label{namespacertm_a681634e130c2137fe63a658b0e0a5e46}} 
@@ -528,7 +536,11 @@ std\+::array$<$ float, 6 $>$ const \hyperlink{namespacertm_acac83b872b644793530e
 \subsubsection{\texorpdfstring{Direction\+Signals}{DirectionSignals}}
 {\footnotesize\ttfamily using \hyperlink{namespacertm_a681634e130c2137fe63a658b0e0a5e46}{rtm\+::\+Direction\+Signals} = typedef std\+::array$<$\hyperlink{namespacertm_aadb7300c15d57429546fb0b7f8ee0ee6}{Signal\+Type}, 4$>$}
 
-Массив сигналов из одного напрвлениия в каждое \begin{DoxySeeAlso}{См. также}
+
+
+Массив сигналов из одного напрвлениия в каждое 
+
+\begin{DoxySeeAlso}{См. также}
 \hyperlink{namespacertm_a57b216f3aeb45041f3461bab08bc3aeb}{Direction\+Type} 
 \end{DoxySeeAlso}
 \mbox{\Hypertarget{namespacertm_afa6df86cef8e2ebcc053ad994e440354}\label{namespacertm_afa6df86cef8e2ebcc053ad994e440354}} 
@@ -537,7 +549,11 @@ std\+::array$<$ float, 6 $>$ const \hyperlink{namespacertm_acac83b872b644793530e
 \subsubsection{\texorpdfstring{Crossroad\+Signals}{CrossroadSignals}}
 {\footnotesize\ttfamily using \hyperlink{namespacertm_afa6df86cef8e2ebcc053ad994e440354}{rtm\+::\+Crossroad\+Signals} = typedef std\+::array$<$\hyperlink{namespacertm_a681634e130c2137fe63a658b0e0a5e46}{Direction\+Signals}, 4$>$}
 
-Массив сигналов для всех напрвлений перекрестка \begin{DoxySeeAlso}{См. также}
+
+
+Массив сигналов для всех напрвлений перекрестка 
+
+\begin{DoxySeeAlso}{См. также}
 \hyperlink{namespacertm_a57b216f3aeb45041f3461bab08bc3aeb}{Direction\+Type} 
 \end{DoxySeeAlso}
 \mbox{\Hypertarget{namespacertm_ab6c6acbd1378bfe5755d77179a7131ff}\label{namespacertm_ab6c6acbd1378bfe5755d77179a7131ff}} 
@@ -546,7 +562,11 @@ std\+::array$<$ float, 6 $>$ const \hyperlink{namespacertm_acac83b872b644793530e
 \subsubsection{\texorpdfstring{Signal\+Sprites}{SignalSprites}}
 {\footnotesize\ttfamily using \hyperlink{namespacertm_ab6c6acbd1378bfe5755d77179a7131ff}{rtm\+::\+Signal\+Sprites} = typedef std\+::array$<$cocos2d\+::\+Sprite$\ast$, 5$>$}
 
-Массив всех текстур сигналов из одного направления в одно \begin{DoxySeeAlso}{См. также}
+
+
+Массив всех текстур сигналов из одного направления в одно 
+
+\begin{DoxySeeAlso}{См. также}
 \hyperlink{namespacertm_aadb7300c15d57429546fb0b7f8ee0ee6}{Signal\+Type} 
 \end{DoxySeeAlso}
 \mbox{\Hypertarget{namespacertm_a260109b3376dc38095724ee80ed72d8e}\label{namespacertm_a260109b3376dc38095724ee80ed72d8e}} 
@@ -555,7 +575,11 @@ std\+::array$<$ float, 6 $>$ const \hyperlink{namespacertm_acac83b872b644793530e
 \subsubsection{\texorpdfstring{Signals\+Sprites}{SignalsSprites}}
 {\footnotesize\ttfamily using \hyperlink{namespacertm_a260109b3376dc38095724ee80ed72d8e}{rtm\+::\+Signals\+Sprites} = typedef std\+::array$<$\hyperlink{namespacertm_ab6c6acbd1378bfe5755d77179a7131ff}{Signal\+Sprites}, 3$>$}
 
-Массив всех текстур сигналов из одного направления в каждое (вперед, влево, вправо) \begin{DoxySeeAlso}{См. также}
+
+
+Массив всех текстур сигналов из одного направления в каждое (вперед, влево, вправо) 
+
+\begin{DoxySeeAlso}{См. также}
 \hyperlink{namespacertm_a27eb93235356cdffe25fe6628e7eff14}{Direction\+Signal\+Index} 
 \end{DoxySeeAlso}
 \mbox{\Hypertarget{namespacertm_ac9f276c8ed33ee992eb1a1f04a8254a0}\label{namespacertm_ac9f276c8ed33ee992eb1a1f04a8254a0}} 
@@ -564,7 +588,11 @@ std\+::array$<$ float, 6 $>$ const \hyperlink{namespacertm_acac83b872b644793530e
 \subsubsection{\texorpdfstring{Directions\+Signal\+Sprites}{DirectionsSignalSprites}}
 {\footnotesize\ttfamily using \hyperlink{namespacertm_ac9f276c8ed33ee992eb1a1f04a8254a0}{rtm\+::\+Directions\+Signal\+Sprites} = typedef std\+::array$<$\hyperlink{namespacertm_a260109b3376dc38095724ee80ed72d8e}{Signals\+Sprites}, 4$>$}
 
-Массив всех текстур сигналов для перекрестка \begin{DoxySeeAlso}{См. также}
+
+
+Массив всех текстур сигналов для перекрестка 
+
+\begin{DoxySeeAlso}{См. также}
 \hyperlink{namespacertm_a57b216f3aeb45041f3461bab08bc3aeb}{Direction\+Type} 
 \end{DoxySeeAlso}
 
@@ -903,7 +931,11 @@ Rightward\+Signal\+Id&Индекс сигнал для поворота напр
 \subsubsection{\texorpdfstring{Check\+Collisions()}{CheckCollisions()}}
 {\footnotesize\ttfamily void rtm\+::\+Check\+Collisions (\begin{DoxyParamCaption}\item[{\hyperlink{classrtm_1_1_world_controller}{World\+Controller} $\ast$const}]{world }\end{DoxyParamCaption})}
 
+
+
 Функция для вычисления столкновений в мире 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em world} & контроллер мира, в котором будут происходить вычисления \\
 \hline
@@ -914,7 +946,11 @@ Rightward\+Signal\+Id&Индекс сигнал для поворота напр
 \subsubsection{\texorpdfstring{Same\+Coordinates()}{SameCoordinates()}}
 {\footnotesize\ttfamily bool rtm\+::\+Same\+Coordinates (\begin{DoxyParamCaption}\item[{float}]{a,  }\item[{float}]{b,  }\item[{float}]{delta = {\ttfamily \hyperlink{namespacertm_a9ae158a8873bdf59aa9872cdada6c657}{C\+O\+O\+R\+D\+\_\+\+D\+E\+L\+TA}} }\end{DoxyParamCaption})}
 
+
+
 Функция для сравнения двух координат с определенной точностью 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em a,b} & координаты, которые будут сравниваться \\
 \hline
@@ -930,7 +966,11 @@ Rightward\+Signal\+Id&Индекс сигнал для поворота напр
 \subsubsection{\texorpdfstring{Round\+Coordinate()}{RoundCoordinate()}}
 {\footnotesize\ttfamily float rtm\+::\+Round\+Coordinate (\begin{DoxyParamCaption}\item[{float}]{coordinate,  }\item[{float}]{delta = {\ttfamily \hyperlink{namespacertm_a9ae158a8873bdf59aa9872cdada6c657}{C\+O\+O\+R\+D\+\_\+\+D\+E\+L\+TA}} }\end{DoxyParamCaption})}
 
+
+
 Функция пытается округлить координаты до центра клетки 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em coordinate} & координата, которую будем пытаться округлить \\
 \hline
@@ -946,7 +986,11 @@ Rightward\+Signal\+Id&Индекс сигнал для поворота напр
 \subsubsection{\texorpdfstring{Round\+To\+Center()}{RoundToCenter()}}
 {\footnotesize\ttfamily float rtm\+::\+Round\+To\+Center (\begin{DoxyParamCaption}\item[{float}]{coordinate }\end{DoxyParamCaption})}
 
+
+
 Функция для округления координаты до центра клетки 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em coordinate} & округляемая координата \\
 \hline
@@ -960,7 +1004,11 @@ Rightward\+Signal\+Id&Индекс сигнал для поворота напр
 \subsubsection{\texorpdfstring{In\+Center()}{InCenter()}}
 {\footnotesize\ttfamily bool rtm\+::\+In\+Center (\begin{DoxyParamCaption}\item[{float}]{coordinate,  }\item[{float}]{delta = {\ttfamily \hyperlink{namespacertm_a9ae158a8873bdf59aa9872cdada6c657}{C\+O\+O\+R\+D\+\_\+\+D\+E\+L\+TA}} }\end{DoxyParamCaption})}
 
+
+
 Функция для проверки координаты на центральность 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em coordinate} & координата, которую проверяем \\
 \hline
@@ -976,7 +1024,11 @@ true, если в центре клетки, иначе false
 \subsubsection{\texorpdfstring{Distance\+To\+Next\+Center()}{DistanceToNextCenter()}}
 {\footnotesize\ttfamily float rtm\+::\+Distance\+To\+Next\+Center (\begin{DoxyParamCaption}\item[{float}]{x,  }\item[{float}]{y,  }\item[{float}]{angle }\end{DoxyParamCaption})}
 
+
+
 Функция для нахождения расстояния до следующего центра клетка по ходу движения 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em x,y} & координаты объекта \\
 \hline
@@ -992,7 +1044,11 @@ true, если в центре клетки, иначе false
 \subsubsection{\texorpdfstring{Center\+Is\+Crossed()}{CenterIsCrossed()}}
 {\footnotesize\ttfamily bool rtm\+::\+Center\+Is\+Crossed (\begin{DoxyParamCaption}\item[{float}]{x,  }\item[{float}]{y,  }\item[{float}]{angle,  }\item[{float}]{last\+Delta }\end{DoxyParamCaption})}
 
+
+
 Функция проверяет, пересек ли объект центр клетки (центральную линию, перпендикулярную направлению движения) 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em x,y} & координаты объекта \\
 \hline
@@ -1010,7 +1066,11 @@ true, если пересек какой-\/либо центр
 \subsubsection{\texorpdfstring{Same\+Angles()}{SameAngles()}}
 {\footnotesize\ttfamily bool rtm\+::\+Same\+Angles (\begin{DoxyParamCaption}\item[{float}]{a,  }\item[{float}]{b,  }\item[{float}]{delta = {\ttfamily \hyperlink{namespacertm_ac78c5105838adb58682cb69a4c66efd7}{A\+N\+G\+L\+E\+\_\+\+D\+E\+L\+TA}} }\end{DoxyParamCaption})}
 
+
+
 Фукнция для сравнения двух углов 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em a,b} & углы, которые будут сравниваться \\
 \hline
@@ -1026,7 +1086,11 @@ true, если пересек какой-\/либо центр
 \subsubsection{\texorpdfstring{Round\+Angle()}{RoundAngle()}}
 {\footnotesize\ttfamily float rtm\+::\+Round\+Angle (\begin{DoxyParamCaption}\item[{float}]{angle,  }\item[{float}]{delta = {\ttfamily \hyperlink{namespacertm_ac78c5105838adb58682cb69a4c66efd7}{A\+N\+G\+L\+E\+\_\+\+D\+E\+L\+TA}} }\end{DoxyParamCaption})}
 
+
+
 Фукнция пытается округлить угол до одно из главных направлений (период {$\pi$}/4, т.\+е. 0, {$\pi$}/4, {$\pi$}/2, ...) 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em angle} & угол, который будем пытаться округлить \\
 \hline
@@ -1042,7 +1106,11 @@ true, если пересек какой-\/либо центр
 \subsubsection{\texorpdfstring{Normalize\+Angle()}{NormalizeAngle()}}
 {\footnotesize\ttfamily float rtm\+::\+Normalize\+Angle (\begin{DoxyParamCaption}\item[{float}]{angle }\end{DoxyParamCaption})}
 
+
+
 Функция для нормализации угла до диапазона \mbox{[}-\/{$\pi$}/2;{$\pi$}/2) 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em angle} & угол, который будем нормализовывать \\
 \hline
@@ -1056,7 +1124,11 @@ true, если пересек какой-\/либо центр
 \subsubsection{\texorpdfstring{Pixel\+To\+Cell()}{PixelToCell()}}
 {\footnotesize\ttfamily int rtm\+::\+Pixel\+To\+Cell (\begin{DoxyParamCaption}\item[{float}]{coordinate }\end{DoxyParamCaption})}
 
+
+
 Функция для конвертации координаты в номер ячейки 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em coordinate} & координата, которая будет конвертирована \\
 \hline
@@ -1070,7 +1142,11 @@ true, если пересек какой-\/либо центр
 \subsubsection{\texorpdfstring{Cell\+To\+Pixel()}{CellToPixel()}}
 {\footnotesize\ttfamily float rtm\+::\+Cell\+To\+Pixel (\begin{DoxyParamCaption}\item[{int}]{cell\+Number }\end{DoxyParamCaption})}
 
+
+
 Функция для конвертации номера ячейки в координату центра 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em cell\+Number} & номер ячейки, который будет конвертирован \\
 \hline
@@ -1084,7 +1160,11 @@ true, если пересек какой-\/либо центр
 \subsubsection{\texorpdfstring{Angle\+To\+Angle\+Type()}{AngleToAngleType()}}
 {\footnotesize\ttfamily \hyperlink{namespacertm_a69dc82b16a0148c10962caa83d930f89}{rtm\+::\+Angle\+Type} rtm\+::\+Angle\+To\+Angle\+Type (\begin{DoxyParamCaption}\item[{float}]{angle }\end{DoxyParamCaption})}
 
+
+
 Функция для конвертации угла в угловой тип 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em angle} & угол, который будет конвертирован \\
 \hline
@@ -1098,7 +1178,11 @@ true, если пересек какой-\/либо центр
 \subsubsection{\texorpdfstring{Angle\+To\+Direction()}{AngleToDirection()}}
 {\footnotesize\ttfamily \hyperlink{namespacertm_a57b216f3aeb45041f3461bab08bc3aeb}{rtm\+::\+Direction\+Type} rtm\+::\+Angle\+To\+Direction (\begin{DoxyParamCaption}\item[{float}]{angle }\end{DoxyParamCaption})}
 
+
+
 Функция для конвертации угла в напраление 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em angle} & угол, который будет конвертирован \\
 \hline
@@ -1112,7 +1196,11 @@ true, если пересек какой-\/либо центр
 \subsubsection{\texorpdfstring{Angle\+Type\+To\+Angle()}{AngleTypeToAngle()}}
 {\footnotesize\ttfamily float rtm\+::\+Angle\+Type\+To\+Angle (\begin{DoxyParamCaption}\item[{\hyperlink{namespacertm_a69dc82b16a0148c10962caa83d930f89}{Angle\+Type}}]{angle }\end{DoxyParamCaption})}
 
+
+
 Функция для конвертации углового типа в угол 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em angle} & уголовой тип, который будет конвертирован \\
 \hline
@@ -1126,7 +1214,11 @@ true, если пересек какой-\/либо центр
 \subsubsection{\texorpdfstring{Angle\+Type\+To\+Direction()}{AngleTypeToDirection()}}
 {\footnotesize\ttfamily \hyperlink{namespacertm_a57b216f3aeb45041f3461bab08bc3aeb}{rtm\+::\+Direction\+Type} rtm\+::\+Angle\+Type\+To\+Direction (\begin{DoxyParamCaption}\item[{\hyperlink{namespacertm_a69dc82b16a0148c10962caa83d930f89}{Angle\+Type}}]{angle }\end{DoxyParamCaption})}
 
+
+
 Функция для конвертации углового типа в направление 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em angle} & уголовой тип, который будет конвертирован \\
 \hline
@@ -1140,7 +1232,11 @@ true, если пересек какой-\/либо центр
 \subsubsection{\texorpdfstring{Direction\+To\+Angle()}{DirectionToAngle()}}
 {\footnotesize\ttfamily float rtm\+::\+Direction\+To\+Angle (\begin{DoxyParamCaption}\item[{\hyperlink{namespacertm_a57b216f3aeb45041f3461bab08bc3aeb}{Direction\+Type}}]{direction }\end{DoxyParamCaption})}
 
+
+
 Функция для конвертации направления в угол 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em direction} & направление, которое будет конвертировано \\
 \hline
@@ -1154,7 +1250,11 @@ true, если пересек какой-\/либо центр
 \subsubsection{\texorpdfstring{Direction\+To\+Angle\+Type()}{DirectionToAngleType()}}
 {\footnotesize\ttfamily \hyperlink{namespacertm_a69dc82b16a0148c10962caa83d930f89}{rtm\+::\+Angle\+Type} rtm\+::\+Direction\+To\+Angle\+Type (\begin{DoxyParamCaption}\item[{\hyperlink{namespacertm_a57b216f3aeb45041f3461bab08bc3aeb}{Direction\+Type}}]{direction }\end{DoxyParamCaption})}
 
+
+
 Функция для конвертации направления в угловой тип 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em direction} & направление, которое будет конвертировано \\
 \hline
@@ -1168,7 +1268,11 @@ true, если пересек какой-\/либо центр
 \subsubsection{\texorpdfstring{Get\+Filename()}{GetFilename()}}
 {\footnotesize\ttfamily std\+::string rtm\+::\+Get\+Filename (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{mask,  }\item[{size\+\_\+t}]{number }\end{DoxyParamCaption})}
 
+
+
 Функция для получения пути к файлу по маске 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em mask} & маска названия файла \\
 \hline
@@ -1184,7 +1288,11 @@ true, если пересек какой-\/либо центр
 \subsubsection{\texorpdfstring{Sum\+Angle\+Types()}{SumAngleTypes()}}
 {\footnotesize\ttfamily \hyperlink{namespacertm_a69dc82b16a0148c10962caa83d930f89}{rtm\+::\+Angle\+Type} rtm\+::\+Sum\+Angle\+Types (\begin{DoxyParamCaption}\item[{\hyperlink{namespacertm_a69dc82b16a0148c10962caa83d930f89}{Angle\+Type}}]{a,  }\item[{\hyperlink{namespacertm_a69dc82b16a0148c10962caa83d930f89}{Angle\+Type}}]{b }\end{DoxyParamCaption})}
 
+
+
 Функция для суммирования двух угловых типов 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em a,b} & угловые типы, которые будут складываться \\
 \hline
@@ -1198,7 +1306,11 @@ true, если пересек какой-\/либо центр
 \subsubsection{\texorpdfstring{Count\+Deceleration()}{CountDeceleration()}}
 {\footnotesize\ttfamily float rtm\+::\+Count\+Deceleration (\begin{DoxyParamCaption}\item[{float}]{max\+Speed }\end{DoxyParamCaption})}
 
+
+
 Функция для подсчёта рекомендуемого коэффициента замедления транспорта 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em max\+Speed} & максимальная скорость транспорта \\
 \hline
@@ -1215,7 +1327,11 @@ true, если пересек какой-\/либо центр
 \subsubsection{\texorpdfstring{N\+E\+A\+R\+\_\+\+D\+E\+L\+TA}{NEAR\_DELTA}}
 {\footnotesize\ttfamily float const rtm\+::\+N\+E\+A\+R\+\_\+\+D\+E\+L\+TA \{ 1.f \}}
 
-Максимальное расстояние до объектов, которые недалеко \begin{DoxySeeAlso}{См. также}
+
+
+Максимальное расстояние до объектов, которые недалеко 
+
+\begin{DoxySeeAlso}{См. также}
 \hyperlink{classrtm_1_1_dynamic_object}{Dynamic\+Object} 
 \end{DoxySeeAlso}
 \mbox{\Hypertarget{namespacertm_ac3892e23135322d9026ef00af1a76344}\label{namespacertm_ac3892e23135322d9026ef00af1a76344}} 
@@ -1286,7 +1402,11 @@ true, если пересек какой-\/либо центр
         , 0.8f   
     \}
 \end{DoxyCode}
-Массив коэффициентов трения для каждого типа объекта \begin{DoxySeeAlso}{См. также}
+
+
+Массив коэффициентов трения для каждого типа объекта 
+
+\begin{DoxySeeAlso}{См. также}
 \hyperlink{namespacertm_aecd3929e64cd461eb3555b611f6fad95}{Coating\+Type} 
 \end{DoxySeeAlso}
 \mbox{\Hypertarget{namespacertm_a5820286728bf347e0320bdd9dc91ed1b}\label{namespacertm_a5820286728bf347e0320bdd9dc91ed1b}} 
@@ -1318,7 +1438,11 @@ true, если пересек какой-\/либо центр
         , \hyperlink{namespacertm_a4776fbfe59834ff1a16838ad6735b69a}{Directions}\{ \textcolor{keyword}{false}, \textcolor{keyword}{false}, \textcolor{keyword}{false}, \textcolor{keyword}{false}, \textcolor{keyword}{false}, \textcolor{keyword}{false}, \textcolor{keyword}{false}, \textcolor{keyword}{false} \}  
     \}
 \end{DoxyCode}
-Массив возможных направлений для каждой типа кучоска дороги \begin{DoxySeeAlso}{См. также}
+
+
+Массив возможных направлений для каждой типа кучоска дороги 
+
+\begin{DoxySeeAlso}{См. также}
 \hyperlink{classrtm_1_1_road_coating}{Road\+Coating} 
 \end{DoxySeeAlso}
 \mbox{\Hypertarget{namespacertm_ab4d4feaa707f2d1eba41feae3b46451f}\label{namespacertm_ab4d4feaa707f2d1eba41feae3b46451f}} 
@@ -1338,7 +1462,11 @@ true, если пересек какой-\/либо центр
         , 36.f  
     \}
 \end{DoxyCode}
-Массив максимальных скоростей для машин \begin{DoxySeeAlso}{См. также}
+
+
+Массив максимальных скоростей для машин 
+
+\begin{DoxySeeAlso}{См. также}
 \hyperlink{classrtm_1_1_car_object}{Car\+Object} 
 \end{DoxySeeAlso}
 \mbox{\Hypertarget{namespacertm_acac83b872b644793530e7f6f4660c85e}\label{namespacertm_acac83b872b644793530e7f6f4660c85e}} 
@@ -1358,6 +1486,10 @@ true, если пересек какой-\/либо центр
         , 12.f  
     \}
 \end{DoxyCode}
-Массив ускорений для машин \begin{DoxySeeAlso}{См. также}
+
+
+Массив ускорений для машин 
+
+\begin{DoxySeeAlso}{См. также}
 \hyperlink{classrtm_1_1_car_object}{Car\+Object} 
 \end{DoxySeeAlso}

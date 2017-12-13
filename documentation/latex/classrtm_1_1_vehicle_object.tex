@@ -26,102 +26,102 @@
 \hyperlink{classrtm_1_1_vehicle_object_a11e3aa43d731f461ed503fb26c48ea5c}{Vehicle\+Object} ()
 \begin{DoxyCompactList}\small\item\em Конструктор по умочанию \end{DoxyCompactList}\item 
 \hyperlink{classrtm_1_1_vehicle_object_aa14dd490d0828a12ab1e8f32bab4c98b}{Vehicle\+Object} (cocos2d\+::\+Sprite $\ast$const sprite, int column, int row, float angle, float max\+Speed, float acceleration, float deceleration)
-\item 
+\begin{DoxyCompactList}\small\item\em Конструктор с использованием уже готового спрайта \end{DoxyCompactList}\item 
 \hyperlink{classrtm_1_1_vehicle_object_aee37c55d41eb445704b51f24cb7865cb}{Vehicle\+Object} (std\+::string const \&filename, int column, int row, float angle, float max\+Speed, float acceleration, float deceleration)
-\item 
+\begin{DoxyCompactList}\small\item\em Конструктор из файла \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classrtm_1_1_vehicle_object_a06fe20ebdc790885520022d7f59868c0}\label{classrtm_1_1_vehicle_object_a06fe20ebdc790885520022d7f59868c0}} 
 virtual \hyperlink{classrtm_1_1_vehicle_object_a06fe20ebdc790885520022d7f59868c0}{$\sim$\+Vehicle\+Object} ()=default
 \begin{DoxyCompactList}\small\item\em Деструктор по умолчанию \end{DoxyCompactList}\item 
 virtual void \hyperlink{classrtm_1_1_vehicle_object_a1e089c8acf528660417a21c75658d546}{Update} (\hyperlink{classrtm_1_1_world_controller}{World\+Controller} $\ast$const world) override
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Функция обновления \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Защищенные члены}
 \begin{DoxyCompactItemize}
 \item 
 bool \hyperlink{classrtm_1_1_vehicle_object_a017a765353387080952f3ef1657c9463}{Move\+Forward\+\_\+} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Функция для сообщения о необходимости начать движение \end{DoxyCompactList}\item 
 bool \hyperlink{classrtm_1_1_vehicle_object_a74dd5fb7b16da79e1d288738ba43ded0}{Stop\+\_\+} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Функция для сообщения о необходимости остановиться \end{DoxyCompactList}\item 
 bool \hyperlink{classrtm_1_1_vehicle_object_a0739284311dc651679c0c5954f240758}{Rotate\+\_\+} (float angle=\hyperlink{namespacertm_a39212dd73aa5a6387211cf776bdb64d8}{A\+N\+G\+L\+E\+\_\+\+R\+I\+G\+HT})
-\item 
+\begin{DoxyCompactList}\small\item\em Функция для сообщения о необходимости повернуть \end{DoxyCompactList}\item 
 bool \hyperlink{classrtm_1_1_vehicle_object_a73ef7c4f1318bdbe2cd75dc4f07aca4e}{Change\+Line\+\_\+} (bool is\+Right=\hyperlink{namespacertm_a92d29773a54951290dd89f754fb39a8c}{L\+E\+FT})
-\item 
+\begin{DoxyCompactList}\small\item\em Функция для сообщения о необходимости перестроиться \end{DoxyCompactList}\item 
 bool \hyperlink{classrtm_1_1_vehicle_object_adcccb796e4b1b404a25512fa8491cd43}{Is\+Movement\+\_\+} () const
-\item 
+\begin{DoxyCompactList}\small\item\em Функция, сообщающая о движении объекта \end{DoxyCompactList}\item 
 bool \hyperlink{classrtm_1_1_vehicle_object_a7cb07a20e09d1460ec3d2dd70d62aba2}{Is\+Rotation\+\_\+} () const
-\item 
+\begin{DoxyCompactList}\small\item\em Функция, сообщающая о повороте объекта \end{DoxyCompactList}\item 
 bool \hyperlink{classrtm_1_1_vehicle_object_a464c8de22beb3cbf819d12ad36ae4974}{Is\+Line\+Changing\+\_\+} () const
-\item 
+\begin{DoxyCompactList}\small\item\em Функция, сообщающая о перестроении объекта \end{DoxyCompactList}\item 
 bool \hyperlink{classrtm_1_1_vehicle_object_ab74eb10fd7df8238a437923cbf184bca}{Is\+Braking\+\_\+} () const
-\item 
+\begin{DoxyCompactList}\small\item\em Функция, сообщающая о торможении объекта перед светофором и т.\+д. \end{DoxyCompactList}\item 
 float \hyperlink{classrtm_1_1_vehicle_object_ad0dd345b8c1d7913034aaf3267ee4a03}{Get\+Max\+Speed\+\_\+} () const
-\item 
+\begin{DoxyCompactList}\small\item\em Функция для получения максимальной скорости \end{DoxyCompactList}\item 
 float \hyperlink{classrtm_1_1_vehicle_object_a6cf4eb12c1eaf80b7f1e95ab206deae9}{Get\+Final\+Speed\+\_\+} () const
-\item 
+\begin{DoxyCompactList}\small\item\em Функция для получения финальной скорости (к которой объект будет стремиться) \end{DoxyCompactList}\item 
 void \hyperlink{classrtm_1_1_vehicle_object_a0339478b106ebe22b63a6d076204cc22}{Set\+Final\+Speed\+\_\+} (float speed)
-\item 
+\begin{DoxyCompactList}\small\item\em Функция для установки финальной скорости (к которой объект будет стремиться) \end{DoxyCompactList}\item 
 void \hyperlink{classrtm_1_1_vehicle_object_a3c2db832bf74ea5bd226e98e24b3da4b}{Set\+Braking\+Factor\+\_\+} (float factor)
-\item 
+\begin{DoxyCompactList}\small\item\em Функция для установки коэффициента торможения \end{DoxyCompactList}\item 
 void \hyperlink{classrtm_1_1_vehicle_object_a124909b0d2443d501d9b1eb8d359ad5a}{Stop\+At\+Distance\+\_\+} (float distance)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Функция для установки тормозого пути (объект будет пытаться остановиться за данную дистанцию) \end{DoxyCompactList}\end{DoxyCompactItemize}
 \begin{Indent}\textbf{ Зрение у машин}\par
 {\em Функции для просмотра окружающего мира }\begin{DoxyCompactItemize}
 \item 
 \hyperlink{classrtm_1_1_coating_object}{Coating\+Object} $\ast$ \hyperlink{classrtm_1_1_vehicle_object_a3756c9823f032ce8647343291fdbd00b}{Check\+Forward\+Coating\+\_\+} (\hyperlink{classrtm_1_1_world_controller}{World\+Controller} $\ast$const world, int delta=1)
-\item 
+\begin{DoxyCompactList}\small\item\em Функция для получения следующего по ходу движения покрытия \end{DoxyCompactList}\item 
 \hyperlink{classrtm_1_1_coating_union}{Coating\+Union} $\ast$ \hyperlink{classrtm_1_1_vehicle_object_a96e80f98cc6aa50ab3f822e06223e345}{Check\+Forward\+Coating\+Union\+\_\+} (\hyperlink{classrtm_1_1_world_controller}{World\+Controller} $\ast$const world, int delta=1)
-\item 
+\begin{DoxyCompactList}\small\item\em Функция для получения следующего по ходу движения объединения покрытий \end{DoxyCompactList}\item 
 \hyperlink{classrtm_1_1_dynamic_object}{Dynamic\+Object} $\ast$ \hyperlink{classrtm_1_1_vehicle_object_a2bc87b24a74b9eefc4e63d6618052c33}{Check\+Forward\+Area\+\_\+} (\hyperlink{classrtm_1_1_world_controller}{World\+Controller} $\ast$const world, float radius, float angle, float angle\+Shift)
-\item 
+\begin{DoxyCompactList}\small\item\em Функция для проверки области видимости спереди \end{DoxyCompactList}\item 
 \hyperlink{classrtm_1_1_dynamic_object}{Dynamic\+Object} $\ast$ \hyperlink{classrtm_1_1_vehicle_object_a1c0c4467498e3b4a2d78c465a03fd32a}{Check\+Moving\+Area\+\_\+} (\hyperlink{classrtm_1_1_world_controller}{World\+Controller} $\ast$const world)
-\item 
+\begin{DoxyCompactList}\small\item\em Функция для проверки области видимости во время движения по прямой \end{DoxyCompactList}\item 
 \hyperlink{classrtm_1_1_dynamic_object}{Dynamic\+Object} $\ast$ \hyperlink{classrtm_1_1_vehicle_object_a02526acf80a7bdf23f0b448a2f8b3e24}{Check\+Turn\+Area\+\_\+} (\hyperlink{classrtm_1_1_world_controller}{World\+Controller} $\ast$const world, bool is\+Right)
-\item 
+\begin{DoxyCompactList}\small\item\em Функция для проверки области видимости перед поворотом \end{DoxyCompactList}\item 
 \hyperlink{classrtm_1_1_dynamic_object}{Dynamic\+Object} $\ast$ \hyperlink{classrtm_1_1_vehicle_object_a377af8433f7cd5cf99d8ab432dbc4e44}{Check\+Rotation\+Area\+\_\+} (\hyperlink{classrtm_1_1_world_controller}{World\+Controller} $\ast$const world)
-\item 
+\begin{DoxyCompactList}\small\item\em Функция для проверки области видимости во время поворота \end{DoxyCompactList}\item 
 \hyperlink{classrtm_1_1_dynamic_object}{Dynamic\+Object} $\ast$ \hyperlink{classrtm_1_1_vehicle_object_a1e193bc81dc4b6c14d29c6be17db1071}{Check\+Crossroad\+Area\+\_\+} (\hyperlink{classrtm_1_1_world_controller}{World\+Controller} $\ast$const world)
-\item 
+\begin{DoxyCompactList}\small\item\em Функция для проверки области видимости перед нерегулируемым перекрестком \end{DoxyCompactList}\item 
 \hyperlink{classrtm_1_1_dynamic_object}{Dynamic\+Object} $\ast$ \hyperlink{classrtm_1_1_vehicle_object_a397b0e3055f0dfe3f2b1b731cd5e2eb1}{Check\+Line\+Changing\+Area\+\_\+} (\hyperlink{classrtm_1_1_world_controller}{World\+Controller} $\ast$const world)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Функция для проверки области видимости перед перестроением \end{DoxyCompactList}\end{DoxyCompactItemize}
 \end{Indent}
 \begin{Indent}\textbf{ Маневры}\par
 {\em Функции выполняющиеся во время маневров }\begin{DoxyCompactItemize}
 \item 
 virtual void \hyperlink{classrtm_1_1_vehicle_object_abac2e84c7d102e9170843efd80c53fd2}{Before\+Moving\+\_\+} (\hyperlink{classrtm_1_1_world_controller}{World\+Controller} $\ast$const world)
-\item 
+\begin{DoxyCompactList}\small\item\em Функция, выполняющаяся непосредственно перед перемещением объекта \end{DoxyCompactList}\item 
 virtual void \hyperlink{classrtm_1_1_vehicle_object_a4ffe184361efac31e9a009cfc4e07a1b}{After\+Moving\+\_\+} (\hyperlink{classrtm_1_1_world_controller}{World\+Controller} $\ast$const world)
-\item 
+\begin{DoxyCompactList}\small\item\em Функция, выполняющаяся непосредственно после перемещением объекта \end{DoxyCompactList}\item 
 virtual bool \hyperlink{classrtm_1_1_vehicle_object_aa02e0b8f3fa159939f370938e45abf88}{Movement\+Start\+\_\+} (\hyperlink{classrtm_1_1_world_controller}{World\+Controller} $\ast$const world)
-\item 
+\begin{DoxyCompactList}\small\item\em Функция, выполняющаяся перед началом движения \end{DoxyCompactList}\item 
 virtual bool \hyperlink{classrtm_1_1_vehicle_object_a06a920b3fe0df4fa4ca0687a9366426a}{Movement\+Tick\+\_\+} (\hyperlink{classrtm_1_1_world_controller}{World\+Controller} $\ast$const world)
-\item 
+\begin{DoxyCompactList}\small\item\em Функция, выполняющаяся во время движения \end{DoxyCompactList}\item 
 virtual bool \hyperlink{classrtm_1_1_vehicle_object_a7e6c94902d1d544006ca8de63ba36860}{Movement\+End\+\_\+} (\hyperlink{classrtm_1_1_world_controller}{World\+Controller} $\ast$const world)
-\item 
+\begin{DoxyCompactList}\small\item\em Функция, выполняющаяся после движения (перед началом остановки) \end{DoxyCompactList}\item 
 virtual bool \hyperlink{classrtm_1_1_vehicle_object_a2c449bdf4d8e954fe7bd06de4b64deb7}{Rotation\+Start\+\_\+} (\hyperlink{classrtm_1_1_world_controller}{World\+Controller} $\ast$const world)
-\item 
+\begin{DoxyCompactList}\small\item\em Функция, выполняющаяся перед поворотом \end{DoxyCompactList}\item 
 virtual bool \hyperlink{classrtm_1_1_vehicle_object_a3dd8736f34c5e5ba26259335193628e5}{Rotation\+Tick\+\_\+} (\hyperlink{classrtm_1_1_world_controller}{World\+Controller} $\ast$const world)
-\item 
+\begin{DoxyCompactList}\small\item\em Функция, выполняющаяся во время поворота \end{DoxyCompactList}\item 
 virtual bool \hyperlink{classrtm_1_1_vehicle_object_ab109b98ab7bda9402a6197efa98e5a03}{Rotation\+End\+\_\+} (\hyperlink{classrtm_1_1_world_controller}{World\+Controller} $\ast$const world)
-\item 
+\begin{DoxyCompactList}\small\item\em Функция, выполняющаяся после поворота \end{DoxyCompactList}\item 
 virtual bool \hyperlink{classrtm_1_1_vehicle_object_a8976be533dfa4704f7b221c79d1fce99}{Line\+Changing\+Start} (\hyperlink{classrtm_1_1_world_controller}{World\+Controller} $\ast$const world)
-\item 
+\begin{DoxyCompactList}\small\item\em Функция, выполняющаяся перед перестроением \end{DoxyCompactList}\item 
 virtual bool \hyperlink{classrtm_1_1_vehicle_object_ad14f2e164f2105fbae0c982cec4aff9a}{Line\+Changing\+Tick\+\_\+} (\hyperlink{classrtm_1_1_world_controller}{World\+Controller} $\ast$const world)
-\item 
+\begin{DoxyCompactList}\small\item\em Функция, выполняющаяся во время перестроения \end{DoxyCompactList}\item 
 virtual bool \hyperlink{classrtm_1_1_vehicle_object_a61c3ec3ea6a03c4c031c2b72def10c72}{Line\+Changing\+End\+\_\+} (\hyperlink{classrtm_1_1_world_controller}{World\+Controller} $\ast$const world)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Функция, выполняющаяся после перестроения \end{DoxyCompactList}\end{DoxyCompactItemize}
 \end{Indent}
 \subsection*{Закрытые члены}
 \begin{DoxyCompactItemize}
 \item 
 void \hyperlink{classrtm_1_1_vehicle_object_afbfb4168caaa0b61ff8cc18e0b52275c}{Line\+Changing\+\_\+} (\hyperlink{classrtm_1_1_world_controller}{World\+Controller} $\ast$const world)
-\item 
+\begin{DoxyCompactList}\small\item\em Функция, выполняющая различные этапы при перестроении \end{DoxyCompactList}\item 
 void \hyperlink{classrtm_1_1_vehicle_object_a6961d03a7e8a805a9bd4422a8d0c1985}{Rotation\+\_\+} (\hyperlink{classrtm_1_1_world_controller}{World\+Controller} $\ast$const world)
-\item 
+\begin{DoxyCompactList}\small\item\em Функция, выполняющая различные этапы при повороте \end{DoxyCompactList}\item 
 void \hyperlink{classrtm_1_1_vehicle_object_a0db960e75dbcb12d028b239e441ea0ed}{Movement\+\_\+} (\hyperlink{classrtm_1_1_world_controller}{World\+Controller} $\ast$const world)
-\item 
+\begin{DoxyCompactList}\small\item\em Функция, выполняющая различные этапы при движении \end{DoxyCompactList}\item 
 void \hyperlink{classrtm_1_1_vehicle_object_aee8f792a78b9b1becf7a84c01157520b}{Speed\+Changing\+\_\+} (\hyperlink{classrtm_1_1_world_controller}{World\+Controller} $\ast$const world)
-\item 
+\begin{DoxyCompactList}\small\item\em Функция, выполняющая изменение скорости в зависимости от ускорения, тормозного пути и т.\+д. \end{DoxyCompactList}\item 
 void \hyperlink{classrtm_1_1_vehicle_object_a76d76e5138ecb2188bb678a361ca58d7}{Smooth\+Braking\+Counter} (\hyperlink{classrtm_1_1_world_controller}{World\+Controller} $\ast$const world)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Функция, выполняющая декрементирование тормозного пути (если задан) \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Закрытые данные}
 \begin{DoxyCompactItemize}
 \item 
@@ -176,7 +176,11 @@ float \hyperlink{classrtm_1_1_vehicle_object_a94a0837b95aee16ec5662a1188f70c81}{
 \subsubsection{\texorpdfstring{Vehicle\+Object()}{VehicleObject()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily rtm\+::\+Vehicle\+Object\+::\+Vehicle\+Object (\begin{DoxyParamCaption}\item[{cocos2d\+::\+Sprite $\ast$const}]{sprite,  }\item[{int}]{column,  }\item[{int}]{row,  }\item[{float}]{angle,  }\item[{float}]{max\+Speed,  }\item[{float}]{acceleration,  }\item[{float}]{deceleration }\end{DoxyParamCaption})}
 
+
+
 Конструктор с использованием уже готового спрайта 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em sprite} & указатель на готовый спрайт \\
 \hline
@@ -199,7 +203,11 @@ float \hyperlink{classrtm_1_1_vehicle_object_a94a0837b95aee16ec5662a1188f70c81}{
 \subsubsection{\texorpdfstring{Vehicle\+Object()}{VehicleObject()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily rtm\+::\+Vehicle\+Object\+::\+Vehicle\+Object (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{filename,  }\item[{int}]{column,  }\item[{int}]{row,  }\item[{float}]{angle,  }\item[{float}]{max\+Speed,  }\item[{float}]{acceleration,  }\item[{float}]{deceleration }\end{DoxyParamCaption})}
 
+
+
 Конструктор из файла 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em filename} & путь к файлу инициализации \\
 \hline
@@ -225,7 +233,11 @@ float \hyperlink{classrtm_1_1_vehicle_object_a94a0837b95aee16ec5662a1188f70c81}{
 \subsubsection{\texorpdfstring{Update()}{Update()}}
 {\footnotesize\ttfamily void rtm\+::\+Vehicle\+Object\+::\+Update (\begin{DoxyParamCaption}\item[{\hyperlink{classrtm_1_1_world_controller}{World\+Controller} $\ast$const}]{world }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
+
+
 Функция обновления 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em world} & контроллер мира, в котором находится объект \\
 \hline
@@ -240,7 +252,11 @@ float \hyperlink{classrtm_1_1_vehicle_object_a94a0837b95aee16ec5662a1188f70c81}{
 \subsubsection{\texorpdfstring{Move\+Forward\+\_\+()}{MoveForward\_()}}
 {\footnotesize\ttfamily bool rtm\+::\+Vehicle\+Object\+::\+Move\+Forward\+\_\+ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
 
-Функция для сообщения о необходимости начать движение \begin{DoxyReturn}{Возвращает}
+
+
+Функция для сообщения о необходимости начать движение 
+
+\begin{DoxyReturn}{Возвращает}
 true, если возможно начать движение, иначе false 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classrtm_1_1_vehicle_object_a74dd5fb7b16da79e1d288738ba43ded0}\label{classrtm_1_1_vehicle_object_a74dd5fb7b16da79e1d288738ba43ded0}} 
@@ -249,7 +265,11 @@ true, если возможно начать движение, иначе false
 \subsubsection{\texorpdfstring{Stop\+\_\+()}{Stop\_()}}
 {\footnotesize\ttfamily bool rtm\+::\+Vehicle\+Object\+::\+Stop\+\_\+ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
 
-Функция для сообщения о необходимости остановиться \begin{DoxyReturn}{Возвращает}
+
+
+Функция для сообщения о необходимости остановиться 
+
+\begin{DoxyReturn}{Возвращает}
 true, если возможно остановиться, иначе false 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classrtm_1_1_vehicle_object_a0739284311dc651679c0c5954f240758}\label{classrtm_1_1_vehicle_object_a0739284311dc651679c0c5954f240758}} 
@@ -258,7 +278,11 @@ true, если возможно остановиться, иначе false
 \subsubsection{\texorpdfstring{Rotate\+\_\+()}{Rotate\_()}}
 {\footnotesize\ttfamily bool rtm\+::\+Vehicle\+Object\+::\+Rotate\+\_\+ (\begin{DoxyParamCaption}\item[{float}]{angle = {\ttfamily \hyperlink{namespacertm_a39212dd73aa5a6387211cf776bdb64d8}{A\+N\+G\+L\+E\+\_\+\+R\+I\+G\+HT}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
 
-Функция для сообщения о необходимости повернуть \begin{DoxyReturn}{Возвращает}
+
+
+Функция для сообщения о необходимости повернуть 
+
+\begin{DoxyReturn}{Возвращает}
 true, если возможно повернуть, иначе false 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classrtm_1_1_vehicle_object_a73ef7c4f1318bdbe2cd75dc4f07aca4e}\label{classrtm_1_1_vehicle_object_a73ef7c4f1318bdbe2cd75dc4f07aca4e}} 
@@ -267,7 +291,11 @@ true, если возможно повернуть, иначе false
 \subsubsection{\texorpdfstring{Change\+Line\+\_\+()}{ChangeLine\_()}}
 {\footnotesize\ttfamily bool rtm\+::\+Vehicle\+Object\+::\+Change\+Line\+\_\+ (\begin{DoxyParamCaption}\item[{bool}]{is\+Right = {\ttfamily \hyperlink{namespacertm_a92d29773a54951290dd89f754fb39a8c}{L\+E\+FT}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
 
-Функция для сообщения о необходимости перестроиться \begin{DoxyReturn}{Возвращает}
+
+
+Функция для сообщения о необходимости перестроиться 
+
+\begin{DoxyReturn}{Возвращает}
 true, если возможно перестроиться, иначе false 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classrtm_1_1_vehicle_object_adcccb796e4b1b404a25512fa8491cd43}\label{classrtm_1_1_vehicle_object_adcccb796e4b1b404a25512fa8491cd43}} 
@@ -276,7 +304,11 @@ true, если возможно перестроиться, иначе false
 \subsubsection{\texorpdfstring{Is\+Movement\+\_\+()}{IsMovement\_()}}
 {\footnotesize\ttfamily bool rtm\+::\+Vehicle\+Object\+::\+Is\+Movement\+\_\+ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [protected]}}
 
-Функция, сообщающая о движении объекта \begin{DoxyReturn}{Возвращает}
+
+
+Функция, сообщающая о движении объекта 
+
+\begin{DoxyReturn}{Возвращает}
 true, если объект движется, иначе false 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classrtm_1_1_vehicle_object_a7cb07a20e09d1460ec3d2dd70d62aba2}\label{classrtm_1_1_vehicle_object_a7cb07a20e09d1460ec3d2dd70d62aba2}} 
@@ -285,7 +317,11 @@ true, если объект движется, иначе false
 \subsubsection{\texorpdfstring{Is\+Rotation\+\_\+()}{IsRotation\_()}}
 {\footnotesize\ttfamily bool rtm\+::\+Vehicle\+Object\+::\+Is\+Rotation\+\_\+ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [protected]}}
 
-Функция, сообщающая о повороте объекта \begin{DoxyReturn}{Возвращает}
+
+
+Функция, сообщающая о повороте объекта 
+
+\begin{DoxyReturn}{Возвращает}
 true, если объект поворачивает, иначе false 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classrtm_1_1_vehicle_object_a464c8de22beb3cbf819d12ad36ae4974}\label{classrtm_1_1_vehicle_object_a464c8de22beb3cbf819d12ad36ae4974}} 
@@ -294,7 +330,11 @@ true, если объект поворачивает, иначе false
 \subsubsection{\texorpdfstring{Is\+Line\+Changing\+\_\+()}{IsLineChanging\_()}}
 {\footnotesize\ttfamily bool rtm\+::\+Vehicle\+Object\+::\+Is\+Line\+Changing\+\_\+ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [protected]}}
 
-Функция, сообщающая о перестроении объекта \begin{DoxyReturn}{Возвращает}
+
+
+Функция, сообщающая о перестроении объекта 
+
+\begin{DoxyReturn}{Возвращает}
 true, если объект перестраивается, иначе false 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classrtm_1_1_vehicle_object_ab74eb10fd7df8238a437923cbf184bca}\label{classrtm_1_1_vehicle_object_ab74eb10fd7df8238a437923cbf184bca}} 
@@ -303,7 +343,11 @@ true, если объект перестраивается, иначе false
 \subsubsection{\texorpdfstring{Is\+Braking\+\_\+()}{IsBraking\_()}}
 {\footnotesize\ttfamily bool rtm\+::\+Vehicle\+Object\+::\+Is\+Braking\+\_\+ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [protected]}}
 
-Функция, сообщающая о торможении объекта перед светофором и т.\+д. \begin{DoxyReturn}{Возвращает}
+
+
+Функция, сообщающая о торможении объекта перед светофором и т.\+д. 
+
+\begin{DoxyReturn}{Возвращает}
 true, если объект тормозит, иначе false 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classrtm_1_1_vehicle_object_ad0dd345b8c1d7913034aaf3267ee4a03}\label{classrtm_1_1_vehicle_object_ad0dd345b8c1d7913034aaf3267ee4a03}} 
@@ -312,7 +356,11 @@ true, если объект тормозит, иначе false
 \subsubsection{\texorpdfstring{Get\+Max\+Speed\+\_\+()}{GetMaxSpeed\_()}}
 {\footnotesize\ttfamily float rtm\+::\+Vehicle\+Object\+::\+Get\+Max\+Speed\+\_\+ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [protected]}}
 
-Функция для получения максимальной скорости \begin{DoxyReturn}{Возвращает}
+
+
+Функция для получения максимальной скорости 
+
+\begin{DoxyReturn}{Возвращает}
 максимальная скорость 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classrtm_1_1_vehicle_object_a6cf4eb12c1eaf80b7f1e95ab206deae9}\label{classrtm_1_1_vehicle_object_a6cf4eb12c1eaf80b7f1e95ab206deae9}} 
@@ -321,7 +369,11 @@ true, если объект тормозит, иначе false
 \subsubsection{\texorpdfstring{Get\+Final\+Speed\+\_\+()}{GetFinalSpeed\_()}}
 {\footnotesize\ttfamily float rtm\+::\+Vehicle\+Object\+::\+Get\+Final\+Speed\+\_\+ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [protected]}}
 
-Функция для получения финальной скорости (к которой объект будет стремиться) \begin{DoxyReturn}{Возвращает}
+
+
+Функция для получения финальной скорости (к которой объект будет стремиться) 
+
+\begin{DoxyReturn}{Возвращает}
 конечная скорость 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classrtm_1_1_vehicle_object_a0339478b106ebe22b63a6d076204cc22}\label{classrtm_1_1_vehicle_object_a0339478b106ebe22b63a6d076204cc22}} 
@@ -330,7 +382,11 @@ true, если объект тормозит, иначе false
 \subsubsection{\texorpdfstring{Set\+Final\+Speed\+\_\+()}{SetFinalSpeed\_()}}
 {\footnotesize\ttfamily void rtm\+::\+Vehicle\+Object\+::\+Set\+Final\+Speed\+\_\+ (\begin{DoxyParamCaption}\item[{float}]{speed }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
 
+
+
 Функция для установки финальной скорости (к которой объект будет стремиться) 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em speed} & новая скорость \\
 \hline
@@ -341,7 +397,11 @@ true, если объект тормозит, иначе false
 \subsubsection{\texorpdfstring{Set\+Braking\+Factor\+\_\+()}{SetBrakingFactor\_()}}
 {\footnotesize\ttfamily void rtm\+::\+Vehicle\+Object\+::\+Set\+Braking\+Factor\+\_\+ (\begin{DoxyParamCaption}\item[{float}]{factor }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
 
+
+
 Функция для установки коэффициента торможения 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em factor} & новый коэффициент торможения (1 -\/ торможение с обычным ускорением) \\
 \hline
@@ -352,7 +412,11 @@ true, если объект тормозит, иначе false
 \subsubsection{\texorpdfstring{Stop\+At\+Distance\+\_\+()}{StopAtDistance\_()}}
 {\footnotesize\ttfamily void rtm\+::\+Vehicle\+Object\+::\+Stop\+At\+Distance\+\_\+ (\begin{DoxyParamCaption}\item[{float}]{distance }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
 
+
+
 Функция для установки тормозого пути (объект будет пытаться остановиться за данную дистанцию) 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em distance} & дистанция, за которую необходимо остановиться \\
 \hline
@@ -363,7 +427,11 @@ true, если объект тормозит, иначе false
 \subsubsection{\texorpdfstring{Check\+Forward\+Coating\+\_\+()}{CheckForwardCoating\_()}}
 {\footnotesize\ttfamily \hyperlink{classrtm_1_1_coating_object}{rtm\+::\+Coating\+Object} $\ast$ rtm\+::\+Vehicle\+Object\+::\+Check\+Forward\+Coating\+\_\+ (\begin{DoxyParamCaption}\item[{\hyperlink{classrtm_1_1_world_controller}{World\+Controller} $\ast$const}]{world,  }\item[{int}]{delta = {\ttfamily 1} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
 
+
+
 Функция для получения следующего по ходу движения покрытия 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em world} & контроллер мира, в котором находится объект \\
 \hline
@@ -379,7 +447,11 @@ true, если объект тормозит, иначе false
 \subsubsection{\texorpdfstring{Check\+Forward\+Coating\+Union\+\_\+()}{CheckForwardCoatingUnion\_()}}
 {\footnotesize\ttfamily \hyperlink{classrtm_1_1_coating_union}{rtm\+::\+Coating\+Union} $\ast$ rtm\+::\+Vehicle\+Object\+::\+Check\+Forward\+Coating\+Union\+\_\+ (\begin{DoxyParamCaption}\item[{\hyperlink{classrtm_1_1_world_controller}{World\+Controller} $\ast$const}]{world,  }\item[{int}]{delta = {\ttfamily 1} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
 
+
+
 Функция для получения следующего по ходу движения объединения покрытий 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em world} & контроллер мира, в котором находится объект \\
 \hline
@@ -395,7 +467,11 @@ true, если объект тормозит, иначе false
 \subsubsection{\texorpdfstring{Check\+Forward\+Area\+\_\+()}{CheckForwardArea\_()}}
 {\footnotesize\ttfamily \hyperlink{classrtm_1_1_dynamic_object}{rtm\+::\+Dynamic\+Object} $\ast$ rtm\+::\+Vehicle\+Object\+::\+Check\+Forward\+Area\+\_\+ (\begin{DoxyParamCaption}\item[{\hyperlink{classrtm_1_1_world_controller}{World\+Controller} $\ast$const}]{world,  }\item[{float}]{radius,  }\item[{float}]{angle,  }\item[{float}]{angle\+Shift }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
 
+
+
 Функция для проверки области видимости спереди 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em world} & контроллер мира, в котором находится данный объект \\
 \hline
@@ -417,7 +493,11 @@ nullptr, если нет объектов в области видимости
 \subsubsection{\texorpdfstring{Check\+Moving\+Area\+\_\+()}{CheckMovingArea\_()}}
 {\footnotesize\ttfamily \hyperlink{classrtm_1_1_dynamic_object}{rtm\+::\+Dynamic\+Object} $\ast$ rtm\+::\+Vehicle\+Object\+::\+Check\+Moving\+Area\+\_\+ (\begin{DoxyParamCaption}\item[{\hyperlink{classrtm_1_1_world_controller}{World\+Controller} $\ast$const}]{world }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
 
+
+
 Функция для проверки области видимости во время движения по прямой 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em world} & контроллер мира, в котором находится данный объект \\
 \hline
@@ -433,7 +513,11 @@ nullptr, если нет объектов в области видимости
 \subsubsection{\texorpdfstring{Check\+Turn\+Area\+\_\+()}{CheckTurnArea\_()}}
 {\footnotesize\ttfamily \hyperlink{classrtm_1_1_dynamic_object}{rtm\+::\+Dynamic\+Object} $\ast$ rtm\+::\+Vehicle\+Object\+::\+Check\+Turn\+Area\+\_\+ (\begin{DoxyParamCaption}\item[{\hyperlink{classrtm_1_1_world_controller}{World\+Controller} $\ast$const}]{world,  }\item[{bool}]{is\+Right }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
 
+
+
 Функция для проверки области видимости перед поворотом 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em world} & контроллер мира, в котором находится данный объект \\
 \hline
@@ -451,7 +535,11 @@ nullptr, если нет объектов в области видимости
 \subsubsection{\texorpdfstring{Check\+Rotation\+Area\+\_\+()}{CheckRotationArea\_()}}
 {\footnotesize\ttfamily \hyperlink{classrtm_1_1_dynamic_object}{rtm\+::\+Dynamic\+Object} $\ast$ rtm\+::\+Vehicle\+Object\+::\+Check\+Rotation\+Area\+\_\+ (\begin{DoxyParamCaption}\item[{\hyperlink{classrtm_1_1_world_controller}{World\+Controller} $\ast$const}]{world }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
 
+
+
 Функция для проверки области видимости во время поворота 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em world} & контроллер мира, в котором находится данный объект \\
 \hline
@@ -467,7 +555,11 @@ nullptr, если нет объектов в области видимости
 \subsubsection{\texorpdfstring{Check\+Crossroad\+Area\+\_\+()}{CheckCrossroadArea\_()}}
 {\footnotesize\ttfamily \hyperlink{classrtm_1_1_dynamic_object}{rtm\+::\+Dynamic\+Object} $\ast$ rtm\+::\+Vehicle\+Object\+::\+Check\+Crossroad\+Area\+\_\+ (\begin{DoxyParamCaption}\item[{\hyperlink{classrtm_1_1_world_controller}{World\+Controller} $\ast$const}]{world }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
 
+
+
 Функция для проверки области видимости перед нерегулируемым перекрестком 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em world} & контроллер мира, в котором находится данный объект \\
 \hline
@@ -483,7 +575,11 @@ nullptr, если нет объектов в области видимости
 \subsubsection{\texorpdfstring{Check\+Line\+Changing\+Area\+\_\+()}{CheckLineChangingArea\_()}}
 {\footnotesize\ttfamily \hyperlink{classrtm_1_1_dynamic_object}{rtm\+::\+Dynamic\+Object} $\ast$ rtm\+::\+Vehicle\+Object\+::\+Check\+Line\+Changing\+Area\+\_\+ (\begin{DoxyParamCaption}\item[{\hyperlink{classrtm_1_1_world_controller}{World\+Controller} $\ast$const}]{world }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
 
+
+
 Функция для проверки области видимости перед перестроением 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em world} & контроллер мира, в котором находится данный объект \\
 \hline
@@ -499,7 +595,11 @@ nullptr, если нет объектов в области видимости
 \subsubsection{\texorpdfstring{Before\+Moving\+\_\+()}{BeforeMoving\_()}}
 {\footnotesize\ttfamily void rtm\+::\+Vehicle\+Object\+::\+Before\+Moving\+\_\+ (\begin{DoxyParamCaption}\item[{\hyperlink{classrtm_1_1_world_controller}{World\+Controller} $\ast$const}]{world }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
 
+
+
 Функция, выполняющаяся непосредственно перед перемещением объекта 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em world} & контроллер мира, в котором находится данный объект \\
 \hline
@@ -510,7 +610,11 @@ nullptr, если нет объектов в области видимости
 \subsubsection{\texorpdfstring{After\+Moving\+\_\+()}{AfterMoving\_()}}
 {\footnotesize\ttfamily void rtm\+::\+Vehicle\+Object\+::\+After\+Moving\+\_\+ (\begin{DoxyParamCaption}\item[{\hyperlink{classrtm_1_1_world_controller}{World\+Controller} $\ast$const}]{world }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
 
+
+
 Функция, выполняющаяся непосредственно после перемещением объекта 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em world} & контроллер мира, в котором находится данный объект \\
 \hline
@@ -521,7 +625,11 @@ nullptr, если нет объектов в области видимости
 \subsubsection{\texorpdfstring{Movement\+Start\+\_\+()}{MovementStart\_()}}
 {\footnotesize\ttfamily bool rtm\+::\+Vehicle\+Object\+::\+Movement\+Start\+\_\+ (\begin{DoxyParamCaption}\item[{\hyperlink{classrtm_1_1_world_controller}{World\+Controller} $\ast$const}]{world }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
 
+
+
 Функция, выполняющаяся перед началом движения 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em world} & контроллер мира, в котором находится данный объект \\
 \hline
@@ -541,7 +649,11 @@ false, если необходимо повторить этот шаг (в сл
 \subsubsection{\texorpdfstring{Movement\+Tick\+\_\+()}{MovementTick\_()}}
 {\footnotesize\ttfamily bool rtm\+::\+Vehicle\+Object\+::\+Movement\+Tick\+\_\+ (\begin{DoxyParamCaption}\item[{\hyperlink{classrtm_1_1_world_controller}{World\+Controller} $\ast$const}]{world }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
 
+
+
 Функция, выполняющаяся во время движения 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em world} & контроллер мира, в котором находится данный объект \\
 \hline
@@ -561,7 +673,11 @@ false, если необходимо повторить этот шаг (в сл
 \subsubsection{\texorpdfstring{Movement\+End\+\_\+()}{MovementEnd\_()}}
 {\footnotesize\ttfamily bool rtm\+::\+Vehicle\+Object\+::\+Movement\+End\+\_\+ (\begin{DoxyParamCaption}\item[{\hyperlink{classrtm_1_1_world_controller}{World\+Controller} $\ast$const}]{world }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
 
+
+
 Функция, выполняющаяся после движения (перед началом остановки) 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em world} & контроллер мира, в котором находится данный объект \\
 \hline
@@ -581,7 +697,11 @@ false, если необходимо повторить этот шаг (в сл
 \subsubsection{\texorpdfstring{Rotation\+Start\+\_\+()}{RotationStart\_()}}
 {\footnotesize\ttfamily bool rtm\+::\+Vehicle\+Object\+::\+Rotation\+Start\+\_\+ (\begin{DoxyParamCaption}\item[{\hyperlink{classrtm_1_1_world_controller}{World\+Controller} $\ast$const}]{world }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
 
+
+
 Функция, выполняющаяся перед поворотом 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em world} & контроллер мира, в котором находится данный объект \\
 \hline
@@ -597,7 +717,11 @@ false, если необходимо повторить этот шаг (в сл
 \subsubsection{\texorpdfstring{Rotation\+Tick\+\_\+()}{RotationTick\_()}}
 {\footnotesize\ttfamily bool rtm\+::\+Vehicle\+Object\+::\+Rotation\+Tick\+\_\+ (\begin{DoxyParamCaption}\item[{\hyperlink{classrtm_1_1_world_controller}{World\+Controller} $\ast$const}]{world }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
 
+
+
 Функция, выполняющаяся во время поворота 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em world} & контроллер мира, в котором находится данный объект \\
 \hline
@@ -613,7 +737,11 @@ false, если необходимо повторить этот шаг (в сл
 \subsubsection{\texorpdfstring{Rotation\+End\+\_\+()}{RotationEnd\_()}}
 {\footnotesize\ttfamily bool rtm\+::\+Vehicle\+Object\+::\+Rotation\+End\+\_\+ (\begin{DoxyParamCaption}\item[{\hyperlink{classrtm_1_1_world_controller}{World\+Controller} $\ast$const}]{world }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
 
+
+
 Функция, выполняющаяся после поворота 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em world} & контроллер мира, в котором находится данный объект \\
 \hline
@@ -629,7 +757,11 @@ false, если необходимо повторить этот шаг (в сл
 \subsubsection{\texorpdfstring{Line\+Changing\+Start()}{LineChangingStart()}}
 {\footnotesize\ttfamily bool rtm\+::\+Vehicle\+Object\+::\+Line\+Changing\+Start (\begin{DoxyParamCaption}\item[{\hyperlink{classrtm_1_1_world_controller}{World\+Controller} $\ast$const}]{world }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
 
+
+
 Функция, выполняющаяся перед перестроением 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em world} & контроллер мира, в котором находится данный объект \\
 \hline
@@ -649,7 +781,11 @@ false, если необходимо повторить этот шаг (в сл
 \subsubsection{\texorpdfstring{Line\+Changing\+Tick\+\_\+()}{LineChangingTick\_()}}
 {\footnotesize\ttfamily bool rtm\+::\+Vehicle\+Object\+::\+Line\+Changing\+Tick\+\_\+ (\begin{DoxyParamCaption}\item[{\hyperlink{classrtm_1_1_world_controller}{World\+Controller} $\ast$const}]{world }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
 
+
+
 Функция, выполняющаяся во время перестроения 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em world} & контроллер мира, в котором находится данный объект \\
 \hline
@@ -665,7 +801,11 @@ false, если необходимо повторить этот шаг (в сл
 \subsubsection{\texorpdfstring{Line\+Changing\+End\+\_\+()}{LineChangingEnd\_()}}
 {\footnotesize\ttfamily bool rtm\+::\+Vehicle\+Object\+::\+Line\+Changing\+End\+\_\+ (\begin{DoxyParamCaption}\item[{\hyperlink{classrtm_1_1_world_controller}{World\+Controller} $\ast$const}]{world }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
 
+
+
 Функция, выполняющаяся после перестроения 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em world} & контроллер мира, в котором находится данный объект \\
 \hline
@@ -681,7 +821,11 @@ false, если необходимо повторить этот шаг (в сл
 \subsubsection{\texorpdfstring{Line\+Changing\+\_\+()}{LineChanging\_()}}
 {\footnotesize\ttfamily void rtm\+::\+Vehicle\+Object\+::\+Line\+Changing\+\_\+ (\begin{DoxyParamCaption}\item[{\hyperlink{classrtm_1_1_world_controller}{World\+Controller} $\ast$const}]{world }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+
+
 Функция, выполняющая различные этапы при перестроении 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em world} & контроллер мира, в котором находится данный объект \\
 \hline
@@ -692,7 +836,11 @@ false, если необходимо повторить этот шаг (в сл
 \subsubsection{\texorpdfstring{Rotation\+\_\+()}{Rotation\_()}}
 {\footnotesize\ttfamily void rtm\+::\+Vehicle\+Object\+::\+Rotation\+\_\+ (\begin{DoxyParamCaption}\item[{\hyperlink{classrtm_1_1_world_controller}{World\+Controller} $\ast$const}]{world }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+
+
 Функция, выполняющая различные этапы при повороте 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em world} & контроллер мира, в котором находится данный объект \\
 \hline
@@ -703,7 +851,11 @@ false, если необходимо повторить этот шаг (в сл
 \subsubsection{\texorpdfstring{Movement\+\_\+()}{Movement\_()}}
 {\footnotesize\ttfamily void rtm\+::\+Vehicle\+Object\+::\+Movement\+\_\+ (\begin{DoxyParamCaption}\item[{\hyperlink{classrtm_1_1_world_controller}{World\+Controller} $\ast$const}]{world }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+
+
 Функция, выполняющая различные этапы при движении 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em world} & контроллер мира, в котором находится данный объект \\
 \hline
@@ -714,7 +866,11 @@ false, если необходимо повторить этот шаг (в сл
 \subsubsection{\texorpdfstring{Speed\+Changing\+\_\+()}{SpeedChanging\_()}}
 {\footnotesize\ttfamily void rtm\+::\+Vehicle\+Object\+::\+Speed\+Changing\+\_\+ (\begin{DoxyParamCaption}\item[{\hyperlink{classrtm_1_1_world_controller}{World\+Controller} $\ast$const}]{world }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+
+
 Функция, выполняющая изменение скорости в зависимости от ускорения, тормозного пути и т.\+д. 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em world} & контроллер мира, в котором находится данный объект \\
 \hline
@@ -725,7 +881,11 @@ false, если необходимо повторить этот шаг (в сл
 \subsubsection{\texorpdfstring{Smooth\+Braking\+Counter()}{SmoothBrakingCounter()}}
 {\footnotesize\ttfamily void rtm\+::\+Vehicle\+Object\+::\+Smooth\+Braking\+Counter (\begin{DoxyParamCaption}\item[{\hyperlink{classrtm_1_1_world_controller}{World\+Controller} $\ast$const}]{world }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+
+
 Функция, выполняющая декрементирование тормозного пути (если задан) 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em world} & контроллер мира, в котором находится данный объект \\
 \hline

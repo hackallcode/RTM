@@ -1,5 +1,5 @@
 <map id="Иерархия классов. Графический вид." name="Иерархия классов. Графический вид.">
-<area shape="rect" id="node1" href="$classrtm_1_1_coating_union.html" title="rtm::CoatingUnion" alt="" coords="5,56,132,83"/>
+<area shape="rect" id="node1" href="$classrtm_1_1_coating_union.html" title="Класс объединения покрытий " alt="" coords="5,56,132,83"/>
 <area shape="rect" id="node2" href="$classrtm_1_1_crossroad_object.html" title="Класс пересечения дорог " alt="" coords="180,5,327,32"/>
 <area shape="rect" id="node3" href="$classrtm_1_1_driveway_object.html" title="Класс прямой дороги " alt="" coords="184,56,323,83"/>
 <area shape="rect" id="node4" href="$classrtm_1_1_turn_object.html" title="Класс поворота дороги " alt="" coords="197,107,309,133"/>

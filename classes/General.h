@@ -14,13 +14,13 @@
 
 /// @mainpage 
 /// @brief Этот проект представляет из себя систему для моделирования дорожного движения.<br>
-/// В нём можно тестировать системы управления светофорами, машинами (в ближайшем будущем это понадобится) и многое другое.<br>
-/// А также можно просто позалипать на машинки, интересно катающиеся по дорогами, которые может создать любой человек! с:
+/// @brief В нём можно тестировать системы управления светофорами, машинами (в ближайшем будущем это понадобится) и многое другое.<br>
+/// @brief А также можно просто позалипать на машинки, интересно катающиеся по дорогами, которые может создать любой человек! с:
 /// @version 0.1.0
 /// @author Владимир Северов (Vladimir Severov)
 /// @todo Предстоит ещё много работы для серьезного использования данной системы, однако в рамках курсового проекта этот проект можно считать успешным.
 
-/// Пространство имен для проекта RTM
+/// @brief Пространство имен для проекта RTM
 namespace rtm {
     class WorldScene;
     class WorldController;
@@ -34,9 +34,9 @@ namespace rtm {
     /// @name Константы для флага isRight
     /// @{
 
-    /// Влево
+    /// @brief Влево
     bool const LEFT{ false };
-    /// Вправо
+    /// @brief Вправо
     bool const RIGHT{ true };
 
     /// @}
@@ -44,15 +44,15 @@ namespace rtm {
     /// @name Заранее посчитанные операции над &pi;
     /// @{
 
-    /// &pi; / 8
+    /// @brief &pi; / 8
     float const F_PI_8{ 0.392699081698724154808f };
-    /// &pi; / 4
+    /// @brief &pi; / 4
     float const F_PI_4{ 0.785398163397448309616f };
-    /// &pi; / 2
+    /// @brief &pi; / 2
     float const F_PI_2{ 1.57079632679489661923f };
-    /// &pi;
+    /// @brief &pi;
     float const F_PI{ 3.14159265358979323846f };
-    /// 2 * &pi;
+    /// @brief 2 * &pi;
     float const F_2_PI{ 6.28318530717958647692f };
 
     /// @}
@@ -60,9 +60,9 @@ namespace rtm {
     /// @name Константы для конвертации углов из радиан в градусы и обратно
     /// @{
 
-    /// Коэффициент для перевода из градусов в радианы
+    /// @brief Коэффициент для перевода из градусов в радианы
     float const DEG_RAD{ F_PI / 180.f };
-    /// Коэффициент для перевода из радиан в градусы
+    /// @brief Коэффициент для перевода из радиан в градусы
     float const RAD_DEG{ 180.f / F_PI };
 
     /// @}
@@ -70,21 +70,21 @@ namespace rtm {
     /// @name Заранее посчитанные углы
     /// @{
 
-    /// Угол вверх
+    /// @brief Угол вверх
     float const ANGLE_UP{ 0.f };
-    /// Угол вправо
+    /// @brief Угол вправо
     float const ANGLE_RIGHT{ F_PI_2 };
-    /// Угол вниз
+    /// @brief Угол вниз
     float const ANGLE_DOWN{ -F_PI };
-    /// Угол влево
+    /// @brief Угол влево
     float const ANGLE_LEFT{ -F_PI_2 };
-    /// Угол по диагонали вверх вправо
+    /// @brief Угол по диагонали вверх вправо
     float const ANGLE_UP_RIGHT{ F_PI_4 };
-    /// Угол по диагонали вниз вправо
+    /// @brief Угол по диагонали вниз вправо
     float const ANGLE_DOWN_RIGHT{ F_PI - F_PI_4 };
-    /// Угол по диагонали вниз влево
+    /// @brief Угол по диагонали вниз влево
     float const ANGLE_DOWN_LEFT{ -F_PI + F_PI_4 };
-    /// Угол по диагонали вверх влево
+    /// @brief Угол по диагонали вверх влево
     float const ANGLE_UP_LEFT{ -F_PI_4 };
 
     /// @}
@@ -92,11 +92,11 @@ namespace rtm {
     /// @name Допустимые погрешности
     /// @{
 
-    /// Погрешность для углов
+    /// @brief Погрешность для углов
     float const ANGLE_DELTA{ 1.f * DEG_RAD };
-    /// Погрешность для координат
+    /// @brief Погрешность для координат
     float const COORD_DELTA{ 1.f };
-    /// Максимальное расстояние до объектов, которые недалеко
+    /// @brief Максимальное расстояние до объектов, которые недалеко
     /// @see DynamicObject
     float const NEAR_DELTA{ 1.f };
 
@@ -105,13 +105,13 @@ namespace rtm {
     /// @name Парамметры карт
     /// @{
 
-    /// Длина (ширина) ячейки карты
+    /// @brief Длина (ширина) ячейки карты
     size_t const CELL_SIZE{ 30 };
-    /// Желаемый радиус поворота транспорта
+    /// @brief Желаемый радиус поворота транспорта
     size_t const ROTATION_RADIUS{ CELL_SIZE };
-    /// Минимальный коэффициент ускорения времени. Если меньше 1, то замедлениие
+    /// @brief Минимальный коэффициент ускорения времени. Если меньше 1, то замедлениие
     float const MIN_TIME_FACTOR{ 0.5f };
-    /// Максимальный коэффициент ускорения времени
+    /// @brief Максимальный коэффициент ускорения времени
     float const MAX_TIME_FACTOR{ 4.f };
 
     /// @}
@@ -119,17 +119,17 @@ namespace rtm {
     /// @name Номера слоев для разных объектов. Чем больше, тем выше (ближе к нам)
     /// @{
 
-    /// Номер слоя для слоя фона
+    /// @brief Номер слоя для слоя фона
     int const BACKGROUND_LAYER_Z_ORDER{ -1 };
-    /// Номер слоя для главного слоя (на нем все объекты)
+    /// @brief Номер слоя для главного слоя (на нем все объекты)
     int const MAIN_LAYER_Z_ORDER{ 0 };
-    /// Номер слоя для покрытий (дорог)
+    /// @brief Номер слоя для покрытий (дорог)
     int const COATING_OBJECT_Z_ORDER{ -2 };
-    /// Номер слоя для стрелок светофора
+    /// @brief Номер слоя для стрелок светофора
     int const SIGNAL_Z_ORDER{ -1 };
-    /// Номер слоя для транспорта
+    /// @brief Номер слоя для транспорта
     int const VEHICLE_OBJECT_Z_ORDER{ 0 };
-    /// Номер слоя для статичных объектов карты
+    /// @brief Номер слоя для статичных объектов карты
     int const MAP_OBJECT_Z_ORDER{ 1 };
 
     /// @}
@@ -137,11 +137,11 @@ namespace rtm {
     /// @name Область видимости при движении вперед
     /// @{
 
-    /// Радиус
+    /// @brief Радиус
     float const VIEW_RADIUS{ 60.f };
-    /// Ширина угла в каждую сторону
+    /// @brief Ширина угла в каждую сторону
     float const VIEW_ANGLE{ 25.f * DEG_RAD };
-    /// Сдвиг области обзора
+    /// @brief Сдвиг области обзора
     float const VIEW_ANGLE_SHIFT{ 0.f };
 
     /// @}
@@ -149,11 +149,11 @@ namespace rtm {
     /// @name Область видимости при повороте
     /// @{
 
-    /// Радиус
+    /// @brief Радиус
     float const ROTATION_VIEW_RADIUS{ 50.f };
-    /// Ширина угла в каждую сторону
+    /// @brief Ширина угла в каждую сторону
     float const ROTATION_VIEW_ANGLE{ 30.5f * DEG_RAD };
-    /// Сдвиг области обзора
+    /// @brief Сдвиг области обзора
     float const ROTATION_VIEW_ANGLE_SHIFT{ 29.5f * DEG_RAD };
 
     /// @}
@@ -161,11 +161,11 @@ namespace rtm {
     /// @name Область видимости незадолго до поворота
     /// @{
 
-    /// Радиус
+    /// @brief Радиус
     float const TURN_VIEW_RADIUS{ 60.f };
-    /// Ширина угла в каждую сторону
+    /// @brief Ширина угла в каждую сторону
     float const TURN_VIEW_ANGLE{ 30.f * DEG_RAD };
-    /// Сдвиг области обзора
+    /// @brief Сдвиг области обзора
     float const TURN_VIEW_ANGLE_SHIFT{ 10.f * DEG_RAD };
 
     /// @}
@@ -173,11 +173,11 @@ namespace rtm {
     /// @name Область видимости на нерегулируемом перекрестке
     /// @{
 
-    /// Радиус
+    /// @brief Радиус
     float const CROSSROAD_VIEW_RADIUS{ 58.f };
-    /// Ширина угла в каждую сторону
+    /// @brief Ширина угла в каждую сторону
     float const CROSSROAD_VIEW_ANGLE{ 57.5f * DEG_RAD };
-    /// Сдвиг области обзора
+    /// @brief Сдвиг области обзора
     float const CROSSROAD_VIEW_ANGLE_SHIFT{ -17.5f * DEG_RAD };
 
     /// @}
@@ -185,23 +185,23 @@ namespace rtm {
     /// @name Область видимости до перестроения
     /// @{  
 
-    /// Радиус
+    /// @brief Радиус
     float const LINE_CHANGING_VIEW_RADIUS{ 60.f };
-    /// Ширина угла в каждую сторону
+    /// @brief Ширина угла в каждую сторону
     float const LINE_CHANGING_VIEW_ANGLE{ 30.f * DEG_RAD };
-    /// Сдвиг области обзора
+    /// @brief Сдвиг области обзора
     float const LINE_CHANGING_VIEW_ANGLE_SHIFT{ 20.f * DEG_RAD };
 
     /// @}
 
-    /// Структура, описывающая параметры точки генерации объектов
+    /// @brief Структура, описывающая параметры точки генерации объектов
     struct SpawnType {
         int column; ///< Номер столбца
         int row; ///< Номер строки  
         float angle; ///< Первоначальный угол для транспорта
     };
 
-    /// Тип для определения положения некоторых объектов и индикации разрешенных направлений на кусочке объекта
+    /// @brief Тип для определения положения некоторых объектов и индикации разрешенных направлений на кусочке объекта
     enum AngleType {
         NullAngle = -1 ///< Неинициализированный угол
         , Up = 0 ///< Вверх
@@ -214,7 +214,7 @@ namespace rtm {
         , UpLeft ///< По диагонали вверх вправо
     };
 
-    /// Тип для задания направления движения транспорта
+    /// @brief Тип для задания направления движения транспорта
     enum DirectionType {
         NullDirection = -1 ///< Неинициализированное напрвление
         , Upward = 0 ///< Направление вверх
@@ -223,7 +223,7 @@ namespace rtm {
         , Leftward ///< Направление влево
     };
 
-    /// Возможные типы дорожных объединений
+    /// @brief Возможные типы дорожных объединений
     enum CoatingUnionType {
         NoCoatingUnion = -1 ///< Неинициализированный тип
         , DrivewayType ///< Прямая дорога
@@ -232,14 +232,14 @@ namespace rtm {
         , TurnType ///< Поворот
     };
 
-    /// Индексы массива для каждого типа сигнала
+    /// @brief Индексы массива для каждого типа сигнала
     enum DirectionSignalIndex {
         ForwardSignalIndex = 0 ///< Сигнал в прямом напрвлении
         , LeftwardSignalIndex ///< Сигнал в при повороте налево
         , RightwardSignalIndex ///< Сигнал в при повороте направо
     };
 
-    /// Возможные сигналы светофора
+    /// @brief Возможные сигналы светофора
     enum SignalType {
         NotWorking = 0 ///< Светофор не работает (равносильно его отсутствию)
         , Allowed ///< Зеленый сигнал
@@ -248,7 +248,7 @@ namespace rtm {
         , Closed ///< В данном напрвлении движение запрещено
     };
 
-    /// Возможные состояния для манёвров (движение, поворот, перестроение)
+    /// @brief Возможные состояния для манёвров (движение, поворот, перестроение)
     enum StateType {
         NotStarted ///< Не начато (не выполняется)
         , MustStart ///< Необходимо начать
@@ -256,13 +256,13 @@ namespace rtm {
         , MustStop ///< Необходимо закончить
     };
 
-    /// Типы покрытий
+    /// @brief Типы покрытий
     enum CoatingType {
         AsphaltCoating = 0      ///< Асфальтовое покрытие
         , IceAsphaltCoating = 1 ///< Асфальтовое покрытие со льдом
     };
 
-    /// Типы дорог
+    /// @brief Типы дорог
     enum RoadType {
         RoadTypeNo0 = 0 ///< Однополосная прямая
         , RoadTypeNo1   ///< Однополосная левая прямая
@@ -284,79 +284,79 @@ namespace rtm {
         , RoadTypeNo17  ///< Обочина поворота (угла перекрестка)
     };
 
-    /// Индексы, начиная с которых начинаются текстуры сигналоа определенного типа
+    /// @brief Индексы, начиная с которых начинаются текстуры сигналоа определенного типа
     enum SignalFileId {
         ForwardSignalId = 1 ///< Индекс сигнала для движения вперед
         , LeftwardSignalId = 6 ///< Индекс сигнал для поворота налево
         , RightwardSignalId = 11 ///< Индекс сигнал для поворота направо
     };
 
-    /// Умный указатель для класса WorldController
+    /// @brief Умный указатель для класса WorldController
     using WorldControllerUnique = std::unique_ptr<WorldController>;
-    /// Массив точек генерации объектов
+    /// @brief Массив точек генерации объектов
     using SpawnVector = std::vector<SpawnType>;
 
-    /// Умный указатель для класса CoatingObject
+    /// @brief Умный указатель для класса CoatingObject
     using CoatingUnique = std::unique_ptr<CoatingObject>;
-    /// Массив объектов класса CoatingObject
+    /// @brief Массив объектов класса CoatingObject
     using CoatingVector = std::vector<CoatingUnique>;
-    /// Матрица объектов класса CoatingObject
+    /// @brief Матрица объектов класса CoatingObject
     using CoatingMatrix = std::vector<CoatingVector>;
 
-    /// Умный указатель для класса CoatingUnion
+    /// @brief Умный указатель для класса CoatingUnion
     using CoatingUnionShared = std::shared_ptr<CoatingUnion>;
-    /// Массив объектов класса CoatingUnion
+    /// @brief Массив объектов класса CoatingUnion
     using CoatingUnionVector = std::vector<CoatingUnionShared>;
-    /// Матрица объектов класса CoatingUnion
+    /// @brief Матрица объектов класса CoatingUnion
     using CoatingUnionMatrix = std::vector<CoatingUnionVector>;
 
-    /// Умный указатель для класса ControlUnit
+    /// @brief Умный указатель для класса ControlUnit
     using ControlUnitShared = std::shared_ptr<ControlUnit>;
-    /// Массив объектов класса ControlUnit
+    /// @brief Массив объектов класса ControlUnit
     using ControlUnitVector = std::vector<ControlUnitShared>;
 
-    /// Умный указатель для класса StaticObject
+    /// @brief Умный указатель для класса StaticObject
     using StaticShared = std::shared_ptr<StaticObject>;
-    /// Массив объектов класса StaticObject
+    /// @brief Массив объектов класса StaticObject
     using StaticVector = std::vector<StaticShared>;
-    /// Матрица объектов класса StaticObject
+    /// @brief Матрица объектов класса StaticObject
     using StaticMatrix = std::vector<StaticVector>;
 
-    /// Умный указатель для класса DynamicObject
+    /// @brief Умный указатель для класса DynamicObject
     using DynamicShared = std::shared_ptr<DynamicObject>;
-    /// Массив объектов класса DynamicObject
+    /// @brief Массив объектов класса DynamicObject
     using DynamicVector = std::vector<DynamicShared>;
 
-    /// Массив возможных направлений движений по кусочку объекта
+    /// @brief Массив возможных направлений движений по кусочку объекта
     /// @see AngleType
     using Directions = std::array<bool, 8>;
-    /// Массив количества полос в каждом напрвлении для перекрестков
+    /// @brief Массив количества полос в каждом напрвлении для перекрестков
     /// @see DirectionType
     using LinesCounts = std::array<size_t, 4>;
 
-    /// Массив сигналов из одного напрвлениия в каждое
+    /// @brief Массив сигналов из одного напрвлениия в каждое
     /// @see DirectionType
     using DirectionSignals = std::array<SignalType, 4>;
-    /// Массив сигналов для всех напрвлений перекрестка
+    /// @brief Массив сигналов для всех напрвлений перекрестка
     /// @see DirectionType
     using CrossroadSignals = std::array<DirectionSignals, 4>;
 
-    /// Массив всех текстур сигналов из одного направления в одно
+    /// @brief Массив всех текстур сигналов из одного направления в одно
     /// @see SignalType
     using SignalSprites = std::array<cocos2d::Sprite*, 5>;
-    /// Массив всех текстур сигналов из одного направления в каждое (вперед, влево, вправо)
+    /// @brief Массив всех текстур сигналов из одного направления в каждое (вперед, влево, вправо)
     /// @see DirectionSignalIndex
     using SignalsSprites = std::array<SignalSprites, 3>;
-    /// Массив всех текстур сигналов для перекрестка
+    /// @brief Массив всех текстур сигналов для перекрестка
     /// @see DirectionType
     using DirectionsSignalSprites = std::array<SignalsSprites, 4>;
 
     /// @name Значения по умолчанию
     /// @{
 
-    /// Значения по умолчанию для массива сигналов в одном направлении (светофора в этом направлении нет)
+    /// @brief Значения по умолчанию для массива сигналов в одном направлении (светофора в этом направлении нет)
     DirectionSignals const DEFAULT_DIRECTIONS_SIGNALS = { NotWorking, NotWorking, NotWorking };
-    /// Значения по умолчанию для массива сигналов всего перекрестка (светофора на перекрестке нет)
+    /// @brief Значения по умолчанию для массива сигналов всего перекрестка (светофора на перекрестке нет)
     CrossroadSignals const DEFAULT_CROSSROAD_SIGNALS = {
         DEFAULT_DIRECTIONS_SIGNALS
         , DEFAULT_DIRECTIONS_SIGNALS
@@ -364,11 +364,11 @@ namespace rtm {
         , DEFAULT_DIRECTIONS_SIGNALS
     };
 
-    /// Пустой массив текстур сигналов для одного типа сигнала одного направления
+    /// @brief Пустой массив текстур сигналов для одного типа сигнала одного направления
     SignalSprites const DEFAULT_SIGNAL_SPRITES = { nullptr, nullptr, nullptr, nullptr, nullptr };
-    /// Пустой массив текстур сигналов для одного направления
+    /// @brief Пустой массив текстур сигналов для одного направления
     SignalsSprites const DEFAULT_SIGNALS_SPRITES = { DEFAULT_SIGNAL_SPRITES, DEFAULT_SIGNAL_SPRITES, DEFAULT_SIGNAL_SPRITES };
-    /// Пустой массив текстур сигналов для всего перекрестка
+    /// @brief Пустой массив текстур сигналов для всего перекрестка
     DirectionsSignalSprites const DEFAULT_DIRECTIONS_SIGNAL_SPRITES = {
         DEFAULT_SIGNALS_SPRITES
         , DEFAULT_SIGNALS_SPRITES
@@ -381,26 +381,26 @@ namespace rtm {
     /// @name Маски названий файлов
     /// @{
 
-    /// Маска файлов фонов
+    /// @brief Маска файлов фонов
     std::string const BACKGROUND_FILENAME_MASK{ "res/background/BackgroundNo%No%.png" };
-    /// Маска файлов карт
+    /// @brief Маска файлов карт
     std::string const MAP_FILENAME_MASK{ "res/map/MapNo%No%.rtmm" };
-    /// Маска файлов текстур дорог
+    /// @brief Маска файлов текстур дорог
     std::string const ROAD_FILENAME_MASK{ "res/coating/road/RoadNo%No%.png" };
-    /// Маска файлов текстур грязи
+    /// @brief Маска файлов текстур грязи
     std::string const PUDDLE_FILENAME_MASK{ "res/coating/puddle/PuddleNo%No%.png" };
-    /// Маска файлов текстур сигналов
+    /// @brief Маска файлов текстур сигналов
     std::string const SIGNAL_FILENAME_MASK{ "res/signal/SignalNo%No%.png" };
-    /// Маска файлов текстур зданий
+    /// @brief Маска файлов текстур зданий
     std::string const BUILDING_FILENAME_MASK{ "res/static/building/BuildingNo%No%.png" };
-    /// Маска файлов текстур кустов
+    /// @brief Маска файлов текстур кустов
     std::string const BUSH_FILENAME_MASK{ "res/static/bush/BushNo%No%.png" };
-    /// Маска файлов текстур машин
+    /// @brief Маска файлов текстур машин
     std::string const CAR_FILENAME_MASK{ "res/dynamic/vehicle/CarNo%No%.png" };
 
     /// @}
 
-    /// Индексы, начиная с которых начинаются текстуры покрытий определенного типа
+    /// @brief Индексы, начиная с которых начинаются текстуры покрытий определенного типа
     std::array<size_t, 2> const COATING_INDEXES = {
         1       ///< Для асфальта
         , 21    ///< Для асфальта со льдом
@@ -409,14 +409,14 @@ namespace rtm {
     /// @name Параметры дорог
     /// @{
 
-    /// Массив коэффициентов трения для каждого типа объекта
+    /// @brief Массив коэффициентов трения для каждого типа объекта
     /// @see CoatingType
     std::array<float, 2> const ROADS_RESISTANCES = {
         1.f   ///< Асфальт
         , 0.8f   ///< Асфальт со льдом
     };
 
-    /// Массив возможных направлений для каждой типа кучоска дороги
+    /// @brief Массив возможных направлений для каждой типа кучоска дороги
     /// @see RoadCoating
     std::array<Directions, 18> const ROADS_DIRECTIONS = {
           Directions{ true, false, true, false, false, false, false, false }    ///< For road #1
@@ -444,7 +444,7 @@ namespace rtm {
     /// @name Параметры машин
     /// @{
 
-    /// Массив максимальных скоростей для машин
+    /// @brief Массив максимальных скоростей для машин
     /// @see CarObject
     std::array<float, 6> const CARS_MAX_SPEEDS = {
           0.f   ///< For car #0
@@ -455,7 +455,7 @@ namespace rtm {
         , 36.f  ///< For car #5
     };
 
-    /// Массив ускорений для машин
+    /// @brief Массив ускорений для машин
     /// @see CarObject
     std::array<float, 6> const CARS_ACCELERATIONS = {
           0.f   ///< For car #0
@@ -471,48 +471,48 @@ namespace rtm {
     /// @name Функции для работы с параметрами положения объектов
     /// @{
 
-    /// Функция для сравнения двух координат с определенной точностью
+    /// @brief Функция для сравнения двух координат с определенной точностью
     /// @param a,b координаты, которые будут сравниваться
     /// @param delta максимальная разность между координатами
     /// @return результат сравнения
     bool SameCoordinates(float a, float b, float delta = COORD_DELTA);
-    /// Функция пытается округлить координаты до центра клетки
+    /// @brief Функция пытается округлить координаты до центра клетки
     /// @param coordinate координата, которую будем пытаться округлить
     /// @param delta максимальное расстояние до центра клетки
     /// @return если координата достаточно близка к центру, то координаты центра, иначе саму координату
     float RoundCoordinate(float coordinate, float delta = COORD_DELTA);
-    /// Функция для округления координаты до центра клетки
+    /// @brief Функция для округления координаты до центра клетки
     /// @param coordinate округляемая координата
     /// @return координата ближайшего центра клетки
     float RoundToCenter(float coordinate);
-    /// Функция для проверки координаты на центральность
+    /// @brief Функция для проверки координаты на центральность
     /// @param coordinate координата, которую проверяем
     /// @param delta максимальное расстояние до центра клетки
     /// @return true, если в центре клетки, иначе false
     bool InCenter(float coordinate, float delta = COORD_DELTA);
-    /// Функция для нахождения расстояния до следующего центра клетка по ходу движения
+    /// @brief Функция для нахождения расстояния до следующего центра клетка по ходу движения
     /// @param x,y координаты объекта
     /// @param angle направление движения (угол)
     /// @return расстояние до центра
     float DistanceToNextCenter(float x, float y, float angle);
-    /// Функция проверяет, пересек ли объект центр клетки (центральную линию, перпендикулярную направлению движения)
+    /// @brief Функция проверяет, пересек ли объект центр клетки (центральную линию, перпендикулярную направлению движения)
     /// @param x,y координаты объекта
     /// @param angle направление движения (угол)
     /// @param lastDelta расстояние, которое объект прошёл за последнее перемещение
     /// @return true, если пересек какой-либо центр
     bool CenterIsCrossed(float x, float y, float angle, float lastDelta);
 
-    /// Фукнция для сравнения двух углов
+    /// @brief Фукнция для сравнения двух углов
     /// @param a,b углы, которые будут сравниваться
     /// @param delta максимальная разность между углами
     /// @return результат сравнения
     bool SameAngles(float a, float b, float delta = ANGLE_DELTA);
-    /// Фукнция пытается округлить угол до одно из главных направлений (период &pi;/4, т.е. 0, &pi;/4, &pi;/2, ...)
+    /// @brief Фукнция пытается округлить угол до одно из главных направлений (период &pi;/4, т.е. 0, &pi;/4, &pi;/2, ...)
     /// @param angle угол, который будем пытаться округлить
     /// @param delta максимальная разность между исходным углом и округленным углом
     /// @return округленный угол, если исходный был достаточно близок, иначе исходный угол
     float RoundAngle(float angle, float delta = ANGLE_DELTA);
-    /// Функция для нормализации угла до диапазона [-&pi;/2;&pi;/2)
+    /// @brief Функция для нормализации угла до диапазона [-&pi;/2;&pi;/2)
     /// @param angle угол, который будем нормализовывать
     /// @return нормализованный угол
     float NormalizeAngle(float angle);
@@ -522,54 +522,54 @@ namespace rtm {
     /// @name Конверторы схожих типов
     /// @{
 
-    /// Функция для конвертации координаты в номер ячейки
+    /// @brief Функция для конвертации координаты в номер ячейки
     /// @param coordinate координата, которая будет конвертирована
     /// @return номер ячейки
     int PixelToCell(float coordinate);
-    /// Функция для конвертации номера ячейки в координату центра
+    /// @brief Функция для конвертации номера ячейки в координату центра
     /// @param cellNumber номер ячейки, который будет конвертирован
     /// @return координата центра
     float CellToPixel(int cellNumber);
 
-    /// Функция для конвертации угла в угловой тип
+    /// @brief Функция для конвертации угла в угловой тип
     /// @param angle угол, который будет конвертирован
     /// @return соответствующий угловой тип
     AngleType AngleToAngleType(float angle);
-    /// Функция для конвертации угла в напраление
+    /// @brief Функция для конвертации угла в напраление
     /// @param angle угол, который будет конвертирован
     /// @return соответствующее напраление
     DirectionType AngleToDirection(float angle);
 
-    /// Функция для конвертации углового типа в угол
+    /// @brief Функция для конвертации углового типа в угол
     /// @param angle уголовой тип, который будет конвертирован
     /// @return соответствующий угол
     float AngleTypeToAngle(AngleType angle);
-    /// Функция для конвертации углового типа в направление
+    /// @brief Функция для конвертации углового типа в направление
     /// @param angle уголовой тип, который будет конвертирован
     /// @return соответствующее направление
     DirectionType AngleTypeToDirection(AngleType angle);
 
-    /// Функция для конвертации направления в угол
+    /// @brief Функция для конвертации направления в угол
     /// @param direction направление, которое будет конвертировано
     /// @return соответствующий угол
     float DirectionToAngle(DirectionType direction);
-    /// Функция для конвертации направления в угловой тип
+    /// @brief Функция для конвертации направления в угловой тип
     /// @param direction направление, которое будет конвертировано
     /// @return соответствующий угловой тип
     AngleType DirectionToAngleType(DirectionType direction);
 
     /// @}
 
-    /// Функция для получения пути к файлу по маске
+    /// @brief Функция для получения пути к файлу по маске
     /// @param mask маска названия файла
     /// @param number номер объекта
     /// @return путь к файлу
     std::string GetFilename(std::string const& mask, size_t number);
-    /// Функция для суммирования двух угловых типов
+    /// @brief Функция для суммирования двух угловых типов
     /// @param a,b угловые типы, которые будут складываться
     /// @return сумма угловых типов (a + b)
     AngleType SumAngleTypes(AngleType a, AngleType b);
-    /// Функция для подсчёта рекомендуемого коэффициента замедления транспорта
+    /// @brief Функция для подсчёта рекомендуемого коэффициента замедления транспорта
     /// @param maxSpeed максимальная скорость транспорта
     /// @return рекомендуемый коэффициент замедления 
     float CountDeceleration(float maxSpeed);

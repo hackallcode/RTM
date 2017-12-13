@@ -16,51 +16,51 @@
 \hyperlink{classrtm_1_1_world_controller_a177ef24d8d2c834ca1c3d0ed5b9dff02}{World\+Controller} ()
 \begin{DoxyCompactList}\small\item\em Конструктор по умолчанию \end{DoxyCompactList}\item 
 \hyperlink{classrtm_1_1_world_controller_a6c7b626c306b63f5799ed3b37e7de7a4}{World\+Controller} (\hyperlink{classrtm_1_1_world_scene}{World\+Scene} $\ast$const scene)
-\item 
+\begin{DoxyCompactList}\small\item\em Конструктор без загрузки какой-\/либо карты \end{DoxyCompactList}\item 
 \hyperlink{classrtm_1_1_world_controller_abe5fb63dc74f98dd25e1896d567d5caf}{World\+Controller} (\hyperlink{classrtm_1_1_world_scene}{World\+Scene} $\ast$const scene, std\+::string const \&filename)
-\item 
+\begin{DoxyCompactList}\small\item\em Конструктор с загрузкой карты \end{DoxyCompactList}\item 
 \hyperlink{classrtm_1_1_world_controller_ac2f5bcddd4192807bb5ea30440d3defc}{World\+Controller} (\hyperlink{classrtm_1_1_world_scene}{World\+Scene} $\ast$const scene, size\+\_\+t map\+Number)
-\item 
+\begin{DoxyCompactList}\small\item\em Конструктор с загрузкой карты \end{DoxyCompactList}\item 
 void \hyperlink{classrtm_1_1_world_controller_a6b97a9ccc241734be2d68198de15068f}{Update} (float time)
-\item 
+\begin{DoxyCompactList}\small\item\em Функция обновления \end{DoxyCompactList}\item 
 cocos2d\+::\+Layer $\ast$ \hyperlink{classrtm_1_1_world_controller_a74bfc6a22a7091dc2668b08cd79f8aca}{Get\+Layer} () const
-\item 
+\begin{DoxyCompactList}\small\item\em Функция для получения основного слоя сцены (на нём вся движуха) \end{DoxyCompactList}\item 
 size\+\_\+t \hyperlink{classrtm_1_1_world_controller_af845be3c9945c0a2250f32e134a04294}{Get\+Columns\+Count} () const
-\item 
+\begin{DoxyCompactList}\small\item\em Функция для получения количества столбцов карты \end{DoxyCompactList}\item 
 size\+\_\+t \hyperlink{classrtm_1_1_world_controller_afb245167ac0680db01a3d09f80051dd0}{Get\+Rows\+Count} () const
-\item 
+\begin{DoxyCompactList}\small\item\em Функция для получения количества строк карты \end{DoxyCompactList}\item 
 float \hyperlink{classrtm_1_1_world_controller_a2288dd191a28070d4811897281413c36}{Get\+Delta\+Time} () const
-\item 
+\begin{DoxyCompactList}\small\item\em Функция для получения последней разницей между обновлениями \end{DoxyCompactList}\item 
 float \hyperlink{classrtm_1_1_world_controller_a97ccb5133bc7c0617affe4d947265370}{Get\+Time\+Factor} () const
-\item 
+\begin{DoxyCompactList}\small\item\em Функция для получения коэффициента ускорения времени \end{DoxyCompactList}\item 
 \hyperlink{classrtm_1_1_coating_object}{Coating\+Object} $\ast$ \hyperlink{classrtm_1_1_world_controller_ab2b9d9d1451820fcbbe7107deed6e4cf}{Get\+Coating\+Object} (int column, int row)
-\item 
+\begin{DoxyCompactList}\small\item\em Функция для получения объекта в определенной клетке \end{DoxyCompactList}\item 
 \hyperlink{classrtm_1_1_coating_union}{Coating\+Union} $\ast$ \hyperlink{classrtm_1_1_world_controller_ac43dfd6de088ba04aefc8b4d9d118ea7}{Get\+Coating\+Union} (int column, int row)
-\item 
+\begin{DoxyCompactList}\small\item\em Функция для получения объединения покрытий в определенной клетке \end{DoxyCompactList}\item 
 \hyperlink{classrtm_1_1_static_object}{Static\+Object} $\ast$ \hyperlink{classrtm_1_1_world_controller_ae949e287815fd3327b04b4225255bcf1}{Get\+Static\+Object} (int column, int row)
-\item 
+\begin{DoxyCompactList}\small\item\em Функция для получения статического объекта в определенной клетке \end{DoxyCompactList}\item 
 std\+::vector$<$ \hyperlink{namespacertm_af668a936c29b476890a79ad1eb19e3cc}{Dynamic\+Shared} $>$ \& \hyperlink{classrtm_1_1_world_controller_a3f1ea0c4cb853482e4b4681fb14f9b4f}{Get\+Dynamic\+Objects} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Функция для получения массива движущихся объектов \end{DoxyCompactList}\item 
 bool \hyperlink{classrtm_1_1_world_controller_a028e4f7ab189c6ad5fe889ca375786e4}{Is\+Pause} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Функция сообщает, происходят ли обновления \end{DoxyCompactList}\item 
 bool \hyperlink{classrtm_1_1_world_controller_ae560ff85d296effbe814dbadc2514ccf}{Is\+Correct\+Column} (int column)
-\item 
+\begin{DoxyCompactList}\small\item\em Функция проверяет корректность столбца \end{DoxyCompactList}\item 
 bool \hyperlink{classrtm_1_1_world_controller_ae468c9d0d4de9c4250eea4c78dc9eb7a}{Is\+Correct\+Row} (int row)
-\item 
+\begin{DoxyCompactList}\small\item\em Функция проверяет корректность строки \end{DoxyCompactList}\item 
 bool \hyperlink{classrtm_1_1_world_controller_aae96f9a5d1a32b4c347fa07a6180f8fd}{Is\+Allowable\+Column} (int column)
-\item 
+\begin{DoxyCompactList}\small\item\em Функция проверяет, можно ли двигаться в столбце \end{DoxyCompactList}\item 
 bool \hyperlink{classrtm_1_1_world_controller_a0adbbeed573fe3d987c6db2f14e50d21}{Is\+Allowable\+Row} (int row)
-\item 
+\begin{DoxyCompactList}\small\item\em Функция проверяет, можно ли двигаться в строке \end{DoxyCompactList}\item 
 bool \hyperlink{classrtm_1_1_world_controller_aba0f7dc41fd8b38af0864b05e3c59761}{Is\+Visible\+Column} (int column)
-\item 
+\begin{DoxyCompactList}\small\item\em Функция проверяет видимость столбца \end{DoxyCompactList}\item 
 bool \hyperlink{classrtm_1_1_world_controller_a146a82552c4043987b96615547f527be}{Is\+Visible\+Row} (int row)
-\item 
+\begin{DoxyCompactList}\small\item\em Функция проверяет видимость строки \end{DoxyCompactList}\item 
 void \hyperlink{classrtm_1_1_world_controller_ae06b54bf542fcd9a30945b6d51048f53}{Set\+Time\+Factor} (float factor)
-\item 
+\begin{DoxyCompactList}\small\item\em Функция для установки коэффициента ускорения времени \end{DoxyCompactList}\item 
 bool \hyperlink{classrtm_1_1_world_controller_a66ec47d83ef2aa4bc88ef8dd91072491}{Load\+Map} (std\+::string const \&filename)
-\item 
+\begin{DoxyCompactList}\small\item\em Функция для загрузки карты из файла \end{DoxyCompactList}\item 
 bool \hyperlink{classrtm_1_1_world_controller_ada6f03eb6808d52ed7fc6af239851ff3}{Load\+Map} (size\+\_\+t number)
-\item 
+\begin{DoxyCompactList}\small\item\em Функция для загрузки карты по номеру \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classrtm_1_1_world_controller_ae9fbdfd9f1b5a9dafe74c0eb1b3919bc}\label{classrtm_1_1_world_controller_ae9fbdfd9f1b5a9dafe74c0eb1b3919bc}} 
 void \hyperlink{classrtm_1_1_world_controller_ae9fbdfd9f1b5a9dafe74c0eb1b3919bc}{Spawn\+Car} ()
 \begin{DoxyCompactList}\small\item\em Функция для добавления машины на карту \end{DoxyCompactList}\item 
@@ -83,41 +83,41 @@ void \hyperlink{classrtm_1_1_world_controller_af682ce5179e826d1cc93f52f3c288905}
 \begin{DoxyCompactItemize}
 \item 
 bool \hyperlink{classrtm_1_1_world_controller_adb901be7a42ea77c48eadc1358f89af1}{Is\+Empty\+\_\+} (int column, int row, size\+\_\+t width=1, size\+\_\+t height=1)
-\item 
+\begin{DoxyCompactList}\small\item\em Функция проверяет доступность зоны для генерации статических объектов и объектов объекта \end{DoxyCompactList}\item 
 bool \hyperlink{classrtm_1_1_world_controller_a23b126a4227462eb8c6637f105c23614}{Generate\+Object\+\_\+} (uint8\+\_\+t $\ast$params, uint8\+\_\+t count)
-\item 
+\begin{DoxyCompactList}\small\item\em Функция для парсинга параметров и генерации объектов \end{DoxyCompactList}\item 
 bool \hyperlink{classrtm_1_1_world_controller_a6639efb9bada52ca44f485482e7b0e70}{Add\+Coating\+Union\+\_\+} (int column, int row, \hyperlink{namespacertm_a0b1daa4ff7c2591d8433d441f9e56e4c}{Coating\+Union\+Shared} coating\+Union)
-\item 
+\begin{DoxyCompactList}\small\item\em Функция для генерации объединения покрытий \end{DoxyCompactList}\item 
 bool \hyperlink{classrtm_1_1_world_controller_ae1ed62925357166038cde39adab53171}{Add\+Driveway\+\_\+} (\hyperlink{namespacertm_aecd3929e64cd461eb3555b611f6fad95}{Coating\+Type} type, int column, int row, size\+\_\+t width, size\+\_\+t height, \hyperlink{namespacertm_a69dc82b16a0148c10962caa83d930f89}{Angle\+Type} angle)
-\item 
+\begin{DoxyCompactList}\small\item\em Функция для генерации прямой односторонней дороги \end{DoxyCompactList}\item 
 bool \hyperlink{classrtm_1_1_world_controller_a044376120aaed246dcb1e15b7ca345ac}{Add\+Crossroad\+\_\+} (\hyperlink{namespacertm_aecd3929e64cd461eb3555b611f6fad95}{Coating\+Type} type, int column, int row, \hyperlink{namespacertm_a14457f3088a92b86a96686b72d3e4eea}{Lines\+Counts} lines\+Counts, size\+\_\+t control\+Unit\+Type=0)
-\item 
+\begin{DoxyCompactList}\small\item\em Функция для генерации перекрестка \end{DoxyCompactList}\item 
 bool \hyperlink{classrtm_1_1_world_controller_aa691a505a1a3c18c98974ab5a3aac5ca}{Add\+T\+Crossroad\+\_\+} (\hyperlink{namespacertm_aecd3929e64cd461eb3555b611f6fad95}{Coating\+Type} type, int column, int row, \hyperlink{namespacertm_a14457f3088a92b86a96686b72d3e4eea}{Lines\+Counts} lines\+Counts, \hyperlink{namespacertm_a69dc82b16a0148c10962caa83d930f89}{Angle\+Type} null\+Direction, size\+\_\+t control\+Unit\+Type=0)
-\item 
+\begin{DoxyCompactList}\small\item\em Функция для генерации т-\/образного перекрестка \end{DoxyCompactList}\item 
 bool \hyperlink{classrtm_1_1_world_controller_a8c74afa75819e11feec4424cc03388f8}{Add\+Left\+Turt\+\_\+} (\hyperlink{namespacertm_aecd3929e64cd461eb3555b611f6fad95}{Coating\+Type} type, int column, int row, size\+\_\+t lines\+Count, \hyperlink{namespacertm_a69dc82b16a0148c10962caa83d930f89}{Angle\+Type} angle)
-\item 
+\begin{DoxyCompactList}\small\item\em Функция для генерации левого поворота \end{DoxyCompactList}\item 
 bool \hyperlink{classrtm_1_1_world_controller_aa516f5455b1bad2f80e10f13f3060773}{Add\+Right\+Turt\+\_\+} (\hyperlink{namespacertm_aecd3929e64cd461eb3555b611f6fad95}{Coating\+Type} type, int column, int row, size\+\_\+t lines\+Count, \hyperlink{namespacertm_a69dc82b16a0148c10962caa83d930f89}{Angle\+Type} angle)
-\item 
+\begin{DoxyCompactList}\small\item\em Функция для генерации правого поворота \end{DoxyCompactList}\item 
 bool \hyperlink{classrtm_1_1_world_controller_a54a03012a522c844563f092e4f0a1e60}{Add\+Control\+Unit\+\_\+} (\hyperlink{namespacertm_a64296d558b2fa02bbf5870afffd61fd9}{Control\+Unit\+Shared} control\+Unit)
-\item 
+\begin{DoxyCompactList}\small\item\em Функция для добавления управляющего блока в общий массив (для обновлений) \end{DoxyCompactList}\item 
 bool \hyperlink{classrtm_1_1_world_controller_a07bb2d2043361ea1768cc157a19c472d}{Add\+Static\+Object\+\_\+} (int column, int row, \hyperlink{namespacertm_a80e2b49f975d8e515a73b3b579b88e07}{Static\+Shared} static\+Object)
-\item 
+\begin{DoxyCompactList}\small\item\em Функция для генерации статического объекта \end{DoxyCompactList}\item 
 bool \hyperlink{classrtm_1_1_world_controller_ae17e4ffc602819f5b382251b501b1d7c}{Add\+Building\+\_\+} (size\+\_\+t type, int column, int row, float angle)
-\item 
+\begin{DoxyCompactList}\small\item\em Функция для генерации строения \end{DoxyCompactList}\item 
 bool \hyperlink{classrtm_1_1_world_controller_a9e2fa6b63879171a26eaa0c26eacbc97}{Add\+Bush\+\_\+} (size\+\_\+t type, int column, int row, float angle)
-\item 
+\begin{DoxyCompactList}\small\item\em Функция для генерации куста \end{DoxyCompactList}\item 
 bool \hyperlink{classrtm_1_1_world_controller_aa886cfea79318d25b2ab69b01c01a5a3}{Add\+Dynamic\+Object\+\_\+} (int column, int row, \hyperlink{namespacertm_af668a936c29b476890a79ad1eb19e3cc}{Dynamic\+Shared} dynamic\+Object)
-\item 
+\begin{DoxyCompactList}\small\item\em Функция для генерации динамического объекта \end{DoxyCompactList}\item 
 bool \hyperlink{classrtm_1_1_world_controller_add7f36a79e7f096c8cf1d7413affec6a}{Add\+Car\+\_\+} (size\+\_\+t type, int column, int row, float angle)
-\item 
+\begin{DoxyCompactList}\small\item\em Функция для генерации машины \end{DoxyCompactList}\item 
 size\+\_\+t \hyperlink{classrtm_1_1_world_controller_ab88f97b038e03e763c6f863cf38863fb}{Get\+Vector\+Column\+\_\+} (int column)
-\item 
+\begin{DoxyCompactList}\small\item\em Функция для получения столбца в массиве \end{DoxyCompactList}\item 
 size\+\_\+t \hyperlink{classrtm_1_1_world_controller_a294d87950964a203d2b7cc7fb7716168}{Get\+Vector\+Row\+\_\+} (int row)
-\item 
+\begin{DoxyCompactList}\small\item\em Функция для получения строки в массиве \end{DoxyCompactList}\item 
 int \hyperlink{classrtm_1_1_world_controller_a73f4df1b8493c6d6d0a6b3cdb21a076c}{Get\+Real\+Column\+\_\+} (size\+\_\+t column)
-\item 
+\begin{DoxyCompactList}\small\item\em Функция для получения столбца объекта \end{DoxyCompactList}\item 
 int \hyperlink{classrtm_1_1_world_controller_a3aad7b071f3e8a80ab159e89ec5c8035}{Get\+Real\+Row\+\_\+} (size\+\_\+t row)
-\item 
+\begin{DoxyCompactList}\small\item\em Функция для получения строки объекта \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classrtm_1_1_world_controller_a3cd1dce633aa3d4a6991ccf6c367b9a8}\label{classrtm_1_1_world_controller_a3cd1dce633aa3d4a6991ccf6c367b9a8}} 
 void \hyperlink{classrtm_1_1_world_controller_a3cd1dce633aa3d4a6991ccf6c367b9a8}{Close\+Map\+\_\+} ()
 \begin{DoxyCompactList}\small\item\em Функция закрытии карты \end{DoxyCompactList}\item 
@@ -199,7 +199,11 @@ std\+::string \hyperlink{classrtm_1_1_world_controller_a9a654be15f165442066c89ad
 \subsubsection{\texorpdfstring{World\+Controller()}{WorldController()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
 {\footnotesize\ttfamily rtm\+::\+World\+Controller\+::\+World\+Controller (\begin{DoxyParamCaption}\item[{\hyperlink{classrtm_1_1_world_scene}{World\+Scene} $\ast$const}]{scene }\end{DoxyParamCaption})}
 
+
+
 Конструктор без загрузки какой-\/либо карты 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em scene} & сцена, к которой привязан контроллер \\
 \hline
@@ -210,7 +214,11 @@ std\+::string \hyperlink{classrtm_1_1_world_controller_a9a654be15f165442066c89ad
 \subsubsection{\texorpdfstring{World\+Controller()}{WorldController()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
 {\footnotesize\ttfamily rtm\+::\+World\+Controller\+::\+World\+Controller (\begin{DoxyParamCaption}\item[{\hyperlink{classrtm_1_1_world_scene}{World\+Scene} $\ast$const}]{scene,  }\item[{std\+::string const \&}]{filename }\end{DoxyParamCaption})}
 
+
+
 Конструктор с загрузкой карты 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em scene} & сцена, к которой привязан контроллер \\
 \hline
@@ -223,7 +231,11 @@ std\+::string \hyperlink{classrtm_1_1_world_controller_a9a654be15f165442066c89ad
 \subsubsection{\texorpdfstring{World\+Controller()}{WorldController()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
 {\footnotesize\ttfamily rtm\+::\+World\+Controller\+::\+World\+Controller (\begin{DoxyParamCaption}\item[{\hyperlink{classrtm_1_1_world_scene}{World\+Scene} $\ast$const}]{scene,  }\item[{size\+\_\+t}]{map\+Number }\end{DoxyParamCaption})}
 
+
+
 Конструктор с загрузкой карты 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em scene} & сцена, к которой привязан контроллер \\
 \hline
@@ -239,7 +251,11 @@ std\+::string \hyperlink{classrtm_1_1_world_controller_a9a654be15f165442066c89ad
 \subsubsection{\texorpdfstring{Update()}{Update()}}
 {\footnotesize\ttfamily void rtm\+::\+World\+Controller\+::\+Update (\begin{DoxyParamCaption}\item[{float}]{time }\end{DoxyParamCaption})}
 
+
+
 Функция обновления 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em time} & время, прошедшее с момента прошлого обновления (в секундах) \\
 \hline
@@ -250,7 +266,11 @@ std\+::string \hyperlink{classrtm_1_1_world_controller_a9a654be15f165442066c89ad
 \subsubsection{\texorpdfstring{Get\+Layer()}{GetLayer()}}
 {\footnotesize\ttfamily cocos2d\+::\+Layer $\ast$ rtm\+::\+World\+Controller\+::\+Get\+Layer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
-Функция для получения основного слоя сцены (на нём вся движуха) \begin{DoxyReturn}{Возвращает}
+
+
+Функция для получения основного слоя сцены (на нём вся движуха) 
+
+\begin{DoxyReturn}{Возвращает}
 основной слой 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classrtm_1_1_world_controller_af845be3c9945c0a2250f32e134a04294}\label{classrtm_1_1_world_controller_af845be3c9945c0a2250f32e134a04294}} 
@@ -259,7 +279,11 @@ std\+::string \hyperlink{classrtm_1_1_world_controller_a9a654be15f165442066c89ad
 \subsubsection{\texorpdfstring{Get\+Columns\+Count()}{GetColumnsCount()}}
 {\footnotesize\ttfamily size\+\_\+t rtm\+::\+World\+Controller\+::\+Get\+Columns\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
-Функция для получения количества столбцов карты \begin{DoxyReturn}{Возвращает}
+
+
+Функция для получения количества столбцов карты 
+
+\begin{DoxyReturn}{Возвращает}
 количество столбцов 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classrtm_1_1_world_controller_afb245167ac0680db01a3d09f80051dd0}\label{classrtm_1_1_world_controller_afb245167ac0680db01a3d09f80051dd0}} 
@@ -268,7 +292,11 @@ std\+::string \hyperlink{classrtm_1_1_world_controller_a9a654be15f165442066c89ad
 \subsubsection{\texorpdfstring{Get\+Rows\+Count()}{GetRowsCount()}}
 {\footnotesize\ttfamily size\+\_\+t rtm\+::\+World\+Controller\+::\+Get\+Rows\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
-Функция для получения количества строк карты \begin{DoxyReturn}{Возвращает}
+
+
+Функция для получения количества строк карты 
+
+\begin{DoxyReturn}{Возвращает}
 количество строк 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classrtm_1_1_world_controller_a2288dd191a28070d4811897281413c36}\label{classrtm_1_1_world_controller_a2288dd191a28070d4811897281413c36}} 
@@ -277,7 +305,11 @@ std\+::string \hyperlink{classrtm_1_1_world_controller_a9a654be15f165442066c89ad
 \subsubsection{\texorpdfstring{Get\+Delta\+Time()}{GetDeltaTime()}}
 {\footnotesize\ttfamily float rtm\+::\+World\+Controller\+::\+Get\+Delta\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
-Функция для получения последней разницей между обновлениями \begin{DoxyReturn}{Возвращает}
+
+
+Функция для получения последней разницей между обновлениями 
+
+\begin{DoxyReturn}{Возвращает}
 разница во времени между обновлениями (в секундах) 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classrtm_1_1_world_controller_a97ccb5133bc7c0617affe4d947265370}\label{classrtm_1_1_world_controller_a97ccb5133bc7c0617affe4d947265370}} 
@@ -286,7 +318,11 @@ std\+::string \hyperlink{classrtm_1_1_world_controller_a9a654be15f165442066c89ad
 \subsubsection{\texorpdfstring{Get\+Time\+Factor()}{GetTimeFactor()}}
 {\footnotesize\ttfamily float rtm\+::\+World\+Controller\+::\+Get\+Time\+Factor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
-Функция для получения коэффициента ускорения времени \begin{DoxyReturn}{Возвращает}
+
+
+Функция для получения коэффициента ускорения времени 
+
+\begin{DoxyReturn}{Возвращает}
 коэффициент ускорения времени (1 -\/ реальная скорость) 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classrtm_1_1_world_controller_ab2b9d9d1451820fcbbe7107deed6e4cf}\label{classrtm_1_1_world_controller_ab2b9d9d1451820fcbbe7107deed6e4cf}} 
@@ -295,7 +331,11 @@ std\+::string \hyperlink{classrtm_1_1_world_controller_a9a654be15f165442066c89ad
 \subsubsection{\texorpdfstring{Get\+Coating\+Object()}{GetCoatingObject()}}
 {\footnotesize\ttfamily \hyperlink{classrtm_1_1_coating_object}{rtm\+::\+Coating\+Object} $\ast$ rtm\+::\+World\+Controller\+::\+Get\+Coating\+Object (\begin{DoxyParamCaption}\item[{int}]{column,  }\item[{int}]{row }\end{DoxyParamCaption})}
 
-Функция для получения объекта в определенной клетке \begin{DoxyReturn}{Возвращает}
+
+
+Функция для получения объекта в определенной клетке 
+
+\begin{DoxyReturn}{Возвращает}
 указатель на объект объекта 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classrtm_1_1_world_controller_ac43dfd6de088ba04aefc8b4d9d118ea7}\label{classrtm_1_1_world_controller_ac43dfd6de088ba04aefc8b4d9d118ea7}} 
@@ -304,7 +344,11 @@ std\+::string \hyperlink{classrtm_1_1_world_controller_a9a654be15f165442066c89ad
 \subsubsection{\texorpdfstring{Get\+Coating\+Union()}{GetCoatingUnion()}}
 {\footnotesize\ttfamily \hyperlink{classrtm_1_1_coating_union}{rtm\+::\+Coating\+Union} $\ast$ rtm\+::\+World\+Controller\+::\+Get\+Coating\+Union (\begin{DoxyParamCaption}\item[{int}]{column,  }\item[{int}]{row }\end{DoxyParamCaption})}
 
-Функция для получения объединения покрытий в определенной клетке \begin{DoxyReturn}{Возвращает}
+
+
+Функция для получения объединения покрытий в определенной клетке 
+
+\begin{DoxyReturn}{Возвращает}
 указатель на объект объединения покрытий 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classrtm_1_1_world_controller_ae949e287815fd3327b04b4225255bcf1}\label{classrtm_1_1_world_controller_ae949e287815fd3327b04b4225255bcf1}} 
@@ -313,7 +357,11 @@ std\+::string \hyperlink{classrtm_1_1_world_controller_a9a654be15f165442066c89ad
 \subsubsection{\texorpdfstring{Get\+Static\+Object()}{GetStaticObject()}}
 {\footnotesize\ttfamily \hyperlink{classrtm_1_1_static_object}{rtm\+::\+Static\+Object} $\ast$ rtm\+::\+World\+Controller\+::\+Get\+Static\+Object (\begin{DoxyParamCaption}\item[{int}]{column,  }\item[{int}]{row }\end{DoxyParamCaption})}
 
-Функция для получения статического объекта в определенной клетке \begin{DoxyReturn}{Возвращает}
+
+
+Функция для получения статического объекта в определенной клетке 
+
+\begin{DoxyReturn}{Возвращает}
 указатель на статический объект 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classrtm_1_1_world_controller_a3f1ea0c4cb853482e4b4681fb14f9b4f}\label{classrtm_1_1_world_controller_a3f1ea0c4cb853482e4b4681fb14f9b4f}} 
@@ -322,7 +370,11 @@ std\+::string \hyperlink{classrtm_1_1_world_controller_a9a654be15f165442066c89ad
 \subsubsection{\texorpdfstring{Get\+Dynamic\+Objects()}{GetDynamicObjects()}}
 {\footnotesize\ttfamily std\+::vector$<$ \hyperlink{namespacertm_af668a936c29b476890a79ad1eb19e3cc}{rtm\+::\+Dynamic\+Shared} $>$ \& rtm\+::\+World\+Controller\+::\+Get\+Dynamic\+Objects (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Функция для получения массива движущихся объектов \begin{DoxyReturn}{Возвращает}
+
+
+Функция для получения массива движущихся объектов 
+
+\begin{DoxyReturn}{Возвращает}
 массив движущихся объектов 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classrtm_1_1_world_controller_a028e4f7ab189c6ad5fe889ca375786e4}\label{classrtm_1_1_world_controller_a028e4f7ab189c6ad5fe889ca375786e4}} 
@@ -331,7 +383,11 @@ std\+::string \hyperlink{classrtm_1_1_world_controller_a9a654be15f165442066c89ad
 \subsubsection{\texorpdfstring{Is\+Pause()}{IsPause()}}
 {\footnotesize\ttfamily bool rtm\+::\+World\+Controller\+::\+Is\+Pause (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Функция сообщает, происходят ли обновления \begin{DoxyReturn}{Возвращает}
+
+
+Функция сообщает, происходят ли обновления 
+
+\begin{DoxyReturn}{Возвращает}
 true, если происходят не происходят (стоит пауза), иначе false 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classrtm_1_1_world_controller_ae560ff85d296effbe814dbadc2514ccf}\label{classrtm_1_1_world_controller_ae560ff85d296effbe814dbadc2514ccf}} 
@@ -340,7 +396,11 @@ true, если происходят не происходят (стоит пау
 \subsubsection{\texorpdfstring{Is\+Correct\+Column()}{IsCorrectColumn()}}
 {\footnotesize\ttfamily bool rtm\+::\+World\+Controller\+::\+Is\+Correct\+Column (\begin{DoxyParamCaption}\item[{int}]{column }\end{DoxyParamCaption})}
 
+
+
 Функция проверяет корректность столбца 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em column} & номер проверяемой колонки \\
 \hline
@@ -354,7 +414,11 @@ true, если столбец корректный, иначе false
 \subsubsection{\texorpdfstring{Is\+Correct\+Row()}{IsCorrectRow()}}
 {\footnotesize\ttfamily bool rtm\+::\+World\+Controller\+::\+Is\+Correct\+Row (\begin{DoxyParamCaption}\item[{int}]{row }\end{DoxyParamCaption})}
 
+
+
 Функция проверяет корректность строки 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em row} & номер проверяемой строки \\
 \hline
@@ -368,7 +432,11 @@ true, если строка корректная, иначе false
 \subsubsection{\texorpdfstring{Is\+Allowable\+Column()}{IsAllowableColumn()}}
 {\footnotesize\ttfamily bool rtm\+::\+World\+Controller\+::\+Is\+Allowable\+Column (\begin{DoxyParamCaption}\item[{int}]{column }\end{DoxyParamCaption})}
 
+
+
 Функция проверяет, можно ли двигаться в столбце 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em column} & номер проверяемой колонки \\
 \hline
@@ -382,7 +450,11 @@ true, если в столбце можно двигаться, иначе false
 \subsubsection{\texorpdfstring{Is\+Allowable\+Row()}{IsAllowableRow()}}
 {\footnotesize\ttfamily bool rtm\+::\+World\+Controller\+::\+Is\+Allowable\+Row (\begin{DoxyParamCaption}\item[{int}]{row }\end{DoxyParamCaption})}
 
+
+
 Функция проверяет, можно ли двигаться в строке 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em row} & номер проверяемой строки \\
 \hline
@@ -396,7 +468,11 @@ true, если в строке можно двигаться, иначе false
 \subsubsection{\texorpdfstring{Is\+Visible\+Column()}{IsVisibleColumn()}}
 {\footnotesize\ttfamily bool rtm\+::\+World\+Controller\+::\+Is\+Visible\+Column (\begin{DoxyParamCaption}\item[{int}]{column }\end{DoxyParamCaption})}
 
+
+
 Функция проверяет видимость столбца 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em column} & номер проверяемой колонки \\
 \hline
@@ -410,7 +486,11 @@ true, если столбец виден, иначе false
 \subsubsection{\texorpdfstring{Is\+Visible\+Row()}{IsVisibleRow()}}
 {\footnotesize\ttfamily bool rtm\+::\+World\+Controller\+::\+Is\+Visible\+Row (\begin{DoxyParamCaption}\item[{int}]{row }\end{DoxyParamCaption})}
 
+
+
 Функция проверяет видимость строки 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em row} & номер проверяемой строки \\
 \hline
@@ -424,7 +504,11 @@ true, если строка видна, иначе false
 \subsubsection{\texorpdfstring{Set\+Time\+Factor()}{SetTimeFactor()}}
 {\footnotesize\ttfamily void rtm\+::\+World\+Controller\+::\+Set\+Time\+Factor (\begin{DoxyParamCaption}\item[{float}]{factor }\end{DoxyParamCaption})}
 
+
+
 Функция для установки коэффициента ускорения времени 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em factor} & коэффициент ускорения времени (1 -\/ реальная скорость) \\
 \hline
@@ -435,7 +519,11 @@ true, если строка видна, иначе false
 \subsubsection{\texorpdfstring{Load\+Map()}{LoadMap()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily bool rtm\+::\+World\+Controller\+::\+Load\+Map (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{filename }\end{DoxyParamCaption})}
 
+
+
 Функция для загрузки карты из файла 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em filename} & полный путь к файлу с картой \\
 \hline
@@ -446,7 +534,11 @@ true, если строка видна, иначе false
 \subsubsection{\texorpdfstring{Load\+Map()}{LoadMap()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily bool rtm\+::\+World\+Controller\+::\+Load\+Map (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{number }\end{DoxyParamCaption})}
 
+
+
 Функция для загрузки карты по номеру 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em number} & номер стандартной карты \\
 \hline
@@ -457,7 +549,11 @@ true, если строка видна, иначе false
 \subsubsection{\texorpdfstring{Is\+Empty\+\_\+()}{IsEmpty\_()}}
 {\footnotesize\ttfamily bool rtm\+::\+World\+Controller\+::\+Is\+Empty\+\_\+ (\begin{DoxyParamCaption}\item[{int}]{column,  }\item[{int}]{row,  }\item[{size\+\_\+t}]{width = {\ttfamily 1},  }\item[{size\+\_\+t}]{height = {\ttfamily 1} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+
+
 Функция проверяет доступность зоны для генерации статических объектов и объектов объекта 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em column} & левая колонка проверяемой зоны \\
 \hline
@@ -477,7 +573,11 @@ true, если можно сгенерировать объект в данно�
 \subsubsection{\texorpdfstring{Generate\+Object\+\_\+()}{GenerateObject\_()}}
 {\footnotesize\ttfamily bool rtm\+::\+World\+Controller\+::\+Generate\+Object\+\_\+ (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{params,  }\item[{uint8\+\_\+t}]{count }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+
+
 Функция для парсинга параметров и генерации объектов 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em params} & массив параметров генерации \\
 \hline
@@ -493,7 +593,11 @@ true, если объект получилось сгенерировать, и�
 \subsubsection{\texorpdfstring{Add\+Coating\+Union\+\_\+()}{AddCoatingUnion\_()}}
 {\footnotesize\ttfamily bool rtm\+::\+World\+Controller\+::\+Add\+Coating\+Union\+\_\+ (\begin{DoxyParamCaption}\item[{int}]{column,  }\item[{int}]{row,  }\item[{\hyperlink{namespacertm_a0b1daa4ff7c2591d8433d441f9e56e4c}{Coating\+Union\+Shared}}]{coating\+Union }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+
+
 Функция для генерации объединения покрытий 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em column} & левая колонка объединения покрытий \\
 \hline
@@ -511,7 +615,11 @@ true, если объект получилось сгенерировать, и�
 \subsubsection{\texorpdfstring{Add\+Driveway\+\_\+()}{AddDriveway\_()}}
 {\footnotesize\ttfamily bool rtm\+::\+World\+Controller\+::\+Add\+Driveway\+\_\+ (\begin{DoxyParamCaption}\item[{\hyperlink{namespacertm_aecd3929e64cd461eb3555b611f6fad95}{Coating\+Type}}]{type,  }\item[{int}]{column,  }\item[{int}]{row,  }\item[{size\+\_\+t}]{width,  }\item[{size\+\_\+t}]{height,  }\item[{\hyperlink{namespacertm_a69dc82b16a0148c10962caa83d930f89}{Angle\+Type}}]{angle }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+
+
 Функция для генерации прямой односторонней дороги 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em type} & тип объекта (асфальт, грязь...) \\
 \hline
@@ -535,7 +643,11 @@ true, если объект получилось сгенерировать, и�
 \subsubsection{\texorpdfstring{Add\+Crossroad\+\_\+()}{AddCrossroad\_()}}
 {\footnotesize\ttfamily bool rtm\+::\+World\+Controller\+::\+Add\+Crossroad\+\_\+ (\begin{DoxyParamCaption}\item[{\hyperlink{namespacertm_aecd3929e64cd461eb3555b611f6fad95}{Coating\+Type}}]{type,  }\item[{int}]{column,  }\item[{int}]{row,  }\item[{\hyperlink{namespacertm_a14457f3088a92b86a96686b72d3e4eea}{Lines\+Counts}}]{lines\+Counts,  }\item[{size\+\_\+t}]{control\+Unit\+Type = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+
+
 Функция для генерации перекрестка 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em type} & тип объекта (асфальт, грязь...) \\
 \hline
@@ -557,7 +669,11 @@ true, если объект получилось сгенерировать, и�
 \subsubsection{\texorpdfstring{Add\+T\+Crossroad\+\_\+()}{AddTCrossroad\_()}}
 {\footnotesize\ttfamily bool rtm\+::\+World\+Controller\+::\+Add\+T\+Crossroad\+\_\+ (\begin{DoxyParamCaption}\item[{\hyperlink{namespacertm_aecd3929e64cd461eb3555b611f6fad95}{Coating\+Type}}]{type,  }\item[{int}]{column,  }\item[{int}]{row,  }\item[{\hyperlink{namespacertm_a14457f3088a92b86a96686b72d3e4eea}{Lines\+Counts}}]{lines\+Counts,  }\item[{\hyperlink{namespacertm_a69dc82b16a0148c10962caa83d930f89}{Angle\+Type}}]{null\+Direction,  }\item[{size\+\_\+t}]{control\+Unit\+Type = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+
+
 Функция для генерации т-\/образного перекрестка 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em type} & тип объекта (асфальт, грязь...) \\
 \hline
@@ -581,7 +697,11 @@ true, если объект получилось сгенерировать, и�
 \subsubsection{\texorpdfstring{Add\+Left\+Turt\+\_\+()}{AddLeftTurt\_()}}
 {\footnotesize\ttfamily bool rtm\+::\+World\+Controller\+::\+Add\+Left\+Turt\+\_\+ (\begin{DoxyParamCaption}\item[{\hyperlink{namespacertm_aecd3929e64cd461eb3555b611f6fad95}{Coating\+Type}}]{type,  }\item[{int}]{column,  }\item[{int}]{row,  }\item[{size\+\_\+t}]{lines\+Count,  }\item[{\hyperlink{namespacertm_a69dc82b16a0148c10962caa83d930f89}{Angle\+Type}}]{angle }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+
+
 Функция для генерации левого поворота 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em type} & тип объекта (асфальт, грязь...) \\
 \hline
@@ -603,7 +723,11 @@ true, если объект получилось сгенерировать, и�
 \subsubsection{\texorpdfstring{Add\+Right\+Turt\+\_\+()}{AddRightTurt\_()}}
 {\footnotesize\ttfamily bool rtm\+::\+World\+Controller\+::\+Add\+Right\+Turt\+\_\+ (\begin{DoxyParamCaption}\item[{\hyperlink{namespacertm_aecd3929e64cd461eb3555b611f6fad95}{Coating\+Type}}]{type,  }\item[{int}]{column,  }\item[{int}]{row,  }\item[{size\+\_\+t}]{lines\+Count,  }\item[{\hyperlink{namespacertm_a69dc82b16a0148c10962caa83d930f89}{Angle\+Type}}]{angle }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+
+
 Функция для генерации правого поворота 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em type} & тип объекта (асфальт, грязь...) \\
 \hline
@@ -625,7 +749,11 @@ true, если объект получилось сгенерировать, и�
 \subsubsection{\texorpdfstring{Add\+Control\+Unit\+\_\+()}{AddControlUnit\_()}}
 {\footnotesize\ttfamily bool rtm\+::\+World\+Controller\+::\+Add\+Control\+Unit\+\_\+ (\begin{DoxyParamCaption}\item[{\hyperlink{namespacertm_a64296d558b2fa02bbf5870afffd61fd9}{Control\+Unit\+Shared}}]{control\+Unit }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+
+
 Функция для добавления управляющего блока в общий массив (для обновлений) 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em control\+Unit} & умный указатель на управляющий блок \\
 \hline
@@ -639,7 +767,11 @@ true, если объект получилось добавить, иначе fa
 \subsubsection{\texorpdfstring{Add\+Static\+Object\+\_\+()}{AddStaticObject\_()}}
 {\footnotesize\ttfamily bool rtm\+::\+World\+Controller\+::\+Add\+Static\+Object\+\_\+ (\begin{DoxyParamCaption}\item[{int}]{column,  }\item[{int}]{row,  }\item[{\hyperlink{namespacertm_a80e2b49f975d8e515a73b3b579b88e07}{Static\+Shared}}]{static\+Object }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+
+
 Функция для генерации статического объекта 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em column} & колонка статического объекта \\
 \hline
@@ -657,7 +789,11 @@ true, если объект получилось сгенерировать, и�
 \subsubsection{\texorpdfstring{Add\+Building\+\_\+()}{AddBuilding\_()}}
 {\footnotesize\ttfamily bool rtm\+::\+World\+Controller\+::\+Add\+Building\+\_\+ (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{type,  }\item[{int}]{column,  }\item[{int}]{row,  }\item[{float}]{angle }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+
+
 Функция для генерации строения 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em type} & тип строения \\
 \hline
@@ -677,7 +813,11 @@ true, если объект получилось сгенерировать, и�
 \subsubsection{\texorpdfstring{Add\+Bush\+\_\+()}{AddBush\_()}}
 {\footnotesize\ttfamily bool rtm\+::\+World\+Controller\+::\+Add\+Bush\+\_\+ (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{type,  }\item[{int}]{column,  }\item[{int}]{row,  }\item[{float}]{angle }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+
+
 Функция для генерации куста 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em type} & тип куста \\
 \hline
@@ -697,7 +837,11 @@ true, если объект получилось сгенерировать, и�
 \subsubsection{\texorpdfstring{Add\+Dynamic\+Object\+\_\+()}{AddDynamicObject\_()}}
 {\footnotesize\ttfamily bool rtm\+::\+World\+Controller\+::\+Add\+Dynamic\+Object\+\_\+ (\begin{DoxyParamCaption}\item[{int}]{column,  }\item[{int}]{row,  }\item[{\hyperlink{namespacertm_af668a936c29b476890a79ad1eb19e3cc}{Dynamic\+Shared}}]{dynamic\+Object }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+
+
 Функция для генерации динамического объекта 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em column} & колонка динамического объекта \\
 \hline
@@ -715,7 +859,11 @@ true, если объект получилось сгенерировать, и�
 \subsubsection{\texorpdfstring{Add\+Car\+\_\+()}{AddCar\_()}}
 {\footnotesize\ttfamily bool rtm\+::\+World\+Controller\+::\+Add\+Car\+\_\+ (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{type,  }\item[{int}]{column,  }\item[{int}]{row,  }\item[{float}]{angle }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+
+
 Функция для генерации машины 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em type} & тип машины \\
 \hline
@@ -735,7 +883,11 @@ true, если объект получилось сгенерировать, и�
 \subsubsection{\texorpdfstring{Get\+Vector\+Column\+\_\+()}{GetVectorColumn\_()}}
 {\footnotesize\ttfamily size\+\_\+t rtm\+::\+World\+Controller\+::\+Get\+Vector\+Column\+\_\+ (\begin{DoxyParamCaption}\item[{int}]{column }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
 
+
+
 Функция для получения столбца в массиве 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em column} & столбец объекта \\
 \hline
@@ -749,7 +901,11 @@ true, если объект получилось сгенерировать, и�
 \subsubsection{\texorpdfstring{Get\+Vector\+Row\+\_\+()}{GetVectorRow\_()}}
 {\footnotesize\ttfamily size\+\_\+t rtm\+::\+World\+Controller\+::\+Get\+Vector\+Row\+\_\+ (\begin{DoxyParamCaption}\item[{int}]{row }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
 
+
+
 Функция для получения строки в массиве 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em row} & строка объекта \\
 \hline
@@ -763,7 +919,11 @@ true, если объект получилось сгенерировать, и�
 \subsubsection{\texorpdfstring{Get\+Real\+Column\+\_\+()}{GetRealColumn\_()}}
 {\footnotesize\ttfamily int rtm\+::\+World\+Controller\+::\+Get\+Real\+Column\+\_\+ (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{column }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
 
+
+
 Функция для получения столбца объекта 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em column} & столбец в массиве \\
 \hline
@@ -777,7 +937,11 @@ true, если объект получилось сгенерировать, и�
 \subsubsection{\texorpdfstring{Get\+Real\+Row\+\_\+()}{GetRealRow\_()}}
 {\footnotesize\ttfamily int rtm\+::\+World\+Controller\+::\+Get\+Real\+Row\+\_\+ (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{row }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
 
+
+
 Функция для получения строки объекта 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em row} & строка в массиве \\
 \hline

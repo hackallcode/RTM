@@ -26,24 +26,24 @@
 \hyperlink{classrtm_1_1_world_scene_a0e7f98986330555b5fcecf218915e623}{$\sim$\+World\+Scene} ()=default
 \begin{DoxyCompactList}\small\item\em Деструктор по умолчанию \end{DoxyCompactList}\item 
 virtual bool \hyperlink{classrtm_1_1_world_scene_a53da1782e50b99e90831bceb54c69ab9}{init} () override
-\item 
+\begin{DoxyCompactList}\small\item\em Функция для инициализации полей \end{DoxyCompactList}\item 
 virtual void \hyperlink{classrtm_1_1_world_scene_a243c2d00cc0e525738b099eea7120fba}{update} (float time) override
-\item 
+\begin{DoxyCompactList}\small\item\em Функция для обновления сцены \end{DoxyCompactList}\item 
 cocos2d\+::\+Layer $\ast$ \hyperlink{classrtm_1_1_world_scene_a33b06df7f231db363d6894408e16e225}{Get\+Main\+Layer} () const
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Функция для получения основного слоя, на котором находятся объекты \end{DoxyCompactList}\end{DoxyCompactItemize}
 \begin{Indent}\textbf{ Функции для установки фона}\par
 \begin{DoxyCompactItemize}
 \item 
 void \hyperlink{classrtm_1_1_world_scene_accf4ad079366ad6ca9731bff83d937c0}{Set\+Background} (std\+::string const \&filename)
-\item 
+\begin{DoxyCompactList}\small\item\em Функции для установки фона из файла \end{DoxyCompactList}\item 
 void \hyperlink{classrtm_1_1_world_scene_a097fa828c003f8757faf1aebdd0e63f1}{Set\+Background} (size\+\_\+t number)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Функции для установки фона по номеру \end{DoxyCompactList}\end{DoxyCompactItemize}
 \end{Indent}
 \subsection*{Открытые статические члены}
 \begin{DoxyCompactItemize}
 \item 
 static \hyperlink{classrtm_1_1_world_scene}{World\+Scene} $\ast$ \hyperlink{classrtm_1_1_world_scene_a4d9c6dcf1fc6a02c1d090caed0ad6745}{Create} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Конструктор класса, поддерживающий R\+A\+II. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Закрытые члены}
 \begin{DoxyCompactItemize}
 \item 
@@ -90,7 +90,7 @@ void \hyperlink{classrtm_1_1_world_scene_a14462131111d322d70d8b3f790bae9e3}{Incr
 void \hyperlink{classrtm_1_1_world_scene_a44f1fb67e2c1357680e14d143612626f}{Decrease\+Speed\+\_\+} ()
 \begin{DoxyCompactList}\small\item\em Функция для уменьшения скорости обработки (скорости объектов) \end{DoxyCompactList}\item 
 \hyperlink{namespacertm_a3081db54851f6008db32c1ee28d14ecf}{World\+Controller\+Unique} \& \hyperlink{classrtm_1_1_world_scene_a8995a69857907834953be1bb2ccb2845}{Get\+Map\+\_\+} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Функция для получения контроллера данной сцены \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Закрытые статические члены}
 \begin{DoxyCompactItemize}
 \item 
@@ -160,7 +160,11 @@ static \hyperlink{classrtm_1_1_world_scene}{World\+Scene} $\ast$ \hyperlink{clas
 \subsubsection{\texorpdfstring{Create()}{Create()}}
 {\footnotesize\ttfamily \hyperlink{classrtm_1_1_world_scene}{rtm\+::\+World\+Scene} $\ast$ rtm\+::\+World\+Scene\+::\+Create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
-Конструктор класса, поддерживающий R\+A\+II \begin{DoxyReturn}{Возвращает}
+
+
+Конструктор класса, поддерживающий R\+A\+II. 
+
+\begin{DoxyReturn}{Возвращает}
 указатель на созданный объект 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classrtm_1_1_world_scene_a53da1782e50b99e90831bceb54c69ab9}\label{classrtm_1_1_world_scene_a53da1782e50b99e90831bceb54c69ab9}} 
@@ -169,7 +173,11 @@ static \hyperlink{classrtm_1_1_world_scene}{World\+Scene} $\ast$ \hyperlink{clas
 \subsubsection{\texorpdfstring{init()}{init()}}
 {\footnotesize\ttfamily bool rtm\+::\+World\+Scene\+::init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
-Функция для инициализации полей \begin{DoxyReturn}{Возвращает}
+
+
+Функция для инициализации полей 
+
+\begin{DoxyReturn}{Возвращает}
 true в случае успешной инициализации, иначе false 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classrtm_1_1_world_scene_a243c2d00cc0e525738b099eea7120fba}\label{classrtm_1_1_world_scene_a243c2d00cc0e525738b099eea7120fba}} 
@@ -178,7 +186,11 @@ true в случае успешной инициализации, иначе fal
 \subsubsection{\texorpdfstring{update()}{update()}}
 {\footnotesize\ttfamily void rtm\+::\+World\+Scene\+::update (\begin{DoxyParamCaption}\item[{float}]{time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
+
+
 Функция для обновления сцены 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em time} & время, прошедшее с момента прошлого обновления \\
 \hline
@@ -189,7 +201,11 @@ true в случае успешной инициализации, иначе fal
 \subsubsection{\texorpdfstring{Get\+Main\+Layer()}{GetMainLayer()}}
 {\footnotesize\ttfamily cocos2d\+::\+Layer $\ast$ rtm\+::\+World\+Scene\+::\+Get\+Main\+Layer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
-Функция для получения основного слоя, на котором находятся объекты \begin{DoxyReturn}{Возвращает}
+
+
+Функция для получения основного слоя, на котором находятся объекты 
+
+\begin{DoxyReturn}{Возвращает}
 основной слой 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classrtm_1_1_world_scene_accf4ad079366ad6ca9731bff83d937c0}\label{classrtm_1_1_world_scene_accf4ad079366ad6ca9731bff83d937c0}} 
@@ -198,7 +214,11 @@ true в случае успешной инициализации, иначе fal
 \subsubsection{\texorpdfstring{Set\+Background()}{SetBackground()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily void rtm\+::\+World\+Scene\+::\+Set\+Background (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{filename }\end{DoxyParamCaption})}
 
+
+
 Функции для установки фона из файла 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em filename} & полный путь к файлу с фоном (картинка) \\
 \hline
@@ -209,7 +229,11 @@ true в случае успешной инициализации, иначе fal
 \subsubsection{\texorpdfstring{Set\+Background()}{SetBackground()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily void rtm\+::\+World\+Scene\+::\+Set\+Background (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{number }\end{DoxyParamCaption})}
 
+
+
 Функции для установки фона по номеру 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em number} & номер стандартного фона \\
 \hline
@@ -220,7 +244,11 @@ true в случае успешной инициализации, иначе fal
 \subsubsection{\texorpdfstring{Get\+Map\+\_\+()}{GetMap\_()}}
 {\footnotesize\ttfamily \hyperlink{namespacertm_a3081db54851f6008db32c1ee28d14ecf}{rtm\+::\+World\+Controller\+Unique} \& rtm\+::\+World\+Scene\+::\+Get\+Map\+\_\+ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
-Функция для получения контроллера данной сцены \begin{DoxyReturn}{Возвращает}
+
+
+Функция для получения контроллера данной сцены 
+
+\begin{DoxyReturn}{Возвращает}
 контроллер сцены 
 \end{DoxyReturn}
 

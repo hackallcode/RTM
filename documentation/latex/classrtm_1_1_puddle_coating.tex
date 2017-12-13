@@ -26,11 +26,11 @@
 \hyperlink{classrtm_1_1_puddle_coating_adc8ec09ad8833bf8ae77a77ce37a7945}{Puddle\+Coating} ()
 \begin{DoxyCompactList}\small\item\em Конструктор по умочанию \end{DoxyCompactList}\item 
 \hyperlink{classrtm_1_1_puddle_coating_a7624921639d25bb1061d0344790375b4}{Puddle\+Coating} (cocos2d\+::\+Sprite $\ast$const sprite, int column, int row, \hyperlink{namespacertm_a69dc82b16a0148c10962caa83d930f89}{Angle\+Type} angle)
-\item 
+\begin{DoxyCompactList}\small\item\em Конструктор с использованием уже готового спрайта \end{DoxyCompactList}\item 
 \hyperlink{classrtm_1_1_puddle_coating_a82e0dcae5a891240e2d89cd84f672cb8}{Puddle\+Coating} (std\+::string const \&filename, int column, int row, \hyperlink{namespacertm_a69dc82b16a0148c10962caa83d930f89}{Angle\+Type} angle)
-\item 
+\begin{DoxyCompactList}\small\item\em Конструктор из файла \end{DoxyCompactList}\item 
 \hyperlink{classrtm_1_1_puddle_coating_a3e0e44711ab312c092fc3cf130984b15}{Puddle\+Coating} (size\+\_\+t id, int column, int row, \hyperlink{namespacertm_a69dc82b16a0148c10962caa83d930f89}{Angle\+Type} angle)
-\item 
+\begin{DoxyCompactList}\small\item\em Конструктор стандартного лужи \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classrtm_1_1_puddle_coating_a14d812f0ffd6f7eea21abdb1b3fcb9ef}\label{classrtm_1_1_puddle_coating_a14d812f0ffd6f7eea21abdb1b3fcb9ef}} 
 virtual \hyperlink{classrtm_1_1_puddle_coating_a14d812f0ffd6f7eea21abdb1b3fcb9ef}{$\sim$\+Puddle\+Coating} ()=default
 \begin{DoxyCompactList}\small\item\em Деструктор по умолчанию \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -47,7 +47,11 @@ virtual \hyperlink{classrtm_1_1_puddle_coating_a14d812f0ffd6f7eea21abdb1b3fcb9ef
 \subsubsection{\texorpdfstring{Puddle\+Coating()}{PuddleCoating()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
 {\footnotesize\ttfamily rtm\+::\+Puddle\+Coating\+::\+Puddle\+Coating (\begin{DoxyParamCaption}\item[{cocos2d\+::\+Sprite $\ast$const}]{sprite,  }\item[{int}]{column,  }\item[{int}]{row,  }\item[{\hyperlink{namespacertm_a69dc82b16a0148c10962caa83d930f89}{Angle\+Type}}]{angle }\end{DoxyParamCaption})}
 
+
+
 Конструктор с использованием уже готового спрайта 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em sprite} & указатель на готовый спрайт \\
 \hline
@@ -57,10 +61,6 @@ virtual \hyperlink{classrtm_1_1_puddle_coating_a14d812f0ffd6f7eea21abdb1b3fcb9ef
 \hline
 {\em angle} & угол поворота лужи \\
 \hline
-{\em resistance} & коэффициент сопротивления на луже \\
-\hline
-{\em directions} & доступные направления для движения \\
-\hline
 \end{DoxyParams}
 \mbox{\Hypertarget{classrtm_1_1_puddle_coating_a82e0dcae5a891240e2d89cd84f672cb8}\label{classrtm_1_1_puddle_coating_a82e0dcae5a891240e2d89cd84f672cb8}} 
 \index{rtm\+::\+Puddle\+Coating@{rtm\+::\+Puddle\+Coating}!Puddle\+Coating@{Puddle\+Coating}}
@@ -68,7 +68,11 @@ virtual \hyperlink{classrtm_1_1_puddle_coating_a14d812f0ffd6f7eea21abdb1b3fcb9ef
 \subsubsection{\texorpdfstring{Puddle\+Coating()}{PuddleCoating()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
 {\footnotesize\ttfamily rtm\+::\+Puddle\+Coating\+::\+Puddle\+Coating (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{filename,  }\item[{int}]{column,  }\item[{int}]{row,  }\item[{\hyperlink{namespacertm_a69dc82b16a0148c10962caa83d930f89}{Angle\+Type}}]{angle }\end{DoxyParamCaption})}
 
+
+
 Конструктор из файла 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em filename} & путь к файлу инициализации \\
 \hline
@@ -78,10 +82,6 @@ virtual \hyperlink{classrtm_1_1_puddle_coating_a14d812f0ffd6f7eea21abdb1b3fcb9ef
 \hline
 {\em angle} & угол поворота лужи \\
 \hline
-{\em resistance} & коэффициент сопротивления на луже \\
-\hline
-{\em directions} & доступные направления для движения \\
-\hline
 \end{DoxyParams}
 \mbox{\Hypertarget{classrtm_1_1_puddle_coating_a3e0e44711ab312c092fc3cf130984b15}\label{classrtm_1_1_puddle_coating_a3e0e44711ab312c092fc3cf130984b15}} 
 \index{rtm\+::\+Puddle\+Coating@{rtm\+::\+Puddle\+Coating}!Puddle\+Coating@{Puddle\+Coating}}
@@ -89,10 +89,12 @@ virtual \hyperlink{classrtm_1_1_puddle_coating_a14d812f0ffd6f7eea21abdb1b3fcb9ef
 \subsubsection{\texorpdfstring{Puddle\+Coating()}{PuddleCoating()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
 {\footnotesize\ttfamily rtm\+::\+Puddle\+Coating\+::\+Puddle\+Coating (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{id,  }\item[{int}]{column,  }\item[{int}]{row,  }\item[{\hyperlink{namespacertm_a69dc82b16a0148c10962caa83d930f89}{Angle\+Type}}]{angle }\end{DoxyParamCaption})}
 
+
+
 Конструктор стандартного лужи 
+
+
 \begin{DoxyParams}{Аргументы}
-{\em type} & стандартный тип покрытия \\
-\hline
 {\em id} & номер стандартной лужи \\
 \hline
 {\em column} & колонка, в которой необходимо отрисовать лужу \\

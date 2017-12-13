@@ -26,38 +26,38 @@
 \hyperlink{classrtm_1_1_dynamic_object_aeb59f3ec97c939c5b12a8738206557c2}{Dynamic\+Object} ()
 \begin{DoxyCompactList}\small\item\em Конструктор по умочанию \end{DoxyCompactList}\item 
 \hyperlink{classrtm_1_1_dynamic_object_a404c2232fe49bb759fd6a473d74131ed}{Dynamic\+Object} (cocos2d\+::\+Sprite $\ast$sprite, float x, float y, float angle, float speed)
-\item 
+\begin{DoxyCompactList}\small\item\em Конструктор с использованием уже готового спрайта \end{DoxyCompactList}\item 
 \hyperlink{classrtm_1_1_dynamic_object_aa65c16292e48449c981ed3710d7a6a26}{Dynamic\+Object} (std\+::string const \&filename, float x, float y, float angle, float speed)
-\item 
+\begin{DoxyCompactList}\small\item\em Конструктор из файла \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classrtm_1_1_dynamic_object_ae98f1897c1299f8f0aa2d4994e23090a}\label{classrtm_1_1_dynamic_object_ae98f1897c1299f8f0aa2d4994e23090a}} 
 virtual \hyperlink{classrtm_1_1_dynamic_object_ae98f1897c1299f8f0aa2d4994e23090a}{$\sim$\+Dynamic\+Object} ()=default
 \begin{DoxyCompactList}\small\item\em Деструктор по умолчанию \end{DoxyCompactList}\item 
 float \hyperlink{classrtm_1_1_dynamic_object_ac75970216f8be37f7b5eefd1f506215f}{Get\+Speed} () const
-\item 
+\begin{DoxyCompactList}\small\item\em Функция для получения скорости \end{DoxyCompactList}\item 
 float \hyperlink{classrtm_1_1_dynamic_object_ada2fd3defc1cea052020023b99be12ec}{Get\+Last\+Delta} () const
-\item 
+\begin{DoxyCompactList}\small\item\em Функция для получения последнего приращения положения \end{DoxyCompactList}\item 
 bool \hyperlink{classrtm_1_1_dynamic_object_a0bc9390b78faf5c770bff86a2e451ec6}{Has\+Collision} () const
-\item 
+\begin{DoxyCompactList}\small\item\em Функция для проверки наличия столкновений у данного объекта \end{DoxyCompactList}\item 
 virtual void \hyperlink{classrtm_1_1_dynamic_object_a2b2a4072f80d6be9c8d1097bc072197e}{Update} (\hyperlink{classrtm_1_1_world_controller}{World\+Controller} $\ast$const world)
-\item 
+\begin{DoxyCompactList}\small\item\em Функция обновления \end{DoxyCompactList}\item 
 bool \hyperlink{classrtm_1_1_dynamic_object_adcbb0baaad8ba2185e00221cc90fdee9}{Is\+Near\+Others} (\hyperlink{classrtm_1_1_world_controller}{World\+Controller} $\ast$const world)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Функция для поиска объектов неподалеку \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Защищенные члены}
 \begin{DoxyCompactItemize}
 \item 
 void \hyperlink{classrtm_1_1_dynamic_object_aceb38c6ff9d41d814953d4538e32542f}{Set\+Speed\+\_\+} (float speed)
-\item 
+\begin{DoxyCompactList}\small\item\em Функция для установки скорости \end{DoxyCompactList}\item 
 void \hyperlink{classrtm_1_1_dynamic_object_a50d64daac674d1e9f55ce1fb73cf9d6a}{Set\+Collision\+Flag\+\_\+} (bool flag)
-\item 
+\begin{DoxyCompactList}\small\item\em Функция для сохранения информации о столкновениях \end{DoxyCompactList}\item 
 bool \hyperlink{classrtm_1_1_dynamic_object_a8ed34444a34b29ff9a672839c6593558}{Is\+Beholding\+\_\+} (\hyperlink{classrtm_1_1_world_object}{World\+Object} const $\ast$const other, float radius=\hyperlink{namespacertm_a6ae2631935a995c34abce1c62fa3dcd7}{V\+I\+E\+W\+\_\+\+R\+A\+D\+I\+US}, float angle=\hyperlink{namespacertm_af0ecac808d3938e77a20990f1947c8fd}{V\+I\+E\+W\+\_\+\+A\+N\+G\+LE}, float angle\+Shift=\hyperlink{namespacertm_a10eed490bb183c7853ac317d82e0b1cd}{V\+I\+E\+W\+\_\+\+A\+N\+G\+L\+E\+\_\+\+S\+H\+I\+FT}) const
-\item 
+\begin{DoxyCompactList}\small\item\em Функция для проверки попадания объекта в зону видимости \end{DoxyCompactList}\item 
 bool \hyperlink{classrtm_1_1_dynamic_object_a96af6b5ed31d2332a3a45acfbdf084e5}{Is\+Intersecting\+\_\+} (\hyperlink{classrtm_1_1_world_object}{World\+Object} const $\ast$const other) const
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Функция для проверки наличия столкновения с other. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Закрытые члены}
 \begin{DoxyCompactItemize}
 \item 
 bool \hyperlink{classrtm_1_1_dynamic_object_a3df4074c83b3ab30d3080b4e99e08a5b}{Is\+Near\+\_\+} (\hyperlink{classrtm_1_1_world_object}{World\+Object} const $\ast$const other) const
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Функция для проверки, находится ли other рядом с данным объектом \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Закрытые данные}
 \begin{DoxyCompactItemize}
 \item 
@@ -74,7 +74,7 @@ bool \hyperlink{classrtm_1_1_dynamic_object_a05fe95cdc787c012fe36584398e82428}{h
 \begin{DoxyCompactItemize}
 \item 
 void \hyperlink{classrtm_1_1_dynamic_object_af73a5c4922e4f77fba3e44898bfa308b}{Check\+Collisions} (\hyperlink{classrtm_1_1_world_controller}{World\+Controller} $\ast$const world)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Функция для вычисления столкновений в мире \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Подробное описание}
@@ -87,7 +87,11 @@ void \hyperlink{classrtm_1_1_dynamic_object_af73a5c4922e4f77fba3e44898bfa308b}{C
 \subsubsection{\texorpdfstring{Dynamic\+Object()}{DynamicObject()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily rtm\+::\+Dynamic\+Object\+::\+Dynamic\+Object (\begin{DoxyParamCaption}\item[{cocos2d\+::\+Sprite $\ast$}]{sprite,  }\item[{float}]{x,  }\item[{float}]{y,  }\item[{float}]{angle,  }\item[{float}]{speed }\end{DoxyParamCaption})}
 
+
+
 Конструктор с использованием уже готового спрайта 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em sprite} & указатель на готовый спрайт \\
 \hline
@@ -106,7 +110,11 @@ void \hyperlink{classrtm_1_1_dynamic_object_af73a5c4922e4f77fba3e44898bfa308b}{C
 \subsubsection{\texorpdfstring{Dynamic\+Object()}{DynamicObject()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily rtm\+::\+Dynamic\+Object\+::\+Dynamic\+Object (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{filename,  }\item[{float}]{x,  }\item[{float}]{y,  }\item[{float}]{angle,  }\item[{float}]{speed }\end{DoxyParamCaption})}
 
+
+
 Конструктор из файла 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em filename} & путь к файлу инициализации \\
 \hline
@@ -128,7 +136,11 @@ void \hyperlink{classrtm_1_1_dynamic_object_af73a5c4922e4f77fba3e44898bfa308b}{C
 \subsubsection{\texorpdfstring{Get\+Speed()}{GetSpeed()}}
 {\footnotesize\ttfamily float rtm\+::\+Dynamic\+Object\+::\+Get\+Speed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
-Функция для получения скорости \begin{DoxyReturn}{Возвращает}
+
+
+Функция для получения скорости 
+
+\begin{DoxyReturn}{Возвращает}
 скорость объекта 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classrtm_1_1_dynamic_object_ada2fd3defc1cea052020023b99be12ec}\label{classrtm_1_1_dynamic_object_ada2fd3defc1cea052020023b99be12ec}} 
@@ -137,7 +149,11 @@ void \hyperlink{classrtm_1_1_dynamic_object_af73a5c4922e4f77fba3e44898bfa308b}{C
 \subsubsection{\texorpdfstring{Get\+Last\+Delta()}{GetLastDelta()}}
 {\footnotesize\ttfamily float rtm\+::\+Dynamic\+Object\+::\+Get\+Last\+Delta (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
-Функция для получения последнего приращения положения \begin{DoxyReturn}{Возвращает}
+
+
+Функция для получения последнего приращения положения 
+
+\begin{DoxyReturn}{Возвращает}
 длина последнего смещения 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classrtm_1_1_dynamic_object_a0bc9390b78faf5c770bff86a2e451ec6}\label{classrtm_1_1_dynamic_object_a0bc9390b78faf5c770bff86a2e451ec6}} 
@@ -146,7 +162,11 @@ void \hyperlink{classrtm_1_1_dynamic_object_af73a5c4922e4f77fba3e44898bfa308b}{C
 \subsubsection{\texorpdfstring{Has\+Collision()}{HasCollision()}}
 {\footnotesize\ttfamily bool rtm\+::\+Dynamic\+Object\+::\+Has\+Collision (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
-Функция для проверки наличия столкновений у данного объекта \begin{DoxyReturn}{Возвращает}
+
+
+Функция для проверки наличия столкновений у данного объекта 
+
+\begin{DoxyReturn}{Возвращает}
 true, если после последней проверки была столкновение, иначе false 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classrtm_1_1_dynamic_object_a2b2a4072f80d6be9c8d1097bc072197e}\label{classrtm_1_1_dynamic_object_a2b2a4072f80d6be9c8d1097bc072197e}} 
@@ -155,7 +175,11 @@ true, если после последней проверки была стол�
 \subsubsection{\texorpdfstring{Update()}{Update()}}
 {\footnotesize\ttfamily void rtm\+::\+Dynamic\+Object\+::\+Update (\begin{DoxyParamCaption}\item[{\hyperlink{classrtm_1_1_world_controller}{World\+Controller} $\ast$const}]{world }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
+
+
 Функция обновления 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em world} & контроллер мира, в котором находится объект \\
 \hline
@@ -170,7 +194,11 @@ true, если после последней проверки была стол�
 \subsubsection{\texorpdfstring{Is\+Near\+Others()}{IsNearOthers()}}
 {\footnotesize\ttfamily bool rtm\+::\+Dynamic\+Object\+::\+Is\+Near\+Others (\begin{DoxyParamCaption}\item[{\hyperlink{classrtm_1_1_world_controller}{World\+Controller} $\ast$const}]{world }\end{DoxyParamCaption})}
 
+
+
 Функция для поиска объектов неподалеку 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em world} & контроллер мира, в котором находится объект \\
 \hline
@@ -184,7 +212,11 @@ true, если какой-\/нибудь объект находится ряд�
 \subsubsection{\texorpdfstring{Set\+Speed\+\_\+()}{SetSpeed\_()}}
 {\footnotesize\ttfamily void rtm\+::\+Dynamic\+Object\+::\+Set\+Speed\+\_\+ (\begin{DoxyParamCaption}\item[{float}]{speed }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
 
+
+
 Функция для установки скорости 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em speed} & новая скорость \\
 \hline
@@ -195,7 +227,11 @@ true, если какой-\/нибудь объект находится ряд�
 \subsubsection{\texorpdfstring{Set\+Collision\+Flag\+\_\+()}{SetCollisionFlag\_()}}
 {\footnotesize\ttfamily void rtm\+::\+Dynamic\+Object\+::\+Set\+Collision\+Flag\+\_\+ (\begin{DoxyParamCaption}\item[{bool}]{flag }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
 
+
+
 Функция для сохранения информации о столкновениях 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em flag} & есть ли столкновение \\
 \hline
@@ -206,7 +242,11 @@ true, если какой-\/нибудь объект находится ряд�
 \subsubsection{\texorpdfstring{Is\+Beholding\+\_\+()}{IsBeholding\_()}}
 {\footnotesize\ttfamily bool rtm\+::\+Dynamic\+Object\+::\+Is\+Beholding\+\_\+ (\begin{DoxyParamCaption}\item[{\hyperlink{classrtm_1_1_world_object}{World\+Object} const $\ast$const}]{other,  }\item[{float}]{radius = {\ttfamily \hyperlink{namespacertm_a6ae2631935a995c34abce1c62fa3dcd7}{V\+I\+E\+W\+\_\+\+R\+A\+D\+I\+US}},  }\item[{float}]{angle = {\ttfamily \hyperlink{namespacertm_af0ecac808d3938e77a20990f1947c8fd}{V\+I\+E\+W\+\_\+\+A\+N\+G\+LE}},  }\item[{float}]{angle\+Shift = {\ttfamily \hyperlink{namespacertm_a10eed490bb183c7853ac317d82e0b1cd}{V\+I\+E\+W\+\_\+\+A\+N\+G\+L\+E\+\_\+\+S\+H\+I\+FT}} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [protected]}}
 
+
+
 Функция для проверки попадания объекта в зону видимости 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em other} & указатель на второй объект \\
 \hline
@@ -226,7 +266,11 @@ true, если other находится в области видимости д�
 \subsubsection{\texorpdfstring{Is\+Intersecting\+\_\+()}{IsIntersecting\_()}}
 {\footnotesize\ttfamily bool rtm\+::\+Dynamic\+Object\+::\+Is\+Intersecting\+\_\+ (\begin{DoxyParamCaption}\item[{\hyperlink{classrtm_1_1_world_object}{World\+Object} const $\ast$const}]{other }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [protected]}}
 
-Функция для проверки наличия столкновения с other 
+
+
+Функция для проверки наличия столкновения с other. 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em other} & указатель на второй объект \\
 \hline
@@ -240,7 +284,11 @@ true, если объект пересекается с other, иначе false
 \subsubsection{\texorpdfstring{Is\+Near\+\_\+()}{IsNear\_()}}
 {\footnotesize\ttfamily bool rtm\+::\+Dynamic\+Object\+::\+Is\+Near\+\_\+ (\begin{DoxyParamCaption}\item[{\hyperlink{classrtm_1_1_world_object}{World\+Object} const $\ast$const}]{other }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
 
+
+
 Функция для проверки, находится ли other рядом с данным объектом 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em other} & указатель на второй объект \\
 \hline
@@ -257,7 +305,11 @@ true, если other рядом, иначе false
 \subsubsection{\texorpdfstring{Check\+Collisions}{CheckCollisions}}
 {\footnotesize\ttfamily void Check\+Collisions (\begin{DoxyParamCaption}\item[{\hyperlink{classrtm_1_1_world_controller}{World\+Controller} $\ast$const}]{world }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
 
+
+
 Функция для вычисления столкновений в мире 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em world} & контроллер мира, в котором будут происходить вычисления \\
 \hline

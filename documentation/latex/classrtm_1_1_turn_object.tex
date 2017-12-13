@@ -26,21 +26,21 @@
 \hyperlink{classrtm_1_1_turn_object_a987baa86c69edf1f23d1fcb2d3140ca9}{Turn\+Object} ()
 \begin{DoxyCompactList}\small\item\em Конструктор по умолчанию \end{DoxyCompactList}\item 
 \hyperlink{classrtm_1_1_turn_object_ac673c94a34ee6dd7ece82a41fb8f7930}{Turn\+Object} (bool is\+Right, \hyperlink{namespacertm_aecd3929e64cd461eb3555b611f6fad95}{Coating\+Type} type, int column, int row, size\+\_\+t lines\+Count, \hyperlink{namespacertm_a69dc82b16a0148c10962caa83d930f89}{Angle\+Type} angle)
-\item 
+\begin{DoxyCompactList}\small\item\em Конструктор по размерам \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classrtm_1_1_turn_object_a50ff1135e100a02294bb433ffd0a7dc6}\label{classrtm_1_1_turn_object_a50ff1135e100a02294bb433ffd0a7dc6}} 
 virtual \hyperlink{classrtm_1_1_turn_object_a50ff1135e100a02294bb433ffd0a7dc6}{$\sim$\+Turn\+Object} ()=default
 \begin{DoxyCompactList}\small\item\em Деструктор по умолчанию \end{DoxyCompactList}\item 
 bool \hyperlink{classrtm_1_1_turn_object_ab2958c0a469d4835751b304e2bd16084}{Is\+Right} () const
-\item 
+\begin{DoxyCompactList}\small\item\em Функция для получения типа поворота \end{DoxyCompactList}\item 
 \hyperlink{namespacertm_a69dc82b16a0148c10962caa83d930f89}{Angle\+Type} \hyperlink{classrtm_1_1_turn_object_ae3fbfdd8e940bbb61d3a68db236d60b5}{Get\+Angle} () const
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Функция для получения угла поворота объекта \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Открытые статические члены}
 \begin{DoxyCompactItemize}
 \item 
 static \hyperlink{namespacertm_ae3bb29510cfde424975be31866d2486e}{Coating\+Matrix} \hyperlink{classrtm_1_1_turn_object_a74dbdda621e1fbe6be1fe6373949bbad}{Right\+Turn\+Matrix} (\hyperlink{namespacertm_aecd3929e64cd461eb3555b611f6fad95}{Coating\+Type} type, int column, int row, size\+\_\+t lines\+Count, \hyperlink{namespacertm_a69dc82b16a0148c10962caa83d930f89}{Angle\+Type} angle)
-\item 
+\begin{DoxyCompactList}\small\item\em Функция для получения матрицы правого поворота \end{DoxyCompactList}\item 
 static \hyperlink{namespacertm_ae3bb29510cfde424975be31866d2486e}{Coating\+Matrix} \hyperlink{classrtm_1_1_turn_object_a329c8abcba91f87b0dce98543d7448ba}{Left\+Turn\+Matrix} (\hyperlink{namespacertm_aecd3929e64cd461eb3555b611f6fad95}{Coating\+Type} type, int column, int row, size\+\_\+t lines\+Count, \hyperlink{namespacertm_a69dc82b16a0148c10962caa83d930f89}{Angle\+Type} angle)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Функция для получения матрицы левого поворота \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Закрытые данные}
 \begin{DoxyCompactItemize}
 \item 
@@ -63,7 +63,11 @@ bool \hyperlink{classrtm_1_1_turn_object_aae270ae895bdc8edc482e21e1784f042}{is\+
 \subsubsection{\texorpdfstring{Turn\+Object()}{TurnObject()}}
 {\footnotesize\ttfamily rtm\+::\+Turn\+Object\+::\+Turn\+Object (\begin{DoxyParamCaption}\item[{bool}]{is\+Right,  }\item[{\hyperlink{namespacertm_aecd3929e64cd461eb3555b611f6fad95}{Coating\+Type}}]{type,  }\item[{int}]{column,  }\item[{int}]{row,  }\item[{size\+\_\+t}]{lines\+Count,  }\item[{\hyperlink{namespacertm_a69dc82b16a0148c10962caa83d930f89}{Angle\+Type}}]{angle }\end{DoxyParamCaption})}
 
+
+
 Конструктор по размерам 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em is\+Right} & тип поворота (false -\/ левый, true -\/ правый) \\
 \hline
@@ -87,7 +91,11 @@ bool \hyperlink{classrtm_1_1_turn_object_aae270ae895bdc8edc482e21e1784f042}{is\+
 \subsubsection{\texorpdfstring{Right\+Turn\+Matrix()}{RightTurnMatrix()}}
 {\footnotesize\ttfamily \hyperlink{namespacertm_ae3bb29510cfde424975be31866d2486e}{rtm\+::\+Coating\+Matrix} rtm\+::\+Turn\+Object\+::\+Right\+Turn\+Matrix (\begin{DoxyParamCaption}\item[{\hyperlink{namespacertm_aecd3929e64cd461eb3555b611f6fad95}{Coating\+Type}}]{type,  }\item[{int}]{column,  }\item[{int}]{row,  }\item[{size\+\_\+t}]{lines\+Count,  }\item[{\hyperlink{namespacertm_a69dc82b16a0148c10962caa83d930f89}{Angle\+Type}}]{angle }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
+
+
 Функция для получения матрицы правого поворота 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em type} & тип покрытия \\
 \hline
@@ -109,7 +117,11 @@ bool \hyperlink{classrtm_1_1_turn_object_aae270ae895bdc8edc482e21e1784f042}{is\+
 \subsubsection{\texorpdfstring{Left\+Turn\+Matrix()}{LeftTurnMatrix()}}
 {\footnotesize\ttfamily \hyperlink{namespacertm_ae3bb29510cfde424975be31866d2486e}{rtm\+::\+Coating\+Matrix} rtm\+::\+Turn\+Object\+::\+Left\+Turn\+Matrix (\begin{DoxyParamCaption}\item[{\hyperlink{namespacertm_aecd3929e64cd461eb3555b611f6fad95}{Coating\+Type}}]{type,  }\item[{int}]{column,  }\item[{int}]{row,  }\item[{size\+\_\+t}]{lines\+Count,  }\item[{\hyperlink{namespacertm_a69dc82b16a0148c10962caa83d930f89}{Angle\+Type}}]{angle }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
+
+
 Функция для получения матрицы левого поворота 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em type} & тип покрытия \\
 \hline
@@ -131,7 +143,11 @@ bool \hyperlink{classrtm_1_1_turn_object_aae270ae895bdc8edc482e21e1784f042}{is\+
 \subsubsection{\texorpdfstring{Is\+Right()}{IsRight()}}
 {\footnotesize\ttfamily bool rtm\+::\+Turn\+Object\+::\+Is\+Right (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
-Функция для получения типа поворота \begin{DoxyReturn}{Возвращает}
+
+
+Функция для получения типа поворота 
+
+\begin{DoxyReturn}{Возвращает}
 true, если правый поворот, false, если левый 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classrtm_1_1_turn_object_ae3fbfdd8e940bbb61d3a68db236d60b5}\label{classrtm_1_1_turn_object_ae3fbfdd8e940bbb61d3a68db236d60b5}} 
@@ -140,7 +156,11 @@ true, если правый поворот, false, если левый
 \subsubsection{\texorpdfstring{Get\+Angle()}{GetAngle()}}
 {\footnotesize\ttfamily \hyperlink{namespacertm_a69dc82b16a0148c10962caa83d930f89}{rtm\+::\+Angle\+Type} rtm\+::\+Turn\+Object\+::\+Get\+Angle (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
-Функция для получения угла поворота объекта \begin{DoxyReturn}{Возвращает}
+
+
+Функция для получения угла поворота объекта 
+
+\begin{DoxyReturn}{Возвращает}
 угол поворота объекта 
 \end{DoxyReturn}
 

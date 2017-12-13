@@ -26,27 +26,27 @@
 \hyperlink{classrtm_1_1_crossroad_object_a07fd0e5feeca4e6226dd6043ad9175af}{Crossroad\+Object} ()
 \begin{DoxyCompactList}\small\item\em Конструктор по умолчанию \end{DoxyCompactList}\item 
 \hyperlink{classrtm_1_1_crossroad_object_a370ec11e5fd53f2191fb107a8fe2a5d5}{Crossroad\+Object} (\hyperlink{namespacertm_aecd3929e64cd461eb3555b611f6fad95}{Coating\+Type} type, int column, int row, \hyperlink{namespacertm_a14457f3088a92b86a96686b72d3e4eea}{Lines\+Counts} lines\+Counts, size\+\_\+t control\+Unit\+Type=0)
-\item 
+\begin{DoxyCompactList}\small\item\em Конструктор для обычного перекрестка \end{DoxyCompactList}\item 
 \hyperlink{classrtm_1_1_crossroad_object_a8a76233b7cff3b017ad67bbf5e11a5d3}{Crossroad\+Object} (\hyperlink{namespacertm_aecd3929e64cd461eb3555b611f6fad95}{Coating\+Type} type, int column, int row, \hyperlink{namespacertm_a14457f3088a92b86a96686b72d3e4eea}{Lines\+Counts} lines\+Counts, \hyperlink{namespacertm_a69dc82b16a0148c10962caa83d930f89}{Angle\+Type} null\+Direction, size\+\_\+t control\+Unit\+Type=0)
-\item 
+\begin{DoxyCompactList}\small\item\em Конструктор для Т-\/образного перекрестка \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classrtm_1_1_crossroad_object_a7e004fc5c59d1fd2b2bea0babcd52abe}\label{classrtm_1_1_crossroad_object_a7e004fc5c59d1fd2b2bea0babcd52abe}} 
 virtual \hyperlink{classrtm_1_1_crossroad_object_a7e004fc5c59d1fd2b2bea0babcd52abe}{$\sim$\+Crossroad\+Object} ()=default
 \begin{DoxyCompactList}\small\item\em Деструктор по умолчанию \end{DoxyCompactList}\item 
 \hyperlink{namespacertm_a69dc82b16a0148c10962caa83d930f89}{Angle\+Type} \hyperlink{classrtm_1_1_crossroad_object_a73d0e929640d8aa804122d8e0ab5e961}{Get\+Null\+Direction} () const
-\item 
+\begin{DoxyCompactList}\small\item\em Функция для получения стороны, в направлении которой нельзя двигаться \end{DoxyCompactList}\item 
 \hyperlink{namespacertm_a64296d558b2fa02bbf5870afffd61fd9}{Control\+Unit\+Shared} \hyperlink{classrtm_1_1_crossroad_object_a7169a01dc0623fc2701aa184a858be49}{Get\+Control\+Unit} () const
-\item 
+\begin{DoxyCompactList}\small\item\em Функция для получения управляющего блока, привязанного к данному объекту \end{DoxyCompactList}\item 
 virtual void \hyperlink{classrtm_1_1_crossroad_object_a2de2a5dac2ba2ca573cfa65a2633de9b}{Show\+Sprites} (cocos2d\+::\+Layer $\ast$const layer) override
-\item 
+\begin{DoxyCompactList}\small\item\em Функция для добавления спрайтов на сцену \end{DoxyCompactList}\item 
 virtual void \hyperlink{classrtm_1_1_crossroad_object_a92e9357697edecc69564fd4d40524a3b}{Release\+Sprites} (cocos2d\+::\+Layer $\ast$const layer) override
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Функция для удаления спрайтов со сцены \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Открытые статические члены}
 \begin{DoxyCompactItemize}
 \item 
 static \hyperlink{namespacertm_ae3bb29510cfde424975be31866d2486e}{Coating\+Matrix} \hyperlink{classrtm_1_1_crossroad_object_a11e6cc77965034adf630b5ac47ab1222}{Crossroad\+Matrix} (\hyperlink{namespacertm_aecd3929e64cd461eb3555b611f6fad95}{Coating\+Type} type, int column, int row, \hyperlink{namespacertm_a14457f3088a92b86a96686b72d3e4eea}{Lines\+Counts} lines\+Counts)
-\item 
+\begin{DoxyCompactList}\small\item\em Функция для получения матрицы покрытий перекрестка \end{DoxyCompactList}\item 
 static \hyperlink{namespacertm_ae3bb29510cfde424975be31866d2486e}{Coating\+Matrix} \hyperlink{classrtm_1_1_crossroad_object_a24683882ff8728973a1260ff7acc7a02}{T\+Crossroad\+Matrix} (\hyperlink{namespacertm_aecd3929e64cd461eb3555b611f6fad95}{Coating\+Type} type, int column, int row, \hyperlink{namespacertm_a14457f3088a92b86a96686b72d3e4eea}{Lines\+Counts} lines\+Counts, \hyperlink{namespacertm_a69dc82b16a0148c10962caa83d930f89}{Angle\+Type} null\+Direction)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Функция для получения матрицы покрытий Т-\/образного перекрестка \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Закрытые данные}
 \begin{DoxyCompactItemize}
 \item 
@@ -72,7 +72,11 @@ static \hyperlink{namespacertm_ae3bb29510cfde424975be31866d2486e}{Coating\+Matri
 \subsubsection{\texorpdfstring{Crossroad\+Object()}{CrossroadObject()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily rtm\+::\+Crossroad\+Object\+::\+Crossroad\+Object (\begin{DoxyParamCaption}\item[{\hyperlink{namespacertm_aecd3929e64cd461eb3555b611f6fad95}{Coating\+Type}}]{type,  }\item[{int}]{column,  }\item[{int}]{row,  }\item[{\hyperlink{namespacertm_a14457f3088a92b86a96686b72d3e4eea}{Lines\+Counts}}]{lines\+Counts,  }\item[{size\+\_\+t}]{control\+Unit\+Type = {\ttfamily 0} }\end{DoxyParamCaption})}
 
+
+
 Конструктор для обычного перекрестка 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em type} & тип покрытия \\
 \hline
@@ -91,7 +95,11 @@ static \hyperlink{namespacertm_ae3bb29510cfde424975be31866d2486e}{Coating\+Matri
 \subsubsection{\texorpdfstring{Crossroad\+Object()}{CrossroadObject()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily rtm\+::\+Crossroad\+Object\+::\+Crossroad\+Object (\begin{DoxyParamCaption}\item[{\hyperlink{namespacertm_aecd3929e64cd461eb3555b611f6fad95}{Coating\+Type}}]{type,  }\item[{int}]{column,  }\item[{int}]{row,  }\item[{\hyperlink{namespacertm_a14457f3088a92b86a96686b72d3e4eea}{Lines\+Counts}}]{lines\+Counts,  }\item[{\hyperlink{namespacertm_a69dc82b16a0148c10962caa83d930f89}{Angle\+Type}}]{null\+Direction,  }\item[{size\+\_\+t}]{control\+Unit\+Type = {\ttfamily 0} }\end{DoxyParamCaption})}
 
+
+
 Конструктор для Т-\/образного перекрестка 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em type} & тип покрытия \\
 \hline
@@ -115,7 +123,11 @@ static \hyperlink{namespacertm_ae3bb29510cfde424975be31866d2486e}{Coating\+Matri
 \subsubsection{\texorpdfstring{Crossroad\+Matrix()}{CrossroadMatrix()}}
 {\footnotesize\ttfamily \hyperlink{namespacertm_ae3bb29510cfde424975be31866d2486e}{rtm\+::\+Coating\+Matrix} rtm\+::\+Crossroad\+Object\+::\+Crossroad\+Matrix (\begin{DoxyParamCaption}\item[{\hyperlink{namespacertm_aecd3929e64cd461eb3555b611f6fad95}{Coating\+Type}}]{type,  }\item[{int}]{column,  }\item[{int}]{row,  }\item[{\hyperlink{namespacertm_a14457f3088a92b86a96686b72d3e4eea}{Lines\+Counts}}]{lines\+Counts }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
+
+
 Функция для получения матрицы покрытий перекрестка 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em type} & тип покрытия \\
 \hline
@@ -135,7 +147,11 @@ static \hyperlink{namespacertm_ae3bb29510cfde424975be31866d2486e}{Coating\+Matri
 \subsubsection{\texorpdfstring{T\+Crossroad\+Matrix()}{TCrossroadMatrix()}}
 {\footnotesize\ttfamily \hyperlink{namespacertm_ae3bb29510cfde424975be31866d2486e}{rtm\+::\+Coating\+Matrix} rtm\+::\+Crossroad\+Object\+::\+T\+Crossroad\+Matrix (\begin{DoxyParamCaption}\item[{\hyperlink{namespacertm_aecd3929e64cd461eb3555b611f6fad95}{Coating\+Type}}]{type,  }\item[{int}]{column,  }\item[{int}]{row,  }\item[{\hyperlink{namespacertm_a14457f3088a92b86a96686b72d3e4eea}{Lines\+Counts}}]{lines\+Counts,  }\item[{\hyperlink{namespacertm_a69dc82b16a0148c10962caa83d930f89}{Angle\+Type}}]{null\+Direction }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
+
+
 Функция для получения матрицы покрытий Т-\/образного перекрестка 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em type} & тип покрытия \\
 \hline
@@ -157,7 +173,11 @@ static \hyperlink{namespacertm_ae3bb29510cfde424975be31866d2486e}{Coating\+Matri
 \subsubsection{\texorpdfstring{Get\+Null\+Direction()}{GetNullDirection()}}
 {\footnotesize\ttfamily \hyperlink{namespacertm_a69dc82b16a0148c10962caa83d930f89}{rtm\+::\+Angle\+Type} rtm\+::\+Crossroad\+Object\+::\+Get\+Null\+Direction (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
-Функция для получения стороны, в направлении которой нельзя двигаться \begin{DoxyReturn}{Возвращает}
+
+
+Функция для получения стороны, в направлении которой нельзя двигаться 
+
+\begin{DoxyReturn}{Возвращает}
 угол, соответствующий запрещенной стороне 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classrtm_1_1_crossroad_object_a7169a01dc0623fc2701aa184a858be49}\label{classrtm_1_1_crossroad_object_a7169a01dc0623fc2701aa184a858be49}} 
@@ -166,7 +186,11 @@ static \hyperlink{namespacertm_ae3bb29510cfde424975be31866d2486e}{Coating\+Matri
 \subsubsection{\texorpdfstring{Get\+Control\+Unit()}{GetControlUnit()}}
 {\footnotesize\ttfamily \hyperlink{namespacertm_a64296d558b2fa02bbf5870afffd61fd9}{rtm\+::\+Control\+Unit\+Shared} rtm\+::\+Crossroad\+Object\+::\+Get\+Control\+Unit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
-Функция для получения управляющего блока, привязанного к данному объекту \begin{DoxyReturn}{Возвращает}
+
+
+Функция для получения управляющего блока, привязанного к данному объекту 
+
+\begin{DoxyReturn}{Возвращает}
 умный указатель на управляющий блок 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classrtm_1_1_crossroad_object_a2de2a5dac2ba2ca573cfa65a2633de9b}\label{classrtm_1_1_crossroad_object_a2de2a5dac2ba2ca573cfa65a2633de9b}} 
@@ -175,7 +199,11 @@ static \hyperlink{namespacertm_ae3bb29510cfde424975be31866d2486e}{Coating\+Matri
 \subsubsection{\texorpdfstring{Show\+Sprites()}{ShowSprites()}}
 {\footnotesize\ttfamily void rtm\+::\+Crossroad\+Object\+::\+Show\+Sprites (\begin{DoxyParamCaption}\item[{cocos2d\+::\+Layer $\ast$const}]{layer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
+
+
 Функция для добавления спрайтов на сцену 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em layer} & слой, на который надо добавить спрайты управляющего блока \\
 \hline
@@ -190,7 +218,11 @@ static \hyperlink{namespacertm_ae3bb29510cfde424975be31866d2486e}{Coating\+Matri
 \subsubsection{\texorpdfstring{Release\+Sprites()}{ReleaseSprites()}}
 {\footnotesize\ttfamily void rtm\+::\+Crossroad\+Object\+::\+Release\+Sprites (\begin{DoxyParamCaption}\item[{cocos2d\+::\+Layer $\ast$const}]{layer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
+
+
 Функция для удаления спрайтов со сцены 
+
+
 \begin{DoxyParams}{Аргументы}
 {\em layer} & слой, с которого надо удалить спрайты управляющего блока \\
 \hline
