@@ -140,7 +140,7 @@ namespace rtm {
     /// @brief Радиус
     float const VIEW_RADIUS{ 60.f };
     /// @brief Ширина угла в каждую сторону
-    float const VIEW_ANGLE{ 25.f * DEG_RAD };
+    float const VIEW_ANGLE{ 27.5f * DEG_RAD };
     /// @brief Сдвиг области обзора
     float const VIEW_ANGLE_SHIFT{ 0.f };
 

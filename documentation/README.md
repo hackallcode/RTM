@@ -1,5 +1,8 @@
 # Список основных файлов документации:
-- `config.doxy` - файл конфигурации для Doxygen GUI
-- `html/index.html` - главная страница html версии
-- `latex/refman.tex` - главный файл LaTeX версии
-- `latex/refman.pdf` - PDF версия
+- [Файл конфигурации для Doxygen GUI](config.doxy)
+- [Главная страница html версии](html/index.html)
+- [Главный файл LaTeX версии](latex/refman.tex)
+- [PDF версия](latex/refman.pdf)
+# Список документов для МГТУ:
+- [Документация](bmstu/documentation.pdf)
+- [Отчёт](bmstu/report.docx)

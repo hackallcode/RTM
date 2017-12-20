@@ -47,9 +47,11 @@ namespace rtm {
         /// @return true, если возможно остановиться, иначе false
         bool Stop_();
         /// @brief Функция для сообщения о необходимости повернуть
-        /// @return true, если возможно повернуть, иначе false
+        /// @param angle угол, на который необходимо повернуть
+        /// @return true, если возможно повернуть, иначе false (если поворот уже начат)
         bool Rotate_(float angle = ANGLE_RIGHT);
         /// @brief Функция для сообщения о необходимости перестроиться
+        /// @param isRight сторона, в которую надо перестроиться (можно использовать константы rtm::LEFT и rtm::RIGHT)
         /// @return true, если возможно перестроиться, иначе false
         bool ChangeLine_(bool isRight = LEFT);
 

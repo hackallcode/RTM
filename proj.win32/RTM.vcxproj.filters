@@ -10,9 +10,6 @@
     <Filter Include="src">
       <UniqueIdentifier>{bb6c862e-70e9-49d9-81b7-3829a6f50471}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\controllers">
-      <UniqueIdentifier>{4f96a652-fc45-4254-8e8d-5f6af5326e7b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\libraries">
       <UniqueIdentifier>{cf35ac2a-73be-44e4-a959-3a0a862ef4d4}</UniqueIdentifier>
     </Filter>
@@ -39,6 +36,9 @@
     </Filter>
     <Filter Include="src\visible objects\coating">
       <UniqueIdentifier>{441e7de4-dc67-4867-abfa-5f1758dda027}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\controllers">
+      <UniqueIdentifier>{4f96a652-fc45-4254-8e8d-5f6af5326e7b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

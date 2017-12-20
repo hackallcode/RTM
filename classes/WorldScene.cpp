@@ -77,7 +77,7 @@ void rtm::WorldScene::update(float time)
 
 void rtm::WorldScene::OpenMap_()
 {
-    map_->LoadMap(2U);
+    map_->LoadMap(1U);
     SetDefaultPosition_();
     SetDefaultScale_();
     SetDefaultSpeed_();

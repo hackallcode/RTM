@@ -282,8 +282,13 @@ true, если возможно остановиться, иначе false
 
 Функция для сообщения о необходимости повернуть 
 
+
+\begin{DoxyParams}{Аргументы}
+{\em angle} & угол, на который необходимо повернуть \\
+\hline
+\end{DoxyParams}
 \begin{DoxyReturn}{Возвращает}
-true, если возможно повернуть, иначе false 
+true, если возможно повернуть, иначе false (если поворот уже начат) 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classrtm_1_1_vehicle_object_a73ef7c4f1318bdbe2cd75dc4f07aca4e}\label{classrtm_1_1_vehicle_object_a73ef7c4f1318bdbe2cd75dc4f07aca4e}} 
 \index{rtm\+::\+Vehicle\+Object@{rtm\+::\+Vehicle\+Object}!Change\+Line\+\_\+@{Change\+Line\+\_\+}}
@@ -295,6 +300,11 @@ true, если возможно повернуть, иначе false
 
 Функция для сообщения о необходимости перестроиться 
 
+
+\begin{DoxyParams}{Аргументы}
+{\em is\+Right} & сторона, в которую надо перестроиться (можно использовать константы \hyperlink{namespacertm_a92d29773a54951290dd89f754fb39a8c}{rtm\+::\+L\+E\+FT} и \hyperlink{namespacertm_a18eb7493925a15e12096e1a6170c3da7}{rtm\+::\+R\+I\+G\+HT}) \\
+\hline
+\end{DoxyParams}
 \begin{DoxyReturn}{Возвращает}
 true, если возможно перестроиться, иначе false 
 \end{DoxyReturn}
