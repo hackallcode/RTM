@@ -4,5 +4,6 @@
 - [Главный файл LaTeX версии](latex/refman.tex)
 - [PDF версия](latex/refman.pdf)
 # Список документов для МГТУ:
-- [Документация](bmstu/documentation.pdf)
 - [Отчёт](bmstu/report.docx)
+- [Документация](bmstu/documentation.pdf)
+- [Презентация](bmstu/presentation.pptx)
