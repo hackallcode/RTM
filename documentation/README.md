@@ -6,4 +6,5 @@
 # Список документов для МГТУ:
 - [Отчёт](bmstu/report.docx)
 - [Документация](bmstu/documentation.pdf)
-- [Презентация](bmstu/presentation.pptx)
+- [Презентация (*.pptx)](bmstu/presentation.pptx)
+- [Презентация (*.pdf)](bmstu/presentation.pptx)
